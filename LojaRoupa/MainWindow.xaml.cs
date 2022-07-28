@@ -24,5 +24,10 @@ namespace LojaRoupa
         {
             InitializeComponent();
         }
+
+        private void Window_Initialized(object sender, EventArgs e)
+        {
+
+        }
     }
 }
