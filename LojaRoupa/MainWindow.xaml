@@ -8,6 +8,36 @@
         WindowState="Maximized"
         Title="MainWindow" Height="720" Width="1280">
     <Grid>
-        
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <Label Content="Login de Usuário" FontSize="48px" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Bahnschrift"/>
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="3" Background="#CBA4D2" >
+            <StackPanel Orientation="Vertical" Margin="20 40">
+                <Label Content="Usuário" FontSize="30px" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Bahnschrift"/>
+                <TextBox x:Name="txtNomeUsuario" Height="40" BorderBrush="Black" Width="400" Margin="0 20" BorderThickness="2" TextAlignment="Center" VerticalContentAlignment="Center" FontSize="20"/>
+
+                <Label Content="Senha" FontSize="30px" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 20 0 0" FontFamily="Bahnschrift"/>
+                <PasswordBox x:Name="pswSenhaUsuario" Height="40" BorderBrush="Black" Width="400" Margin="0 20" BorderThickness="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20"/>
+            </StackPanel>
+        </Grid>
+
     </Grid>
 </Window>
