@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using LojaRoupa.Views;
 
 namespace LojaRoupa
 {
@@ -29,5 +30,25 @@ namespace LojaRoupa
         {
 
         }
+
+        private void brLogar_Click(object sender, RoutedEventArgs e)
+        {
+            string login = txtNomeUsuario.Text;
+            string senha = pswSenhaUsuario.Password.ToString();
+
+            if(login == "Olga" && senha == "123")
+            {
+                MessageBox.Show($"Usuário '{login}' logado com sucesso!", "PDS - 2022, 3º Bimestre", MessageBoxButton.OK, MessageBoxImage.Information);
+                WinCadastro cadastro = new WinCadastro();
+                cadastro.ShowDialog();
+            }
+            else
+                MessageBox.Show($"O usuário ou a senha está incorreta ou não existe! Tente novamente", "PDS - 2022, 1º Bimestre", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            txtNomeUsuario.Clear();
+            pswSenhaUsuario.Clear();
+
+        }
+
     }
 }
