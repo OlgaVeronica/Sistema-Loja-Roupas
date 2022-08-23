@@ -5,8 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LojaRoupa.Views"
         mc:Ignorable="d"
-        Title="TelaPrincipal" Height="450" Width="800">
+        Title="TelaPrincipal" Height="720" Width="1280">
     <Grid>
         
+
+        <Grid Grid.Row="0" Grid.RowSpan="2" >
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="0.3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" Background="#6F4D80">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.2*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="1">
+                    <Button Background="Transparent" BorderThickness="0.3" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Produto"  FontSize="30" Height="60"/>
+
+                </StackPanel>
+                
+            </Grid>
+            <Grid Grid.Column="1"  Background="#F7E5FF">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.2*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="1">
+                    
+                </Grid>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>

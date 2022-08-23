@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using LojaRoupa.Views;
 
 
 namespace LojaRoupa
@@ -35,6 +36,8 @@ namespace LojaRoupa
         {
             string login = txtNomeUsuario.Text;
             string senha = pswSenhaUsuario.Password.ToString();
+            TelaPrincipal tela = new TelaPrincipal();
+            tela.ShowDialog();
 
             //if(login == "Olga" && senha == "123")
             //{
