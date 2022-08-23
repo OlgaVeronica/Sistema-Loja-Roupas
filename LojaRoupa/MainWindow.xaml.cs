@@ -37,6 +37,7 @@ namespace LojaRoupa
             string login = txtNomeUsuario.Text;
             string senha = pswSenhaUsuario.Password.ToString();
             TelaPrincipal tela = new TelaPrincipal();
+            this.Close();
             tela.ShowDialog();
 
             //if(login == "Olga" && senha == "123")
