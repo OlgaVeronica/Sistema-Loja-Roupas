@@ -4,10 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LojaRoupa.Views"
+        xmlns:viewmodels="clr-namespace:LojaRoupa.ViewsModels"
         mc:Ignorable="d"
         Title="TelaPrincipal" Height="720" Width="1280"
         WindowState="Maximized"
         >
+    <Window.Resources>
+        <DataTemplate x:Name="ProdutoTemplate" DataType="{x:Type viewmodels:ProdutoModel}">
+            <local:ProdutoUC DataContext="{Binding}"/>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
         
 
@@ -42,16 +48,7 @@
                 </StackPanel>
                 
             </Grid>
-            <Grid Grid.Column="1"  Background="#F7E5FF">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="0.2*" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-
-                <Grid Grid.Row="1">
-                    
-                </Grid>
-            </Grid>
+            
         </Grid>
     </Grid>
 </Window>
