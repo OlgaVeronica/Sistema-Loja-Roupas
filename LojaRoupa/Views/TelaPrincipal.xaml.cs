@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using LojaRoupa.ViewsModels;
 
 namespace LojaRoupa.Views
 {
@@ -26,6 +27,12 @@ namespace LojaRoupa.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        private void btnProduto_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new ProdutoModel();
 
         }
     }

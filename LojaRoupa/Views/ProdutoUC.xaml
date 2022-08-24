@@ -8,10 +8,8 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="Coral">
         <StackPanel>
-            <TextBlock Text="AAA" FontSize="30" Foreground="AliceBlue"/>
-            <TextBlock Text="AAA" FontSize="30" Foreground="AliceBlue"/>
-            <TextBlock Text="AAA" FontSize="30" Foreground="AliceBlue"/>
-            <TextBlock Text="AAA" FontSize="30" Foreground="AliceBlue"/>
+            <TextBlock Text="Aqui vai ser a tela de produtos" FontSize="30" TextAlignment="Center" Foreground="AliceBlue"/>
+            
         </StackPanel>
     </Grid>
 </UserControl>
