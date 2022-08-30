@@ -7,9 +7,24 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="BlanchedAlmond">
-        <StackPanel>
-            <TextBlock Text="Aqui vai ser a tela do Caixa, que também será a tela Inicial" FontSize="30" TextAlignment="Center" Foreground="#FF010B13"/>
-        </StackPanel>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid>
+            <TextBox Height="30" Background="AliceBlue"/>
+
+        </Grid>
 
     </Grid>
 </UserControl>
