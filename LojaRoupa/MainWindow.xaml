@@ -42,11 +42,11 @@
 
 
 
-        <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Background="#CBA4D2" Grid.RowSpan="2">
+        <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Background="#F7E5FF" Grid.RowSpan="2">
             <Label x:Name="lbTitulo" Content="Login de Usuário" FontSize="48px" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Bahnschrift"/>
         </Grid>
-                
-        <Grid Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="6" Background="#CBA4D2">
+
+        <Grid Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="6" Background="#F7E5FF">
             <StackPanel Orientation="Vertical" Margin="20 0">
                 <Label x:Name="lbUsuario" Content="Usuário" FontSize="30px" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Bahnschrift"/>
                 <TextBox x:Name="txtNomeUsuario" Height="40" Width="400" Margin="0 20" TextAlignment="Center" VerticalContentAlignment="Center" FontSize="20"/>
@@ -58,6 +58,7 @@
 
         <Grid Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="2">
             <Button x:Name="brLogar" 
+                    Background="#6F4D80"
                     FontSize="30"
                     Height="60"
                     Style="{StaticResource MaterialDesignRaisedButton}"
