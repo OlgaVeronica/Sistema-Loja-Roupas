@@ -13,6 +13,10 @@
         <DataTemplate x:Name="ProdutoTemplate" DataType="{x:Type viewmodels:ProdutoModel}">
             <local:ProdutoUC DataContext="{Binding}"/>
         </DataTemplate>
+
+        <DataTemplate x:Name="FuncionarioTemplate" DataType="{x:Type viewmodels:FuncionarioModel}">
+            <local:FuncionarioUC DataContext="{Binding}"/>
+        </DataTemplate>
     </Window.Resources>
     <Grid>
         
@@ -41,7 +45,7 @@
                 <StackPanel Grid.Row="1" Height="400">
                     <Button x:Name="btnProduto" Background="Transparent" BorderThickness="0, 1, 0 , 1" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Produto"  FontSize="30" Height="60" Click="btnProduto_Click"/>
                     <Button Background="Transparent" BorderThickness="0, 0, 0 , 1" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Vendas"  FontSize="30" Height="60" Click="Button_Click"/>
-                    <Button Background="Transparent" BorderThickness="0, 0, 0 , 1" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Funcionários"  FontSize="30" Height="60"/>
+                    <Button x:Name="btnFuncionario" Background="Transparent" BorderThickness="0, 0, 0 , 1" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Funcionários"  FontSize="30" Height="60" Click="btnFuncionario_Click"/>
                     <Button Background="Transparent" BorderThickness="0, 0, 0 , 1" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Financeiro"  FontSize="30" Height="60"/>
                     <Button Background="Transparent" BorderThickness="0, 0, 0 , 1" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Fornecedores"  FontSize="30" Height="60"/>
 

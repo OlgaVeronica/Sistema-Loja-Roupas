@@ -79,7 +79,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewsModels\FuncionarioModel.cs" />
     <Compile Include="ViewsModels\ProdutoModel.cs" />
+    <Compile Include="Views\FuncionarioUC.xaml.cs">
+      <DependentUpon>FuncionarioUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ProdutoUC.xaml.cs">
       <DependentUpon>ProdutoUC.xaml</DependentUpon>
     </Compile>
@@ -98,6 +102,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\FuncionarioUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ProdutoUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

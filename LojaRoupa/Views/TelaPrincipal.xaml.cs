@@ -35,5 +35,10 @@ namespace LojaRoupa.Views
             DataContext = new ProdutoModel();
 
         }
+
+        private void btnFuncionario_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new FuncionarioModel();
+        }
     }
 }
