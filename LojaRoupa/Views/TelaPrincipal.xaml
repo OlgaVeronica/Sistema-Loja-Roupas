@@ -28,6 +28,10 @@
 
         <DataTemplate x:Name="FinanceiroTemplate" DataType="{x:Type viewmodels:FinanceiroModel}">
             <local:FinanceiroUC DataContext="{Binding}"/>
+        </DataTemplate> 
+        
+        <DataTemplate x:Name="CaixaTemplate" DataType="{x:Type viewmodels:CaixaModel}">
+            <local:CaixaUC DataContext="{Binding}"/>
         </DataTemplate>
     </Window.Resources>
     <Grid>
@@ -60,6 +64,7 @@
                     <Button x:Name="btnFuncionario" Background="Transparent" BorderThickness="0, 0, 0 , 1" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Funcionários"  FontSize="30" Height="60" Click="btnFuncionario_Click"/>
                     <Button x:Name="btnFinanceiro" Background="Transparent" BorderThickness="0, 0, 0 , 1" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Financeiro"  FontSize="30" Height="60" Click="btnFinanceiro_Click"/>
                     <Button x:Name="Fornecedores" Background="Transparent" BorderThickness="0, 0, 0 , 1" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Fornecedores"  FontSize="30" Height="60" Cursor="Hand" Click="btnFornecedores_Click"/>
+                    <Button x:Name="Caixa" Background="Transparent" BorderThickness="0, 0, 0 , 1" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Caixa"  FontSize="30" Height="60" Cursor="Hand" Click="btnCaixa_Click"/>
 
                 </StackPanel>
                 

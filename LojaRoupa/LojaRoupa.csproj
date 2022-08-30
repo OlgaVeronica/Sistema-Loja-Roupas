@@ -79,11 +79,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewsModels\CaixaModel.cs" />
     <Compile Include="ViewsModels\FinanceiroModel.cs" />
     <Compile Include="ViewsModels\FornecedorModel.cs" />
     <Compile Include="ViewsModels\FuncionarioModel.cs" />
     <Compile Include="ViewsModels\ProdutoModel.cs" />
     <Compile Include="ViewsModels\VendaModel.cs" />
+    <Compile Include="Views\CaixaUC.xaml.cs">
+      <DependentUpon>CaixaUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\FinanceiroUC.xaml.cs">
       <DependentUpon>FinanceiroUC.xaml</DependentUpon>
     </Compile>
@@ -114,6 +118,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\CaixaUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\FinanceiroUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

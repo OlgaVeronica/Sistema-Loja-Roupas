@@ -23,9 +23,13 @@ namespace LojaRoupa.Views
         public TelaPrincipal()
         {
             InitializeComponent();
+            Loaded += TelaPrincipal_Loaded;
         }
 
-      
+        private void TelaPrincipal_Loaded(object sender, RoutedEventArgs e)
+        {
+            DataContext = new CaixaModel();
+        }
 
         private void btnProduto_Click(object sender, RoutedEventArgs e)
         {
@@ -56,6 +60,9 @@ namespace LojaRoupa.Views
 
         }
 
-        
+        private void btnCaixa_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new CaixaModel();
+        }
     }
 }
