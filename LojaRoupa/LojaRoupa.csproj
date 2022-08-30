@@ -79,8 +79,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewsModels\FinanceiroModel.cs" />
+    <Compile Include="ViewsModels\FornecedorModel.cs" />
     <Compile Include="ViewsModels\FuncionarioModel.cs" />
     <Compile Include="ViewsModels\ProdutoModel.cs" />
+    <Compile Include="ViewsModels\VendaModel.cs" />
+    <Compile Include="Views\FinanceiroUC.xaml.cs">
+      <DependentUpon>FinanceiroUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FornecedorUC.xaml.cs">
+      <DependentUpon>FornecedorUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\FuncionarioUC.xaml.cs">
       <DependentUpon>FuncionarioUC.xaml</DependentUpon>
     </Compile>
@@ -89,6 +98,9 @@
     </Compile>
     <Compile Include="Views\TelaPrincipal.xaml.cs">
       <DependentUpon>TelaPrincipal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\VendaUC.xaml.cs">
+      <DependentUpon>VendaUC.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -102,6 +114,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\FinanceiroUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FornecedorUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\FuncionarioUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -111,6 +131,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\TelaPrincipal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\VendaUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
