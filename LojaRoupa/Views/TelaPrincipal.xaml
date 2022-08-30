@@ -50,11 +50,18 @@
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0">
-                    <StackPanel Orientation="Horizontal">
-                            
+                    <StackPanel Orientation="Horizontal" >
 
-                         <Image Source="../Images/EScqwV_XYAICzIY.jpg"/>
-                        <TextBlock Text="Funcionario" Foreground="#F7E5FF" FontSize="30" VerticalAlignment="Center" Margin="30, 0, 0, 0"/>
+                        <Border CornerRadius="20" BorderThickness="1" >
+                            <Ellipse Width="85" Height="85" Margin="15">
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="../Images/EScqwV_XYAICzIY.jpg"  Stretch="UniformToFill" AlignmentX="Center" AlignmentY="Top" />
+                                </Ellipse.Fill>
+                            </Ellipse>
+                        </Border>
+
+
+                        <TextBlock Text="Funcionário" Foreground="#F7E5FF" FontSize="35" VerticalAlignment="Center" Margin="-10,15,0,15"/>
                     </StackPanel>
                 </Grid>
 
