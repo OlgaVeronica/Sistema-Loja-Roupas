@@ -25,10 +25,7 @@ namespace LojaRoupa.Views
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+      
 
         private void btnProduto_Click(object sender, RoutedEventArgs e)
         {
@@ -39,6 +36,24 @@ namespace LojaRoupa.Views
         private void btnFuncionario_Click(object sender, RoutedEventArgs e)
         {
             DataContext = new FuncionarioModel();
+        }
+
+        private void btnVenda_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new VendaModel();
+
+        }
+
+        private void btnFinanceiro_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new FinanceiroModel();
+
+        }
+
+        private void btnFornecedores_Click(object sender, RoutedEventArgs e)
+        {
+            DataContext = new FornecedorModel();
+
         }
     }
 }
