@@ -26,7 +26,7 @@
             </Grid.ColumnDefinitions>
 
             <Button VerticalAlignment="Top" Grid.Column="0" Height="200" Margin="10, 0, 10, 0">Buscar Produto</Button>
-            <Button VerticalAlignment="Top" Grid.Column="1" Height="200" Margin="10, 0, 10, 0">Cadastrar Produto</Button>
+            <Button x:Name="btnCadastrarProduto" VerticalAlignment="Top" Grid.Column="1" Height="200" Margin="10, 0, 10, 0" Click="btnCadastrarProduto_Click">Cadastrar Produto</Button>
             <Button VerticalAlignment="Top" Grid.Column="2" Height="200" Margin="10, 0, 10, 0">Consultar Estoque</Button>
             <Button VerticalAlignment="Bottom" Grid.Column="2" Height="60" Margin="10, 0, 10,40">Cadastrar Marca</Button>
             <Button VerticalAlignment="Bottom" Grid.Column="1" Height="60" Margin="10, 0, 10,40">Buscar Marca</Button>

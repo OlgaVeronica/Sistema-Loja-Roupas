@@ -84,7 +84,7 @@
     <Compile Include="ViewsModels\FornecedorModel.cs" />
     <Compile Include="ViewsModels\FuncionarioModel.cs" />
     <Compile Include="ViewsModels\ProdutoModel.cs" />
-    <Compile Include="ViewsModels\SubViewsModels\CadastrarProduto.cs" />
+    <Compile Include="ViewsModels\SubViewsModels\CadastrarProdutoModel.cs" />
     <Compile Include="ViewsModels\VendaModel.cs" />
     <Compile Include="Views\CaixaUC.xaml.cs">
       <DependentUpon>CaixaUC.xaml</DependentUpon>
