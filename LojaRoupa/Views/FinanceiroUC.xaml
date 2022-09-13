@@ -7,8 +7,16 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="BlanchedAlmond">
-        <StackPanel>
-            <TextBlock Text="Aqui vai ser a tela de Financeiro" FontSize="30" TextAlignment="Center"/>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="0.3*"/>
+            <ColumnDefinition Width="0.3*"/>
+        </Grid.ColumnDefinitions>
+        
+        
+        <StackPanel Grid.Column="1">
+            <TextBlock Text="Financeiro" FontSize="30" TextAlignment="Center"/>
 
         </StackPanel>
             
