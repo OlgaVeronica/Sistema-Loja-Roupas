@@ -64,5 +64,25 @@ namespace LojaRoupa.Views
         {
             DataContext = new CaixaModel();
         }
+
+        private void BtnDrag(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
+        }
+        private void BtnClose(object sender, MouseButtonEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void BtnMinimize(object sender, MouseButtonEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+        private void BtnMax(object sender, MouseButtonEventArgs e)
+        {
+            WindowState = WindowState == WindowState.Normal ? WindowState.Maximized : WindowState.Normal;
+        }
     }
 }
