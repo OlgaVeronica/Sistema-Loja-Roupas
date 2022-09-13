@@ -12,24 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using LojaRoupa.ViewsModels.SubViewsModels;
-using LojaRoupa.Views;
 
-namespace LojaRoupa.Views
+namespace LojaRoupa.Views.SubViews
 {
     /// <summary>
-    /// Interação lógica para ProdutoUC.xam
+    /// Interação lógica para CadastrarProdutoUC.xam
     /// </summary>
-    public partial class ProdutoUC : UserControl
+    public partial class CadastrarProdutoUC : UserControl
     {
-        public ProdutoUC()
+        public CadastrarProdutoUC()
         {
             InitializeComponent();
-        }
-
-        private void btnCadastrarProduto_Click(object sender, RoutedEventArgs e)
-        {
-            DataContext = new CadastrarProdutoModel();
         }
     }
 }

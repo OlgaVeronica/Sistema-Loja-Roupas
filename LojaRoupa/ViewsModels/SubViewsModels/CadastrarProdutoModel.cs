@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LojaRoupa.ViewsModels
+namespace LojaRoupa.ViewsModels.SubViewsModels
 {
-    class CaixaModel
+    class CadastrarProdutoModel
     {
     }
 }
