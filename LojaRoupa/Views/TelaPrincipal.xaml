@@ -74,7 +74,7 @@
                 <TextBlock Text="Funcionário" Foreground="#F7E5FF" FontSize="35" VerticalAlignment="Center" Margin="-10,15,0,15"/>
             </StackPanel>
 
-            <Button x:Name="btnProduto" Background="Transparent" BorderThickness="0, 1, 0 , 1" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Produto"  FontSize="30" Height="60" Click="btnProduto_Click"/>
+            <Button x:Name="btnProduto" Background="Transparent" BorderThickness="0, 1, 0 , 1" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Produto"  FontSize="30" Height="60" Click="btnProduto_Click" Cursor="Hand"/>
             <Button x:Name="btnVenda" Background="Transparent" BorderThickness="0, 0, 0 , 1" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Vendas"  FontSize="30" Height="60" Click="btnVenda_Click"/>
             <Button x:Name="btnFuncionario" Background="Transparent" BorderThickness="0, 0, 0 , 1" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Funcionários"  FontSize="30" Height="60" Click="btnFuncionario_Click"/>
             <Button x:Name="btnFinanceiro" Background="Transparent" BorderThickness="0, 0, 0 , 1" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Financeiro"  FontSize="30" Height="60" Click="btnFinanceiro_Click"/>

@@ -84,7 +84,6 @@
     <Compile Include="ViewsModels\FornecedorModel.cs" />
     <Compile Include="ViewsModels\FuncionarioModel.cs" />
     <Compile Include="ViewsModels\ProdutoModel.cs" />
-    <Compile Include="ViewsModels\SubViewsModels\CadastrarProdutoModel.cs" />
     <Compile Include="ViewsModels\VendaModel.cs" />
     <Compile Include="Views\CaixaUC.xaml.cs">
       <DependentUpon>CaixaUC.xaml</DependentUpon>
@@ -100,9 +99,6 @@
     </Compile>
     <Compile Include="Views\ProdutoUC.xaml.cs">
       <DependentUpon>ProdutoUC.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\SubViews\CadastrarProdutoUC.xaml.cs">
-      <DependentUpon>CadastrarProdutoUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TelaPrincipal.xaml.cs">
       <DependentUpon>TelaPrincipal.xaml</DependentUpon>
@@ -139,10 +135,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ProdutoUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\SubViews\CadastrarProdutoUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
