@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LojaRoupa.Views.SubViews
+namespace LojaRoupa.Views
 {
     /// <summary>
     /// Interação lógica para CadastrarProdutoUC.xam

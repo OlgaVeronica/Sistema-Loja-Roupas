@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace LojaRoupa.Views.SubViews
 {
     /// <summary>
-    /// Interação lógica para aaaaa.xam
+    /// Lógica interna para CadastrarMarcaWin.xaml
     /// </summary>
-    public partial class aaaaa : UserControl
+    public partial class CadastrarMarcaWin : Window
     {
-        public aaaaa()
+        public CadastrarMarcaWin()
         {
             InitializeComponent();
         }

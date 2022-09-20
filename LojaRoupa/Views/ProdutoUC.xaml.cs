@@ -12,8 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using LojaRoupa.ViewsModels.SubViewsModels;
 using LojaRoupa.Views;
+using LojaRoupa.ViewsModels;
 
 namespace LojaRoupa.Views
 {
@@ -29,7 +29,17 @@ namespace LojaRoupa.Views
 
         private void btnCadastrarProduto_Click(object sender, RoutedEventArgs e)
         {
-            DataContext = new CadastrarProdutoModel();
+
+        }
+
+        private void btnBuscarProduto_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnCadastrarMarca_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

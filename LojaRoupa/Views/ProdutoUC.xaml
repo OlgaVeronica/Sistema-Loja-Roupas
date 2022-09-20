@@ -25,11 +25,11 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Button VerticalAlignment="Top" Grid.Column="0" Height="200" Margin="10, 0, 10, 0">Buscar Produto</Button>
+            <Button x:Name="btnBuscarProduto" VerticalAlignment="Top" Grid.Column="0" Height="200" Margin="10, 0, 10, 0" Click="btnBuscarProduto_Click">Buscar Produto</Button>
             <Button x:Name="btnCadastrarProduto" VerticalAlignment="Top" Grid.Column="1" Height="200" Margin="10, 0, 10, 0" Click="btnCadastrarProduto_Click">Cadastrar Produto</Button>
-            <Button VerticalAlignment="Top" Grid.Column="2" Height="200" Margin="10, 0, 10, 0">Consultar Estoque</Button>
-            <Button VerticalAlignment="Bottom" Grid.Column="2" Height="60" Margin="10, 0, 10,40">Cadastrar Marca</Button>
-            <Button VerticalAlignment="Bottom" Grid.Column="1" Height="60" Margin="10, 0, 10,40">Buscar Marca</Button>
+            <Button x:Name="btnConsultarEstoque" VerticalAlignment="Top" Grid.Column="2" Height="200" Margin="10, 0, 10, 0">Consultar Estoque</Button>
+            <Button x:Name="btnCadastrarMarca" VerticalAlignment="Bottom" Grid.Column="1" Height="60" Margin="165,0,121,40" Grid.ColumnSpan="2" Click="btnCadastrarMarca_Click">Cadastrar Marca</Button>
+            <Button x:Name="btnConsultarMarca" VerticalAlignment="Bottom" Height="60" Margin="133,0,152,40" Grid.ColumnSpan="2">Buscar Marca</Button>
         </Grid>
     </Grid>
 </UserControl>

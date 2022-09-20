@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LojaRoupa.ViewsModels.SubViewsModels
+namespace LojaRoupa.ViewsModels
 {
     class CadastrarProdutoModel
     {

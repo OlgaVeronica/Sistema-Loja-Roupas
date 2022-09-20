@@ -5,8 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LojaRoupa.Views"
         xmlns:viewmodels="clr-namespace:LojaRoupa.ViewsModels"
-        xmlns:subviewmodels="clr-namespace:LojaRoupa.ViewsModels.SubViewsModels"
-        xmlns:subviews="clr-namespace:LojaRoupa.Views.SubViews"
         mc:Ignorable="d"
         Title="TelaPrincipal" Height="720" Width="1280" WindowState="Maximized" WindowStyle="None">
     <Window.Resources>
@@ -28,14 +26,10 @@
 
         <DataTemplate x:Name="FinanceiroTemplate" DataType="{x:Type viewmodels:FinanceiroModel}">
             <local:FinanceiroUC DataContext="{Binding}"/>
-        </DataTemplate> 
-        
-        <DataTemplate x:Name="CaixaTemplate" DataType="{x:Type viewmodels:CaixaModel}">
-            <local:CaixaUC DataContext="{Binding}"/>
         </DataTemplate>
 
-        <DataTemplate x:Name="CadastrarProdutoTemplate" DataType="{x:Type subviewmodels:CadastrarProdutoModel}">
-            <subviews:CadastrarProdutoUC DataContext="{Binding}"/>
+        <DataTemplate x:Name="CaixaTemplate" DataType="{x:Type viewmodels:CaixaModel}">
+            <local:CaixaUC DataContext="{Binding}"/>
         </DataTemplate>
     </Window.Resources>
     <Grid>
