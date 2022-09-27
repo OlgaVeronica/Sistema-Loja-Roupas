@@ -24,6 +24,7 @@ namespace LojaRoupa.Views
 
         public FuncionarioUC(Frame frame)
         {
+
             InitializeComponent();
             _frame = frame;
         }

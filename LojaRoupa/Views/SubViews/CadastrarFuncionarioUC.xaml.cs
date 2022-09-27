@@ -13,20 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LojaRoupa.Views
+namespace LojaRoupa.Views.SubViews
 {
     /// <summary>
-    /// Interação lógica para FinanceiroUC.xam
+    /// Interação lógica para CadastrarFuncionarioUC.xam
     /// </summary>
-    public partial class FinanceiroUC : UserControl
+    public partial class CadastrarFuncionarioUC : UserControl
     {
-        public Frame _frame;
-
-        public FinanceiroUC(Frame frame)
+        public CadastrarFuncionarioUC()
         {
             InitializeComponent();
-
-            _frame = frame;
         }
     }
 }
