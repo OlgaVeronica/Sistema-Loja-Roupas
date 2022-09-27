@@ -37,7 +37,7 @@
                 Style="{StaticResource MaterialDesignRaisedButton}"
                 ToolTip="Resource name: MaterialDesignRaisedButton"
                 Content="Consultar Caixa"
-                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Cursor="Hand"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Cursor="Hand" Click="btnConsultarCaixa_Click"
                 />
         </Grid>
         <Grid Grid.Row="2" Grid.Column="2">

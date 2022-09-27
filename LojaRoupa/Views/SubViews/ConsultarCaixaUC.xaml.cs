@@ -10,27 +10,20 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using LojaRoupa.Views.SubViews;
 
-namespace LojaRoupa.Views
+namespace LojaRoupa.Views.SubViews
 {
     /// <summary>
-    /// Interação lógica para CaixaUC.xam
+    /// Lógica interna para ConsultarCaixaUC.xaml
     /// </summary>
-    public partial class CaixaUC : UserControl
+    public partial class ConsultarCaixaUC : Window
     {
         public Frame _frame;
-        public CaixaUC(Frame frame)
+        public ConsultarCaixaUC(Frame frame)
         {
             InitializeComponent();
             _frame = frame;
-        }
-
-        private void btnConsultarCaixa_Click(object sender, RoutedEventArgs e)
-        {
-            _frame.Content = new ConsultarCaixaUC(_frame);
         }
     }
 }
