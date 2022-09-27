@@ -9,10 +9,6 @@
       Title="ExibirDespesaUC">
 
     <Grid Background="White">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="0*"/>
-            <RowDefinition Height="241*"/>
-            <RowDefinition Height="209*"/>
-        </Grid.RowDefinitions>
+        
     </Grid>
 </Page>
