@@ -20,12 +20,9 @@ namespace LojaRoupa.Views
     /// </summary>
     public partial class FornecedorUC : UserControl
     {
-        public Frame _frame;
-
-        public FornecedorUC(Frame frame)
+        public FornecedorUC()
         {
             InitializeComponent();
-            _frame = frame;
         }
     }
 }

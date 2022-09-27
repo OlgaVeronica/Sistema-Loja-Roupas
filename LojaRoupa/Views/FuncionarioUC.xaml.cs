@@ -20,12 +20,9 @@ namespace LojaRoupa.Views
     /// </summary>
     public partial class FuncionarioUC : UserControl
     {
-        public Frame _frame;
-
-        public FuncionarioUC(Frame frame)
+        public FuncionarioUC()
         {
             InitializeComponent();
-            _frame = frame;
         }
     }
 }

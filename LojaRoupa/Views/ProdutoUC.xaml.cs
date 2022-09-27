@@ -32,7 +32,7 @@ namespace LojaRoupa.Views
 
         private void btnCadastrarProduto_Click(object sender, RoutedEventArgs e)
         {
-            _frame.Content = new VendaUC(_frame);
+            _frame.Content = new VendaUC();
         }
 
         private void btnBuscarProduto_Click(object sender, RoutedEventArgs e)
