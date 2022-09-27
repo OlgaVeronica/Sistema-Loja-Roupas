@@ -20,9 +20,11 @@ namespace LojaRoupa.Views
     /// </summary>
     public partial class CaixaUC : UserControl
     {
-        public CaixaUC()
+        public Frame _frame;
+        public CaixaUC(Frame frame)
         {
             InitializeComponent();
+            _frame = frame;
         }
     }
 }
