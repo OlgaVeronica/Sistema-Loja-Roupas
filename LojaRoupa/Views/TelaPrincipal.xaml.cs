@@ -29,7 +29,7 @@ namespace LojaRoupa.Views
         private void TelaPrincipal_Loaded(object sender, RoutedEventArgs e)
         {
             //DataContext = new CaixaModel();
-           _frame.Content = new VendaUC(_frame);
+            _frame.Content = new ProdutoUC(_frame);
         }
 
         private void btnProduto_Click(object sender, RoutedEventArgs e)
