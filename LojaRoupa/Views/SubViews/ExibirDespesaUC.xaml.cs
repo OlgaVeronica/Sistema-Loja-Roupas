@@ -20,9 +20,12 @@ namespace LojaRoupa.Views.SubViews
     /// </summary>
     public partial class ExibirDespesaUC : Page
     {
-        public ExibirDespesaUC()
+        public Frame _frame;
+
+        public ExibirDespesaUC(Frame Frame)
         {
             InitializeComponent();
+            _frame = Frame;
         }
     }
 }

@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using LojaRoupa.Views;
+using LojaRoupa.ViewsModels;
+using LojaRoupa.Views.SubViews;
 
 namespace LojaRoupa.Views
 {
@@ -24,6 +27,13 @@ namespace LojaRoupa.Views
         public FinanceiroUC(Frame frame)
         {
             InitializeComponent();
+            _frame = frame;
+            
+        }
+
+        private void btnExibirDesp_Click(object sender, RoutedEventArgs e)
+        {
+            _frame.Content = new ExibirDespesaUC(_frame);
         }
     }
 }
