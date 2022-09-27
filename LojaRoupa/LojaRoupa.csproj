@@ -103,8 +103,8 @@
     <Compile Include="Views\SubViews\CadastrarMarcaWin.xaml.cs">
       <DependentUpon>CadastrarMarcaWin.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SubViews\ExibirDespesas.xaml.cs">
-      <DependentUpon>ExibirDespesas.xaml</DependentUpon>
+    <Compile Include="Views\SubViews\ExibirDespesasUC.xaml.cs">
+      <DependentUpon>ExibirDespesasUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TelaPrincipal.xaml.cs">
       <DependentUpon>TelaPrincipal.xaml</DependentUpon>
@@ -148,7 +148,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\SubViews\ExibirDespesas.xaml">
+    <Page Include="Views\SubViews\ExibirDespesasUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
