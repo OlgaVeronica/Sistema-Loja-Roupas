@@ -30,7 +30,7 @@
             </Grid.ColumnDefinitions>
 
             <Button VerticalAlignment="Top" Grid.Column="0" Height="200" Margin="10,35,10,0" Grid.RowSpan="2">Buscar Funcionário</Button>
-            <Button VerticalAlignment="Top" Grid.Column="1" Height="200" Margin="10,35,10,0" Grid.RowSpan="2" Cursor="Hand">Cadastrar Funcionário</Button>
+            <Button VerticalAlignment="Top" Grid.Column="1" Height="200" Margin="10,35,10,0" Grid.RowSpan="2">Cadastrar Funcionário</Button>
         </Grid>
 
     </Grid>
