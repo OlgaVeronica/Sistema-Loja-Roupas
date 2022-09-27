@@ -29,41 +29,41 @@ namespace LojaRoupa.Views
         private void TelaPrincipal_Loaded(object sender, RoutedEventArgs e)
         {
             //DataContext = new CaixaModel();
-           _frame.Content = new VendaUC(_frame);
+            _frame.Content = new ProdutoUC(_frame);
         }
 
         private void btnProduto_Click(object sender, RoutedEventArgs e)
         {
-            _frame.Content = new ProdutoUC(_frame);
+            DataContext = new ProdutoModel(DataContext);
 
         }
 
         private void btnFuncionario_Click(object sender, RoutedEventArgs e)
         {
-            _frame.Content = new FuncionarioUC(_frame);
+            DataContext = new FuncionarioModel();
         }
 
         private void btnVenda_Click(object sender, RoutedEventArgs e)
         {
-            _frame.Content = new VendaUC(_frame);
+            DataContext = new VendaModel();
 
         }
 
         private void btnFinanceiro_Click(object sender, RoutedEventArgs e)
         {
-            _frame.Content = new FinanceiroUC(_frame);
+            DataContext = new FinanceiroModel();
 
         }
 
         private void btnFornecedores_Click(object sender, RoutedEventArgs e)
         {
-            _frame.Content = new FornecedorUC(_frame);
+            DataContext = new FornecedorModel();
 
         }
 
         private void btnCaixa_Click(object sender, RoutedEventArgs e)
         {
-            _frame.Content = new CaixaUC(_frame);
+            DataContext = new CaixaModel();
         }
 
         private void BtnDrag(object sender, MouseButtonEventArgs e)

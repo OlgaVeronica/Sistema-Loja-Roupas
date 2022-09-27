@@ -20,12 +20,9 @@ namespace LojaRoupa.Views
     /// </summary>
     public partial class VendaUC : UserControl
     {
-        public Frame _frame;
-
-        public VendaUC(Frame frame)
+        public VendaUC()
         {
             InitializeComponent();
-            _frame = frame;
         }
     }
 }
