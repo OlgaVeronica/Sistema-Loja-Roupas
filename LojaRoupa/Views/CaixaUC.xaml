@@ -13,18 +13,45 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
+            
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid>
-            <TextBox Height="30" Background="AliceBlue"/>
-
+        <Grid Grid.Column="1">
+            <TextBlock Text="Caixa" FontSize="80" TextAlignment="Center" FontWeight="Bold"/>
         </Grid>
-
+        
+        <Grid Grid.Row="2">
+            <Button
+                x:Name="btnConsultarCaixa"
+                FontSize="25"
+                Height="100"
+                Margin="10,0,10,0"
+                FontWeight="Black"
+                Style="{StaticResource MaterialDesignRaisedButton}"
+                ToolTip="Resource name: MaterialDesignRaisedButton"
+                Content="Consultar Caixa"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Cursor="Hand"
+                />
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="2">
+            <Button
+                x:Name="btnConsultarRecebimentos"
+                FontSize="25"
+                Height="100"
+                Margin="10,0,10,0"
+                FontWeight="Black"
+                Style="{StaticResource MaterialDesignRaisedButton}"
+                ToolTip="Resource name: MaterialDesignRaisedButton"
+                Content="Consultar Recebimentos"
+                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Cursor="Hand"
+                />
+        </Grid>
     </Grid>
 </UserControl>
