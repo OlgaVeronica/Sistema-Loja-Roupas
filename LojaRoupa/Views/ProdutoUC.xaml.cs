@@ -22,14 +22,17 @@ namespace LojaRoupa.Views
     /// </summary>
     public partial class ProdutoUC : UserControl
     {
-        public ProdutoUC()
+        private Frame _frame;
+
+        public ProdutoUC(Frame frame)
         {
             InitializeComponent();
+            _frame = frame;
         }
 
         private void btnCadastrarProduto_Click(object sender, RoutedEventArgs e)
         {
-
+            _frame.Content = new VendaUC();
         }
 
         private void btnBuscarProduto_Click(object sender, RoutedEventArgs e)

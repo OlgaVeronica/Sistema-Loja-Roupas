@@ -7,31 +7,6 @@
         xmlns:viewmodels="clr-namespace:LojaRoupa.ViewsModels"
         mc:Ignorable="d"
         Title="TelaPrincipal" Height="720" Width="1280" WindowState="Maximized" WindowStyle="None">
-    <Window.Resources>
-        <DataTemplate x:Name="ProdutoTemplate" DataType="{x:Type viewmodels:ProdutoModel}">
-            <local:ProdutoUC DataContext="{Binding}"/>
-        </DataTemplate>
-
-        <DataTemplate x:Name="FuncionarioTemplate" DataType="{x:Type viewmodels:FuncionarioModel}">
-            <local:FuncionarioUC DataContext="{Binding}"/>
-        </DataTemplate>
-
-        <DataTemplate x:Name="VendaTemplate" DataType="{x:Type viewmodels:VendaModel}">
-            <local:VendaUC DataContext="{Binding}"/>
-        </DataTemplate>
-
-        <DataTemplate x:Name="FornecedorTemplate" DataType="{x:Type viewmodels:FornecedorModel}">
-            <local:FornecedorUC DataContext="{Binding}"/>
-        </DataTemplate>
-
-        <DataTemplate x:Name="FinanceiroTemplate" DataType="{x:Type viewmodels:FinanceiroModel}">
-            <local:FinanceiroUC DataContext="{Binding}"/>
-        </DataTemplate>
-
-        <DataTemplate x:Name="CaixaTemplate" DataType="{x:Type viewmodels:CaixaModel}">
-            <local:CaixaUC DataContext="{Binding}"/>
-        </DataTemplate>
-    </Window.Resources>
     <Grid>
 
         <Grid.ColumnDefinitions >
@@ -77,7 +52,8 @@
 
         </StackPanel>
 
-        <ContentControl Grid.Row="1" Grid.Column="1" Content="{Binding}"></ContentControl>
-            
+        <!--<ContentControl Grid.Row="1" Grid.Column="1" Content="{Binding}"></ContentControl>-->
+        <Frame x:Name="_frame" Grid.Row="1" Grid.Column="1" NavigationUIVisibility="Hidden" HorizontalAlignment="Stretch"/>
+
     </Grid>
 </Window>

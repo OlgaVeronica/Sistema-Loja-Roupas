@@ -8,5 +8,11 @@ namespace LojaRoupa.ViewsModels
 {
     class ProdutoModel
     {
+
+        public ProdutoModel(object _dataContext)
+        {
+           
+            _dataContext = new CaixaModel();
+        }
     }
 }
