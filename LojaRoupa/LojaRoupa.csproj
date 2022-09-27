@@ -100,8 +100,18 @@
     <Compile Include="Views\ProdutoUC.xaml.cs">
       <DependentUpon>ProdutoUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SubViews\CadastrarFuncionarioUC.xaml.cs">
+      <DependentUpon>CadastrarFuncionarioUC.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Views\SubViews\CadastrarMarcaWin.xaml.cs">
       <DependentUpon>CadastrarMarcaWin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SubViews\ConsultarCaixaUC.xaml.cs">
+      <DependentUpon>ConsultarCaixaUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SubViews\ExibirDespesasUC.xaml.cs">
+      <DependentUpon>ExibirDespesasUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TelaPrincipal.xaml.cs">
       <DependentUpon>TelaPrincipal.xaml</DependentUpon>
@@ -141,7 +151,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\SubViews\CadastrarFuncionarioUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\SubViews\CadastrarMarcaWin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SubViews\ConsultarCaixaUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SubViews\ExibirDespesasUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

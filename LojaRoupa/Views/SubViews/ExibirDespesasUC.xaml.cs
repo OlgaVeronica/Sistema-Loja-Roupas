@@ -12,28 +12,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using LojaRoupa.Views;
-using LojaRoupa.ViewsModels;
-using LojaRoupa.Views.SubViews;
 
-namespace LojaRoupa.Views
+namespace LojaRoupa.Views.SubViews
 {
     /// <summary>
-    /// Interação lógica para FinanceiroUC.xam
+    /// Interação lógica para ExibirDespesasUC.xam
     /// </summary>
-    public partial class FinanceiroUC : UserControl
+    public partial class ExibirDespesasUC : UserControl
     {
         public Frame _frame;
 
-        public FinanceiroUC(Frame frame)
+        public ExibirDespesasUC(Frame frame)
         {
             InitializeComponent();
             _frame = frame;
-        }
-
-        private void btnExibirDesp_Click(object sender, RoutedEventArgs e)
-        {
-            _frame.Content = new ExibirDespesasUC(_frame);
         }
     }
 }

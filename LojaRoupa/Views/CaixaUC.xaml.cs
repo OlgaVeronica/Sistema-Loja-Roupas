@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using LojaRoupa.Views.SubViews;
 
 namespace LojaRoupa.Views
 {
@@ -25,6 +26,11 @@ namespace LojaRoupa.Views
         {
             InitializeComponent();
             _frame = frame;
+        }
+
+        private void btnConsultarCaixa_Click(object sender, RoutedEventArgs e)
+        {
+            _frame.Content = new ConsultarCaixaUC(_frame);
         }
     }
 }
