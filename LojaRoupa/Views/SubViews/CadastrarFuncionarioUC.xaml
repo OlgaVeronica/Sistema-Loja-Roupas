@@ -6,10 +6,8 @@
              xmlns:local="clr-namespace:LojaRoupa.Views.SubViews"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-<<<<<<< Updated upstream
-    <Grid>
+    
             
-=======
     <Grid Background="#f1f1f1f1">
         
         
@@ -30,6 +28,5 @@
 
 
 
->>>>>>> Stashed changes
     </Grid>
 </UserControl>
