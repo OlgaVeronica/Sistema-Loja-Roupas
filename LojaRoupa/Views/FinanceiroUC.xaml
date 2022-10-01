@@ -21,7 +21,7 @@
 
 
         <StackPanel Grid.Column="1">
-            <TextBlock Text="Financeiro" FontSize="30" TextAlignment="Center"/>
+            <TextBlock Text="Financeiro" FontSize="40" TextAlignment="Center"/>
         </StackPanel>
 
         <Grid Grid.Row="1" Grid.Column="3">
