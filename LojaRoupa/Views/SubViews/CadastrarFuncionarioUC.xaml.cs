@@ -41,6 +41,25 @@ namespace LojaRoupa.Views.SubViews
             funcionario.Funcao = txtFuncao.Text;
             funcionario.Salario = txtSalario.Text;
 
+            Clear();
+        }
+
+        private void Clear()
+        {
+            txtNome.Clear();
+            txtCPF.Clear();
+            txtRG.Clear();
+            txtTelefone.Clear();
+            txtSexo.Clear();
+            txtEmail.Clear();
+            txtEndereco.Clear();
+            txtFuncao.Clear();
+            txtSalario.Clear();
+        }
+
+        private void btnVoltar_Click(object sender, RoutedEventArgs e)
+        {
+            _frame.Content = new FuncionarioUC(_frame);
         }
     }
 }

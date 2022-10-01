@@ -30,7 +30,6 @@
                 FontSize="20"
                 Height="180"
                 Margin="10,90,10,105"
-                FontWeight="Black"
                 Style="{StaticResource MaterialDesignRaisedButton}"
                 ToolTip="Resource name: MaterialDesignRaisedButton"
                 Content="Exibir Despesas"

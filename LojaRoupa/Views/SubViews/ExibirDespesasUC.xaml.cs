@@ -27,5 +27,10 @@ namespace LojaRoupa.Views.SubViews
             InitializeComponent();
             _frame = frame;
         }
+
+        private void btnVoltar_Click(object sender, RoutedEventArgs e)
+        {
+            _frame.Content = new FinanceiroUC(_frame);
+        }
     }
 }
