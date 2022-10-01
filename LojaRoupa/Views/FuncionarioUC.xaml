@@ -11,28 +11,19 @@
         <Grid.RowDefinitions>
             <RowDefinition Height=".3*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height=".3*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
             <TextBlock Text="Funcionários" FontSize="30" TextAlignment="Center"/>
 
         </StackPanel>
+        
+  
 
-        <Grid Grid.Row="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="69*"/>
-                <RowDefinition Height="277*"/>
-            </Grid.RowDefinitions>
+        <DataGrid Grid.Row="1" x:Name="dtgFuncionarios"></DataGrid>
 
+        <Button Grid.Row="2" Height="50" Width="150" x:Name="btnCadastrar" Click="btnCadastrar_Click">Cadastrar</Button>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <Button VerticalAlignment="Top" Grid.Column="0" Height="200" Margin="10,35,10,0" Grid.RowSpan="2">Buscar Funcionário</Button>
-            <Button VerticalAlignment="Top" Grid.Column="1" Height="200" Margin="10,35,10,0" Grid.RowSpan="2">Cadastrar Funcionário</Button>
-            <Button VerticalAlignment="Top" Grid.Column="1" Height="200" Margin="10,35,10,0" Grid.RowSpan="2" Cursor="Hand">Cadastrar Funcionário</Button>
-        </Grid>
-
-    </Grid>
+        
+       </Grid>
 </UserControl>

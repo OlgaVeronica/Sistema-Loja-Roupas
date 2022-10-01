@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LojaRoupa.ViewsModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,29 @@ namespace LojaRoupa.Views.SubViews
     /// </summary>
     public partial class CadastrarFuncionarioUC : UserControl
     {
-        public CadastrarFuncionarioUC()
+        private List<FuncionarioModel> _list; 
+        private Frame _frame;
+        public CadastrarFuncionarioUC(Frame frame)
         {
             InitializeComponent();
+            _frame = frame;
+        }
+
+        private void btnCadastrar_Click(object sender, RoutedEventArgs e)
+        {
+            FuncionarioModel funcionario = new FuncionarioModel();
+            funcionario.Nome = txtNome.Text;
+            funcionario.Cpf = txtCPF.Text;
+            funcionario.RG = txtRG.Text;
+            funcionario.Telefoe = txtTelefone.Text;
+            funcionario.Sexo = txtSexo.Text;
+            funcionario.Email = txtEmail.Text;
+            funcionario.Endereco = txtEndereco.Text;
+            funcionario.Funcao = txtFuncao.Text;
+            funcionario.Salario = txtSalario.Text;
+
+            _list.Add(funcionario);
+            MessageBox.Show(_list.ToString());
         }
     }
 }
