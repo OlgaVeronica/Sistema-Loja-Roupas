@@ -21,7 +21,6 @@ namespace LojaRoupa.Views.SubViews
     /// </summary>
     public partial class CadastrarFuncionarioUC : UserControl
     {
-        private List<FuncionarioModel> _list; 
         private Frame _frame;
         public CadastrarFuncionarioUC(Frame frame)
         {
@@ -42,8 +41,6 @@ namespace LojaRoupa.Views.SubViews
             funcionario.Funcao = txtFuncao.Text;
             funcionario.Salario = txtSalario.Text;
 
-            _list.Add(funcionario);
-            MessageBox.Show(_list.ToString());
         }
     }
 }
