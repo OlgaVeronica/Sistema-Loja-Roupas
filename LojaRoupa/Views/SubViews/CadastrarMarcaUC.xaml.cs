@@ -16,24 +16,13 @@ using System.Windows.Shapes;
 namespace LojaRoupa.Views.SubViews
 {
     /// <summary>
-    /// Interaction logic for MarcaUC.xaml
+    /// Interaction logic for CadastrarMarcaUC.xaml
     /// </summary>
-    public partial class MarcaUC : UserControl
+    public partial class CadastrarMarcaUC : UserControl
     {
-        private Frame _frame;
-        public MarcaUC(Frame frame)
+        public CadastrarMarcaUC()
         {
             InitializeComponent();
-            _frame = frame;
-        }
-
-        private void btnCadastrar_Click(object sender, RoutedEventArgs e)
-        {
-        }
-
-        private void btnVoltar_Click(object sender, RoutedEventArgs e)
-        {
-            _frame.Content = new ProdutoUC(_frame);
         }
     }
 }
