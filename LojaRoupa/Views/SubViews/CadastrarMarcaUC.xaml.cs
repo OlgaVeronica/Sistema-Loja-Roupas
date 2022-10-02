@@ -20,9 +20,21 @@ namespace LojaRoupa.Views.SubViews
     /// </summary>
     public partial class CadastrarMarcaUC : UserControl
     {
-        public CadastrarMarcaUC()
+        private Frame _frame;
+        public CadastrarMarcaUC(Frame frame)
         {
             InitializeComponent();
+            _frame = frame;
+        }
+
+        private void btnVoltar_Click(object sender, RoutedEventArgs e)
+        {
+            _frame.Content = new MarcaUC(_frame);
+        }
+
+        private void btnCadastrar_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
