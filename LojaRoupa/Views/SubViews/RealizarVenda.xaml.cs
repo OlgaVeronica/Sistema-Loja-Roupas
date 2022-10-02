@@ -24,5 +24,10 @@ namespace LojaRoupa.Views.SubViews
         {
             InitializeComponent();
         }
+
+        private void btnRealizarVenda_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
