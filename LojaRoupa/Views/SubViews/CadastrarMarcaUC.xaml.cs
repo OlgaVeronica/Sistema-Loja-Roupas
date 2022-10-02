@@ -35,7 +35,9 @@ namespace LojaRoupa.Views.SubViews
 
         private void btnCadastrar_Click(object sender, RoutedEventArgs e)
         {
-
+            MarcaModel marca = new MarcaModel();
+            marca.Nome = txtNome.Text;
+            marca.Logo = txtLogo.Text;
         }
     }
 }
