@@ -7,6 +7,61 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="AliceBlue">
-            
+
+
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".3*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height=".3*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Foreground="black" Grid.Row="0" HorizontalAlignment="Center" FontSize="40" Text="Cadastrar Peça de Roupa " />
+
+        <Grid Grid.Row="1" Background="White" HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" MaxWidth="500"/>
+                <ColumnDefinition Width="*" MaxWidth="500"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Margin="10, 0, 10, 0">
+                <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10">
+                    <Label Content="Descrição" FontSize="20" HorizontalAlignment="Center"/>
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtDescricao"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10">
+                    <Label Content="Tecido" FontSize="20" HorizontalAlignment="Center"/>
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtTecido"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10">
+                    <Label Content="Tipo" FontSize="20" HorizontalAlignment="Center"/>
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtTipo"></TextBox>
+                </StackPanel>
+            </StackPanel>
+
+
+            <StackPanel Grid.Column="1" Margin="10, 0, 10, 0">
+                <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10">
+                    <Label Content="Coleção" FontSize="20" HorizontalAlignment="Center"/>
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtColecao"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10">
+                    <Label Content="Tamanho" FontSize="20" HorizontalAlignment="Center"/>
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtTamanho"></TextBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10">
+                    <Label Content="Estampa" FontSize="20" HorizontalAlignment="Center"/>
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtEstampa"></TextBox>
+                </StackPanel>
+    
+            </StackPanel>
+
+        </Grid>
+
+
+        <Button Grid.Row="2" Height="50" Width="150" x:Name="btnCadastrar" Click="btnCadastrar_Click">Cadastrar</Button>
+        <Button Grid.Row="0" HorizontalAlignment="Left" Margin="10,0" Height="50" Width="150" x:Name="btnVoltar" Click="btnVoltar_Click">Voltar</Button>
+
     </Grid>
 </UserControl>
