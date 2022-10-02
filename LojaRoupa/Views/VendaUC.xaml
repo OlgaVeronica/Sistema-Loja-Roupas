@@ -6,39 +6,25 @@
              xmlns:local="clr-namespace:LojaRoupa.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="#aaaaaa">
+    <Grid Background="#efefef">
+
         <Grid.RowDefinitions>
+            <RowDefinition Height=".3*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height=".3*"/>
         </Grid.RowDefinitions>
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            
-        </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Background="AliceBlue" Margin="5">
-            <TextBlock Text="Venda" FontSize="70" TextAlignment="Center"/>
-        </StackPanel>
-        <StackPanel Background="AliceBlue" Grid.Row="2" Grid.RowSpan="8" Grid.ColumnSpan="3" Margin="20">
-            
+        <StackPanel Grid.Row="0">
+            <TextBlock Text="Vendas" FontSize="40" TextAlignment="Center"/>
         </StackPanel>
 
-        <StackPanel Background="AliceBlue" Grid.Column="3" Grid.Row="2" Grid.RowSpan="8" Grid.ColumnSpan="3" Margin="20">
 
-        </StackPanel>
+        <DataGrid Grid.Row="1" x:Name="dtgVendas"  FontSize="20"></DataGrid>
+
+        <Grid Grid.Row="3">
+
+            <Button Height="50" Width="150" x:Name="btnRealizarVenda" Click="btnRealizarVenda_Click">Realizar Venda</Button>
+        </Grid>
+
 
     </Grid>
     
