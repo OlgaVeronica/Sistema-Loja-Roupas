@@ -14,7 +14,6 @@ namespace LojaRoupa.ViewsModels
         public string Colecao { get; set; }
         public string Tamanho { get; set; }
         public string Estampa { get; set; }
-
         
     }
 }

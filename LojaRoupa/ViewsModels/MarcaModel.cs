@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace LojaRoupa.ViewsModels
 {
-    internal class Marca
+    internal class MarcaModel
     {
+        public string Name { get; set; }
+        public string Logo { get; set; }
     }
 }

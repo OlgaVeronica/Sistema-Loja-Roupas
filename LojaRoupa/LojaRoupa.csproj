@@ -83,7 +83,7 @@
     <Compile Include="ViewsModels\FinanceiroModel.cs" />
     <Compile Include="ViewsModels\FornecedorModel.cs" />
     <Compile Include="ViewsModels\FuncionarioModel.cs" />
-    <Compile Include="ViewsModels\Marca.cs" />
+    <Compile Include="ViewsModels\MarcaModel.cs" />
     <Compile Include="ViewsModels\ProdutoModel.cs" />
     <Compile Include="ViewsModels\VendaModel.cs" />
     <Compile Include="Views\CaixaUC.xaml.cs">
