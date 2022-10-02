@@ -8,11 +8,13 @@ namespace LojaRoupa.ViewsModels
 {
     class ProdutoModel
     {
+        public string Descricao { get; set; }
+        public string Tecido { get; set; }
+        public string Tipo { get; set; }
+        public string Colecao { get; set; }
+        public string Tamanho { get; set; }
+        public string Estampa { get; set; }
 
-        public ProdutoModel(object _dataContext)
-        {
-           
-            _dataContext = new CaixaModel();
-        }
+        
     }
 }

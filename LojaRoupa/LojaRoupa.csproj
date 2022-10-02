@@ -113,6 +113,9 @@
     <Compile Include="Views\SubViews\ExibirDespesasUC.xaml.cs">
       <DependentUpon>ExibirDespesasUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SubViews\MarcaUC.xaml.cs">
+      <DependentUpon>MarcaUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\TelaPrincipal.xaml.cs">
       <DependentUpon>TelaPrincipal.xaml</DependentUpon>
     </Compile>
@@ -164,6 +167,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SubViews\ExibirDespesasUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SubViews\MarcaUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

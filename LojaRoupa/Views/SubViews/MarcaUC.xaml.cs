@@ -10,18 +10,26 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace LojaRoupa.Views.SubViews
 {
     /// <summary>
-    /// Lógica interna para CadastrarMarcaWin.xaml
+    /// Interaction logic for MarcaUC.xaml
     /// </summary>
-    public partial class CadastrarMarcaWin : Window
+    public partial class MarcaUC : UserControl
     {
-        public CadastrarMarcaWin()
+        private Frame _frame;
+        public MarcaUC(Frame frame)
         {
             InitializeComponent();
+            _frame = frame;
+        }
+
+        private void btnCadastrar_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

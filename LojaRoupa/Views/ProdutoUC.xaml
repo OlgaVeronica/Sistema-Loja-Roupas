@@ -7,29 +7,28 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="#fefefe">
+
         <Grid.RowDefinitions>
             <RowDefinition Height=".3*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height=".3*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
-            <TextBlock Text="Produtos" FontSize="30" TextAlignment="Center"/>
-
+            <TextBlock Text="Produtos" FontSize="40" TextAlignment="Center"/>
         </StackPanel>
 
-        <Grid Grid.Row="1">
 
+        <DataGrid Grid.Row="1" x:Name="dtgProdutos"  FontSize="20"></DataGrid>
 
+        <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-
-            <Button x:Name="btnBuscarProduto" VerticalAlignment="Top" Grid.Column="0" Height="200" Margin="10, 0, 10, 0" Click="btnBuscarProduto_Click">Buscar Produto</Button>
-            <Button x:Name="btnCadastrarProduto" VerticalAlignment="Top" Grid.Column="1" Height="200" Margin="10, 0, 10, 0" Click="btnCadastrarProduto_Click">Cadastrar Produto</Button>
-            <Button x:Name="btnConsultarEstoque" VerticalAlignment="Top" Grid.Column="2" Height="200" Margin="10, 0, 10, 0">Consultar Estoque</Button>
-            <Button x:Name="btnCadastrarMarca" VerticalAlignment="Bottom" Grid.Column="1" Height="60" Margin="165,0,121,40" Grid.ColumnSpan="2" Click="btnCadastrarMarca_Click">Cadastrar Marca</Button>
-            <Button x:Name="btnConsultarMarca" VerticalAlignment="Bottom" Height="60" Margin="133,0,152,40" Grid.ColumnSpan="2">Buscar Marca</Button>
+            <Button Height="50" Width="150" x:Name="btnCadastrarProduto" Click="btnCadastrarProduto_Click">Cadastrar Produto</Button>
+            <Button Grid.Column="2" Height="50" Width="150" x:Name="btnMarca" Click="btnMarca_Click">Marcas</Button>
         </Grid>
+
+      
     </Grid>
 </UserControl>
