@@ -6,7 +6,30 @@
              xmlns:local="clr-namespace:LojaRoupa.Views.SubViews"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid Background="#efefef">
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".3*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height=".3*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <TextBlock Text="Vendas" FontSize="40" TextAlignment="Center"/>
+
+        </StackPanel>
+
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
             
+            <StackPanel Width="500">
+                <TextBlock Text="Produtos" HorizontalAlignment="Center"  FontSize="30"/>
+                <DataGrid Grid.Row="1" x:Name="dtgRoupas"  FontSize="20"></DataGrid>
+            
+            </StackPanel>
+            <StackPanel>
+                
+            </StackPanel>
+        </StackPanel>
+
+        <Button Grid.Row="2" Height="50" Width="150" x:Name="btnRealizarVenda" Click="btnRealizarVenda_Click">Cadastrar</Button>
     </Grid>
 </UserControl>
