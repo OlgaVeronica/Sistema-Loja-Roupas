@@ -86,6 +86,7 @@
     <Compile Include="ViewsModels\MarcaModel.cs" />
     <Compile Include="ViewsModels\ProdutoModel.cs" />
     <Compile Include="ViewsModels\VendaModel.cs" />
+    <Compile Include="ViewsModels\VendaProdutoModel.cs" />
     <Compile Include="Views\CaixaUC.xaml.cs">
       <DependentUpon>CaixaUC.xaml</DependentUpon>
     </Compile>

@@ -23,7 +23,20 @@ namespace LojaRoupa.Views.SubViews
         public RealizarVenda()
         {
             InitializeComponent();
+            Loaded += RealizarVenda_Loaded;
         }
+
+        private void RealizarVenda_Loaded(object sender, RoutedEventArgs e)
+        {
+            var produtos = new[]
+            {
+                new{Descricao = "Camisa", Tamanho = "GG"},
+                new{Descricao = "Calça", Tamanho = "40"},
+                new{Descricao = "Bermuda jeans", Tamanho = "PP"},
+                new{Descricao = "camisa", Tamanho = "GG"}
+            };
+        }
+
 
         private void btnRealizarVenda_Click(object sender, RoutedEventArgs e)
         {
