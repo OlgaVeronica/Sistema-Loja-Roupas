@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LojaRoupa.Views;
 using LojaRoupa.ViewsModels;
+using LojaRoupa.Views.SubViews;
 
 namespace LojaRoupa.Views
 {
@@ -32,7 +33,7 @@ namespace LojaRoupa.Views
 
         private void btnCadastrarProduto_Click(object sender, RoutedEventArgs e)
         {
-            _frame.Content = new VendaUC(_frame);
+            _frame.Content = new CadastrarProdutoUC(_frame);
         }
 
         private void btnBuscarProduto_Click(object sender, RoutedEventArgs e)

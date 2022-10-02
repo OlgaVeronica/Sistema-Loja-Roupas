@@ -104,8 +104,8 @@
       <DependentUpon>CadastrarFuncionarioUC.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Views\SubViews\CadastrarMarcaWin.xaml.cs">
-      <DependentUpon>CadastrarMarcaWin.xaml</DependentUpon>
+    <Compile Include="Views\SubViews\CadastrarProdutoUC.xaml.cs">
+      <DependentUpon>CadastrarProdutoUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SubViews\ConsultarCaixaUC.xaml.cs">
       <DependentUpon>ConsultarCaixaUC.xaml</DependentUpon>
@@ -155,7 +155,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\SubViews\CadastrarMarcaWin.xaml">
+    <Page Include="Views\SubViews\CadastrarProdutoUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
