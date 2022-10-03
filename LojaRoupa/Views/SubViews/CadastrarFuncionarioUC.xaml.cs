@@ -42,6 +42,7 @@ namespace LojaRoupa.Views.SubViews
             funcionario.Endereco = txtEndereco.Text;
             funcionario.Funcao = txtFuncao.Text;
             funcionario.Salario = txtSalario.Text;
+            funcionario.Status = "ativo";
 
             try
             {

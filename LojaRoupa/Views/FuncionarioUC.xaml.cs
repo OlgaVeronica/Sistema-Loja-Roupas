@@ -13,7 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using LojaRoupa.DAOs;
 using LojaRoupa.Views.SubViews;
+using MySql.Data.MySqlClient;
 
 namespace LojaRoupa.Views
 {
@@ -44,7 +46,16 @@ namespace LojaRoupa.Views
                 new {Nome = "Carlos Silva", Telefone = "7777-7777", Email = "carlos@email.com"}
             };
 
-            dtgFuncionarios.ItemsSource = funcionarios;
+            try
+            {
+                var dao = new FuncionarioDAO();
+                dtgFuncionarios.ItemsSource = dao.List();
+
+            } catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void btnCadastrar_Click(object sender, RoutedEventArgs e)
