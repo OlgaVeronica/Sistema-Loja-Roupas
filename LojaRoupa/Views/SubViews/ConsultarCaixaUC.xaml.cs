@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using LojaRoupa.ViewsModels;
 
 namespace LojaRoupa.Views.SubViews
 {
@@ -38,7 +39,7 @@ namespace LojaRoupa.Views.SubViews
 
         private void btnBuscar_Click(object sender, RoutedEventArgs e)
         {
-            
+
         }
     }
 }
