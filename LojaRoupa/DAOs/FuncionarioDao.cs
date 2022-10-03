@@ -65,7 +65,7 @@ namespace LojaRoupa.DAOs
 
                 var command = conn.Query();
 
-                command.CommandText = "select * from funcionario";
+                command.CommandText = "select * from funcionario where(status_func like 'ativo');";
                 MySqlDataReader reader = command.ExecuteReader();
 
                 while (reader.Read())
