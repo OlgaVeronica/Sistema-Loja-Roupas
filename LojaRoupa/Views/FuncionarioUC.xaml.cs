@@ -56,5 +56,10 @@ namespace LojaRoupa.Views
         {
 
         }
+
+        private void btnEditFunc_Click(object sender, RoutedEventArgs e)
+        {
+            _frame.Content = new EditarFuncionarioUC(_frame);
+        }
     }
 }
