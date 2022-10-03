@@ -26,18 +26,18 @@
             </StackPanel>
         </Grid>
 
-        <Grid Grid.Row="2" Background="White">
+        <Grid Grid.Row="2" Background="White" HorizontalAlignment="Center">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" MaxWidth="500"/>
-                <ColumnDefinition Width="*" MaxWidth="500"/>
+                <ColumnDefinition Width="*" MaxWidth="900"/>
+                <ColumnDefinition Width="*" MaxWidth="900"/>
             </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="0" Margin="10, 0, 10, 0">
+            <StackPanel Grid.Column="0">
                 <StackPanel Orientation="Vertical" Margin="0, 30, 0, 10">
                     <Label Content="Valor recebimento" FontSize="20" HorizontalAlignment="Center"/>
                     <TextBox MinWidth="500" IsReadOnly="True" FontSize="20" x:Name="txtValorRecebimento" Cursor="Arrow"></TextBox>
                 </StackPanel>
             </StackPanel>
-            <StackPanel Grid.Column="1" Margin="10, 0, 10, 0">
+            <StackPanel Grid.Column="1" Margin="10, 0, 10, 0"  HorizontalAlignment="Center">
                 <StackPanel Orientation="Vertical" Margin="0,30, 0, 10">
                     <Label Content="Hora de recebimento" FontSize="20" HorizontalAlignment="Center"/>
                     <TextBox MinWidth="500" IsReadOnly="True" FontSize="20" x:Name="txtHoraRecebimento"></TextBox>
@@ -45,10 +45,11 @@
             </StackPanel>
         </Grid>
         <Grid Grid.Row="3" Background="White">
-            <Label Content="Forma do recebimento" Margin="0,10,0,50" FontSize="20" HorizontalAlignment="Center"/>
-            <TextBox MinWidth="500" Margin="0,0,0,80" Width="50" IsReadOnly="True" FontSize="20" x:Name="txtHoraAbertura" Cursor="Arrow"></TextBox>
+            <Label Content="Forma do recebimento" Margin="295,10,0,50" FontSize="20" HorizontalAlignment="Left"/>
+            <TextBox MinWidth="500" Margin="150,0,150,80" Width="50" IsReadOnly="True" FontSize="20" x:Name="txtHoraAbertura" Cursor="Arrow" Grid.ColumnSpan="2"></TextBox>
         </Grid>
         <Button Grid.Row="0" HorizontalAlignment="Left" Margin="40 ,0" x:Name="btnVoltar" Height="50" Width="140" Click="btnVoltar_Click" Cursor="Hand">Voltar</Button>
         <Button Grid.Row="1" HorizontalAlignment="Right" Margin="50 ,0" Height="50" Width="140" x:Name="btnBuscar" Cursor="Hand" Click="btnBuscar_Click">Consultar</Button>
     </Grid>
 </UserControl>
+   
