@@ -10,13 +10,32 @@ using LojaRoupa.DAOs;
 using LojaRoupa.Database;
 using LojaRoupa.ViewsModels;
 using MySql.Data.MySqlClient;
+using LojaRoupa.Helpers;
 namespace LojaRoupa.DAOs
 {
     class ProdutoDAO: AbstractDAO<ProdutoModel>
     {
         public override void Delete(ProdutoModel prod)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var command = conn.Query();
+                command.CommandText = "update roupa set status_roup = 'inativo' where (id_roup = @id)";
+
+                command.Parameters.AddWithValue("@id", prod.Id);
+
+                var resultado = command.ExecuteNonQuery();
+
+                if (resultado == 0)
+                {
+                    throw new Exception("Erro ao deletar funcionário");
+                }
+
+            }
+            catch (MySqlException ex)
+            {
+                throw ex;
+            }
         }
 
         public override void Insert(ProdutoModel prod)
@@ -50,7 +69,38 @@ namespace LojaRoupa.DAOs
 
         public override List<ProdutoModel> List()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var lista = new List<ProdutoModel>();
+
+                var command = conn.Query();
+
+                command.CommandText = "select * from roupa where(status_roup like 'ativo');";
+                MySqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    var produto = new ProdutoModel();
+                    produto.Id = reader.GetInt32("id_roup");
+                    produto.Descricao = DAOHelper.GetString(reader, "descricao_roup");
+                    produto.Tecido = DAOHelper.GetString(reader, "material_roup");
+                    produto.Tipo = DAOHelper.GetString(reader, "tipo_roup");
+                    produto.Colecao = DAOHelper.GetString(reader, "colecao_roup");
+                    produto.Estampa = DAOHelper.GetString(reader, "estampa_roup");
+                    produto.Status = DAOHelper.GetString(reader, "status_roup");
+
+                    lista.Add(produto);
+
+                }
+                reader.Close();
+
+
+                return lista;
+            }
+            catch (MySqlException ex)
+            {
+                throw ex;
+            }
         }
 
         public override void Update(ProdutoModel prod)

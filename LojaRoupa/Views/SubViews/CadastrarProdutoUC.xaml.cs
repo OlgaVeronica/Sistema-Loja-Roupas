@@ -40,6 +40,7 @@ namespace LojaRoupa.Views.SubViews
             produto.Colecao = txtColecao.Text;
             produto.Tamanho = txtTamanho.Text;
             produto.Estampa = txtEstampa.Text;
+            produto.Status = "ativo";
 
             try
             {
