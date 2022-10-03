@@ -48,8 +48,17 @@ namespace LojaRoupa.Views.SubViews
 
         private void dtgExibirDesp_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           
+          
         }
 
+        private void btnPesquisar_Click(object sender, RoutedEventArgs e)
+        {
+            FiltrarDespesa();
+        }
+
+        private void FiltrarDespesa()
+        {
+              dtgExibirDesp.ItemsSource = string.Format("[{0}] LIKE '%{1}%'", "Descrição", txtPesquisarDesp.Text);
+        }
     }
 }
