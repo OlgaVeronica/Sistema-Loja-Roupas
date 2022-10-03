@@ -19,41 +19,8 @@
             HorizontalAlignment="Left" Cursor="Hand" FontSize="20" Click="btnVoltar_Click" />
         </StackPanel>
 
-<<<<<<< Updated upstream
-        <Grid Grid.Row="1">
-            <StackPanel Orientation="Vertical" Margin="120, 0, 120, 10">
-                <Label Content="Data do recebimento" FontSize="20" HorizontalAlignment="Center"/>
-                <TextBox MinWidth="500" FontSize="20" Width="30" x:Name="txtDataRecebimento"></TextBox>
-            </StackPanel>
-        </Grid>
-
-        <Grid Grid.Row="2" Background="White" HorizontalAlignment="Center">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" MaxWidth="900"/>
-                <ColumnDefinition Width="*" MaxWidth="900"/>
-            </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="0">
-                <StackPanel Orientation="Vertical" Margin="0, 30, 0, 10">
-                    <Label Content="Valor recebimento" FontSize="20" HorizontalAlignment="Center"/>
-                    <TextBox MinWidth="500" IsReadOnly="True" FontSize="20" x:Name="txtValorRecebimento" Cursor="Arrow"></TextBox>
-                </StackPanel>
-            </StackPanel>
-            <StackPanel Grid.Column="1" Margin="10, 0, 10, 0"  HorizontalAlignment="Center">
-                <StackPanel Orientation="Vertical" Margin="0,30, 0, 10">
-                    <Label Content="Hora de recebimento" FontSize="20" HorizontalAlignment="Center"/>
-                    <TextBox MinWidth="500" IsReadOnly="True" FontSize="20" x:Name="txtHoraRecebimento"></TextBox>
-                </StackPanel>
-            </StackPanel>
-        </Grid>
-        <Grid Grid.Row="3" Background="White">
-            <Label Content="Forma do recebimento" Margin="295,10,0,50" FontSize="20" HorizontalAlignment="Left"/>
-            <TextBox MinWidth="500" Margin="150,0,150,80" Width="50" IsReadOnly="True" FontSize="20" x:Name="txtHoraAbertura" Cursor="Arrow" Grid.ColumnSpan="2"></TextBox>
-        </Grid>
-        <Button Grid.Row="0" HorizontalAlignment="Left" Margin="40 ,0" x:Name="btnVoltar" Height="50" Width="140" Click="btnVoltar_Click" Cursor="Hand">Voltar</Button>
-        <Button Grid.Row="1" HorizontalAlignment="Right" Margin="50 ,0" Height="50" Width="140" x:Name="btnBuscar" Cursor="Hand" Click="btnBuscar_Click">Consultar</Button>
-=======
         <StackPanel Grid.Row="1" Margin="10,10,10,10" Grid.RowSpan="2">
-            <Label Content="Recebimentos" HorizontalAlignment="Center" FontSize="30" FontWeight="Normal" Foreground="#DD1F1D1D"/>
+            <Label Content="Despesas" HorizontalAlignment="Center" FontSize="30" FontWeight="Normal" Foreground="#DD1F1D1D"/>
 
             <StackPanel Orientation="Horizontal" MaxWidth="700" Margin="1,-10,1,1">
                 <TextBox x:Name="txtPesquisarDesp" Padding="5" Height="35" HorizontalAlignment="Left" Width="500" Background="White" FontSize="20" VerticalContentAlignment="Bottom" Cursor="Arrow"/>
@@ -66,12 +33,11 @@
 
             <DataGrid.Columns>
 
-                <DataGridTemplateColumn Header="Ações">
+                <DataGridTemplateColumn Header="Mudanças">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Button Margin="2,0" Content="Alterar Status" Click="Button_Alter_Click"/>
-                                <Button Margin="2,0" Content="Gerar Recibo" Click="Button_Recipt_Click"/>
+                                <Button Content="Alterar Status" Click="Button_Alter_Click"/>
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
@@ -80,7 +46,5 @@
         </DataGrid>
 
 
->>>>>>> Stashed changes
     </Grid>
 </UserControl>
-   
