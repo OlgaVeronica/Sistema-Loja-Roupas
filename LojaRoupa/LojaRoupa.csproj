@@ -81,6 +81,7 @@
     </ApplicationDefinition>
     <Compile Include="DAOs\AbstractDAO.cs" />
     <Compile Include="DAOs\FuncionarioDAO.cs" />
+    <Compile Include="DAOs\MarcaDAO.cs" />
     <Compile Include="DAOs\ProdutoDAO.cs" />
     <Compile Include="Database\Conexao.cs" />
     <Compile Include="Helpers\DAOHelper.cs" />

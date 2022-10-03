@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LojaRoupa.ViewsModels;
+using LojaRoupa.DAOs;
+using MySql.Data.MySqlClient;
 
 namespace LojaRoupa.Views.SubViews
 {
@@ -38,6 +40,26 @@ namespace LojaRoupa.Views.SubViews
             MarcaModel marca = new MarcaModel();
             marca.Nome = txtNome.Text;
             marca.Logo = txtLogo.Text;
+
+            try
+            {
+                var dao = new MarcaDAO();
+                dao.Insert(marca);
+                MessageBox.Show("Cadastro Realizado!");
+            }
+            catch (MySqlException error)
+            {
+
+                MessageBox.Show(error.Message);
+            }
+
+            Clear();
+        }
+
+        private void Clear()
+        {
+            txtNome.Clear();
+            txtLogo.Clear();
         }
     }
 }
