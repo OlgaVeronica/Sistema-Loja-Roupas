@@ -18,7 +18,11 @@
 
 
 
-        <DataGrid Grid.Row="1" x:Name="dtgMarcas"  FontSize="20"></DataGrid>
+        <DataGrid Grid.Row="1" x:Name="dtgMarcas"  FontSize="20">
+            
+            
+            
+        </DataGrid>
 
         <Button Grid.Row="2" Height="50" Width="150" x:Name="btnCadastrar" Click="btnCadastrar_Click">Cadastrar</Button>
         <Button Grid.Row="0" HorizontalAlignment="Left" Margin="10,0" Height="50" Width="150" x:Name="btnVoltar" Click="btnVoltar_Click">Voltar</Button>

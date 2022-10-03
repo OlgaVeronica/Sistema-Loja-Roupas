@@ -33,7 +33,7 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
                     <Label Content="CPF:" FontSize="20"/>
-                    <TextBox MinWidth="500" FontSize="20" x:Name="txtCPF"></TextBox>
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtCPF" Cursor="Arrow"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
                     <Label Content="RG:" FontSize="20"/>
