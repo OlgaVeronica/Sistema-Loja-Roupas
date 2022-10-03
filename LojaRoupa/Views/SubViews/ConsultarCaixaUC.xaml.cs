@@ -25,5 +25,20 @@ namespace LojaRoupa.Views.SubViews
             InitializeComponent();
             _frame = frame;
         }
+
+        private void GerarRelatorio_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnVoltar_Click(object sender, RoutedEventArgs e)
+        {
+            _frame.Content = new CaixaUC(_frame);
+        }
+
+        private void btnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }

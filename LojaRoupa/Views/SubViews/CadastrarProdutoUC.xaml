@@ -29,7 +29,7 @@
                     <Label Content="Descrição" FontSize="20" HorizontalAlignment="Center"/>
                     <TextBox MinWidth="500" FontSize="20" x:Name="txtDescricao"></TextBox>
                 </StackPanel>
-                <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10">
+                <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10" Cursor="Hand">
                     <Label Content="Tecido" FontSize="20" HorizontalAlignment="Center"/>
                     <TextBox MinWidth="500" FontSize="20" x:Name="txtTecido"></TextBox>
                 </StackPanel>
