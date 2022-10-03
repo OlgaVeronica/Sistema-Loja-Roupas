@@ -36,7 +36,7 @@
                 FontSize="20"
                 Height="50" Width="200"
                 Margin="10,0,10,0"
-                Content="Consultar por Dia"
+                Content="Consultar por Dia" Click="btnConsultarCaixa_Click"
                 />
             <Button
                 Grid.Column="1"
@@ -45,7 +45,7 @@
                 FontSize="20"
                 Height="50" Width="200"
                 Margin="10,0,10,0"
-                Content="Recebimentos"
+                Content="Recebimentos" Click="btnConsultarRecebimentos_Click"
                 />
         </Grid>
     </Grid>

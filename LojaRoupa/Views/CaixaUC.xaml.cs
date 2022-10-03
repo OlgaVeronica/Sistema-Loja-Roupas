@@ -34,5 +34,12 @@ namespace LojaRoupa.Views
         {
             _frame.Content = new ConsultarCaixaUC(_frame);
         }
+
+       
+
+        private void btnConsultarRecebimentos_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
