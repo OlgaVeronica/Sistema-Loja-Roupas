@@ -117,6 +117,9 @@
     <Compile Include="Views\SubViews\ConsultarRecebimentoUC.xaml.cs">
       <DependentUpon>ConsultarRecebimentoUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SubViews\EditarFuncionarioUC.xaml.cs">
+      <DependentUpon>EditarFuncionarioUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SubViews\ExibirDespesasUC.xaml.cs">
       <DependentUpon>ExibirDespesasUC.xaml</DependentUpon>
     </Compile>
@@ -181,6 +184,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SubViews\ConsultarRecebimentoUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SubViews\EditarFuncionarioUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
