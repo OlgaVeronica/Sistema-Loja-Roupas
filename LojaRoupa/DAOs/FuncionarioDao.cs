@@ -19,7 +19,24 @@ namespace LojaRoupa.DAOs
     {
         public override void Delete(FuncionarioModel func)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var command = conn.Query();
+                command.CommandText = "update funcionario set status_func = 'inativo' where (id_func = @id)";
+
+                command.Parameters.AddWithValue("@id", func.Id);
+
+                var resultado = command.ExecuteNonQuery();
+
+                if(resultado == 0)
+                {
+                    throw new Exception("Erro ao deletar funcionário");
+                }
+
+            } catch (MySqlException ex)
+            {
+                throw ex;
+            }
         }
 
         public override void Insert(FuncionarioModel func)

@@ -26,8 +26,8 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Button Content="Editar" />
-                                <Button Content="Deletar"/>
+                                <Button Content="Editar" x:Name="btnEditar" Click="btnEditar_Click" />
+                                <Button Content="Deletar" x:Name="btnDeletar" Click="btnDeletar_Click" />
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
