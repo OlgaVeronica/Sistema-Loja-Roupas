@@ -9,10 +9,21 @@ using LojaRoupa.Database;
 
 namespace LojaRoupa.DAOs
 {
-    class FuncionarioDao
+    class FuncionarioDao : AbstractDAO
     {
-        private Conexao conn = new Conexao();
+        public override void Delete()
+        {
+            throw new NotImplementedException();
+        }
 
+        public override void Insert()
+        {
+            throw new NotImplementedException();
+        }
 
+        public override void Update()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
