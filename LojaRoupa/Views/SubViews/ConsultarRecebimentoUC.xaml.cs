@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace LojaRoupa.Views.SubViews
 {
     /// <summary>
-    /// Interação lógica para ConsultarRecebimento.xam
+    /// Interação lógica para ConsultarRecebimentoUC.xam
     /// </summary>
-    public partial class ConsultarRecebimento : UserControl
+    public partial class ConsultarRecebimentoUC : UserControl
     {
-        public ConsultarRecebimento()
+        public ConsultarRecebimentoUC()
         {
             InitializeComponent();
         }
