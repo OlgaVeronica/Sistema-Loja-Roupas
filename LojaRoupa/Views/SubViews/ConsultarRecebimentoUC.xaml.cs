@@ -55,7 +55,7 @@ namespace LojaRoupa.Views.SubViews
 
         private void btnVoltar_Click(object sender, RoutedEventArgs e)
         {
-            _frame.Content = new CaixaUC(_frame);
+            _frame.Content = new FinanceiroUC(_frame);
         }
 
         private void btnPesquisar_Click(object sender, RoutedEventArgs e)
