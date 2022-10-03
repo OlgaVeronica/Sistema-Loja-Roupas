@@ -39,7 +39,7 @@ namespace LojaRoupa.Views
 
         private void btnConsultarRecebimentos_Click(object sender, RoutedEventArgs e)
         {
-            _frame.Content = new ConsultarRecebimentoUC(_frame);
+           // _frame.Content = new ConsultarRecebimentoUC(_frame);
         }
     }
 }

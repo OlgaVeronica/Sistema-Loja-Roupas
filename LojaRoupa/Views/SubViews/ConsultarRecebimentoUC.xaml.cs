@@ -25,6 +25,27 @@ namespace LojaRoupa.Views.SubViews
         {
             InitializeComponent();
             _frame = frame;
+            Loaded += ConsultarRecebimentoUC_loaded;
+        }
+
+        private void ConsultarRecebimentoUC_loaded(object sender, RoutedEventArgs e)
+        {
+            var source = new[]
+            {
+                new {Descricao = "Venda short", Vencimento = "05/10/2022", Valor = "R$ 200,00", Status = "Pago"},
+                new {Descricao = "Venda Camiseta", Vencimento = "02/10/2022", Valor = "R$ 1.000,00", Status = "Pago"},
+                new {Descricao = "Venda short", Vencimento = "10/10/2022", Valor = "R$ 350,00", Status = "a receber"},
+                new {Descricao = "Venda short", Vencimento = "05/10/2022", Valor = "R$ 200,00", Status = "Pago"},
+                new {Descricao = "Venda Camiseta", Vencimento = "02/10/2022", Valor = "R$ 1.000,00", Status = "a receber"},
+                new {Descricao = "Venda moletom", Vencimento = "10/10/2022", Valor = "R$ 350,00", Status = "a receber"},
+                new {Descricao = "Venda short", Vencimento = "05/10/2022", Valor = "R$ 200,00", Status = "Pago"},
+                new {Descricao = "Venda Camiseta", Vencimento = "02/10/2022", Valor = "R$ 1.000,00", Status = "Pago"},
+                new {Descricao = "Venda Camiseta", Vencimento = "10/10/2022", Valor = "R$ 350,00", Status = "a receber"},
+                new {Descricao = "Venda moletom", Vencimento = "05/10/2022", Valor = "R$ 200,00", Status = "a receber"},
+                new {Descricao = "Venda Camiseta", Vencimento = "02/10/2022", Valor = "R$ 1.000,00", Status = "Pago"},
+                new {Descricao = "Venda moletom", Vencimento = "10/10/2022", Valor = "R$ 350,00", Status = "a receber"},
+            };
+            dtgExibirReceb.ItemsSource = source;
         }
 
         private void btnBuscar_Click(object sender, RoutedEventArgs e)
@@ -35,6 +56,26 @@ namespace LojaRoupa.Views.SubViews
         private void btnVoltar_Click(object sender, RoutedEventArgs e)
         {
             _frame.Content = new CaixaUC(_frame);
+        }
+
+        private void btnPesquisar_Click(object sender, RoutedEventArgs e)
+        {
+            FiltrarDespesa();
+        }
+
+        private void FiltrarDespesa()
+        {
+            //dt.ItemsSource = string.Format("[{0}] LIKE '%{1}%'", "Descrição", txtPesquisarDesp.Text);
+        }
+
+        private void Button_Alter_Click(object sender, RoutedEventArgs e)
+        {
+            var thing = dtgExibirReceb.SelectedItem;
+        }
+
+        private void Button_Recipt_Click(object sender, RoutedEventArgs e)
+        {
+            var thing = dtgExibirReceb.SelectedItem;
         }
     }
 }

@@ -34,5 +34,11 @@ namespace LojaRoupa.Views
         {
             _frame.Content = new ExibirDespesasUC(_frame);
         }
+
+        private void btnExibirReceb_Click(object sender, RoutedEventArgs e)
+        {
+           _frame.Content = new ConsultarRecebimentoUC(_frame);
+
+        }
     }
 }

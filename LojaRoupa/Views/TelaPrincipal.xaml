@@ -21,8 +21,8 @@
 
         <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Background="#F7E5FF" MouseDown="BtnDrag">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 2 10 0">
-                <Ellipse Fill="#6F4D80" Height="14" Width="14" MouseDown="BtnMax" Margin="0 0 10 0" />
                 <Ellipse Fill="#6F4D80" Height="14" Width="14" MouseDown="BtnMinimize" Margin="0 0 10 0" />
+                <Ellipse Fill="#6F4D80" Height="14" Width="14" MouseDown="BtnMax" Margin="0 0 10 0" />
                 <Ellipse Fill="#6F4D80" Height="14" Width="14" MouseDown="BtnClose" />
             </StackPanel>
              

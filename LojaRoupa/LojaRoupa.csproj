@@ -181,8 +181,8 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SubViews\ConsultarRecebimentoUC.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SubViews\ExibirDespesasUC.xaml">
       <SubType>Designer</SubType>
