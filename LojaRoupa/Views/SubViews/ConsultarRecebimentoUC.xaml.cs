@@ -20,9 +20,21 @@ namespace LojaRoupa.Views.SubViews
     /// </summary>
     public partial class ConsultarRecebimentoUC : UserControl
     {
-        public ConsultarRecebimentoUC()
+        public Frame _frame;
+        public ConsultarRecebimentoUC(Frame frame)
         {
             InitializeComponent();
+            _frame = frame;
+        }
+
+        private void btnBuscar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnVoltar_Click(object sender, RoutedEventArgs e)
+        {
+            _frame.Content = new CaixaUC(_frame);
         }
     }
 }
