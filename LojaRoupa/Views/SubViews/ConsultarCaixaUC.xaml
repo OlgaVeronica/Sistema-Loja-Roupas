@@ -28,7 +28,7 @@
         
         <Grid Grid.Row="2" Background="White" HorizontalAlignment="Center">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" MaxWidth="500"/>
+                <ColumnDefinition Width="*" MaxWidth="500"/> 
                 <ColumnDefinition Width="*" MaxWidth="500"/>
             </Grid.ColumnDefinitions>
 
