@@ -8,7 +8,7 @@ using MySql.Data.MySqlClient;
 
 namespace LojaRoupa.Database
 {
-    class Conexao
+    public class Conexao
     {
         private static string host = "localhost";
 
