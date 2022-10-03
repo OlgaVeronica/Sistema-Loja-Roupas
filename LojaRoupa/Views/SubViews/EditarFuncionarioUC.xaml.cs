@@ -20,9 +20,17 @@ namespace LojaRoupa.Views.SubViews
     /// </summary>
     public partial class EditarFuncionarioUC : UserControl
     {
-        public EditarFuncionarioUC()
+        private Frame _frame;
+
+        public EditarFuncionarioUC(Frame frame)
         {
             InitializeComponent();
+            _frame = frame;
+        }
+
+        private void btnVoltar_Click(object sender, RoutedEventArgs e)
+        {
+            _frame.Content = new FuncionarioUC(_frame);
         }
     }
 }
