@@ -18,15 +18,60 @@
         </StackPanel>
 
 
-        <StackPanel Orientation="Horizontal" Grid.Row="1">
-            
-            <StackPanel Width="500">
-                <TextBlock Text="Produtos" HorizontalAlignment="Center"  FontSize="30"/>
-                <DataGrid Grid.Row="1" x:Name="dtgRoupas"  FontSize="20"></DataGrid>
-            
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="10">
+
+            <StackPanel Grid.Column="0" Width="375" Margin="0,10">
+                <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
+                    <Label Content="Produto:" FontSize="20"/>
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtProd"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
+                    <Label Content="Descrição:" FontSize="20"/>
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtDesc"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
+                    <Label Content="ID:" FontSize="20"/>
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtID"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
+                    <Label Content="Valor:" FontSize="20"/>
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtValor"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
+                    <Label Content="Sexo:" FontSize="20"/>
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtSexo"></TextBox>
+                </StackPanel>
+
+
+
+
+
             </StackPanel>
-            <StackPanel>
-                
+
+
+
+
+            <StackPanel Grid.Column="1" Margin="10">
+                <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
+                    <Label Content="Cliente:" FontSize="20"/>
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtCliente"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
+                    <Label Content="Data:" FontSize="20"/>
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtData" Cursor="Arrow"></TextBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
+                    <Label Content="Pagamento:" FontSize="20"/>
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtPag"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
+                    <Label Content="Horário:" FontSize="20"/>
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtHora"></TextBox>
+                </StackPanel>
+
+
+
             </StackPanel>
         </StackPanel>
 

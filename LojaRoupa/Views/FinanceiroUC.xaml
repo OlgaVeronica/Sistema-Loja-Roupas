@@ -9,23 +9,33 @@
     <Grid Background="#fefefe">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height=".3*"/>
+            <RowDefinition Height=".5*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height=".3*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
-            <TextBlock Text="Financeiro" FontSize="40" TextAlignment="Center"/>
+            <StackPanel>
+                <TextBlock Text="Financeiro" FontSize="40" TextAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" MaxWidth="700" Margin="1,-10,1,1">
+                <TextBox x:Name="txtPesquisarFin" Padding="5" Height="35" HorizontalAlignment="Left" Width="500" Background="White" FontSize="20" VerticalContentAlignment="Bottom" Cursor="Arrow"/>
+                <Button x:Name="btnPesquisar" Content="Pesquisar" Margin="10" Width="150" Height="35" Cursor="Hand" FontSize="20" HorizontalAlignment="Right" Click="btnPesquisar_Click"/>
+
+            </StackPanel>
         </StackPanel>
+        
 
 
-        <DataGrid Grid.Row="1" x:Name="dtgFinanceiro"  FontSize="20"></DataGrid>
+        <DataGrid Grid.Row="1" x:Name="dtgFinanceiro"  FontSize="20" SelectionChanged="dtgFinanceiro_SelectionChanged"></DataGrid>
 
         <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Height="50" Width="150" x:Name="btnDespesas" Click="btnExibirDesp_Click" Cursor="Hand">Exibir Despesas</Button>
+            <Button Grid.Column="0" Height="50" Width="150" x:Name="btnRelatorio" Click="btnRelatorio_Click" Cursor="Hand">Gerar Relatório</Button>
+            <Button Grid.Column="1" Height="50" Width="150" x:Name="btnDespesas" Click="btnExibirDesp_Click" Cursor="Hand">Exibir Despesas</Button>
             <Button Grid.Column="2" Height="50" Width="150" x:Name="btnRecebimentos" Click="btnExibirReceb_Click" Cursor="Hand">Exibir recebimentos</Button>
         </Grid>
 

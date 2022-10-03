@@ -8,10 +8,12 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="BlanchedAlmond">
         <Grid.RowDefinitions>
+            
             <RowDefinition Height="67*"/>
             <RowDefinition Height="75*"/>
-            <RowDefinition Height="69*"/>
+            <RowDefinition Height="40*"/>
             <RowDefinition Height="250*"/>
+            
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Margin="10,10,10,10">
@@ -44,6 +46,7 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+        
 
 
     </Grid>

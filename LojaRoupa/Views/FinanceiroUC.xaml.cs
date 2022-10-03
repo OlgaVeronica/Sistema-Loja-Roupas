@@ -40,5 +40,20 @@ namespace LojaRoupa.Views
            _frame.Content = new ConsultarRecebimentoUC(_frame);
 
         }
+
+        private void dtgFinanceiro_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void btnPesquisar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnRelatorio_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
