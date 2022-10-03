@@ -91,6 +91,9 @@
     <Compile Include="ViewsModels\ProdutoModel.cs" />
     <Compile Include="ViewsModels\VendaModel.cs" />
     <Compile Include="ViewsModels\VendaProdutoModel.cs" />
+    <Compile Include="Views\CadFornecedor.xaml.cs">
+      <DependentUpon>CadFornecedor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CaixaUC.xaml.cs">
       <DependentUpon>CaixaUC.xaml</DependentUpon>
     </Compile>
@@ -152,6 +155,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\CadFornecedor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CaixaUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
