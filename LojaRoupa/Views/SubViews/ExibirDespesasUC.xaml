@@ -28,8 +28,8 @@
             </StackPanel>
         </StackPanel>
 
-        <StackPanel Grid.Row="2" Margin="10">
-            
-        </StackPanel>
+        <DataGrid Grid.Row="2" Margin="10" Name="dtgExibirDesp" FontSize="20"></DataGrid>
+
+       
     </Grid>
 </UserControl>
