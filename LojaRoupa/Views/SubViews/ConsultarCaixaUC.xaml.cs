@@ -17,7 +17,7 @@ namespace LojaRoupa.Views.SubViews
     /// <summary>
     /// Lógica interna para ConsultarCaixaUC.xaml
     /// </summary>
-    public partial class ConsultarCaixaUC : Window
+    public partial class ConsultarCaixaUC : UserControl
     {
         public Frame _frame;
         public ConsultarCaixaUC(Frame frame)
