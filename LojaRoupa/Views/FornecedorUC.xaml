@@ -7,29 +7,20 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="RosyBrown">
-        <StackPanel>
-            <TextBlock FontSize="30" TextAlignment="Center" Foreground="Black" Text="Fornecedores"/>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height=".3*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height=".3*"/>
-                </Grid.RowDefinitions>
-                <StackPanel Grid.Row="0">
-                    <TextBlock Text="Fornecedores" FontSize="40" TextAlignment="Center"/>
-                </StackPanel>
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".3*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height=".3*"/>
+            </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" FontSize="40" TextAlignment="Center" Foreground="Black" Text="Fornecedores"/>
 
 
-                <DataGrid Grid.Row="1" x:Name="dtgFornecedores"  FontSize="20"></DataGrid>
 
-                <Grid Grid.Row="3">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Button Height="50" Width="150" x:Name="btnCadastrarFornecedor" Cursor="Hand">Cadastrar</Button>
-                </Grid>
-            </Grid>
-        </StackPanel>
+        <DataGrid Grid.Row="1" x:Name="dtgFornecedores"  FontSize="20"></DataGrid>
+
+               
+                    
+         <Button Grid.Row="2" Height="50" Width="150" x:Name="btnCadastrarFornecedor" Cursor="Hand" Click="btnCadastrarFornecedor_Click">Cadastrar</Button>
     </Grid>
 </UserControl>

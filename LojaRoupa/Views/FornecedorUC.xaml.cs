@@ -27,5 +27,10 @@ namespace LojaRoupa.Views
             InitializeComponent();
             _frame = frame;
         }
+
+        private void btnCadastrarFornecedor_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
