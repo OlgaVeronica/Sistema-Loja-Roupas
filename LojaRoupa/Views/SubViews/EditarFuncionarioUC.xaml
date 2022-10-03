@@ -9,9 +9,9 @@
     <Grid Background="#f1f1f1f1">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height=".3"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height=".3"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="285"/>
+            <RowDefinition Height="85"/>
         </Grid.RowDefinitions>
 
         <TextBlock Foreground="Black" Grid.Row="0" FontSize="40" HorizontalAlignment="Center" Text="Editar Funcionário" Margin="240,0" Width="320"/>
