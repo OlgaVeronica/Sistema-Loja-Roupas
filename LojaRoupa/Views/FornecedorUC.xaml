@@ -7,16 +7,20 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="RosyBrown">
-        <StackPanel>
-        <TextBlock Text="Fornecedores/Marcas" FontSize="30" TextAlignment="Center" Foreground="Black"/>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Button VerticalAlignment="center" Grid.Column="1" Height="50" Margin="100,35,100,0" Grid.RowSpan="2">Buscar marca</Button>
-                <TextBox TextWrapping="Wrap" Foreground="Gray" Text="Insira a marca desejada" Margin="20,35,10,0" Background="White" Width="700" Height="25"/>
-            </Grid>
-        </StackPanel>
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".3*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height=".3*"/>
+            </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" FontSize="40" TextAlignment="Center" Foreground="Black" Text="Fornecedores"/>
+
+
+
+        <DataGrid Grid.Row="1" x:Name="dtgFornecedores"  FontSize="20"></DataGrid>
+
+               
+                    
+         <Button Grid.Row="2" Height="50" Width="150" x:Name="btnCadastrarFornecedor" Cursor="Hand" Click="btnCadastrarFornecedor_Click">Cadastrar</Button>
     </Grid>
 </UserControl>

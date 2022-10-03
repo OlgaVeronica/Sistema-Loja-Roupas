@@ -51,5 +51,10 @@ namespace LojaRoupa.Views
         {
             _frame.Content = new CadastrarFuncionarioUC(_frame);
         }
+
+        private void dtgFuncionarios_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
