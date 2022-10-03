@@ -80,7 +80,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DAOs\AbstractDAO.cs" />
-    <Compile Include="DAOs\FuncionarioDao.cs" />
+    <Compile Include="DAOs\FuncionarioDAO.cs" />
     <Compile Include="Database\Conexao.cs" />
     <Compile Include="Helpers\DAOHelper.cs" />
     <Compile Include="ViewsModels\CaixaModel.cs" />
