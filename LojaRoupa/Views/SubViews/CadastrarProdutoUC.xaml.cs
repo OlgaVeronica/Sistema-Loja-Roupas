@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LojaRoupa.ViewsModels;
+using LojaRoupa.DAOs;
+using MySql.Data.MySqlClient;
 
 namespace LojaRoupa.Views.SubViews
 {
@@ -38,6 +40,19 @@ namespace LojaRoupa.Views.SubViews
             produto.Colecao = txtColecao.Text;
             produto.Tamanho = txtTamanho.Text;
             produto.Estampa = txtEstampa.Text;
+            produto.Status = "ativo";
+
+            try
+            {
+                var dao = new ProdutoDAO();
+                dao.Insert(produto);
+                MessageBox.Show("Cadastro Realizado!");
+            }
+            catch (MySqlException error)
+            {
+
+                MessageBox.Show(error.Message);
+            }
 
             Clear();
         }

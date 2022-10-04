@@ -1,4 +1,6 @@
-﻿using LojaRoupa.ViewsModels;
+﻿using LojaRoupa.DAOs;
+using LojaRoupa.ViewsModels;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,12 +36,24 @@ namespace LojaRoupa.Views.SubViews
             funcionario.Nome = txtNome.Text;
             funcionario.Cpf = txtCPF.Text;
             funcionario.RG = txtRG.Text;
-            funcionario.Telefoe = txtTelefone.Text;
+            funcionario.Telefone = txtTelefone.Text;
             funcionario.Sexo = txtSexo.Text;
             funcionario.Email = txtEmail.Text;
             funcionario.Endereco = txtEndereco.Text;
             funcionario.Funcao = txtFuncao.Text;
             funcionario.Salario = txtSalario.Text;
+            funcionario.Status = "ativo";
+
+            try
+            {
+                var dao = new FuncionarioDAO();
+                dao.Insert(funcionario);
+                MessageBox.Show("Cadastro Realizado!");
+            } catch(MySqlException error)
+            {
+
+                MessageBox.Show(error.Message);
+            }
 
             Clear();
         }
