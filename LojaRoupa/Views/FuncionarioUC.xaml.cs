@@ -90,6 +90,9 @@ namespace LojaRoupa.Views
 
         private void btnEditar_Click(object sender, RoutedEventArgs e)
         {
+            var funcionario = dtgFuncionarios.SelectedItem as FuncionarioModel;
+
+            _frame.Content = new CadastrarFuncionarioUC(_frame, funcionario);
         }
 
         private void dtgFuncionarios_SelectionChanged(object sender, SelectionChangedEventArgs e)

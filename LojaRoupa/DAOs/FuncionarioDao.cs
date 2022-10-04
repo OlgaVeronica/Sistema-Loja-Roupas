@@ -81,8 +81,13 @@ namespace LojaRoupa.DAOs
                 var lista = new List<FuncionarioModel>();
 
                 var command = conn.Query();
+                command.CommandText = "select * from funcionario ";
 
+
+                
                 command.CommandText = "select * from funcionario where(status_func like 'ativo');";
+
+                
                 MySqlDataReader reader = command.ExecuteReader();
 
                 while (reader.Read())
@@ -116,7 +121,34 @@ namespace LojaRoupa.DAOs
 
         public override void Update(FuncionarioModel func)
         {
-            throw new NotImplementedException();
+
+            try
+            {
+                var command = conn.Query();
+                command.CommandText = "update funcionario set nome_func = @nome, telefone_func = @telefone, endereco_func = @endereco, cpf_func = @cpf, " +
+                        "sexo_func = @sexo, email_func = @email, rg_func = @rg, funcao_func = @funcao, salario_func = @salario;";
+
+
+                command.Parameters.AddWithValue("@telefone", func.Telefone);
+                command.Parameters.AddWithValue("@endereco", func.Endereco);
+                command.Parameters.AddWithValue("@cpf", func.Cpf);
+                command.Parameters.AddWithValue("@sexo", func.Sexo);
+                command.Parameters.AddWithValue("@email", func.Email);
+                command.Parameters.AddWithValue("@rg", func.RG);
+                command.Parameters.AddWithValue("@funcao", func.Funcao);
+                command.Parameters.AddWithValue("@salario", func.Salario);
+                command.Parameters.AddWithValue("@nome", func.Nome);
+                command.Parameters.AddWithValue("@status", func.Status);
+
+                var resultado = command.ExecuteNonQuery();
+
+
+            } catch(MySqlException ex)
+            {
+                throw ex;
+            }
+            
+
         }
     }
 }

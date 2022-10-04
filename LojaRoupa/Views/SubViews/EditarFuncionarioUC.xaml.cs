@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LojaRoupa.ViewsModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,6 +28,8 @@ namespace LojaRoupa.Views.SubViews
             InitializeComponent();
             _frame = frame;
         }
+
+        
 
         private void btnVoltar_Click(object sender, RoutedEventArgs e)
         {
