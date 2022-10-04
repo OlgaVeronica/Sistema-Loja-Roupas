@@ -105,8 +105,31 @@ namespace LojaRoupa.DAOs
 
         public override void Update(ProdutoModel prod)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var command = conn.Query();
+                command.CommandText = "update produto set descricao_roup = @descricao, material_roup = @tecido, tipo_roup = @tipo, " +
+                    "colecao_roup = @colecao, tamanho_roup = @tamanho, estampa_roup = @estampa";
+
+
+                command.Parameters.AddWithValue("@descricao", prod.Descricao);
+                command.Parameters.AddWithValue("@tecido", prod.Tecido);
+                command.Parameters.AddWithValue("@tipo", prod.Tipo);
+                command.Parameters.AddWithValue("@colecao", prod.Colecao);
+                command.Parameters.AddWithValue("@tamanho", prod.Tamanho);
+                command.Parameters.AddWithValue("@estampa", prod.Estampa);
+
+                var resultado = command.ExecuteNonQuery();
+
+            }
+            catch (MySqlException ex)
+            {
+                throw ex;
+            }
+
+
         }
+    }
     }
 
 }
