@@ -41,6 +41,5 @@
         </Grid>
 
         <Button Grid.Row="3" Height="50" Width="150" x:Name="btnRealizar" Click="btnRealizar_Click" Margin="325,17,325,17">Realizar venda</Button>
-        <Button Grid.Row="0" HorizontalAlignment="Left" Margin="10,17,0,17" Height="50" Width="50" x:Name="btnVoltar" Click="btnVoltar_Click">←</Button>
     </Grid>
 </UserControl>
