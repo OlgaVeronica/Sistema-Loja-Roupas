@@ -17,7 +17,7 @@ namespace LojaRoupa.Views
     /// <summary>
     /// Lógica interna para PerfilUC.xaml
     /// </summary>
-    public partial class PerfilUC : Window
+    public partial class PerfilUC : UserControl
     {
         public PerfilUC()
         {
