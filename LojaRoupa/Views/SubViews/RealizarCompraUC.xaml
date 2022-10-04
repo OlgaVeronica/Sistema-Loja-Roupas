@@ -19,8 +19,8 @@
         <Grid Grid.Row="1" Background="White">
             <StackPanel Grid.Column="0" Margin="10, 0, 10, 0">
                 <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
-                    <Label Content="Nome:" FontSize="30"/>
-                    <TextBox MinWidth="500" FontSize="30" x:Name="txtNome"></TextBox>
+                    <Label Content="Data:" FontSize="30"/>
+                    <TextBox MinWidth="500" FontSize="30" x:Name="txtData"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
                     <Label Content="Valor:" FontSize="30"/>

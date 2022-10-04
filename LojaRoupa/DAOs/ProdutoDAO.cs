@@ -13,7 +13,7 @@ using MySql.Data.MySqlClient;
 using LojaRoupa.Helpers;
 namespace LojaRoupa.DAOs
 {
-    class ProdutoDAO: AbstractDAO<ProdutoModel>
+    class ProdutoDAO : AbstractDAO<ProdutoModel>
     {
         public override void Delete(ProdutoModel prod)
         {
@@ -130,7 +130,8 @@ namespace LojaRoupa.DAOs
 
 
         }
-    
+
     }
+}
 
 

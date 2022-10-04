@@ -43,7 +43,7 @@
     <Reference Include="MaterialDesignThemes.Wpf, Version=4.5.0.0, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
       <HintPath>packages\MaterialDesignThemes.4.5.0\lib\net452\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data, Version=8.0.28.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=8.0.30.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -80,12 +80,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DAOs\AbstractDAO.cs" />
+    <Compile Include="DAOs\CompraDAO.cs" />
     <Compile Include="DAOs\FuncionarioDAO.cs" />
     <Compile Include="DAOs\MarcaDAO.cs" />
     <Compile Include="DAOs\ProdutoDAO.cs" />
     <Compile Include="Database\Conexao.cs" />
     <Compile Include="Helpers\DAOHelper.cs" />
     <Compile Include="ViewsModels\CaixaModel.cs" />
+    <Compile Include="ViewsModels\CompraModel.cs" />
     <Compile Include="ViewsModels\FinanceiroModel.cs" />
     <Compile Include="ViewsModels\FornecedorModel.cs" />
     <Compile Include="ViewsModels\FuncionarioModel.cs" />

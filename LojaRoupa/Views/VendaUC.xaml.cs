@@ -33,5 +33,10 @@ namespace LojaRoupa.Views
         {
 
         }
+
+        private void btnVoltar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
