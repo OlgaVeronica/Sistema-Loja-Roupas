@@ -11,6 +11,7 @@ endereco varchar(300)
 
 create table Funcionario(
 id_func int primary key auto_increment,
+nome_func varchar(300),
 telefone_func varchar(300),
 endereco_func varchar(300),
 cpf_func varchar(300),
