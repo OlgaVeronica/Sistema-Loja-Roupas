@@ -85,10 +85,5 @@ namespace LojaRoupa.Views
         {
             WindowState = WindowState == WindowState.Normal ? WindowState.Maximized : WindowState.Normal;
         }
-
-        private void btnPerfil_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

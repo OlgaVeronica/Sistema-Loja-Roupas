@@ -17,29 +17,16 @@
             <TextBlock Text="Funcionários" FontSize="40" TextAlignment="Center"/>
 
         </StackPanel>
+        
+  
 
-
-
-        <DataGrid Grid.Row="1" x:Name="dtgFuncionarios"  FontSize="20" AutoGenerateColumns="False" 
-                  CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"
-                  AlternatingRowBackground="#f2f2f2" AlternationCount="2" CanUserReorderColumns="False">
+        <DataGrid Grid.Row="1" x:Name="dtgFuncionarios"  FontSize="20">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Funcionario" Binding="{Binding Nome}" />
-                <DataGridTextColumn Header="Funcao" Binding="{Binding Funcao}" />
-                <DataGridTextColumn Header="Telefone" Binding="{Binding Telefone}" />
-                <DataGridTextColumn Header="Cpf" Binding="{Binding Cpf}" />
-                <DataGridTextColumn Header="Sexo" Binding="{Binding Sexo}" />
-                <DataGridTextColumn Header="Salario" Binding="{Binding Salario}" />
-                
-                
-                
-                
                 <DataGridTemplateColumn Header="Mudanças">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Button Content="Editar" x:Name="btnEditar" Click="btnEditar_Click"  Margin="10, 0, 0, 10"/>
-                                <Button Content="Deletar" x:Name="btnDeletar" Click="btnDeletar_Click" Margin="10, 0, 0, 10"/>
+                                <Button Content="Editar" Click="btnEditFunc_Click"/>
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
@@ -49,7 +36,7 @@
         
         
 
-        <Button Grid.Row="2" Height="50" Width="150" x:Name="btnCadastrar" Click="btnCadastrar_Click" Cursor="Hand">Cadastrar</Button>
+        <Button Grid.Row="2" Height="50" Width="150" x:Name="btnCadastrar" Click="btnCadastrar_Click">Cadastrar</Button>
 
         
        </Grid>

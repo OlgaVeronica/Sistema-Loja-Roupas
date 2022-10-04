@@ -16,6 +16,7 @@ namespace LojaRoupa.DAOs
     public abstract class AbstractDAO<T>
     {
         protected Conexao conn = new Conexao();
+        private string table;
         public abstract void Insert(T t);
         public abstract void Update(T t);
         public abstract void Delete(T t);

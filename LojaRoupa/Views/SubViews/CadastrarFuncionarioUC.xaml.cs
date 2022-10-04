@@ -24,42 +24,15 @@ namespace LojaRoupa.Views.SubViews
     public partial class CadastrarFuncionarioUC : UserControl
     {
         private Frame _frame;
-        private FuncionarioModel _funcionario = new FuncionarioModel();
-
         public CadastrarFuncionarioUC(Frame frame)
         {
             InitializeComponent();
             _frame = frame;
-            Loaded += CadastrarFuncionarioUC_Loaded;
-        }
-
-        
-
-        public CadastrarFuncionarioUC(Frame frame, FuncionarioModel funcionario)
-        {
-            InitializeComponent();
-            _frame = frame;
-            _funcionario = funcionario;
-            Loaded += CadastrarFuncionarioUC_Loaded;
-
-        }
-
-        private void CadastrarFuncionarioUC_Loaded(object sender, RoutedEventArgs e)
-        {
-            txtNome.Text = _funcionario.Nome;
-            txtCPF.Text = _funcionario.Cpf;
-            txtRG.Text = _funcionario.RG;
-            txtTelefone.Text = _funcionario.Telefone;
-            txtSexo.Text = _funcionario.Sexo;
-            txtEmail.Text = _funcionario.Email;
-            txtEndereco.Text = _funcionario.Endereco;
-            txtFuncao.Text = _funcionario.Funcao;
-            txtSalario.Text = _funcionario.Salario;
         }
 
         private void btnCadastrar_Click(object sender, RoutedEventArgs e)
         {
-            FuncionarioModel funcionario = _funcionario;
+            FuncionarioModel funcionario = new FuncionarioModel();
             funcionario.Nome = txtNome.Text;
             funcionario.Cpf = txtCPF.Text;
             funcionario.RG = txtRG.Text;
@@ -69,24 +42,12 @@ namespace LojaRoupa.Views.SubViews
             funcionario.Endereco = txtEndereco.Text;
             funcionario.Funcao = txtFuncao.Text;
             funcionario.Salario = txtSalario.Text;
-            funcionario.Status = "ativo";
 
             try
             {
                 var dao = new FuncionarioDAO();
-
-                if(funcionario.Id > 0)
-                {
-                    dao.Update(funcionario);
-                    MessageBox.Show("Update Realizado!");
-
-                }
-                else
-                {
-                    dao.Insert(funcionario);
-                    MessageBox.Show("Cadastro Realizado!");
-
-                }
+                dao.Insert(funcionario);
+                MessageBox.Show("Cadastro Realizado!");
             } catch(MySqlException error)
             {
 

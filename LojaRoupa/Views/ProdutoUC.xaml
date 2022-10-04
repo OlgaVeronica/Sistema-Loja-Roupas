@@ -18,6 +18,7 @@
         </StackPanel>
 
 
+<<<<<<< HEAD
         <DataGrid Grid.Row="1" x:Name="dtgProdutos"  FontSize="20" AutoGenerateColumns="False" 
                   CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"
                   AlternatingRowBackground="#f2f2f2" AlternationCount="2" CanUserReorderColumns="False">
@@ -42,6 +43,9 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
+=======
+        <DataGrid Grid.Row="1" x:Name="dtgProdutos"  FontSize="20"></DataGrid>
+>>>>>>> parent of a64c992 (Merge branch 'main' of https://github.com/OlgaVeronica/Sistema-Loja-Roupas)
 
         <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
@@ -49,7 +53,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Button Height="50" Width="150" x:Name="btnCadastrarProduto" Click="btnCadastrarProduto_Click" Cursor="Hand">Cadastrar Produto</Button>
-            <Button Grid.Column="2" Height="50" Width="150" x:Name="btnMarca" Click="btnMarca_Click" Cursor="Hand">Marcas</Button>
+            <Button Grid.Column="2" Height="50" Width="150" x:Name="btnMarca" Click="btnMarca_Click">Marcas</Button>
         </Grid>
 
       

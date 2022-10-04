@@ -28,16 +28,7 @@ namespace LojaRoupa.Views
             _frame = frame;
         }
 
-        private void btnEditar_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void btnDeletar_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnCadastrar_Click(object sender, RoutedEventArgs e)
+        private void btnCadastrarFornecedor_Click(object sender, RoutedEventArgs e)
         {
 
         }
