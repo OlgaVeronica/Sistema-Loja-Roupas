@@ -29,6 +29,8 @@
                 <ComboBox FontSize="30" Height="60" Width="400" Margin="0,60,0,0" VerticalAlignment="Top"></ComboBox>
 
                 <TextBlock FontSize="30" Height="60" HorizontalAlignment="Center" Margin="0,120,0,0" VerticalAlignment="Top">CPF</TextBlock>
+                <ComboBox FontSize="30" Height="60" Width="400" Margin="0,180,0,0" VerticalAlignment="Top"></ComboBox>
+
             </Grid>
         </Grid>
 
