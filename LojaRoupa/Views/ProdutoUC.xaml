@@ -22,6 +22,7 @@
                   CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"
                   AlternatingRowBackground="#f2f2f2" AlternationCount="2" CanUserReorderColumns="False">
             <DataGrid.Columns>
+                <DataGridTextColumn Header="Descrição" Binding="{Binding Descricao}" />
                 <DataGridTextColumn Header="Tipo" Binding="{Binding Tipo}" />
                 <DataGridTextColumn Header="Tecido" Binding="{Binding Tecido}" />
                 <DataGridTextColumn Header="Tamanho" Binding="{Binding Tamanho}" />
