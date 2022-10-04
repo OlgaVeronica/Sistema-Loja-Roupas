@@ -43,8 +43,6 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <DataGrid Grid.Row="1" x:Name="dtgProdutos"  FontSize="20"></DataGrid>
-
         <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
