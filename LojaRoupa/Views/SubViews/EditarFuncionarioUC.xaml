@@ -71,7 +71,7 @@
             </StackPanel>
         </Grid>
 
-        <Button Grid.Row="2" x:Name="btnSalvar" Content="Salvar" FontSize="20" Height="50" Width="150"/>
+        <Button Grid.Row="2" x:Name="btnSalvar" Content="Salvar" FontSize="20" Height="50" Width="150" Click="btnSalvar_Click"/>
 
     </Grid>
 </UserControl>

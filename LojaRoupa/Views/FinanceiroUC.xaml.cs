@@ -55,10 +55,5 @@ namespace LojaRoupa.Views
         {
 
         }
-
-        private void btnComprar_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

@@ -16,26 +16,13 @@ using System.Windows.Shapes;
 namespace LojaRoupa.Views.SubViews
 {
     /// <summary>
-    /// Interação lógica para EditarFuncionarioUC.xam
+    /// Interação lógica para RealizarCompraUC.xam
     /// </summary>
-    public partial class EditarFuncionarioUC : UserControl
+    public partial class RealizarCompraUC : UserControl
     {
-        private Frame _frame;
-
-        public EditarFuncionarioUC(Frame frame)
+        public RealizarCompraUC()
         {
             InitializeComponent();
-            _frame = frame;
-        }
-
-        private void btnVoltar_Click(object sender, RoutedEventArgs e)
-        {
-            _frame.Content = new FuncionarioUC(_frame);
-        }
-
-        private void btnSalvar_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
