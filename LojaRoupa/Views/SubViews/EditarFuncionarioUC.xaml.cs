@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LojaRoupa.ViewsModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,9 +29,16 @@ namespace LojaRoupa.Views.SubViews
             _frame = frame;
         }
 
+        
+
         private void btnVoltar_Click(object sender, RoutedEventArgs e)
         {
             _frame.Content = new FuncionarioUC(_frame);
+        }
+
+        private void btnSalvar_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

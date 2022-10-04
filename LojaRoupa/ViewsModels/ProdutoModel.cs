@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace LojaRoupa.ViewsModels
 {
-    class ProdutoModel
+    public class ProdutoModel
     {
+        public int Id { get; set; }
         public string Descricao { get; set; }
         public string Tecido { get; set; }
         public string Tipo { get; set; }
         public string Colecao { get; set; }
         public string Tamanho { get; set; }
         public string Estampa { get; set; }
+        public string Status { get; set; }
         
     }
 }

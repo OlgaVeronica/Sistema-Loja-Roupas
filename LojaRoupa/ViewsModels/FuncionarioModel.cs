@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace LojaRoupa.ViewsModels
 {
-    class FuncionarioModel
+    public class FuncionarioModel
     {
+        public int Id { get; set; }
         public string Nome { get; set; }
         public string Telefone { get; set; }
         public string Endereco { get; set; }
@@ -17,6 +18,7 @@ namespace LojaRoupa.ViewsModels
         public string RG { get; set; }
         public string Funcao { get; set; }
         public string Salario { get; set; }
+        public string Status { get; set; }
 
     }
 }

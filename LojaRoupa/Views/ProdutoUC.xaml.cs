@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 using LojaRoupa.Views;
 using LojaRoupa.ViewsModels;
 using LojaRoupa.Views.SubViews;
+using LojaRoupa.DAOs;
+using MySql.Data.MySqlClient;
 
 namespace LojaRoupa.Views
 {
@@ -34,15 +36,53 @@ namespace LojaRoupa.Views
 
         private void ProdutoUC_Loaded(object sender, RoutedEventArgs e)
         {
-            var produtos = new[]{
-                new {Nome = "José Maria", Telefone = "3333-3333", Email = "josemaria@email.com"},
-                new {Nome = "Antonio Carlos", Telefone = "4444-4444", Email = "antonio@email.com"},
-                new {Nome = "Pedro Henrique", Telefone = "5555-5555", Email = "pedro@email.com"},
-                new {Nome = "Augusto Cesar", Telefone = "6666-6666", Email = "augusto@email.com"},
-                new {Nome = "Carlos Silva", Telefone = "7777-7777", Email = "carlos@email.com"}
-            };
+            carregarListagem();
+        }
 
-            dtgProdutos.ItemsSource = produtos;
+        private void carregarListagem()
+        {
+            try
+            {
+                var dao = new ProdutoDAO();
+                dtgProdutos.ItemsSource = dao.List();
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnDeletar_Click(object sender, RoutedEventArgs e)
+        {
+
+            try
+            {
+                var produto = dtgProdutos.SelectedItem as ProdutoModel;
+                var resultado = MessageBox.Show($"Deseja realmente excluir \"{produto.Tipo}\" dos registros?", "Confirmação de Exclusão",
+                    MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+
+                if (resultado == MessageBoxResult.Yes)
+                {
+                    var dao = new ProdutoDAO();
+                    dao.Delete(produto);
+                    MessageBox.Show("Produto deletado com sucesso");
+                    carregarListagem();
+                }
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void btnEditar_Click(object sender, RoutedEventArgs e)
+        {
+            var produto = dtgProdutos.SelectedItem as ProdutoModel;
+
+            _frame.Content = new CadastrarProdutoUC(_frame, produto);
         }
 
         private void btnCadastrarProduto_Click(object sender, RoutedEventArgs e)

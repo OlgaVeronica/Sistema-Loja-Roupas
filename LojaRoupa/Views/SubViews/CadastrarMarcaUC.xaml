@@ -17,7 +17,7 @@
 
         <TextBlock Foreground="black" Grid.Row="0" HorizontalAlignment="Center" FontSize="40" Text="Cadastrar Marca" />
 
-        <Grid Background="White" HorizontalAlignment="Center" Margin="0,84,0,84" Grid.RowSpan="4">
+        <Grid Background="AliceBlue" HorizontalAlignment="Center" Margin="0,84,0,84" Grid.RowSpan="4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" MaxWidth="500"/>
                 <ColumnDefinition Width="*" MaxWidth="500"/>

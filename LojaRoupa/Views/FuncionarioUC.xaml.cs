@@ -13,7 +13,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using LojaRoupa.DAOs;
 using LojaRoupa.Views.SubViews;
+using LojaRoupa.ViewsModels;
+using MySql.Data.MySqlClient;
 
 namespace LojaRoupa.Views
 {
@@ -36,20 +39,60 @@ namespace LojaRoupa.Views
 
         private void FuncionarioUC_Loaded(object sender, RoutedEventArgs e)
         {
-            var funcionarios = new[]{
-                new {Nome = "José Maria", Telefone = "3333-3333", Email = "josemaria@email.com"},
-                new {Nome = "Antonio Carlos", Telefone = "4444-4444", Email = "antonio@email.com"},
-                new {Nome = "Pedro Henrique", Telefone = "5555-5555", Email = "pedro@email.com"},
-                new {Nome = "Augusto Cesar", Telefone = "6666-6666", Email = "augusto@email.com"},
-                new {Nome = "Carlos Silva", Telefone = "7777-7777", Email = "carlos@email.com"}
-            };
 
-            dtgFuncionarios.ItemsSource = funcionarios;
+            carregarListagem();
+            
+
+        }
+
+        private void carregarListagem()
+        {
+            try
+            {
+                var dao = new FuncionarioDAO();
+                dtgFuncionarios.ItemsSource = dao.List();
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnCadastrar_Click(object sender, RoutedEventArgs e)
         {
             _frame.Content = new CadastrarFuncionarioUC(_frame);
+        }
+
+        private void btnDeletar_Click(object sender, RoutedEventArgs e)
+        {
+
+            try
+            {
+                var funcionario = dtgFuncionarios.SelectedItem as FuncionarioModel;
+                var resultado = MessageBox.Show($"Deseja realmente excluir \"{funcionario.Nome}\" dos registros?", "Confirmação de Exclusão",
+                    MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+
+                if (resultado == MessageBoxResult.Yes)
+                {
+                    var dao = new FuncionarioDAO();
+                    dao.Delete(funcionario);
+                    MessageBox.Show("Funcionário deletado com sucesso");
+                    carregarListagem();
+                }
+            } catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+        }
+
+        private void btnEditar_Click(object sender, RoutedEventArgs e)
+        {
+            var funcionario = dtgFuncionarios.SelectedItem as FuncionarioModel;
+
+            _frame.Content = new CadastrarFuncionarioUC(_frame, funcionario);
         }
 
         private void dtgFuncionarios_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -60,6 +103,11 @@ namespace LojaRoupa.Views
         private void btnEditFunc_Click(object sender, RoutedEventArgs e)
         {
             _frame.Content = new EditarFuncionarioUC(_frame);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
