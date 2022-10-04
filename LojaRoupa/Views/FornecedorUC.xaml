@@ -25,12 +25,11 @@
                   CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"
                   AlternatingRowBackground="#f2f2f2" AlternationCount="2" CanUserReorderColumns="False">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="RazaoSocial" Binding="{Binding RazaoSocial}" />
+                    <DataGridTextColumn Header="Razao Social" Binding="{Binding RazaoSocial}" />
                     <DataGridTextColumn Header="Cnpj" Binding="{Binding Cnpj}" />
                     <DataGridTextColumn Header="NomeFantasia" Binding="{Binding NomeFantasia}" />
                     <DataGridTextColumn Header="Endereco" Binding="{Binding Endereco}" />
                     <DataGridTextColumn Header="Email" Binding="{Binding Email}" />
-                    <DataGridTextColumn Header="Telefone" Binding="{Binding Telefone}" />
 
 
 
