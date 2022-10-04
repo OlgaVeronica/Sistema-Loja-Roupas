@@ -24,15 +24,35 @@ namespace LojaRoupa.Views.SubViews
     public partial class CadastrarProdutoUC : UserControl
     {
         private Frame _frame;
+        private ProdutoModel _produto = new ProdutoModel();
+
         public CadastrarProdutoUC(Frame frame)
         {
             InitializeComponent();
             _frame = frame;
         }
+        public CadastrarProdutoUC(Frame frame, ProdutoModel produto)
+        {
+            InitializeComponent();
+            _frame = frame;
+            _produto = produto;
+            Loaded += CadastrarProdutoUC_Loaded;
+        }
+
+        private void CadastrarProdutoUC_Loaded(object sender, RoutedEventArgs e)
+        {
+            txtDescricao.Text = _produto.Descricao;
+            txtTecido.Text = _produto.Tecido;
+            txtTipo.Text = _produto.Tipo;
+            txtColecao.Text = _produto.Colecao;
+            txtTamanho.Text = _produto.Tamanho;
+            txtEstampa.Text = _produto.Estampa;
+        }
+
 
         private void btnCadastrar_Click(object sender, RoutedEventArgs e)
         {
-            ProdutoModel produto = new ProdutoModel();
+            ProdutoModel produto = _produto;
 
             produto.Descricao = txtDescricao.Text;
             produto.Tecido = txtTecido.Text;
@@ -45,8 +65,19 @@ namespace LojaRoupa.Views.SubViews
             try
             {
                 var dao = new ProdutoDAO();
-                dao.Insert(produto);
-                MessageBox.Show("Cadastro Realizado!");
+
+                if (produto.Id > 0)
+                {
+                    dao.Update(produto);
+                    MessageBox.Show("Update Realizado!");
+
+                }
+                else
+                {
+                    dao.Insert(produto);
+                    MessageBox.Show("Cadastro Realizado!");
+
+                }
             }
             catch (MySqlException error)
             {

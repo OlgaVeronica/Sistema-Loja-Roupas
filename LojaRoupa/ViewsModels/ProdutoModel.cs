@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LojaRoupa.ViewsModels
 {
-    class ProdutoModel
+    public class ProdutoModel
     {
         public int Id { get; set; }
         public string Descricao { get; set; }

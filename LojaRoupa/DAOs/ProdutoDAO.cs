@@ -86,6 +86,7 @@ namespace LojaRoupa.DAOs
                     produto.Tecido = DAOHelper.GetString(reader, "material_roup");
                     produto.Tipo = DAOHelper.GetString(reader, "tipo_roup");
                     produto.Colecao = DAOHelper.GetString(reader, "colecao_roup");
+                    produto.Tamanho = DAOHelper.GetString(reader, "tamanho_roup");
                     produto.Estampa = DAOHelper.GetString(reader, "estampa_roup");
                     produto.Status = DAOHelper.GetString(reader, "status_roup");
 
@@ -108,7 +109,7 @@ namespace LojaRoupa.DAOs
             try
             {
                 var command = conn.Query();
-                command.CommandText = "update produto set descricao_roup = @descricao, material_roup = @tecido, tipo_roup = @tipo, " +
+                command.CommandText = "update roupa set descricao_roup = @descricao, material_roup = @tecido, tipo_roup = @tipo, " +
                     "colecao_roup = @colecao, tamanho_roup = @tamanho, estampa_roup = @estampa";
 
 
@@ -129,7 +130,7 @@ namespace LojaRoupa.DAOs
 
 
         }
-    }
+    
     }
 
 }
