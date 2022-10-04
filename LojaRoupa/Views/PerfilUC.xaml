@@ -26,15 +26,25 @@
 
             <Grid Grid.Column="0">
                 <TextBlock FontSize="28" Height="60" HorizontalAlignment="Center" VerticalAlignment="Top">Nome do funcionário</TextBlock>
-                <ComboBox FontSize="28" Height="60" Width="400" Margin="0,60,0,0" VerticalAlignment="Top"></ComboBox>
+                <ComboBox FontSize="28" Height="50" Width="400" Margin="0,40,0,0" VerticalAlignment="Top"></ComboBox>
 
-                <TextBlock FontSize="28" Height="60" HorizontalAlignment="Center" Margin="0,120,0,0" VerticalAlignment="Top">CPF</TextBlock>
-                <ComboBox FontSize="28" Height="60" Width="400" Margin="0,180,0,0" VerticalAlignment="Top"></ComboBox>
+                <TextBlock FontSize="28" Height="60" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top">CPF</TextBlock>
+                <ComboBox FontSize="28" Height="50" Width="400" Margin="0,160,0,0" VerticalAlignment="Top"></ComboBox>
+                
+                <TextBlock FontSize="28" Height="60" HorizontalAlignment="Center" Margin="0,200,0,0" VerticalAlignment="Top">Telefone</TextBlock>
+                <ComboBox FontSize="28" Height="50" Width="400" Margin="0,230,0,0" VerticalAlignment="Top"></ComboBox>
 
             </Grid>
 
             <Grid Grid.Column="1">
-                
+                <TextBlock FontSize="28" Height="60" HorizontalAlignment="Center" VerticalAlignment="Top">Sexo</TextBlock>
+                <ComboBox FontSize="28" Height="50" Width="400" Margin="0,40,0,0" VerticalAlignment="Top"></ComboBox>
+
+                <TextBlock FontSize="28" Height="60" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top">Função</TextBlock>
+                <ComboBox FontSize="28" Height="50" Width="400" Margin="0,160,0,0" VerticalAlignment="Top"></ComboBox>
+
+                <TextBlock FontSize="28" Height="60" HorizontalAlignment="Center" Margin="0,200,0,0" VerticalAlignment="Top">Salário</TextBlock>
+                <ComboBox FontSize="28" Height="50" Width="400" Margin="0,230,0,0" VerticalAlignment="Top"></ComboBox>
             </Grid>
         </Grid>
 
