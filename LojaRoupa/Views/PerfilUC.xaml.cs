@@ -23,5 +23,10 @@ namespace LojaRoupa.Views
         {
             InitializeComponent();
         }
+
+        private void btnSairPerfil_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
