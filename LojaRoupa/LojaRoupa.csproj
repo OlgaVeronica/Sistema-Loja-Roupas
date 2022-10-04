@@ -105,6 +105,9 @@
     <Compile Include="Views\FuncionarioUC.xaml.cs">
       <DependentUpon>FuncionarioUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\PerfilUC.xaml.cs">
+      <DependentUpon>PerfilUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ProdutoUC.xaml.cs">
       <DependentUpon>ProdutoUC.xaml</DependentUpon>
     </Compile>
@@ -132,6 +135,9 @@
     </Compile>
     <Compile Include="Views\SubViews\MarcaUC.xaml.cs">
       <DependentUpon>MarcaUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SubViews\RealizarCompraUC.xaml.cs">
+      <DependentUpon>RealizarCompraUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SubViews\RealizarVenda.xaml.cs">
       <DependentUpon>RealizarVenda.xaml</DependentUpon>
@@ -170,6 +176,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\PerfilUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ProdutoUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -203,6 +213,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SubViews\MarcaUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SubViews\RealizarCompraUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

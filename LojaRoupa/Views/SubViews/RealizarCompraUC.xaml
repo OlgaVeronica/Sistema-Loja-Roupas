@@ -6,7 +6,40 @@
              xmlns:local="clr-namespace:LojaRoupa.Views.SubViews"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="White">
-            
+    <Grid Background="#f1f1f1f1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".3*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height=".3*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Foreground="black" Grid.Row="0" HorizontalAlignment="Center" FontSize="40" Text="Realizar Compra" />
+
+
+        <Grid Grid.Row="1" Background="White">
+            <StackPanel Grid.Column="0" Margin="10, 0, 10, 0">
+                <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
+                    <Label Content="Nome:" FontSize="30"/>
+                    <TextBox MinWidth="500" FontSize="30" x:Name="txtNome"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
+                    <Label Content="Valor:" FontSize="30"/>
+                    <TextBox MinWidth="500" FontSize="30" x:Name="txtValor" Cursor="Arrow"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
+                    <Label Content="Hora:" FontSize="30"/>
+                    <TextBox MinWidth="500" FontSize="30" x:Name="txtHora"></TextBox>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+
+        </Grid>
+
+
+
+        <Button Grid.Row="2" Height="50" Width="150" x:Name="btnCadastrar" Click="btnCadastrar_Click">Cadastrar</Button>
+        <Button Grid.Row="0" HorizontalAlignment="Left" Margin="10,0" Height="50" Width="150" x:Name="btnVoltar" Click="btnVoltar_Click" Cursor="Hand">Voltar</Button>
+
     </Grid>
 </UserControl>

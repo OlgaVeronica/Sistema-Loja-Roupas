@@ -31,7 +31,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <DataGrid Grid.Column="0" x:Name="dtgFinanceiro"  FontSize="20" SelectionChanged="dtgFinanceiro_SelectionChanged"></DataGrid>
-            <Button Grid.Column="1" Height="50" Width="150" x:Name="btnComprar"  Cursor="Hand" Click="btnComprar_Click">Realizar compra</Button>
+            <Button Grid.Column="1" Height="50" Width="150" x:Name="btnRealizarCompra"  Cursor="Hand" Click="btnRealizarCompra_Click">Realizar compra</Button>
         </Grid>
 
         <Grid Grid.Row="3">

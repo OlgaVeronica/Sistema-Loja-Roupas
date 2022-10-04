@@ -20,9 +20,21 @@ namespace LojaRoupa.Views.SubViews
     /// </summary>
     public partial class RealizarCompraUC : UserControl
     {
-        public RealizarCompraUC()
+        public Frame _frame;
+        public RealizarCompraUC(Frame frame)
         {
             InitializeComponent();
+            _frame = frame;
+        }
+
+        private void btnVoltar_Click(object sender, RoutedEventArgs e)
+        {
+            _frame.Content = new FinanceiroUC(_frame);
+        }
+
+        private void btnCadastrar_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
