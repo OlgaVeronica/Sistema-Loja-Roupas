@@ -1,0 +1,72 @@
+﻿<Window x:Class="LojaRoupa.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LojaRoupa"
+        mc:Ignorable="d"
+        WindowState="Maximized"
+        Title="MainWindow" Height="720" Width="1280"
+        xmlns:wpfTool="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+
+
+        <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Background="#F7E5FF" Grid.RowSpan="2">
+            <Label x:Name="lbTitulo" Content="Login de Usuário" FontSize="48px" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Bahnschrift"/>
+        </Grid>
+
+        <Grid Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="6" Background="#F7E5FF">
+            <StackPanel Orientation="Vertical" Margin="20 0">
+                <Label x:Name="lbUsuario" Content="Usuário" FontSize="30px" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Bahnschrift"/>
+                <TextBox x:Name="txtNomeUsuario" Height="40" Width="400" Margin="0 20" TextAlignment="Center" VerticalContentAlignment="Center" FontSize="20"/>
+
+                <Label x:Name="lbSenha" Content="Senha" FontSize="30px" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 20 0 0" FontFamily="Bahnschrift"/>
+                <PasswordBox x:Name="pswSenhaUsuario" Height="40"  Width="400" Margin="0 20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <Button x:Name="brLogar" 
+                    Background="#6F4D80"
+                    FontSize="30"
+                    Height="60"
+                    Style="{StaticResource MaterialDesignRaisedButton}"
+                    Width="240"
+                    ToolTip="Resource name: MaterialDesignRaisedButton"
+                    Content="LOGIN"
+                    IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Cursor="Hand" Click="brLogar_Click"/>
+
+        </Grid>
+    </Grid>
+</Window>

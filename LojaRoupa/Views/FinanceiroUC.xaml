@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="LojaRoupa.Views.FinanceiroUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LojaRoupa.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="#fefefe">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".5*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height=".3*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <StackPanel>
+                <TextBlock Text="Financeiro" FontSize="40" TextAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" MaxWidth="700" Margin="1,-10,1,1">
+                <TextBox x:Name="txtPesquisarFin" Padding="5" Height="35" HorizontalAlignment="Left" Width="500" Background="White" FontSize="20" VerticalContentAlignment="Bottom" Cursor="Arrow"/>
+                <Button x:Name="btnPesquisar" Content="Pesquisar" Margin="10" Width="150" Height="35" Cursor="Hand" FontSize="20" HorizontalAlignment="Right" Click="btnPesquisar_Click"/>
+
+            </StackPanel>
+        </StackPanel>
+
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.3*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <DataGrid Grid.Column="0" x:Name="dtgFinanceiro"  FontSize="20" SelectionChanged="dtgFinanceiro_SelectionChanged"></DataGrid>
+            <Button Grid.Column="1" Height="50" Width="150" x:Name="btnRealizarCompra"  Cursor="Hand" Click="btnRealizarCompra_Click">Realizar compra</Button>
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Height="50" Width="150" x:Name="btnRelatorio" Click="btnRelatorio_Click" Cursor="Hand">Gerar Relatório</Button>
+            <Button Grid.Column="1" Height="50" Width="150" x:Name="btnDespesas" Click="btnExibirDesp_Click" Cursor="Hand">Exibir Despesas</Button>
+            <Button Grid.Column="2" Height="50" Width="150" x:Name="btnRecebimentos" Click="btnExibirReceb_Click" Cursor="Hand">Exibir recebimentos</Button>
+        </Grid>
+
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="LojaRoupa.Views.SubViews.ConsultarCaixaUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LojaRoupa.Views.SubViews"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="AliceBlue">
+
+        <Grid.RowDefinitions>
+            
+            <RowDefinition Height=".3*"/>
+            <RowDefinition Height=".3*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height=".3*"/>
+            
+        </Grid.RowDefinitions>
+
+        <TextBlock Foreground="black" Grid.Row="0" HorizontalAlignment="Center" FontSize="40" Text="Consultar Caixa" />
+
+        <Grid Grid.Row="1">
+            <StackPanel Orientation="Vertical" Margin="120, 0, 120, 10">
+                <Label Content="Data do caixa" FontSize="20" HorizontalAlignment="Center"/>
+                <TextBox MinWidth="500" FontSize="20" Width="30" x:Name="txtDataCaixa"></TextBox>
+            </StackPanel>
+        </Grid>
+        
+        <Grid Grid.Row="2" Background="White" HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" MaxWidth="500"/> 
+                <ColumnDefinition Width="*" MaxWidth="500"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Margin="10, 0, 10, 0">
+                <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10">
+                    <Label Content="Hora de abertura" FontSize="20" HorizontalAlignment="Center"/>
+                    <TextBox MinWidth="500" IsReadOnly="True" FontSize="20" x:Name="txtHoraAbertura" Cursor="Arrow"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10">
+                    <Label Content="Hora de fechamento" FontSize="20" HorizontalAlignment="Center"/>
+                    <TextBox MinWidth="500" IsReadOnly="True" FontSize="20" x:Name="txtHoraFechamento"></TextBox>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Margin="10, 0, 10, 0">
+                <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10">
+                    <Label Content="Saldo inicial" FontSize="20" HorizontalAlignment="Center"/>
+                    <TextBox MinWidth="500" IsReadOnly="True" FontSize="20" x:Name="txtSaldoInicial"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10">
+                    <Label Content="Saldo final" FontSize="20" HorizontalAlignment="Center"/>
+                    <TextBox MinWidth="500" IsReadOnly="True" FontSize="20" x:Name="txtSaldoFinal"></TextBox>
+                </StackPanel>
+            </StackPanel>
+
+        </Grid>
+
+        <Button Grid.Row="3" x:Name="GerarRelatorio" HorizontalAlignment="Center" Margin="0,0,0,0" Height="50" Width="180" Click="GerarRelatorio_Click">Gerar Relatorio</Button>
+        <Button Grid.Row="0" HorizontalAlignment="Left" Margin="40 ,0" x:Name="btnVoltar" Height="50" Width="140" Click="btnVoltar_Click" Cursor="Hand">Voltar</Button>
+        <Button Grid.Row="1" HorizontalAlignment="Right" Margin="50 ,0" Height="50" Width="140" x:Name="btnBuscar" Cursor="Hand" Click="btnBuscar_Click">Consultar</Button>
+    </Grid>
+</UserControl>
