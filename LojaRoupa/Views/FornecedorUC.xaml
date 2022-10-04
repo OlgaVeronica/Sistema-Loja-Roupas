@@ -7,20 +7,52 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="#efefef">
+        <Grid Background="#efefef">
+
             <Grid.RowDefinitions>
                 <RowDefinition Height=".3*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height=".3*"/>
             </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0">
+                <TextBlock Text="Fornecedores" FontSize="40" TextAlignment="Center"/>
 
-        <TextBlock Grid.Row="0" FontSize="40" TextAlignment="Center" Foreground="Black" Text="Fornecedores"/>
+            </StackPanel>
 
 
 
-        <DataGrid Grid.Row="1" x:Name="dtgFornecedores"  FontSize="20"></DataGrid>
+            <DataGrid Grid.Row="1" x:Name="dtgFuncionarios"  FontSize="20" AutoGenerateColumns="False" 
+                  CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"
+                  AlternatingRowBackground="#f2f2f2" AlternationCount="2" CanUserReorderColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="RazaoSocial" Binding="{Binding RazaoSocial}" />
+                    <DataGridTextColumn Header="Cnpj" Binding="{Binding Cnpj}" />
+                    <DataGridTextColumn Header="NomeFantasia" Binding="{Binding NomeFantasia}" />
+                    <DataGridTextColumn Header="Endereco" Binding="{Binding Endereco}" />
+                    <DataGridTextColumn Header="Email" Binding="{Binding Email}" />
+                    <DataGridTextColumn Header="Telefone" Binding="{Binding Telefone}" />
 
-               
-                    
-         <Button Grid.Row="2" Height="50" Width="150" x:Name="btnCadastrarFornecedor" Cursor="Hand" Click="btnCadastrarFornecedor_Click">Cadastrar</Button>
+
+
+
+                    <DataGridTemplateColumn Header="Mudanças">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Content="Editar" x:Name="btnEditar" Click="btnEditar_Click"  Margin="10, 0, 0, 10"/>
+                                    <Button Content="Deletar" x:Name="btnDeletar" Click="btnDeletar_Click" Margin="10, 0, 0, 10"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+
+
+
+            <Button Grid.Row="2" Height="50" Width="150" x:Name="btnCadastrar" Click="btnCadastrar_Click" Cursor="Hand">Cadastrar</Button>
+
+
+        </Grid>
     </Grid>
 </UserControl>
