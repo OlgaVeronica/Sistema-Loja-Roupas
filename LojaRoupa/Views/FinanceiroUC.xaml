@@ -23,10 +23,16 @@
 
             </StackPanel>
         </StackPanel>
-        
 
 
-        <DataGrid Grid.Row="1" x:Name="dtgFinanceiro"  FontSize="20" SelectionChanged="dtgFinanceiro_SelectionChanged"></DataGrid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.3*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <DataGrid Grid.Column="0" x:Name="dtgFinanceiro"  FontSize="20" SelectionChanged="dtgFinanceiro_SelectionChanged"></DataGrid>
+            <Button Grid.Column="1" Height="50" Width="150" x:Name="btnComprar"  Cursor="Hand" Click="btnComprar_Click">Exibir recebimentos</Button>
+        </Grid>
 
         <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
