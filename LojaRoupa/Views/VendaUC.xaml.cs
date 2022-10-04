@@ -28,7 +28,8 @@ namespace LojaRoupa.Views
             _frame = frame;
         }
 
-        private void btnRealizarVenda_Click(object sender, RoutedEventArgs e)
+
+        private void btnRealizar_Click(object sender, RoutedEventArgs e)
         {
 
         }
