@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using LojaRoupa.ViewsModels;
+using LojaRoupa.DAOs;
+using MySql.Data.MySqlClient;
 
 namespace LojaRoupa.Views.SubViews
 {
@@ -20,9 +23,18 @@ namespace LojaRoupa.Views.SubViews
     /// </summary>
     public partial class CadastrarLojaUC : UserControl
     {
-        public CadastrarLojaUC()
+        public Frame _frame;
+
+        public CadastrarLojaUC(Frame frame)
         {
             InitializeComponent();
+            _frame = frame;
+            Loaded += CadastrarLojaUC_loaded; 
+        }
+
+        private void CadastrarLojaUC_loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
