@@ -18,7 +18,28 @@ namespace LojaRoupa.DAOs
     {
         public override void Delete(MarcaModel marca)
         {
-            throw new NotImplementedException();
+            try
+            {
+
+                var command = conn.Query();
+                command.CommandText = "update marca set status_mar = 'inativo' where(id_mar = @id)";
+
+                command.Parameters.AddWithValue("@id", marca.Id);
+
+
+                var resultado = command.ExecuteNonQuery();
+
+
+
+            }
+            catch (MySqlException error)
+            {
+                throw error;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public override void Insert(MarcaModel marca)
@@ -55,7 +76,7 @@ namespace LojaRoupa.DAOs
                 var lista = new List<MarcaModel>();
 
                 var command = conn.Query();
-                command.CommandText = "select * from marca";
+                command.CommandText = "select * from marca where(status_mar = 'ativo')";
 
 
 
@@ -86,7 +107,30 @@ namespace LojaRoupa.DAOs
 
         public override void Update(MarcaModel marca)
         {
-            throw new NotImplementedException();
+            try
+            {
+
+                var command = conn.Query();
+                command.CommandText = "update marca set nome_mar = @nome, logo_mar = @logo where(id_mar = @id)";
+
+                command.Parameters.AddWithValue("@nome", marca.Nome);
+                command.Parameters.AddWithValue("@logo", marca.Logo);
+                command.Parameters.AddWithValue("@id", marca.Id);
+
+
+                var resultado = command.ExecuteNonQuery();
+
+
+
+            }
+            catch (MySqlException error)
+            {
+                throw error;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
     }
 

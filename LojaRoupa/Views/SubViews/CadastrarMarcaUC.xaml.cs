@@ -24,10 +24,23 @@ namespace LojaRoupa.Views.SubViews
     public partial class CadastrarMarcaUC : UserControl
     {
         private Frame _frame;
+        private MarcaModel _marca = new MarcaModel();
         public CadastrarMarcaUC(Frame frame)
         {
             InitializeComponent();
             _frame = frame;
+        }
+        public CadastrarMarcaUC(Frame frame, MarcaModel marca)
+        {
+            InitializeComponent();
+            _frame = frame;
+            _marca = marca;
+            Loaded += CadastrarMarcaUC_Loaded;
+        }
+
+        private void CadastrarMarcaUC_Loaded(object sender, RoutedEventArgs e)
+        {
+            txtNome.Text = _marca.Nome;
         }
 
         private void btnVoltar_Click(object sender, RoutedEventArgs e)
@@ -37,15 +50,29 @@ namespace LojaRoupa.Views.SubViews
 
         private void btnCadastrar_Click(object sender, RoutedEventArgs e)
         {
-            MarcaModel marca = new MarcaModel();
+
+
+            MarcaModel marca = _marca;
             marca.Nome = txtNome.Text;
             marca.Logo = txtLogo.Text;
+
+            
 
             try
             {
                 var dao = new MarcaDAO();
-                dao.Insert(marca);
-                MessageBox.Show("Cadastro Realizado!");
+
+                if(marca.Id > 0)
+                {
+                    dao.Update(marca);
+                    MessageBox.Show("Update Realizado!");
+                }
+                else
+                {
+                    dao.Insert(marca);
+                    MessageBox.Show("Cadastro Realizado!");
+
+                }
             }
             catch (MySqlException error)
             {

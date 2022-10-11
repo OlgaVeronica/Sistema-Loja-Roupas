@@ -118,15 +118,17 @@ namespace LojaRoupa.DAOs
             {
                 var command = conn.Query();
                 command.CommandText = "update roupa set descricao_roup = @descricao, material_roup = @tecido, tipo_roup = @tipo, " +
-                    "colecao_roup = @colecao, tamanho_roup = @tamanho, estampa_roup = @estampa";
+                    "colecao_roup = @colecao, tamanho_roup = @tamanho, estampa_roup = @estampa, id_mar_fk = @idmar where (id_roup = @id)";
 
 
+                command.Parameters.AddWithValue("@id", prod.Id);
                 command.Parameters.AddWithValue("@descricao", prod.Descricao);
                 command.Parameters.AddWithValue("@tecido", prod.Tecido);
                 command.Parameters.AddWithValue("@tipo", prod.Tipo);
                 command.Parameters.AddWithValue("@colecao", prod.Colecao);
                 command.Parameters.AddWithValue("@tamanho", prod.Tamanho);
                 command.Parameters.AddWithValue("@estampa", prod.Estampa);
+                command.Parameters.AddWithValue("@idmar", prod.Marca.Id);
 
                 var resultado = command.ExecuteNonQuery();
 
