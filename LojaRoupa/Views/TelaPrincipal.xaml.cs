@@ -90,5 +90,10 @@ namespace LojaRoupa.Views
         {
 
         }
+
+        private void btnLoja_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

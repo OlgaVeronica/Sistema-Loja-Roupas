@@ -30,6 +30,11 @@ namespace LojaRoupa.Views
         {
             InitializeComponent();
             _frame = frame;
+
+            dtpData.IsEnabled = false;
+            dtpData.SelectedDate = DateTime.Now;
+            MessageBox.Show(dtpData.DisplayDate.ToString("dddd, dd MMMM yyyy, HH:mm"));
+
             carregarListagemFuncionario();
             carregarListagemCliente();
         }
