@@ -33,7 +33,6 @@ namespace LojaRoupa.Views
 
             dtpData.IsEnabled = false;
             dtpData.SelectedDate = DateTime.Now;
-            MessageBox.Show(dtpData.DisplayDate.ToString("dddd, dd MMMM yyyy, HH:mm"));
 
             carregarListagemFuncionario();
             carregarListagemCliente();

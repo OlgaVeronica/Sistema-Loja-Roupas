@@ -36,5 +36,15 @@ namespace LojaRoupa.Views.SubViews
         {
 
         }
+
+        private void btnVoltar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnCadastrarLoja_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

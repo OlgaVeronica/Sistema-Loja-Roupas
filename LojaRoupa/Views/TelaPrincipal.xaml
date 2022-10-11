@@ -50,8 +50,8 @@
             <Button x:Name="btnFinanceiro" Background="Transparent" BorderThickness="0, 0, 0 , 1" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Financeiro"  FontSize="30" Height="60" Click="btnFinanceiro_Click" Cursor="Hand"/>
             <Button x:Name="Fornecedores" Background="Transparent" BorderThickness="0, 0, 0 , 1" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Fornecedores"  FontSize="30" Height="60" Cursor="Hand" Click="btnFornecedores_Click"/>
             <Button x:Name="Caixa" Background="Transparent" BorderThickness="0, 0, 0 , 1" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Caixa"  FontSize="30" Height="60" Cursor="Hand" Click="btnCaixa_Click"/>
-            <Button x:Name="btnLoja" Background="Transparent" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Loja" FontSize="30" Height="60" Cursor="Hand" Click="btnLoja_Click"/>
         </StackPanel>
+            <Button Grid.Row="1" VerticalAlignment="Bottom" x:Name="btnLoja" Background="Transparent" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Loja" FontSize="30" Height="60" Cursor="Hand" Click="btnLoja_Click"/>
 
         <!--<ContentControl Grid.Row="1" Grid.Column="1" Content="{Binding}"></ContentControl>-->
         <Frame x:Name="_frame" Grid.Row="1" Grid.Column="1" NavigationUIVisibility="Hidden" HorizontalAlignment="Stretch"/>
