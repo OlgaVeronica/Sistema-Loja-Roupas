@@ -18,10 +18,27 @@
 
 
 
-        <DataGrid Grid.Row="1" x:Name="dtgMarcas"  FontSize="20">
-            
-            
-            
+        <DataGrid Grid.Row="1" x:Name="dtgMarca"  FontSize="20" AutoGenerateColumns="False" 
+                  CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"
+                  AlternatingRowBackground="#f2f2f2" AlternationCount="2" CanUserReorderColumns="False" CanUserResizeColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="#" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Nome" Binding="{Binding Nome}" />
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
+
+
+
+                <DataGridTemplateColumn Header="Mudanças">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="Editar" x:Name="btnEditar" Click="btnEditar_Click"  Margin="10, 0, 0, 10"/>
+                                <Button Content="Deletar" x:Name="btnDeletar" Click="btnDeletar_Click" Margin="10, 0, 0, 10"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
         </DataGrid>
 
         <Button Grid.Row="2" Height="50" Width="150" x:Name="btnCadastrar" Click="btnCadastrar_Click">Cadastrar</Button>

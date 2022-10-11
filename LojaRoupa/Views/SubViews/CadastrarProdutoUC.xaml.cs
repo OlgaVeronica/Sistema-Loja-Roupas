@@ -49,7 +49,7 @@ namespace LojaRoupa.Views.SubViews
             txtColecao.Text = _produto.Colecao;
             txtTamanho.Text = _produto.Tamanho;
             txtEstampa.Text = _produto.Estampa;
-            cbMarca.SelectedItem = _produto.Marca;
+            cbMarca.SelectedItem = _produto.Marca.Id;
             carregarListagem();
 
 

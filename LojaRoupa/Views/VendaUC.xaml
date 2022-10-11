@@ -38,11 +38,17 @@
             <StackPanel Grid.Column="1" Margin="40, 0, 20, 0" VerticalAlignment="center">
                 <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10">
                     <Label FontSize="20" HorizontalAlignment="Center">Funcionario</Label>
-                    <ComboBox Name="cbFuncionario" Width="300"></ComboBox>
+                    <ComboBox MinWidth="300" FontSize="20" x:Name="cbFuncionario"
+                                  DisplayMemberPath="Nome"
+                                  SelectedValuePath="Id"
+                                  ></ComboBox>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10">
                     <Label FontSize="20" HorizontalAlignment="Center">Cliente </Label>
-                    <ComboBox Name="cbCliente" Width="300"></ComboBox>
+                    <ComboBox MinWidth="300" FontSize="20" x:Name="cbCliente"
+                                  DisplayMemberPath="Nome"
+                                  SelectedValuePath="Id"
+                                  ></ComboBox>
                 </StackPanel>
             </StackPanel>
 
