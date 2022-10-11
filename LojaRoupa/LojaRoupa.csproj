@@ -80,6 +80,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DAOs\AbstractDAO.cs" />
+    <Compile Include="DAOs\ClienteDAO.cs" />
     <Compile Include="DAOs\CompraDAO.cs" />
     <Compile Include="DAOs\FuncionarioDAO.cs" />
     <Compile Include="DAOs\MarcaDAO.cs" />
