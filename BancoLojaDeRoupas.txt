@@ -65,7 +65,10 @@ tipo_roup varchar(300),
 colecao_roup varchar(300),
 tamanho_roup varchar(300),
 estampa_roup varchar(300),
-status_roup varchar(100)
+status_roup varchar(100),
+
+id_mar_fk int,
+foreign key (id_mar_fk) references Marca (id_mar)
 );
 
 create table Venda_Roupa(
