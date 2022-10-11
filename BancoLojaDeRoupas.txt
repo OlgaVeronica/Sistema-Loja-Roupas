@@ -53,7 +53,9 @@ id_ven int primary key auto_increment,
 data_ven date,
 hora_ven time, 
 valor_ven float,
-status_ven varchar(100)
+status_ven varchar(100),
+id_func_fk int,
+foreign key (id_func_fk) references funcionario (id_func)
 );
 
 
