@@ -55,6 +55,7 @@ namespace LojaRoupa.DAOs
                 command.Parameters.AddWithValue("@colecao", prod.Colecao);
                 command.Parameters.AddWithValue("@tamanho", prod.Tamanho);
                 command.Parameters.AddWithValue("@estampa", prod.Estampa);
+                command.Parameters.AddWithValue("@id", prod.Marca.Id);
 
                 var resultado = command.ExecuteNonQuery();
 
@@ -77,7 +78,7 @@ namespace LojaRoupa.DAOs
 
                 var command = conn.Query();
 
-                command.CommandText = "select * from roupa where(status_roup like 'ativo');";
+                command.CommandText = "select roupa.*, marca.nome_mar from roupa, marca where(status_roup like 'ativo') and (roupa.id_mar_fk = marca.id_mar);";
                 MySqlDataReader reader = command.ExecuteReader();
 
                 while (reader.Read())
@@ -91,6 +92,11 @@ namespace LojaRoupa.DAOs
                     produto.Tamanho = DAOHelper.GetString(reader, "tamanho_roup");
                     produto.Estampa = DAOHelper.GetString(reader, "estampa_roup");
                     produto.Status = DAOHelper.GetString(reader, "status_roup");
+                    produto.Marca = new MarcaModel();
+                        
+                    produto.Marca.Nome = DAOHelper.GetString(reader, "nome_mar");
+
+
 
                     lista.Add(produto);
 

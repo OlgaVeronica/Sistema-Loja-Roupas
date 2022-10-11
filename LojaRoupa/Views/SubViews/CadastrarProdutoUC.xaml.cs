@@ -30,6 +30,8 @@ namespace LojaRoupa.Views.SubViews
         {
             InitializeComponent();
             _frame = frame;
+            carregarListagem();
+
         }
         public CadastrarProdutoUC(Frame frame, ProdutoModel produto)
         {
@@ -47,12 +49,34 @@ namespace LojaRoupa.Views.SubViews
             txtColecao.Text = _produto.Colecao;
             txtTamanho.Text = _produto.Tamanho;
             txtEstampa.Text = _produto.Estampa;
+            cbMarca.SelectedItem = _produto.Marca;
+            carregarListagem();
+
+
         }
 
+        private void carregarListagem()
+        {
+            try
+            {
+                var dao = new MarcaDAO();
+                cbMarca.ItemsSource = dao.List();
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
         private void btnCadastrar_Click(object sender, RoutedEventArgs e)
         {
             ProdutoModel produto = _produto;
+
+            if(cbMarca.SelectedItem != null)
+            {
+                produto.Marca = cbMarca.SelectedItem as MarcaModel;
+            }
 
             produto.Descricao = txtDescricao.Text;
             produto.Tecido = txtTecido.Text;
