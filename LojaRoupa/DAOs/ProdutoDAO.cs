@@ -45,7 +45,9 @@ namespace LojaRoupa.DAOs
 
                 var command = conn.Query();
                 command.CommandText = "insert into roupa values(null, @descricao, @tecido, @tipo, @colecao, " +
-                    "@tamanho, @estampa, 'ativo');";
+                    "@tamanho, @estampa, 'ativo', @id);";
+
+
 
                 command.Parameters.AddWithValue("@descricao", prod.Descricao);
                 command.Parameters.AddWithValue("@tecido", prod.Tecido);

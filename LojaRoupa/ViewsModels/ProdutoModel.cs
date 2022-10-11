@@ -16,6 +16,8 @@ namespace LojaRoupa.ViewsModels
         public string Tamanho { get; set; }
         public string Estampa { get; set; }
         public string Status { get; set; }
+
+        public MarcaModel Marca { get; set; }
         
     }
 }

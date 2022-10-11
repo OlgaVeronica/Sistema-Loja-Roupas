@@ -61,6 +61,7 @@ namespace LojaRoupa.Views.SubViews
             produto.Tamanho = txtTamanho.Text;
             produto.Estampa = txtEstampa.Text;
             produto.Status = "ativo";
+            produto.Marca = cbMarca.SelectedItem as MarcaModel;
 
             try
             {
