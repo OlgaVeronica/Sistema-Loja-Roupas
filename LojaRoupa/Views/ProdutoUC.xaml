@@ -25,7 +25,8 @@
                 <DataGridTextColumn Header="Tipo" Binding="{Binding Tipo}" />
                 <DataGridTextColumn Header="Tecido" Binding="{Binding Tecido}" />
                 <DataGridTextColumn Header="Tamanho" Binding="{Binding Tamanho}" />
-                <DataGridTextColumn Header="Estampa" Binding="{Binding Estampa}" />
+                <DataGridTextColumn Header="Estampa" Binding="{Binding Estampa}"/>
+                <DataGridTextColumn Header="Marca" Binding="{Binding Marca.Nome}"/>
 
 
 

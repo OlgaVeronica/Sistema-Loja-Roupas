@@ -8,8 +8,9 @@ namespace LojaRoupa.ViewsModels
 {
     public class MarcaModel
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string Nome { get; set; }
         public string Logo { get; set; }
+        public string Status { get; set; }
     }
 }
