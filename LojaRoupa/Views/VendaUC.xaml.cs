@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using LojaRoupa.ViewsModels;
+using LojaRoupa.DAOs;
+using MySql.Data.MySqlClient;
 
 namespace LojaRoupa.Views
 {
@@ -20,14 +23,44 @@ namespace LojaRoupa.Views
     /// </summary>
     public partial class VendaUC : UserControl
     {
-        public Frame _frame;
+        private Frame _frame;
+        private VendaModel _venda = new VendaModel();
 
         public VendaUC(Frame frame)
         {
             InitializeComponent();
             _frame = frame;
+            carregarListagemFuncionario();
+            carregarListagemCliente();
         }
 
+        private void carregarListagemFuncionario()
+        {
+            try
+            {
+                var dao = new FuncionarioDAO();
+                cbFuncionario.ItemsSource = dao.List();
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void carregarListagemCliente()
+        {
+            try
+            {
+                var dao = new ClienteDAO();
+                cbCliente.ItemsSource = dao.List();
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
         private void btnRealizar_Click(object sender, RoutedEventArgs e)
         {

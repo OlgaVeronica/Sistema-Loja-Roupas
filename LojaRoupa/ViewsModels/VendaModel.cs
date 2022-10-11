@@ -8,5 +8,7 @@ namespace LojaRoupa.ViewsModels
 {
     class VendaModel
     {
+        public FuncionarioModel Funcionario { get; set; }
+        public ClienteModel Cliente { get; set; }
     }
 }
