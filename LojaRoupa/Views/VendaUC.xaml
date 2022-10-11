@@ -35,12 +35,15 @@
                     <TextBox MinWidth="500" FontSize="20" x:Name="txtValor" IsReadOnly="True"></TextBox>
                 </StackPanel>
             </StackPanel>
-            <StackPanel Grid.Column="1" Margin="10, 0, 20, 0">
+            <StackPanel Grid.Column="1" Margin="40, 0, 20, 0" VerticalAlignment="center">
                 <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10">
                     <Label FontSize="20" HorizontalAlignment="Center">Funcionario</Label>
                     <ComboBox Name="cbFuncionario" Width="300"></ComboBox>
                 </StackPanel>
-                
+                <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10">
+                    <Label FontSize="20" HorizontalAlignment="Center">Cliente </Label>
+                    <ComboBox Name="cbCliente" Width="300"></ComboBox>
+                </StackPanel>
             </StackPanel>
 
 
