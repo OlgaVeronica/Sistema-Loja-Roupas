@@ -6,7 +6,13 @@ id_loja int primary key auto_increment,
 nome_loja varchar(300), 
 cnpj_loja varchar(300),
 endereco varchar(300)
-); #okay
+); 
+
+insert into Loja values(null, 'Lince', '111111111111', 'Rua 2 de abril, Nº157');
+insert into Loja values(null, 'Ellus', '111111111111', 'Rua 2 de abril, Nº157');
+insert into Loja values(null, 'IFROStore', '111111111111', 'Rua 2 de abril, Nº157');
+insert into Loja values(null, 'Lince', '111111111111', 'Rua 2 de abril, Nº157');
+insert into Loja values(null, 'Lince', '111111111111', 'Rua 2 de abril, Nº157');
 
 
 create table Funcionario(
