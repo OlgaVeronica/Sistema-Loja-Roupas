@@ -45,7 +45,8 @@ create table Cliente(
 id_cli int primary key auto_increment,
 nome_cli varchar(300), 
 cpf_cli varchar(300),
-telefone_cli varchar(300)
+telefone_cli varchar(300),
+status_cli varchar(100)
 );
 
 create table Venda(
