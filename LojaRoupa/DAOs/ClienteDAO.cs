@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LojaRoupa.Helpers;
 using LojaRoupa.ViewsModels;
 using MySql.Data.MySqlClient;
 
@@ -33,17 +34,93 @@ namespace LojaRoupa.DAOs
             }
         }
 
-        public override void Insert(ClienteModel compra)
+        public override void Insert(ClienteModel cliente)
         {
+            try
+            {
+
+                var command = conn.Query();
+                command.CommandText = "insert into cliente values(null, @nome, @cpf, @telefone, @status";
+
+                command.Parameters.AddWithValue("@telefone", cliente.Telefone);
+                command.Parameters.AddWithValue("@cpf", cliente.Cpf);
+                command.Parameters.AddWithValue("@nome", cliente.Nome);
+                command.Parameters.AddWithValue("@status", cliente.Status);
+
+                var resultado = command.ExecuteNonQuery();
+
+
+
+            }
+            catch (MySqlException error)
+            {
+                throw error;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
-        public override void Update(ClienteModel compra)
+        public override void Update(ClienteModel cliente)
         {
+            try
+            {
+                var command = conn.Query();
+                command.CommandText = "update cliente set nome_cli = @nome, cpf_cli = @cpf,  telefone_func = @telefone, status_cli = @status";
+
+
+                command.Parameters.AddWithValue("@telefone", cliente.Telefone);
+                command.Parameters.AddWithValue("@cpf", cliente.Cpf);
+                command.Parameters.AddWithValue("@nome", cliente.Nome);
+                command.Parameters.AddWithValue("@status", cliente.Status);
+
+                var resultado = command.ExecuteNonQuery();
+
+
+            }
+            catch (MySqlException ex)
+            {
+                throw ex;
+            }
+
         }
 
         public override List<ClienteModel> List()
         {
-            return new List<ClienteModel>();
+
+            try
+            {
+                var lista = new List<ClienteModel>();
+
+                var command = conn.Query();
+                command.CommandText = "select * from cliente";
+
+                command.CommandText = "select * from cliente where(status_cli like 'ativo');";
+
+                MySqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    var cliente = new ClienteModel();
+                    cliente.Id = reader.GetInt32("id_cli");
+                    cliente.Nome = DAOHelper.GetString(reader, "nome_func");
+                    cliente.Cpf = DAOHelper.GetString(reader, "cpf_cli");
+                    cliente.Telefone = DAOHelper.GetString(reader, "telefone_cli");
+                    cliente.Status = DAOHelper.GetString(reader, "status_cli");
+
+                    lista.Add(cliente);
+
+                }
+                reader.Close();
+
+
+                return lista;
+            }
+            catch (MySqlException ex)
+            {
+                throw ex;
+            }
         }
 
     }
