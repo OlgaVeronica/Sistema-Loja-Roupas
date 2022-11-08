@@ -6,7 +6,7 @@ id_loja int primary key auto_increment,
 nome_loja varchar(300), 
 cnpj_loja varchar(300),
 endereco varchar(300)
-);
+); #okay
 
 
 create table Funcionario(
@@ -20,8 +20,10 @@ email_func varchar(300),
 rg_func varchar(300),
 funcao_func varchar(300),
 salario_func varchar(300),
-status_func varchar(100)
-);
+status_func varchar(100),
+id_loja_fk int,
+foreign key (id_loja_fk) references Loja (id_loja)
+); #okay
 
 create table Fornecedor(
 id_forn int primary key auto_increment,
@@ -32,7 +34,7 @@ endereco_forn varchar(300),
 email_forn varchar(300),
 telefone_forn varchar(300),
 status_forn varchar(100)
-);
+); #okay
 
 create table Marca(
 id_mar int primary key auto_increment,
@@ -47,7 +49,7 @@ nome_cli varchar(300),
 cpf_cli varchar(300),
 telefone_cli varchar(300),
 status_cli varchar(100)
-);
+); #okay
 
 create table Venda(
 id_ven int primary key auto_increment,
@@ -56,8 +58,10 @@ hora_ven time,
 valor_ven float,
 status_ven varchar(100),
 id_func_fk int,
-foreign key (id_func_fk) references funcionario (id_func)
-);
+foreign key (id_func_fk) references funcionario (id_func),
+id_cli_fk int,
+foreign key(id_cli_fk) references CLiente(id_cli)
+);# n/n roupa
 
 
 create table Roupa(
@@ -69,9 +73,19 @@ colecao_roup varchar(300),
 tamanho_roup varchar(300),
 estampa_roup varchar(300),
 status_roup varchar(100),
-
 id_mar_fk int,
 foreign key (id_mar_fk) references Marca (id_mar)
+);
+##n/n venda && compra 
+
+create table Compra(
+id_com int primary key auto_increment,
+data_com date,
+hora_com time, 
+valor_com float,
+status_comp varchar(100),
+id_forn_fk int,
+foreign key (id_forn_fk) references Fornecedor (id_forn)
 );
 
 create table Venda_Roupa(
@@ -79,14 +93,6 @@ id_ven_roup int primary key auto_increment,
 quantidade_ven_roup int
 );
 
-
-create table Compra(
-id_com int primary key auto_increment,
-data_com date,
-hora_com time, 
-valor_com float,
-status_comp varchar(100)
-);
 
 create table Compra_Roupa(
 id_com_roup int primary key auto_increment,
@@ -98,7 +104,8 @@ id_desp int primary key auto_increment,
 descricao_desp varchar(300),
 vencimento_desp date,
 valor_desp float,
-status_desp varchar(100)
+status_desp varchar(100),
+id_com_fk int,
 );
 
 
