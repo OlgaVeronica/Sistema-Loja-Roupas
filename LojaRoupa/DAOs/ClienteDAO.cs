@@ -104,7 +104,7 @@ namespace LojaRoupa.DAOs
                 {
                     var cliente = new ClienteModel();
                     cliente.Id = reader.GetInt32("id_cli");
-                    cliente.Nome = DAOHelper.GetString(reader, "nome_func");
+                    cliente.Nome = DAOHelper.GetString(reader, "nome_cli");
                     cliente.Cpf = DAOHelper.GetString(reader, "cpf_cli");
                     cliente.Telefone = DAOHelper.GetString(reader, "telefone_cli");
                     cliente.Status = DAOHelper.GetString(reader, "status_cli");
