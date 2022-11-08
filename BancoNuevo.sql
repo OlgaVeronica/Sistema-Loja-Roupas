@@ -88,16 +88,6 @@ id_forn_fk int,
 foreign key (id_forn_fk) references Fornecedor (id_forn)
 );
 
-create table Venda_Roupa(
-id_ven_roup int primary key auto_increment,
-quantidade_ven_roup int
-);
-
-
-create table Compra_Roupa(
-id_com_roup int primary key auto_increment,
-quantidade_com_roup int
-);
 
 create table Despesa(
 id_desp int primary key auto_increment,
@@ -106,6 +96,7 @@ vencimento_desp date,
 valor_desp float,
 status_desp varchar(100),
 id_com_fk int,
+foreign key (id_com_fk) references Compra (id_com) 
 );
 
 
@@ -115,7 +106,7 @@ data_cai date,
 hora_abertura_cai time,
 hora_fechamento_cai time,
 saldo_inicial_cai float, 
-saldo_final float
+saldo_final_cai float
 );
 
 
@@ -125,7 +116,11 @@ data_receb date,
 valor_receb float,
 hora_receb time,
 forma_recebimento_receb varchar(300),
-status_receb varchar(100)
+status_receb varchar(100),
+id_cai_fk int,
+foreign key (id_cai_fk) references Caixa (id_cai),
+id_ven_fk int,
+foreign key (id_ven_fk) references Venda (id_ven)
 );
 
 
@@ -135,5 +130,20 @@ data_pag date,
 valor_pag float,
 hora_pag time,
 forma_recebimento_pag varchar(300),
-status_pag varchar(100)
+status_pag varchar(100),
+id_cai_fk int,
+foreign key (id_cai_fk) references Caixa (id_cai),
+id_desp_fk int,
+foreign key (id_desp_fk) references Despesa (id_desp)
+);
+
+create table Venda_Roupa(
+id_ven_roup int primary key auto_increment,
+quantidade_ven_roup int
+);
+
+
+create table Compra_Roupa(
+id_com_roup int primary key auto_increment,
+quantidade_com_roup int
 );
