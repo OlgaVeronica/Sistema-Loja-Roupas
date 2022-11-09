@@ -46,7 +46,7 @@ namespace LojaRoupa.DAOs
 
                 var command = conn.Query();
                 command.CommandText = "insert into funcionario values(null, @nome, @telefone, @endereco, @cpf, " +
-                    "@sexo, @email, @rg, @funcao, @salario, @status);";
+                    "@sexo, @email, @rg, @funcao, @salario, @status, 1);";
 
                 command.Parameters.AddWithValue("@telefone", func.Telefone);
                 command.Parameters.AddWithValue("@endereco", func.Endereco);

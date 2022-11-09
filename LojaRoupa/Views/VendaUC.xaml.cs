@@ -36,7 +36,8 @@ namespace LojaRoupa.Views
 
             carregarListagemFuncionario();
             carregarListagemCliente();
-        }
+            carregarListagemProdutos()
+;        }
 
         private void carregarListagemFuncionario()
         {
@@ -58,6 +59,20 @@ namespace LojaRoupa.Views
             {
                 var dao = new ClienteDAO();
                 cbCliente.ItemsSource = dao.List();
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void carregarListagemProdutos()
+        {
+            try
+            {
+                var dao = new ProdutoDAO();
+                cbProdutos.ItemsSource = dao.List();
 
             }
             catch (MySqlException ex)
