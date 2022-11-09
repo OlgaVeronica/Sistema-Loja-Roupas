@@ -31,13 +31,13 @@ namespace LojaRoupa.DAOs
                 command.Parameters.AddWithValue("@valor", venda.Valor);
                 command.Parameters.AddWithValue("@status", "Ativo");
                 command.Parameters.AddWithValue("@funcionario", venda.Funcionario.Id);
-                command.Parameters.AddWithValue("@cliente", venda.Cliente.Id);
+                command.Parameters.AddWithValue("@cliente", 1);
 
                 int resultado = command.ExecuteNonQuery();
 
                 if (resultado != 0)
                 {
-                    command.CommandText = "SELECT id_ven FROM Table ORDER BY ID DESC LIMIT 1";
+                    command.CommandText = "SELECT id_ven FROM venda ORDER BY id_ven DESC LIMIT 1";
                     int idVend = command.ExecuteNonQuery();
 
                     foreach (var produto in venda.Produto)

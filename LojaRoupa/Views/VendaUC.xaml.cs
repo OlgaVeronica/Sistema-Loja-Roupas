@@ -25,6 +25,7 @@ namespace LojaRoupa.Views
     {
         private Frame _frame;
         private VendaModel _venda = new VendaModel();
+        public  List<ProdutoModel> productsInGrid = new List<ProdutoModel>();
 
         public VendaUC(Frame frame)
         {
@@ -96,6 +97,14 @@ namespace LojaRoupa.Views
 
         private void btnVoltar_Click(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        
+        private void btAdicionar_Click(object sender, RoutedEventArgs e)
+        {
+            productsInGrid.Add(cbProdutos.SelectedItem as ProdutoModel);
+            dtgProdutos.ItemsSource = productsInGrid;
 
         }
     }

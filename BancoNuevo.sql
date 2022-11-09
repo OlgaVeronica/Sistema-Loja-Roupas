@@ -79,6 +79,7 @@ colecao_roup varchar(300),
 tamanho_roup varchar(300),
 estampa_roup varchar(300),
 status_roup varchar(100),
+valor_roup float,
 id_mar_fk int,
 foreign key (id_mar_fk) references Marca (id_mar)
 );
@@ -129,6 +130,7 @@ id_ven_fk int,
 foreign key (id_ven_fk) references Venda (id_ven)
 );
 
+select * from loja;
 
 create table Pagamento(
 id_pag int primary key auto_increment,
@@ -143,9 +145,15 @@ id_desp_fk int,
 foreign key (id_desp_fk) references Despesa (id_desp)
 );
 
+
+
 create table Venda_Roupa(
 id_ven_roup int primary key auto_increment,
-quantidade_ven_roup int
+quantidade_ven_roup int,
+id_ven_fk int,
+foreign key (id_ven_fk) references venda (id_ven),
+id_roup_fk int,
+foreign key (id_roup_fk) references roupa (id_roup)
 );
 
 
