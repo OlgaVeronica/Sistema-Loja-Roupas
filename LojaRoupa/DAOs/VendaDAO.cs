@@ -55,8 +55,11 @@ namespace LojaRoupa.DAOs
                 }
                 else
                 {
-                    throw new Exception("Erro ao inserir registros no banco de dados");                }
-            } catch (Exception ex)
+                    throw new Exception("Erro ao inserir registros no banco de dados");
+                }
+
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
