@@ -83,7 +83,15 @@ namespace LojaRoupa.Views
 
         private void btnRealizar_Click(object sender, RoutedEventArgs e)
         {
+            VendaModel venda = new VendaModel();
+            venda.Funcionario = cbFuncionario.SelectedItem as FuncionarioModel;
+            venda.Cliente = cbCliente.SelectedItem as ClienteModel;
+            venda.Produto = cbProdutos.ItemsSource as ProdutoModel[];
+            venda.Data = dtpData.SelectedDate;
+            venda.Valor = float.Parse(txtValor.Text);
 
+            var dao = new VendaDAO();
+            dao.Insert(venda);
         }
 
         private void btnVoltar_Click(object sender, RoutedEventArgs e)

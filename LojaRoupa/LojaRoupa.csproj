@@ -86,6 +86,7 @@
     <Compile Include="DAOs\MarcaDAO.cs" />
     <Compile Include="DAOs\ProdutoDAO.cs" />
     <Compile Include="DAOs\VendaDAO.cs" />
+    <Compile Include="DAOs\VendaProdutoDAO.cs" />
     <Compile Include="Database\Conexao.cs" />
     <Compile Include="Helpers\DAOHelper.cs" />
     <Compile Include="ViewsModels\CaixaModel.cs" />

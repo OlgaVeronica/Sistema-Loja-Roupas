@@ -6,9 +6,16 @@ using System.Threading.Tasks;
 
 namespace LojaRoupa.ViewsModels
 {
-    class VendaModel
+    public class VendaModel
     {
+        public int Id { get; set; }
         public FuncionarioModel Funcionario { get; set; }
         public ClienteModel Cliente { get; set; }
+
+        public DateTime? Data { get; set; }
+        public float Valor { get; set; }
+
+        public ProdutoModel[] Produto { get; set; }
+        
     }
 }
