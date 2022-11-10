@@ -50,6 +50,7 @@ namespace LojaRoupa.Views.SubViews
             txtTamanho.Text = _produto.Tamanho;
             txtEstampa.Text = _produto.Estampa;
             cbMarca.SelectedItem = _produto.Marca.Id;
+            txtPreco.Text = _produto.Preco.ToString();
             carregarListagem();
 
 
@@ -86,7 +87,7 @@ namespace LojaRoupa.Views.SubViews
             produto.Estampa = txtEstampa.Text;
             produto.Status = "ativo";
             produto.Marca = cbMarca.SelectedItem as MarcaModel;
-
+            produto.Preco = float.Parse(txtPreco.Text);
             try
             {
                 var dao = new ProdutoDAO();

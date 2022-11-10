@@ -37,6 +37,10 @@ namespace LojaRoupa.DAOs
             {
                 throw ex;           
             }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public override List<VendaProdutoModel> List()

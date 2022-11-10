@@ -17,6 +17,10 @@ namespace LojaRoupa.ViewsModels
         public string Estampa { get; set; }
         public string Status { get; set; }
 
+        public int Quantidade { get; set; }
+
+        public float Preco { get; set; }
+
         public MarcaModel Marca { get; set; }
         
     }

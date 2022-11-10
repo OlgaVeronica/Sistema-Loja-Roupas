@@ -15,7 +15,7 @@ namespace LojaRoupa.ViewsModels
         public DateTime? Data { get; set; }
         public float Valor { get; set; }
 
-        public ProdutoModel[] Produto { get; set; }
+        public List<ProdutoModel> Produto { get; set; }
         
     }
 }

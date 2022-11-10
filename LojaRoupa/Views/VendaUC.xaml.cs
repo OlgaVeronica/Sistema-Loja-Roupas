@@ -25,7 +25,9 @@ namespace LojaRoupa.Views
     {
         private Frame _frame;
         private VendaModel _venda = new VendaModel();
-        public  List<ProdutoModel> productsInGrid = new List<ProdutoModel>();
+
+        private float _valorVenda = 0;
+
 
         public VendaUC(Frame frame)
         {
@@ -87,12 +89,31 @@ namespace LojaRoupa.Views
             VendaModel venda = new VendaModel();
             venda.Funcionario = cbFuncionario.SelectedItem as FuncionarioModel;
             venda.Cliente = cbCliente.SelectedItem as ClienteModel;
-            venda.Produto = cbProdutos.ItemsSource as ProdutoModel[];
+            venda.Produto = cbProdutos.ItemsSource as List<ProdutoModel>;
             venda.Data = dtpData.SelectedDate;
             venda.Valor = float.Parse(txtValor.Text);
 
-            var dao = new VendaDAO();
-            dao.Insert(venda);
+            try
+            {
+
+                var dao = new VendaDAO();
+                dao.Insert(venda);
+                MessageBox.Show("Venda realizada com sucesso", "Sucesso!!", MessageBoxButton.OK, MessageBoxImage.Information);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Não foi possíel inserir Registros", "Erro ao inserir Registros", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            finally
+            {
+                ClearFields();
+            }
+        }
+
+        private void ClearFields()
+        {
+            dtgProdutos.Items.Clear();
         }
 
         private void btnVoltar_Click(object sender, RoutedEventArgs e)
@@ -100,12 +121,34 @@ namespace LojaRoupa.Views
 
         }
 
-        
-        private void btAdicionar_Click(object sender, RoutedEventArgs e)
+
+        private void btnExcluir_Click(object sender, RoutedEventArgs e)
         {
-            productsInGrid.Add(cbProdutos.SelectedItem as ProdutoModel);
-            dtgProdutos.ItemsSource = productsInGrid;
+            ProdutoModel produto = dtgProdutos.SelectedItem as ProdutoModel;
+
+            _valorVenda -= produto.Preco * produto.Quantidade;
+            txtValor.Text = _valorVenda.ToString();
+            dtgProdutos.Items.RemoveAt(dtgProdutos.SelectedIndex);
 
         }
+
+
+        private void btAdicionar_Click(object sender, RoutedEventArgs e)
+        {
+            var produto = cbProdutos.SelectedItem as ProdutoModel;
+            produto.Quantidade = int.Parse(cbQuantidade.Text);
+            float valorPecas = produto.Preco * float.Parse(cbQuantidade.Text);
+            _valorVenda += valorPecas;
+
+            txtValor.Text = _valorVenda.ToString();
+
+            cbProdutos.SelectedIndex = -1;
+            cbQuantidade.SelectedIndex = -1;
+
+            dtgProdutos.Items.Add(produto);
+            
+        }
+
+      
     }
 }

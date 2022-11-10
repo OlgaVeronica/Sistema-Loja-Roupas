@@ -45,7 +45,7 @@ namespace LojaRoupa.DAOs
 
                 var command = conn.Query();
                 command.CommandText = "insert into roupa values(null, @descricao, @tecido, @tipo, @colecao, " +
-                    "@tamanho, @estampa, 'ativo', 1212, @id);";
+                    "@tamanho, @estampa, 'ativo', @preco, @id);";
 
 
 
@@ -55,6 +55,7 @@ namespace LojaRoupa.DAOs
                 command.Parameters.AddWithValue("@colecao", prod.Colecao);
                 command.Parameters.AddWithValue("@tamanho", prod.Tamanho);
                 command.Parameters.AddWithValue("@estampa", prod.Estampa);
+                command.Parameters.AddWithValue("@preco", prod.Preco);
                 command.Parameters.AddWithValue("@id", prod.Marca.Id);
 
                 var resultado = command.ExecuteNonQuery();
@@ -93,7 +94,7 @@ namespace LojaRoupa.DAOs
                     produto.Estampa = DAOHelper.GetString(reader, "estampa_roup");
                     produto.Status = DAOHelper.GetString(reader, "status_roup");
                     produto.Marca = new MarcaModel();
-                        
+                    produto.Preco = reader.GetInt32("valor_roup");
                     produto.Marca.Nome = DAOHelper.GetString(reader, "nome_mar");
 
 
@@ -118,7 +119,7 @@ namespace LojaRoupa.DAOs
             {
                 var command = conn.Query();
                 command.CommandText = "update roupa set descricao_roup = @descricao, material_roup = @tecido, tipo_roup = @tipo, " +
-                    "colecao_roup = @colecao, tamanho_roup = @tamanho, estampa_roup = @estampa, id_mar_fk = @idmar where (id_roup = @id)";
+                    "colecao_roup = @colecao, tamanho_roup = @tamanho, estampa_roup = @estampa, id_mar_fk = @idmar, valor_roup = @valor where (id_roup = @id)";
 
 
                 command.Parameters.AddWithValue("@id", prod.Id);
@@ -129,6 +130,7 @@ namespace LojaRoupa.DAOs
                 command.Parameters.AddWithValue("@tamanho", prod.Tamanho);
                 command.Parameters.AddWithValue("@estampa", prod.Estampa);
                 command.Parameters.AddWithValue("@idmar", prod.Marca.Id);
+                command.Parameters.AddWithValue("@valor", prod.Preco);
 
                 var resultado = command.ExecuteNonQuery();
 

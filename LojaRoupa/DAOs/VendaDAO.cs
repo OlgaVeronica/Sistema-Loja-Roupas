@@ -38,16 +38,17 @@ namespace LojaRoupa.DAOs
                 if (resultado != 0)
                 {
                     command.CommandText = "SELECT id_ven FROM venda ORDER BY id_ven DESC LIMIT 1";
-                    int idVend = command.ExecuteNonQuery();
+                    int idVend = Convert.ToInt32(command.ExecuteScalar());
 
-                    foreach (var produto in venda.Produto)
+                    foreach(var item in venda.Produto)
                     {
 
                         var dao = new VendaProdutoDAO();
                         VendaProdutoModel vp = new VendaProdutoModel();
 
                         vp.VendaId = idVend;
-                        vp.ProdutoId = produto.Id;
+                        vp.ProdutoId = item.Id;
+                        vp.Quantidade = item.Quantidade;
                         dao.Insert(vp);
 
                     }
@@ -62,6 +63,10 @@ namespace LojaRoupa.DAOs
             catch (Exception ex)
             {
                 throw ex;
+            }
+            finally
+            {
+                conn.Close();
             }
             
         }
