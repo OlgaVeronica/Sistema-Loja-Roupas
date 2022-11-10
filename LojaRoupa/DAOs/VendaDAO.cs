@@ -24,14 +24,15 @@ namespace LojaRoupa.DAOs
                 string data = venda.Data?.ToString("yyyy-MM-dd");
                 string hora = venda.Data?.ToString("HH:mm:ss");
 
-                command.CommandText = "insert into venda values (null, @data, @hora, @valor, @status, @funcionario, @cliente)";
+                var fkCliente = venda.Cliente == null ? null : venda.Cliente.Id;
 
+                command.CommandText = "insert into venda values (null, @data, @hora, @valor, @status, @funcionario, @cliente)";
                 command.Parameters.AddWithValue("@data", data);
                 command.Parameters.AddWithValue("@hora", hora);
                 command.Parameters.AddWithValue("@valor", venda.Valor);
                 command.Parameters.AddWithValue("@status", "Ativo");
                 command.Parameters.AddWithValue("@funcionario", venda.Funcionario.Id);
-                command.Parameters.AddWithValue("@cliente", 1);
+                command.Parameters.AddWithValue("@cliente", fkCliente);
 
                 int resultado = command.ExecuteNonQuery();
 
