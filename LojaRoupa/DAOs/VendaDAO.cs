@@ -22,7 +22,7 @@ namespace LojaRoupa.DAOs
                 var command = conn.Query();
 
                 string data = venda.Data?.ToString("yyyy-MM-dd");
-                string hora = venda.Data?.ToString("HH:mm:ss");
+                string hora = venda.Data?.ToString("hh:mm:ss");
 
                 var fkCliente = venda.Cliente == null ? null : venda.Cliente.Id;
 
