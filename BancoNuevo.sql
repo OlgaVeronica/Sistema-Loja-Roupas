@@ -161,3 +161,4 @@ create table Compra_Roupa(
 id_com_roup int primary key auto_increment,
 quantidade_com_roup int
 );
+insert into cliente values (null, "doido", "4575", "8676", "Ativo");

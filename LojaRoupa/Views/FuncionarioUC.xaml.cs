@@ -17,6 +17,7 @@ using LojaRoupa.DAOs;
 using LojaRoupa.Views.SubViews;
 using LojaRoupa.ViewsModels;
 using MySql.Data.MySqlClient;
+using System.Diagnostics.Eventing.Reader;
 
 namespace LojaRoupa.Views
 {
@@ -26,23 +27,17 @@ namespace LojaRoupa.Views
     public partial class FuncionarioUC : UserControl
     {
         public Frame _frame;
-
+        private List<FuncionarioModel> _productsInGrid;
         public FuncionarioUC(Frame frame)
         {
-
             InitializeComponent();
             _frame = frame;
-            Loaded += FuncionarioUC_Loaded;
-
-            
+            Loaded += FuncionarioUC_Loaded;            
         }
 
         private void FuncionarioUC_Loaded(object sender, RoutedEventArgs e)
         {
-
             carregarListagem();
-            
-
         }
 
         private void carregarListagem()
@@ -50,6 +45,7 @@ namespace LojaRoupa.Views
             try
             {
                 var dao = new FuncionarioDAO();
+                _productsInGrid = dao.List();
                 dtgFuncionarios.ItemsSource = dao.List();
 
             }
@@ -107,6 +103,26 @@ namespace LojaRoupa.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+
+        }
+        private void txtFilter_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var txt = txtFilter;
+            List<FuncionarioModel> list = _productsInGrid;
+
+            if (!String.IsNullOrWhiteSpace(txt.Text))
+            {
+                List<FuncionarioModel> listaFiltrada = list.FindAll(item =>
+                {
+                    return item.Nome.ToLower().StartsWith(txt.Text.ToLower());
+                });
+
+                dtgFuncionarios.ItemsSource = listaFiltrada;
+            }
+            else
+            {
+                dtgFuncionarios.ItemsSource = _productsInGrid;
+            }
 
         }
     }
