@@ -58,7 +58,8 @@ namespace LojaRoupa.Views.SubViews
 
         private void btnCadastrar_Click(object sender, RoutedEventArgs e)
         {
-            FornecedorModel fornecedor = new FornecedorModel();
+            FornecedorModel fornecedor = _fornecedor;
+
             fornecedor.NomeFantasia = txtNomeFantasia.Text;
             fornecedor.Cnpj = txtCnpj.Text;
             fornecedor.Email = txtEmail.Text;

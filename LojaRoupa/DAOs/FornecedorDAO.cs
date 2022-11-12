@@ -74,7 +74,6 @@ namespace LojaRoupa.DAOs
                 var lista = new List<FornecedorModel>();
 
                 var command = conn.Query();
-                command.CommandText = "select * from fornecedor ";
 
 
                 
@@ -85,15 +84,17 @@ namespace LojaRoupa.DAOs
 
                 while (reader.Read())
                 {
-                    var fornecedor = new FornecedorModel();
-                    fornecedor.Id = reader.GetInt32("id_forn");
-                    fornecedor.RazaoSocial = DAOHelper.GetString(reader, "razao_social_forn");
-                    fornecedor.Cnpj = DAOHelper.GetString(reader, "cnpj_forn");
-                    fornecedor.NomeFantasia = DAOHelper.GetString(reader, "nome_fantasia_forn");
-                    fornecedor.Endereco = DAOHelper.GetString(reader, "endereco_forn");
-                    fornecedor.Email = DAOHelper.GetString(reader, "email_forn");
-                    fornecedor.Telefone = DAOHelper.GetString(reader, "telefone_forn");
-                    fornecedor.Status = DAOHelper.GetString(reader, "status_forn");
+                    var fornecedor = new FornecedorModel
+                    {
+                        Id = reader.GetInt32("id_forn"),
+                        RazaoSocial = DAOHelper.GetString(reader, "razao_social_forn"),
+                        Cnpj = DAOHelper.GetString(reader, "cnpj_forn"),
+                        NomeFantasia = DAOHelper.GetString(reader, "nome_fantasia_forn"),
+                        Endereco = DAOHelper.GetString(reader, "endereco_forn"),
+                        Email = DAOHelper.GetString(reader, "email_forn"),
+                        Telefone = DAOHelper.GetString(reader, "telefone_forn"),
+                        Status = DAOHelper.GetString(reader, "status_forn")
+                    };
 
                     lista.Add(fornecedor);
 
