@@ -21,14 +21,13 @@ namespace LojaRoupa.DAOs
             {
                 var command = conn.Query();
 
-                string data = venda.Data?.ToString("yyyy-MM-dd");
-                string hora = venda.Data?.ToString("hh:mm:ss");
+                
 
                 var fkCliente = venda.Cliente == null ? null : venda.Cliente.Id;
 
                 command.CommandText = "insert into venda values (null, @data, @hora, @valor, @status, @funcionario, @cliente)";
-                command.Parameters.AddWithValue("@data", data);
-                command.Parameters.AddWithValue("@hora", hora);
+                command.Parameters.AddWithValue("@data", venda.Data);
+                command.Parameters.AddWithValue("@hora", venda.Hora);
                 command.Parameters.AddWithValue("@valor", venda.Valor);
                 command.Parameters.AddWithValue("@status", "Ativo");
                 command.Parameters.AddWithValue("@funcionario", venda.Funcionario.Id);
@@ -43,14 +42,21 @@ namespace LojaRoupa.DAOs
 
                     foreach(var item in venda.Produto)
                     {
+                        try
+                        {
 
-                        var dao = new VendaProdutoDAO();
-                        VendaProdutoModel vp = new VendaProdutoModel();
+                            var dao = new VendaProdutoDAO();
+                            VendaProdutoModel vp = new VendaProdutoModel();
 
-                        vp.VendaId = idVend;
-                        vp.ProdutoId = item.Id;
-                        vp.Quantidade = item.Quantidade;
-                        dao.Insert(vp);
+                            vp.VendaId = idVend;
+                            vp.ProdutoId = item.Id;
+                            vp.Quantidade = item.Quantidade;
+                            dao.Insert(vp);
+                        }
+                        catch
+                        {
+
+                        }
 
                     }
 

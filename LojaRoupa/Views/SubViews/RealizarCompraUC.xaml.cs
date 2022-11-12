@@ -41,53 +41,115 @@ namespace LojaRoupa.Views.SubViews
         }
         private void RealizarCompraUC_Loaded(object sender, RoutedEventArgs e)
         {
-            txtData.Text = _compra.Data;
-            txtHora.Text = _compra.Hora;
-            txtValor.Text = _compra.Valor;
+            dtpData.SelectedDate = DateTime.Now;
+            dtpData.IsEnabled = false;
+            carregarListagemFornecedor();
+            carregarListagemFuncionario();
+            carregarListagemProdutos();
         }
+        private void carregarListagemFuncionario()
+        {
+            try
+            {
+                var dao = new FuncionarioDAO();
+                cbFuncionario.ItemsSource = dao.List();
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void carregarListagemFornecedor()
+        {
+            try
+            {
+                var dao = new FornecedorDAO();
+                cbFornecedor.ItemsSource = dao.List();
+                
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void carregarListagemProdutos()
+        {
+            try
+            {
+                var dao = new ProdutoDAO();
+                cbProdutos.ItemsSource = dao.List();
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
 
         private void btnVoltar_Click(object sender, RoutedEventArgs e)
         {
             _frame.Content = new FinanceiroUC(_frame);
         }
 
-        private void btnCadastrar_Click(object sender, RoutedEventArgs e)
+        
+
+        private void btAdicionar_Click(object sender, RoutedEventArgs e)
         {
-            CompraModel compra = _compra;
-            compra.Data = txtData.Text;
-            compra.Valor = txtValor.Text;
-            compra.Hora = txtHora.Text;
-            compra.Status = "Ativo";
+            var produto = cbProdutos.SelectedItem as ProdutoModel;
+            produto.Quantidade = int.Parse(cbQuantidade.Text);
+            float valorPecas = produto.Preco * float.Parse(cbQuantidade.Text);
+            
+
+            cbProdutos.SelectedIndex = -1;
+            cbQuantidade.SelectedIndex = -1;
+
+            dtgProdutos.Items.Add(produto);
+        }
+
+        private void btnRealizar_Click(object sender, RoutedEventArgs e)
+        {
+            DateTime? data = dtpData.SelectedDate;
+
+
+            CompraModel compra = new CompraModel
+            {
+                Funcionario = cbFuncionario.SelectedItem as FuncionarioModel,
+                Fornecedor = cbFornecedor.SelectedItem as FornecedorModel,
+                Produtos = cbProdutos.ItemsSource as List<ProdutoModel>,
+                Data = dtpData.SelectedDate,
+                Valor = float.Parse(txtValor.Text),
+                Hora = data?.ToString("HH:mm:ss")
+            };
 
             try
             {
+
                 var dao = new CompraDAO();
-                if (compra.Id > 0)
-                {
-                    dao.Update(compra);
-                    MessageBox.Show("Update Realizado!");
+                dao.Insert(compra);
+                MessageBox.Show("Venda realizada com sucesso", "Sucesso!!", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                }
-                else
-                {
-                    dao.Insert(compra);
-                    MessageBox.Show("Cadastro Realizado!");
-
-                }
             }
-            catch (MySqlException error)
+            catch (Exception ex)
             {
-
-                MessageBox.Show(error.Message);
+                MessageBox.Show("Não foi possíel inserir Registros", "Erro ao inserir Registros", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show(ex.Message);
             }
-
-            Clear();
+            finally
+            {
+                ClearFields();
+            }
         }
-        private void Clear()
+        private void btnExcluir_Click(object sender, RoutedEventArgs e)
         {
-            txtData.Clear();
-            txtHora.Clear();
-            txtValor.Clear();
+            dtgProdutos.Items.RemoveAt(dtgProdutos.SelectedIndex);
+
+        }
+        private void ClearFields()
+        {
+            dtgProdutos.Items.Clear();
         }
     }
 }

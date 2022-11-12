@@ -77,7 +77,7 @@ namespace LojaRoupa.DAOs
 
 
                 
-                command.CommandText = "select * from fornecedor where(status_forn like 'ativo');";
+                command.CommandText = "select * from fornecedor where(status_forn like 'Ativo');";
 
                 
                 MySqlDataReader reader = command.ExecuteReader();

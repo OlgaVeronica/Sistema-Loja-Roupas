@@ -13,6 +13,7 @@ namespace LojaRoupa.ViewsModels
         public ClienteModel Cliente { get; set; }
 
         public DateTime? Data { get; set; }
+        public string Hora { get; set; }
         public float Valor { get; set; }
 
         public List<ProdutoModel> Produto { get; set; }

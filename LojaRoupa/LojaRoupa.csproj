@@ -85,6 +85,7 @@
     <Compile Include="DAOs\AbstractDAO.cs" />
     <Compile Include="DAOs\ClienteDAO.cs" />
     <Compile Include="DAOs\CompraDAO.cs" />
+    <Compile Include="DAOs\CompraProdutoDAO.cs" />
     <Compile Include="DAOs\FornecedorDAO.cs" />
     <Compile Include="DAOs\FuncionarioDAO.cs" />
     <Compile Include="DAOs\MarcaDAO.cs" />
@@ -96,6 +97,7 @@
     <Compile Include="ViewsModels\CaixaModel.cs" />
     <Compile Include="ViewsModels\ClienteModel.cs" />
     <Compile Include="ViewsModels\CompraModel.cs" />
+    <Compile Include="ViewsModels\CompraProdutoModel.cs" />
     <Compile Include="ViewsModels\FinanceiroModel.cs" />
     <Compile Include="ViewsModels\FornecedorModel.cs" />
     <Compile Include="ViewsModels\FuncionarioModel.cs" />

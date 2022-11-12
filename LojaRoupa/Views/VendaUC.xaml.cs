@@ -33,14 +33,21 @@ namespace LojaRoupa.Views
         {
             InitializeComponent();
             _frame = frame;
+            Loaded += VendaUC_Loaded;
 
-            dtpData.IsEnabled = false;
+            
+;        }
+
+        private void VendaUC_Loaded(object sender, RoutedEventArgs e)
+        {
             dtpData.SelectedDate = DateTime.Now;
+            dtpData.IsEnabled = false;
 
             carregarListagemFuncionario();
             carregarListagemCliente();
-            carregarListagemProdutos()
-;        }
+
+            carregarListagemProdutos();
+        }
 
         private void carregarListagemFuncionario()
         {
@@ -86,12 +93,17 @@ namespace LojaRoupa.Views
 
         private void btnRealizar_Click(object sender, RoutedEventArgs e)
         {
-            VendaModel venda = new VendaModel();
-            venda.Funcionario = cbFuncionario.SelectedItem as FuncionarioModel;
-            venda.Cliente = cbCliente.SelectedItem as ClienteModel;
-            venda.Produto = cbProdutos.ItemsSource as List<ProdutoModel>;
-            venda.Data = dtpData.SelectedDate;
-            venda.Valor = float.Parse(txtValor.Text);
+            DateTime? data = dtpData.SelectedDate;
+
+            VendaModel venda = new VendaModel
+            {
+                Funcionario = cbFuncionario.SelectedItem as FuncionarioModel,
+                Cliente = cbCliente.SelectedItem as ClienteModel,
+                Produto = cbProdutos.ItemsSource as List<ProdutoModel>,
+                Data = dtpData.SelectedDate,
+                Valor = float.Parse(txtValor.Text),
+                Hora = data?.ToString("HH:mm:ss")
+            };
 
             try
             {

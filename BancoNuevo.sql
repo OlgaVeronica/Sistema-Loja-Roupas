@@ -92,7 +92,9 @@ hora_com time,
 valor_com float,
 status_comp varchar(100),
 id_forn_fk int,
-foreign key (id_forn_fk) references Fornecedor (id_forn)
+foreign key (id_forn_fk) references Fornecedor (id_forn),
+id_func_fk int,
+foreign key (id_func_fk) references Funcionario (id_func)
 );
 
 
@@ -156,11 +158,17 @@ id_roup_fk int,
 foreign key (id_roup_fk) references roupa (id_roup)
 );
 
+select * from venda;
+select * from compra;
 
 create table Compra_Roupa(
 id_com_roup int primary key auto_increment,
-quantidade_com_roup int
+quantidade_com_roup int,
+id_com_fk int,
+foreign key (id_com_fk) references compra (id_com),
+id_roup_fk int,
+foreign key (id_roup_fk) references roupa (id_roup)
 );
+
 insert into cliente values (null, "doido", "4575", "8676", "Ativo");
 select*from fornecedor;
-delete from fornecedor;

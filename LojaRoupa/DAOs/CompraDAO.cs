@@ -12,6 +12,7 @@ using LojaRoupa.Database;
 using LojaRoupa.Helpers;
 using LojaRoupa.ViewsModels;
 using MySql.Data.MySqlClient;
+using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 
 namespace LojaRoupa.DAOs
 {
@@ -46,14 +47,43 @@ namespace LojaRoupa.DAOs
             {
 
                 var command = conn.Query();
-                command.CommandText = "insert into compra values(null, @data, @hora, @valor, @status);";
+                command.CommandText = "insert into compra values(null, @data, @hora, @valor, @status, @funcionario, @fornecedor);";
 
                 command.Parameters.AddWithValue("@data", compra.Data);
                 command.Parameters.AddWithValue("@hora", compra.Hora);
                 command.Parameters.AddWithValue("@valor", compra.Valor);
-                command.Parameters.AddWithValue("@status", compra.Status);
+                
+                command.Parameters.AddWithValue("@funcionario", compra.Funcionario.Id);
+                command.Parameters.AddWithValue("@fornecedor", compra.Fornecedor.Id);
+                command.Parameters.AddWithValue("@status", "Ativo");
 
-                var resultado = command.ExecuteNonQuery();
+                int resultado = command.ExecuteNonQuery();
+
+                if(resultado != 0)
+                {
+                    command.CommandText = "select id_com from compra order by id_com desc limit 1;";
+
+                    int idCompra = Convert.ToInt32((command.ExecuteScalar()));
+
+                    foreach(var produto in compra.Produtos)
+                    {
+                        try
+                        {
+                            CompraProdutoModel compProd = new CompraProdutoModel
+                            {
+                                Quantidade = produto.Quantidade,
+                                CompraId = idCompra,
+                                ProdutoId = produto.Id
+                            };
+                            var dao = new CompraProdutoDAO();
+
+                            dao.Insert(compProd);
+                        } catch
+                        {
+
+                        }
+                    }
+                }
 
             }
             catch (MySqlException error)
