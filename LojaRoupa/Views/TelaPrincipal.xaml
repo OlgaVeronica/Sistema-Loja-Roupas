@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:LojaRoupa.Views"
         xmlns:viewmodels="clr-namespace:LojaRoupa.ViewsModels"
         mc:Ignorable="d"
-        Title="TelaPrincipal" Height="720" Width="1280" WindowState="Maximized" WindowStyle="None">
+        Title="TelaPrincipal" Height="720" Width="1280"  WindowStyle="None">
     <Grid>
 
         <Grid.ColumnDefinitions >

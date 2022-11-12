@@ -10,6 +10,7 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height=".3*"/>
+            <RowDefinition Height=".1*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height=".3*"/>
         </Grid.RowDefinitions>
@@ -17,15 +18,18 @@
             <TextBlock Text="Produtos" FontSize="40" TextAlignment="Center"/>
         </StackPanel>
 
-
-        <DataGrid Grid.Row="1" x:Name="dtgProdutos"  FontSize="20" AutoGenerateColumns="False" 
+        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
+            <Label FontSize="16">Busca: </Label>
+            <TextBox FontSize="16" x:Name="txtFilter" TextChanged="txtFilter_TextChanged"  Width="300"></TextBox>
+        </StackPanel>
+        <DataGrid Grid.Row="2" x:Name="dtgProdutos"  FontSize="20" AutoGenerateColumns="False" 
                   CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"
                   AlternatingRowBackground="#f2f2f2" AlternationCount="2" CanUserReorderColumns="False">
             <DataGrid.Columns>
+                <DataGridTextColumn Header="Descrição" Binding="{Binding Descricao}"/>
                 <DataGridTextColumn Header="Tipo" Binding="{Binding Tipo}" />
                 <DataGridTextColumn Header="Tecido" Binding="{Binding Tecido}" />
                 <DataGridTextColumn Header="Tamanho" Binding="{Binding Tamanho}" />
-                <DataGridTextColumn Header="Estampa" Binding="{Binding Estampa}"/>
                 <DataGridTextColumn Header="Marca" Binding="{Binding Marca.Nome}"/>
 
 

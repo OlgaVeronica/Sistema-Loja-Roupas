@@ -17,6 +17,7 @@ using LojaRoupa.ViewsModels;
 using LojaRoupa.Views.SubViews;
 using LojaRoupa.DAOs;
 using MySql.Data.MySqlClient;
+using System.Diagnostics.Eventing.Reader;
 
 namespace LojaRoupa.Views
 {
@@ -26,7 +27,7 @@ namespace LojaRoupa.Views
     public partial class ProdutoUC : UserControl
     {
         private Frame _frame;
-
+        private List<ProdutoModel> _productsInGrid;
         public ProdutoUC(Frame frame)
         {
             InitializeComponent();
@@ -44,7 +45,8 @@ namespace LojaRoupa.Views
             try
             {
                 var dao = new ProdutoDAO();
-                dtgProdutos.ItemsSource = dao.List();
+                _productsInGrid = dao.List();
+                dtgProdutos.ItemsSource = _productsInGrid;
 
             }
             catch (MySqlException ex)
@@ -94,5 +96,34 @@ namespace LojaRoupa.Views
         {
             _frame.Content = new MarcaUC(_frame);
         }
+
+        
+
+        private void txtFilter_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var txt = txtFilter;
+            List<ProdutoModel> list = _productsInGrid;
+
+            if(!String.IsNullOrWhiteSpace(txt.Text))
+            {
+
+                List<ProdutoModel> listaFiltrada = list.FindAll(item =>
+                {
+                    return item.Descricao.ToLower().StartsWith(txt.Text.ToLower());
+                });
+
+                dtgProdutos.ItemsSource = listaFiltrada;
+            }
+            else
+            {
+                dtgProdutos.ItemsSource = _productsInGrid;
+            }
+
+
+
+            
+        }
+
+
     }
 }
