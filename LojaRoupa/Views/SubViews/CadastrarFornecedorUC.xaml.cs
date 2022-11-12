@@ -1,5 +1,4 @@
-﻿using LojaRoupa.Views.SubViews;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,35 +13,32 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LojaRoupa.DAOs;
-using LojaRoupa.Views.SubViews;
+using LojaRoupa.ViewsModels;
+using MySql.Data.MySqlClient;
 
-namespace LojaRoupa.Views
+
+namespace LojaRoupa.Views.SubViews
 {
     /// <summary>
-    /// Interação lógica para FornecedorUC.xam
+    /// Interação lógica para CadastrarFornecedorUC.xam
     /// </summary>
-    public partial class FornecedorUC : UserControl
+    public partial class CadastrarFornecedorUC : UserControl
     {
-        public Frame _frame;
-
-        public FornecedorUC(Frame frame)
+        private Frame _frame;
+        public CadastrarFornecedorUC(Frame frame)
         {
             InitializeComponent();
             _frame = frame;
         }
 
-        private void btnEditar_Click(object sender, RoutedEventArgs e)
+        private void btnVoltar_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-        private void btnDeletar_Click(object sender, RoutedEventArgs e)
-        {
-
+            _frame.Content = new FornecedorUC(_frame);
         }
 
         private void btnCadastrar_Click(object sender, RoutedEventArgs e)
         {
-            _frame.Content = new CadastrarFornecedorUC(_frame);
+
         }
     }
 }
