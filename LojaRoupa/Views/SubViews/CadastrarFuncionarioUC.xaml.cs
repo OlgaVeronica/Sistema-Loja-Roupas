@@ -25,7 +25,6 @@ namespace LojaRoupa.Views.SubViews
     {
         private Frame _frame;
         private FuncionarioModel _funcionario = new FuncionarioModel();
-
         public CadastrarFuncionarioUC(Frame frame)
         {
             InitializeComponent();
