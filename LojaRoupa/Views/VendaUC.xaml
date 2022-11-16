@@ -126,5 +126,6 @@
         
 
         <Button Grid.Row="3" Height="50" Width="150" x:Name="btnRealizar" Click="btnRealizar_Click" Margin="325,17,325,17">Realizar venda</Button>
+     
     </Grid>
 </UserControl>
