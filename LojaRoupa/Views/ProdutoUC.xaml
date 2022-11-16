@@ -16,6 +16,14 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
             <TextBlock Text="Produtos" FontSize="40" TextAlignment="Center"/>
+            <Border CornerRadius="20" BorderThickness="1" >
+                <Ellipse Width="85" Height="85" Margin="0" HorizontalAlignment="Right">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="../Images/Renoir-Logo-Pequena-png.png"  Stretch="UniformToFill" AlignmentX="Right" AlignmentY="Top" />
+                    </Ellipse.Fill>
+                </Ellipse>
+            </Border>
+            <!---<Image Source="./Images/Renoir-Logo-Pequena-png.png" Width="100px" Height="100px"/>-->
         </StackPanel>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">

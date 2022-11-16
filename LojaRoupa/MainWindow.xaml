@@ -19,7 +19,8 @@
     <Grid Visibility="Visible">
 
         <Grid.Background>
-            <ImageBrush ImageSource="./Images/Banner/BAnner.png" Stretch="UniformToFill"  />
+            <ImageBrush ImageSource="./Images/Banner/Background-Renoir.png" Stretch="UniformToFill"/>
+            
         </Grid.Background>
 
         <!--<Grid.RowDefinitions>
