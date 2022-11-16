@@ -25,6 +25,9 @@ namespace LojaRoupa.Views.SubViews
     {
         public Frame _frame;
         private CompraModel _compra = new CompraModel();
+
+        private float _valorCompra = 0;
+
         public RealizarCompraUC(Frame frame)
         {
             InitializeComponent();
@@ -88,10 +91,11 @@ namespace LojaRoupa.Views.SubViews
             }
         }
 
-
+        //Patrick: Pedir para o Gabriel analisar e explicar essa parte kk
         private void btnVoltar_Click(object sender, RoutedEventArgs e)
         {
             _frame.Content = new FinanceiroUC(_frame);
+
         }
 
         
@@ -101,7 +105,9 @@ namespace LojaRoupa.Views.SubViews
             var produto = cbProdutos.SelectedItem as ProdutoModel;
             produto.Quantidade = int.Parse(cbQuantidade.Text);
             float valorPecas = produto.Preco * float.Parse(cbQuantidade.Text);
-            
+            _valorCompra += valorPecas;
+
+            txtValor.Text = _valorCompra.ToString();
 
             cbProdutos.SelectedIndex = -1;
             cbQuantidade.SelectedIndex = -1;

@@ -171,4 +171,5 @@ foreign key (id_roup_fk) references roupa (id_roup)
 );
 
 insert into cliente values (null, "doido", "4575", "8676", "Ativo");
-select*from fornecedor;
+insert into cliente values (null, "CU", "4575", "8676", "Ativo");
+select*from venda;
