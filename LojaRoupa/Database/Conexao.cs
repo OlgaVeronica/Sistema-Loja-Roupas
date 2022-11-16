@@ -12,7 +12,7 @@ namespace LojaRoupa.Database
     {
         private static string host = "localhost";
 
-        private static string port = "3306";
+        private static string port = "3360";
 
         private static string user = "root";
 
