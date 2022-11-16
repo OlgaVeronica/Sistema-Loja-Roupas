@@ -16,11 +16,20 @@
         <StackPanel Grid.Row="0">
             <StackPanel>
                 <TextBlock Text="Financeiro" FontSize="40" TextAlignment="Center"/>
+                
             </StackPanel>
-            <StackPanel Orientation="Horizontal" MaxWidth="700" Margin="1,-10,1,1">
+            <StackPanel Orientation="Horizontal" MaxWidth="800" Margin="1,-10,1,1">
                 <TextBox x:Name="txtPesquisarFin" Padding="5" Height="35" HorizontalAlignment="Left" Width="500" Background="White" FontSize="20" VerticalContentAlignment="Bottom" Cursor="Arrow"/>
                 <Button x:Name="btnPesquisar" Content="Pesquisar" Margin="10" Width="150" Height="35" Cursor="Hand" FontSize="20" HorizontalAlignment="Right" Click="btnPesquisar_Click"/>
-
+                
+                
+                <Border CornerRadius="20" BorderThickness="1" >
+                    <Ellipse Width="100" Height="100" Margin="0" HorizontalAlignment="Right">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="../Images/Banner/Renoir-Logo-Pequena-png.png" Stretch="Fill" AlignmentX="Right" AlignmentY="Top" />
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Border>
             </StackPanel>
         </StackPanel>
 

@@ -15,7 +15,15 @@
             <RowDefinition Height=".3*"/>
         </Grid.RowDefinitions>
         <TextBlock Foreground="black" Grid.Row="0" HorizontalAlignment="Center" FontSize="40" Text="Venda" />
-
+        
+        <Border CornerRadius="20" BorderThickness="1" >
+            <Ellipse Width="100" Height="100" Margin="0" HorizontalAlignment="Right">
+                <Ellipse.Fill>
+                    <ImageBrush ImageSource="../Images/Banner/Renoir-Logo-Pequena-png.png" Stretch="Fill" AlignmentX="Right" AlignmentY="Top" />
+                </Ellipse.Fill>
+            </Ellipse>
+        </Border>
+        
         <Grid Background="AliceBlue" VerticalAlignment="Top" Margin="0,84,0,84" Grid.RowSpan="4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" MaxWidth="500"/>

@@ -17,6 +17,13 @@
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0">
                 <TextBlock Text="Fornecedores" FontSize="40" TextAlignment="Center"/>
+                <Border CornerRadius="20" BorderThickness="1" >
+                    <Ellipse Width="100" Height="100" Margin="0" HorizontalAlignment="Right">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="../Images/Banner/Renoir-Logo-Pequena-png.png" Stretch="Fill" AlignmentX="Right" AlignmentY="Top" />
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Border>
 
             </StackPanel>
 
