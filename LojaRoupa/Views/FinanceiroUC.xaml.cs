@@ -55,8 +55,16 @@ namespace LojaRoupa.Views
         }
 
         private void btnRelatorio_Click(object sender, RoutedEventArgs e)
-        {
-            //public PdfViewer viewer = new PdfViewer();
+        {   /*
+            //Criar objeto PDFViewer
+            PdfViewer viewer = new PdfViewer();
+            //Abrir arquivo PDF de entrada
+            viewer.BindPdf(dataDir + "Test.pdf");
+            //Imprimir documento PDF
+            viewer.PrintDocument();
+            //Fechar arquivo PDF
+            viewer.Close();*/
+
         }
         private void btnRealizarCompra_Click(object sender, RoutedEventArgs e)
         {
