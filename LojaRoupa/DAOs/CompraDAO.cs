@@ -47,17 +47,18 @@ namespace LojaRoupa.DAOs
             {
 
                 var command = conn.Query();
-                command.CommandText = "insert into compra values(null, @data, @hora, @valor, @status, @funcionario, @fornecedor);";
+                command.CommandText = "insert into compra values (null, @data, @hora, @valor, @status, @funcionario, @fornecedor);";
 
                 command.Parameters.AddWithValue("@data", compra.Data);
                 command.Parameters.AddWithValue("@hora", compra.Hora);
                 command.Parameters.AddWithValue("@valor", compra.Valor);
-                
+                command.Parameters.AddWithValue("@status", "Ativo");                
                 command.Parameters.AddWithValue("@funcionario", compra.Funcionario.Id);
                 command.Parameters.AddWithValue("@fornecedor", compra.Fornecedor.Id);
-                command.Parameters.AddWithValue("@status", "Ativo");
 
                 int resultado = command.ExecuteNonQuery();
+
+                //TENTAR ARRUMAR ESSA MERDA ASS: PATRICK   
 
                 if(resultado != 0)
                 {
