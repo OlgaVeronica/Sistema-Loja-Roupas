@@ -25,10 +25,11 @@ sexo_func varchar(100),
 email_func varchar(300),
 rg_func varchar(300),
 funcao_func varchar(300),
-salario_func varchar(300),
+salario_func float,
+-- avatar_func longblob,
 status_func varchar(100),
 id_loja_fk int,
-foreign key (id_loja_fk) references Loja (id_loja)
+foreign key (id_loja_fk) references Loja(id_loja)
 ); #okay
 
 create table Fornecedor(
@@ -64,9 +65,9 @@ hora_ven time,
 valor_ven float,
 status_ven varchar(100),
 id_func_fk int,
-foreign key (id_func_fk) references funcionario (id_func),
+foreign key (id_func_fk) references Funcionario(id_func),
 id_cli_fk int,
-foreign key(id_cli_fk) references CLiente(id_cli)
+foreign key(id_cli_fk) references Cliente(id_cli)
 );# n/n roupa
 
 
@@ -81,7 +82,7 @@ estampa_roup varchar(300),
 status_roup varchar(100),
 valor_roup float,
 id_mar_fk int,
-foreign key (id_mar_fk) references Marca (id_mar)
+foreign key (id_mar_fk) references Marca(id_mar)
 );
 ##n/n venda && compra 
 
@@ -92,9 +93,9 @@ hora_com time,
 valor_com float,
 status_comp varchar(100),
 id_forn_fk int,
-foreign key (id_forn_fk) references Fornecedor (id_forn),
+foreign key (id_forn_fk) references Fornecedor(id_forn),
 id_func_fk int,
-foreign key (id_func_fk) references Funcionario (id_func)
+foreign key (id_func_fk) references Funcionario(id_func)
 );
 
 
@@ -105,7 +106,7 @@ vencimento_desp date,
 valor_desp float,
 status_desp varchar(100),
 id_com_fk int,
-foreign key (id_com_fk) references Compra (id_com) 
+foreign key (id_com_fk) references Compra(id_com) 
 );
 
 
@@ -127,9 +128,9 @@ hora_receb time,
 forma_recebimento_receb varchar(300),
 status_receb varchar(100),
 id_cai_fk int,
-foreign key (id_cai_fk) references Caixa (id_cai),
+foreign key (id_cai_fk) references Caixa(id_cai),
 id_ven_fk int,
-foreign key (id_ven_fk) references Venda (id_ven)
+foreign key (id_ven_fk) references Venda(id_ven)
 );
 
 select * from loja;
@@ -142,20 +143,19 @@ hora_pag time,
 forma_recebimento_pag varchar(300),
 status_pag varchar(100),
 id_cai_fk int,
-foreign key (id_cai_fk) references Caixa (id_cai),
+foreign key (id_cai_fk) references Caixa(id_cai),
 id_desp_fk int,
-foreign key (id_desp_fk) references Despesa (id_desp)
+foreign key (id_desp_fk) references Despesa(id_desp)
 );
-
 
 
 create table Venda_Roupa(
 id_ven_roup int primary key auto_increment,
 quantidade_ven_roup int,
 id_ven_fk int,
-foreign key (id_ven_fk) references venda (id_ven),
+foreign key (id_ven_fk) references Venda(id_ven),
 id_roup_fk int,
-foreign key (id_roup_fk) references roupa (id_roup)
+foreign key (id_roup_fk) references Roupa(id_roup)
 );
 
 select * from venda;
@@ -165,11 +165,149 @@ create table Compra_Roupa(
 id_com_roup int primary key auto_increment,
 quantidade_com_roup int,
 id_com_fk int,
-foreign key (id_com_fk) references compra (id_com),
+foreign key (id_com_fk) references Compra(id_com),
 id_roup_fk int,
-foreign key (id_roup_fk) references roupa (id_roup)
+foreign key (id_roup_fk) references Roupa(id_roup)
 );
 
 insert into cliente values (null, "doido", "4575", "8676", "Ativo");
 insert into cliente values (null, "CU", "4575", "8676", "Ativo");
 select*from venda;
+
+DELIMITER $$
+create procedure InserirLoja(nome varchar(300), cnpj varchar(300), endereco varchar(300))
+begin
+	insert into Loja values(null, nome, cnpj, endereco);
+end
+$$ DELIMITER ;
+
+DELIMITER $$
+create procedure InserirFuncionario(
+	nome varchar(300), 
+	telefone varchar(300), 
+	endereco varchar(300), 
+	cpf varchar(300),
+    sexo varchar(300),
+    email varchar(300),
+    rg varchar(300),
+    funcao varchar(300),
+    salario float,
+    -- avatar longblob,
+    status varchar(100))
+begin
+	insert into Funcionario values(null, nome, telefone, cpf, sexo, email, rg, funcao, salario, /*avatar,*/ status);
+end
+$$ DELIMITER ;
+
+DELIMITER $$
+create procedure InserirFornecedor(
+	razaoSocial varchar(300), 
+	cnpj varchar(300), 
+    nomeFantasia varchar(300),
+    endereco varchar(300),
+    email varchar(300),
+    telefone varchar(300),
+    status varchar(100))
+begin
+	insert into Fornecedor values(null, razaoSocial, cnpj, nomeFantasia, endereco, email, status);
+end
+$$ DELIMITER ;
+
+DELIMITER $$
+create procedure InserirMarca(nome varchar(300), logo longblob, status varchar(100))
+begin
+	insert into Marca values(null, nome, logo, status);
+end
+$$ DELIMITER ;
+
+DELIMITER $$
+create procedure InserirCliente(nome varchar(300), cpf varchar(300), telefone varchar(300), satus varchar(100))
+begin
+	insert into Cliente values(null, nome, cpf, telefone, status);
+end
+$$ DELIMITER ;
+
+DELIMITER $$
+create procedure InserirVenda(data date, hora time, valor float, status varchar(100), funcionarioFK int, clienteFK int)
+begin
+	insert into Venda values(null, data, hora, valor, status, funcionarioFK, clienteFK);
+end
+$$ DELIMITER ;
+
+DELIMITER $$
+create procedure InserirRoupa(
+	descricao varchar(300),
+    material varchar(300),
+    tipo varchar(300),
+    colecao varchar(300),
+    estampa varchar(300),
+    status varchar(100),
+    valor float,
+    marcaFK int)
+begin
+	insert into Roupa values(descricao, material, tipo, colecao, estampa, status, valor, marcaFK);
+end
+$$ DELIMITER ;
+
+DELIMITER $$
+create procedure InserirCompra(data date, hora time, valor float, status varchar(100), fornecedorFK int, funcionarioFK int)
+begin
+	insert into Compra values(null, data, hora, valor, status, fornecedorFK, funcionarioFK);
+end
+$$ DELIMITER ;
+
+DELIMITER $$
+create procedure InserirDespesa(descricao varchar(300), vencimento date, valor float, status varchar(100), compraFK int)
+begin
+	insert into Despesa values(null, descricao, vencimento, valor, status, compraFK);
+end
+$$ DELIMITER ;
+
+DELIMITER $$
+create procedure InserirCaixa(data date, horaAbertura time, horaFechamento time, saldoInicial float, saldoFinal float)
+begin
+	insert into Caixa values(null, data, horaAbertura, horaFechamento, saldoInicial, saldoFinal);
+end
+$$ DELIMITER ;
+
+DELIMITER $$
+create procedure InserirRecebimento(
+	data date, 
+    valor float, 
+    hora time, 
+    formaRecebimento varchar(300), 
+    status varchar(100),
+    caixaFK int, 
+    vendaFK int)
+begin
+	insert into Recebimento values(null, data, valor, hora, formaRecebimento, status, caixaFK, vendaFK);
+end
+$$ DELIMITER ;
+
+DELIMITER $$
+create procedure InserirPagamento(
+	data date, 
+    valor float,  
+    hora time, 
+    formaRecebimento varchar(300), 
+    status varchar(100),
+    caixaFK int,
+    despesaFK int)
+begin
+	insert into Pagamento values(null, data, valor, hora, formaRecebimento, status, caixaFK, despesaFK);
+end
+$$ DELIMITER ;
+
+DELIMITER $$
+create procedure InserirVendaRoupa(quantidade int, vendaFK int, roupaFK int)
+begin
+	insert into VendaRoupa values(null, quantidade, vendaFK, roupaFK);
+end
+$$ DELIMITER ;
+
+DELIMITER $$
+create procedure InserirCompraRoupa(quantidade int, compraFK int, roupaFK int)
+begin
+	insert into CompraRoupa values(null, quantidade, compraFK, roupaFK);
+end
+$$ DELIMITER ;
