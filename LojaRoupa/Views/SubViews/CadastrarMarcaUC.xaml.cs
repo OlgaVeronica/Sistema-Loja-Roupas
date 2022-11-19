@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using LojaRoupa.ViewsModels;
 using LojaRoupa.DAOs;
 using MySql.Data.MySqlClient;
+using Microsoft.Win32;
 
 namespace LojaRoupa.Views.SubViews
 {
@@ -25,6 +26,7 @@ namespace LojaRoupa.Views.SubViews
     {
         private Frame _frame;
         private MarcaModel _marca = new MarcaModel();
+        private ImageSource _imageSourceMarca;
         public CadastrarMarcaUC(Frame frame)
         {
             InitializeComponent();
@@ -41,6 +43,7 @@ namespace LojaRoupa.Views.SubViews
         private void CadastrarMarcaUC_Loaded(object sender, RoutedEventArgs e)
         {
             txtNome.Text = _marca.Nome;
+            imgMarca.ImageSource = _marca.Logo != null ? new BitmapImage(new Uri(_marca.Logo)) : imgMarca.ImageSource;
         }
 
         private void btnVoltar_Click(object sender, RoutedEventArgs e)
@@ -54,8 +57,7 @@ namespace LojaRoupa.Views.SubViews
 
             MarcaModel marca = _marca;
             marca.Nome = txtNome.Text;
-            marca.Logo = txtLogo.Text;
-
+            marca.Logo = imgMarca.ImageSource.ToString();
             
 
             try
@@ -86,7 +88,19 @@ namespace LojaRoupa.Views.SubViews
         private void Clear()
         {
             txtNome.Clear();
-            txtLogo.Clear();
+            imgMarca.ImageSource = _imageSourceMarca;
+        }
+
+        private void btnEscolherImg_Click(object sender, RoutedEventArgs e)
+        {
+            _imageSourceMarca = imgMarca.ImageSource;
+            OpenFileDialog openDialog = new OpenFileDialog();
+            openDialog.Filter = "Image files|*.bmp; *.jpg; *.png";
+            openDialog.FilterIndex = 1;
+            if (openDialog.ShowDialog() == true)
+            {
+                imgMarca.ImageSource = new BitmapImage(new Uri(openDialog.FileName));
+            }
         }
     }
 }

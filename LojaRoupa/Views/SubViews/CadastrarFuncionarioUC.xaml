@@ -43,8 +43,6 @@
                 </StackPanel>
 
 
-
-
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0, 0, 0, 10">
                     <Button x:Name="btnEscolherImg" Content="Escolher Imagem" Click="btnEscolherImg_Click"/>
                 </StackPanel>

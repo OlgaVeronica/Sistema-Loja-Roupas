@@ -46,10 +46,10 @@ status_forn varchar(100)
 create table Marca(
 id_mar int primary key auto_increment,
 nome_mar varchar(300),
-logo_mar longblob,
+logo_mar varchar(1000),
 status_mar varchar(100)
 );
-
+select * from marca;
 create table Cliente(
 id_cli int primary key auto_increment,
 nome_cli varchar(300), 
@@ -173,7 +173,8 @@ foreign key (id_roup_fk) references Roupa(id_roup)
 insert into cliente values (null, "doido", "4575", "8676", "Ativo");
 insert into cliente values (null, "CU", "4575", "8676", "Ativo");
 select*from funcionario;
-/*
+
+
 DELIMITER $$
 create procedure InserirLoja(nome varchar(300), cnpj varchar(300), endereco varchar(300))
 begin
