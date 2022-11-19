@@ -8,5 +8,6 @@ namespace LojaRoupa.ViewsModels
 {
     class FinanceiroModel
     {
+        public int PdfViewer { get; set; }
     }
 }
