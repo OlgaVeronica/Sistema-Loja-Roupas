@@ -14,6 +14,9 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LojaRoupa.Views;
 using LojaRoupa.Views.SubViews;
+using LojaRoupa.ViewsModels;
+using LojaRoupa.DAOs;
+using MySql.Data.MySqlClient;
 
 namespace LojaRoupa.Views
 {
@@ -52,7 +55,15 @@ namespace LojaRoupa.Views
         }
 
         private void btnRelatorio_Click(object sender, RoutedEventArgs e)
-        {
+        {   /*
+            //Criar objeto PDFViewer
+            PdfViewer viewer = new PdfViewer();
+            //Abrir arquivo PDF de entrada
+            viewer.BindPdf(dataDir + "Test.pdf");
+            //Imprimir documento PDF
+            viewer.PrintDocument();
+            //Fechar arquivo PDF
+            viewer.Close();*/
 
         }
         private void btnRealizarCompra_Click(object sender, RoutedEventArgs e)
