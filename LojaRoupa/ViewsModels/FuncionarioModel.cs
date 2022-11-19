@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Win32;
 
 namespace LojaRoupa.ViewsModels
 {
@@ -18,6 +19,8 @@ namespace LojaRoupa.ViewsModels
         public string RG { get; set; }
         public string Funcao { get; set; }
         public string Salario { get; set; }
+
+        public string Avatar { get; set; }
         public string Status { get; set; }
 
     }

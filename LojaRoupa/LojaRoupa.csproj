@@ -308,6 +308,9 @@
   <ItemGroup>
     <Resource Include="Images\Banner\Renoir-Logo-Pequena-png.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\avatar.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

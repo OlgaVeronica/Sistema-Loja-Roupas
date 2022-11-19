@@ -6,8 +6,8 @@
              xmlns:local="clr-namespace:LojaRoupa.Views.SubViews"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1000">
-    
-            
+
+
     <Grid Background="#f1f1f1f1" >
 
 
@@ -20,14 +20,36 @@
         <TextBlock Foreground="black" Grid.Row="0" HorizontalAlignment="Center" FontSize="40" Text="Cadastrar Funcionário" />
 
 
-        <Grid Grid.Row="1" Background="White" HorizontalAlignment="Center">
+        <Grid Grid.Row="1" Background="White" HorizontalAlignment="Left" Margin="10,0,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" MaxWidth="500"/>
                 <ColumnDefinition Width="*" MaxWidth="500"/>
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0" Margin="10, 0, 10, 0">
-                <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
+
+                <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0, 23, 0, 10" Background="AliceBlue">
+                    <Image x:Name="imgFuncionario" Height="140" Width="140"/>
+                </StackPanel>-->
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0, 10, 0, 10">
+                    <Border CornerRadius="20" BorderThickness="1" >
+                        <Ellipse Width="140" Height="140" Margin="15">
+                            <Ellipse.Fill>
+                                <ImageBrush x:Name="imgFuncionario" ImageSource="/Images/avatar.png"  Stretch="UniformToFill" />
+                            </Ellipse.Fill>
+                        </Ellipse>
+                    </Border>
+                </StackPanel>
+
+
+
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0, 0, 0, 10">
+                    <Button x:Name="btnEscolherImg" Content="Escolher Imagem" Click="btnEscolherImg_Click"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
                     <Label Content="Nome:" FontSize="20"/>
                     <TextBox MinWidth="500" FontSize="20" x:Name="txtNome"></TextBox>
                 </StackPanel>
@@ -39,6 +61,18 @@
                     <Label Content="RG:" FontSize="20"/>
                     <TextBox MinWidth="500" FontSize="20" x:Name="txtRG"></TextBox>
                 </StackPanel>
+         
+
+
+
+
+            </StackPanel>
+
+
+
+
+            <StackPanel Grid.Column="1" Margin="10, 0, 10, 0" VerticalAlignment="center">
+
                 <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
                     <Label Content="Telefone:" FontSize="20"/>
                     <TextBox MinWidth="500" FontSize="20" x:Name="txtTelefone"></TextBox>
@@ -49,15 +83,6 @@
                 </StackPanel>
 
 
-
-                
-
-            </StackPanel>
-
-
-
-
-            <StackPanel Grid.Column="1" Margin="10, 0, 10, 0">
                 <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
                     <Label Content="Email:" FontSize="20"/>
                     <TextBox MinWidth="500" FontSize="20" x:Name="txtEmail"></TextBox>
@@ -78,14 +103,15 @@
 
 
 
+
             </StackPanel>
 
         </Grid>
         <Grid Grid.Row="1">
-            
+
         </Grid>
-        
-        
+
+
 
         <Button Grid.Row="2" Height="50" Width="150" x:Name="btnCadastrar" Click="btnCadastrar_Click">Cadastrar</Button>
         <Button Grid.Row="0" HorizontalAlignment="Left" Margin="10,0" Height="50" Width="150" x:Name="btnVoltar" Click="btnVoltar_Click">Voltar</Button>

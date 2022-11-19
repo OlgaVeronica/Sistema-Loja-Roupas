@@ -16,7 +16,8 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="629*"/>
+            <RowDefinition Height="71*"/>
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Background="#F7E5FF" MouseDown="BtnDrag">
@@ -25,11 +26,11 @@
                 <Ellipse Fill="#6F4D80" Height="14" Width="14" MouseDown="BtnMax" Margin="0 0 10 0" />
                 <Ellipse Fill="#6F4D80" Height="14" Width="14" MouseDown="BtnClose" />
             </StackPanel>
-             
+
         </StackPanel>
 
 
-        <StackPanel Grid.Row="1" Background="#6F4D80">
+        <StackPanel Grid.Row="1" Background="#6F4D80" Grid.RowSpan="2">
 
             <StackPanel Orientation="Horizontal">
                 <Border CornerRadius="20" BorderThickness="1" >
@@ -51,10 +52,10 @@
             <Button x:Name="Fornecedores" Background="Transparent" BorderThickness="0, 0, 0 , 1" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Fornecedores"  FontSize="30" Height="60" Cursor="Hand" Click="btnFornecedores_Click"/>
             <Button x:Name="Caixa" Background="Transparent" BorderThickness="0, 0, 0 , 1" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Caixa"  FontSize="30" Height="60" Cursor="Hand" Click="btnCaixa_Click"/>
         </StackPanel>
-            <Button Grid.Row="1" VerticalAlignment="Bottom" x:Name="btnLoja" Background="Transparent" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Loja" FontSize="30" Height="60" Cursor="Hand" Click="btnLoja_Click"/>
+        <Button Grid.Row="2" VerticalAlignment="Top" x:Name="btnLoja" Background="Transparent" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Loja" FontSize="30" Height="60" Cursor="Hand" Click="btnLoja_Click" Margin="0,11,0,0"/>
 
         <!--<ContentControl Grid.Row="1" Grid.Column="1" Content="{Binding}"></ContentControl>-->
-        <Frame x:Name="_frame" Grid.Row="1" Grid.Column="1" NavigationUIVisibility="Hidden" HorizontalAlignment="Stretch"/>
+        <Frame x:Name="_frame" Grid.Row="1" NavigationUIVisibility="Hidden" Grid.ColumnSpan="2" Margin="295,0,0,0" Grid.RowSpan="2"/>
 
     </Grid>
 </Window>

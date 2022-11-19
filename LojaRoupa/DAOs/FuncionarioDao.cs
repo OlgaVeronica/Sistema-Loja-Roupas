@@ -46,7 +46,7 @@ namespace LojaRoupa.DAOs
 
                 var command = conn.Query();
                 command.CommandText = "insert into funcionario values(null, @nome, @telefone, @endereco, @cpf, " +
-                    "@sexo, @email, @rg, @funcao, @salario, @status, 1);";
+                    "@sexo, @email, @rg, @funcao, @salario, @avatar, @status, 1);";
 
                 command.Parameters.AddWithValue("@telefone", func.Telefone);
                 command.Parameters.AddWithValue("@endereco", func.Endereco);
@@ -57,6 +57,7 @@ namespace LojaRoupa.DAOs
                 command.Parameters.AddWithValue("@funcao", func.Funcao);
                 command.Parameters.AddWithValue("@salario", func.Salario);
                 command.Parameters.AddWithValue("@nome", func.Nome);
+                command.Parameters.AddWithValue("avatar", func.Avatar);
                 command.Parameters.AddWithValue("@status", func.Status);
 
                 var resultado = command.ExecuteNonQuery();
@@ -83,11 +84,8 @@ namespace LojaRoupa.DAOs
                 var command = conn.Query();
                 command.CommandText = "select * from funcionario ";
 
-
-                
                 command.CommandText = "select * from funcionario where(status_func like 'ativo');";
-
-                
+                                
                 MySqlDataReader reader = command.ExecuteReader();
 
                 while (reader.Read())
@@ -104,9 +102,9 @@ namespace LojaRoupa.DAOs
                     funcionario.Funcao = DAOHelper.GetString(reader, "funcao_func");
                     funcionario.Salario = DAOHelper.GetString(reader, "salario_func");
                     funcionario.Status = DAOHelper.GetString(reader, "status_func");
+                    funcionario.Avatar = DAOHelper.GetString(reader, "avatar_func");
 
                     lista.Add(funcionario);
-
                 }
                 reader.Close();
 
@@ -126,7 +124,7 @@ namespace LojaRoupa.DAOs
             {
                 var command = conn.Query();
                 command.CommandText = "update funcionario set nome_func = @nome, telefone_func = @telefone, endereco_func = @endereco, cpf_func = @cpf, " +
-                        "sexo_func = @sexo, email_func = @email, rg_func = @rg, funcao_func = @funcao, salario_func = @salario where (id_func = @id);";
+                        "sexo_func = @sexo, email_func = @email, rg_func = @rg, funcao_func = @funcao, avatar_func = @avatar, salario_func = @salario where (id_func = @id);";
 
 
                 command.Parameters.AddWithValue("@telefone", func.Telefone);
@@ -139,6 +137,7 @@ namespace LojaRoupa.DAOs
                 command.Parameters.AddWithValue("@salario", func.Salario);
                 command.Parameters.AddWithValue("@nome", func.Nome);
                 command.Parameters.AddWithValue("@status", func.Status);
+                command.Parameters.AddWithValue("@avatar", func.Avatar);
                 command.Parameters.AddWithValue("@id", func.Id);
 
                 var resultado = command.ExecuteNonQuery();

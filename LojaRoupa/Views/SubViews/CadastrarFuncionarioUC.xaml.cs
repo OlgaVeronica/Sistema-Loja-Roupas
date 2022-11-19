@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 
 namespace LojaRoupa.Views.SubViews
 {
@@ -25,6 +26,7 @@ namespace LojaRoupa.Views.SubViews
     {
         private Frame _frame;
         private FuncionarioModel _funcionario = new FuncionarioModel();
+        private ImageSource _imageSourceFuncionario;
         public CadastrarFuncionarioUC(Frame frame)
         {
             InitializeComponent();
@@ -54,6 +56,7 @@ namespace LojaRoupa.Views.SubViews
             txtEndereco.Text = _funcionario.Endereco;
             txtFuncao.Text = _funcionario.Funcao;
             txtSalario.Text = _funcionario.Salario;
+            imgFuncionario.ImageSource = new BitmapImage(new Uri(_funcionario.Avatar));
         }
 
         private void btnCadastrar_Click(object sender, RoutedEventArgs e)
@@ -69,6 +72,7 @@ namespace LojaRoupa.Views.SubViews
             funcionario.Funcao = txtFuncao.Text;
             funcionario.Salario = txtSalario.Text;
             funcionario.Status = "ativo";
+            funcionario.Avatar = imgFuncionario.ImageSource.ToString();
 
             try
             {
@@ -84,7 +88,6 @@ namespace LojaRoupa.Views.SubViews
                 {
                     dao.Insert(funcionario);
                     MessageBox.Show("Cadastro Realizado!");
-
                 }
             } catch(MySqlException error)
             {
@@ -106,11 +109,31 @@ namespace LojaRoupa.Views.SubViews
             txtEndereco.Clear();
             txtFuncao.Clear();
             txtSalario.Clear();
+            imgFuncionario.ImageSource = _imageSourceFuncionario; 
         }
 
         private void btnVoltar_Click(object sender, RoutedEventArgs e)
         {
             _frame.Content = new FuncionarioUC(_frame);
+        }
+
+        private void btnEscolherImg_Click(object sender, RoutedEventArgs e)
+        {
+            _imageSourceFuncionario = imgFuncionario.ImageSource;
+            OpenFileDialog openDialog = new OpenFileDialog();
+            openDialog.Filter = "Image files|*.bmp; *.jpg; *.png";
+            openDialog.FilterIndex = 1;
+            if (openDialog.ShowDialog() == true)
+            {
+                imgFuncionario.ImageSource = new BitmapImage(new Uri(openDialog.FileName));
+            }
+        }
+
+
+
+        private void imgFuncionario_SourceUpdated(object sender, DataTransferEventArgs e)
+        {
+
         }
     }
 }

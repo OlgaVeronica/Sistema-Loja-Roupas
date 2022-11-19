@@ -26,7 +26,7 @@ email_func varchar(300),
 rg_func varchar(300),
 funcao_func varchar(300),
 salario_func float,
--- avatar_func longblob,
+avatar_func varchar(1000),
 status_func varchar(100),
 id_loja_fk int,
 foreign key (id_loja_fk) references Loja(id_loja)
@@ -172,8 +172,8 @@ foreign key (id_roup_fk) references Roupa(id_roup)
 
 insert into cliente values (null, "doido", "4575", "8676", "Ativo");
 insert into cliente values (null, "CU", "4575", "8676", "Ativo");
-select*from venda;
-
+select*from funcionario;
+/*
 DELIMITER $$
 create procedure InserirLoja(nome varchar(300), cnpj varchar(300), endereco varchar(300))
 begin
