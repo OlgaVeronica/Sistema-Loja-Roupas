@@ -150,6 +150,10 @@ namespace LojaRoupa.Views.SubViews
         }
         private void btnExcluir_Click(object sender, RoutedEventArgs e)
         {
+            ProdutoModel produto = dtgProdutos.SelectedItem as ProdutoModel;
+
+            _valorCompra -= produto.Preco * produto.Quantidade;
+            txtValor.Text = _valorCompra.ToString();
             dtgProdutos.Items.RemoveAt(dtgProdutos.SelectedIndex);
 
         }
