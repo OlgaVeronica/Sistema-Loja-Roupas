@@ -14,6 +14,5 @@ namespace LojaRoupa.ViewsModels
         public string Cpf { get; set; }
         public string Status { get; set; }
 
-
     }
 }

@@ -25,7 +25,6 @@ namespace LojaRoupa.Views.SubViews
             _frame = frame;
             Loaded += CadastrarFuncionarioUC_Loaded;
         }
-
         
 
         public CadastrarFuncionarioUC(Frame frame, FuncionarioModel funcionario)
@@ -34,6 +33,8 @@ namespace LojaRoupa.Views.SubViews
             _frame = frame;
             _funcionario = funcionario;
             Loaded += CadastrarFuncionarioUC_Loaded;
+            txbFuncionario.Text = "Editar Funcionário";
+            btnCadastrar.Content = "Salvar";
 
         }
 

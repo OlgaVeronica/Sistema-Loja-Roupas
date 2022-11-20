@@ -39,6 +39,8 @@ namespace LojaRoupa.Views.SubViews
             _frame = frame;
             _produto = produto;
             Loaded += CadastrarProdutoUC_Loaded;
+            txbRoupa.Text = "Editar Peça de Roupa";
+            btnCadastrar.Content = "Salvar";
         }
 
         private void CadastrarProdutoUC_Loaded(object sender, RoutedEventArgs e)
@@ -122,6 +124,8 @@ namespace LojaRoupa.Views.SubViews
             txtColecao.Clear();
             txtTamanho.Clear();
             txtEstampa.Clear();
+            cbMarca.SelectedIndex = -1;
+            txtPreco.Clear();
         }
 
         private void btnVoltar_Click(object sender, RoutedEventArgs e)

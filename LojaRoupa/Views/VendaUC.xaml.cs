@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using LojaRoupa.ViewsModels;
 using LojaRoupa.DAOs;
 using MySql.Data.MySqlClient;
+using LojaRoupa.Views.SubViews;
 
 namespace LojaRoupa.Views
 {
@@ -113,13 +114,14 @@ namespace LojaRoupa.Views
                 MessageBox.Show("Venda realizada com sucesso", "Sucesso!!", MessageBoxButton.OK, MessageBoxImage.Information);
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Não foi possíel inserir Registros", "Erro ao inserir Registros", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             finally
             {
                 ClearFields();
+                txtValor.Clear();
             }
         }
 
@@ -161,6 +163,9 @@ namespace LojaRoupa.Views
             
         }
 
-      
+        private void btnNovoCliente_Click(object sender, RoutedEventArgs e)
+        {
+            _frame.Content = new CadastrarClienteUC(_frame);
+        }
     }
 }

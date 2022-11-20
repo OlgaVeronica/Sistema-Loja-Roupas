@@ -49,7 +49,7 @@ namespace LojaRoupa.Views.SubViews
 
         private void btnCadastrar_Click(object sender, RoutedEventArgs e)
         {
-            _frame.Content = new CadastrarMarcaUC(_frame);
+                _frame.Content = new CadastrarMarcaUC(_frame);
         }
 
         private void btnVoltar_Click(object sender, RoutedEventArgs e)

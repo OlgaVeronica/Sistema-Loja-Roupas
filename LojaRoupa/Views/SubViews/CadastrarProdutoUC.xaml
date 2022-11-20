@@ -16,7 +16,7 @@
             <RowDefinition Height=".3*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Foreground="black" Grid.Row="0" HorizontalAlignment="Center" FontSize="40" Text="Cadastrar Peça de Roupa " />
+        <TextBlock x:Name="txbRoupa" Foreground="black" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40" Text="Cadastrar Peça de Roupa " />
 
         <Grid Grid.Row="1" Background="White" HorizontalAlignment="Center">
             <Grid.ColumnDefinitions>

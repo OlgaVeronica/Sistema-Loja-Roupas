@@ -38,6 +38,8 @@ namespace LojaRoupa.Views.SubViews
             _frame = frame;
             _fornecedor = fornecedor;
             Loaded += CadastrarFornecedorUC_Loaded;
+            txbFornecedor.Text = "Editar Fornecedor";
+            btnCadastrar.Content = "Salvar";
         }
 
         private void CadastrarFornecedorUC_Loaded(object sender, RoutedEventArgs e)

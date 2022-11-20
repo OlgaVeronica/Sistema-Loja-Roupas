@@ -38,6 +38,8 @@ namespace LojaRoupa.Views.SubViews
             _frame = frame;
             _marca = marca;
             Loaded += CadastrarMarcaUC_Loaded;
+            txbMarca.Text = "Editar Marca";
+            btnCadastrar.Content = "Salvar";
         }
 
         private void CadastrarMarcaUC_Loaded(object sender, RoutedEventArgs e)
@@ -68,6 +70,7 @@ namespace LojaRoupa.Views.SubViews
                 {
                     dao.Update(marca);
                     MessageBox.Show("Update Realizado!");
+                    _frame.Content = new MarcaUC(_frame);
                 }
                 else
                 {
