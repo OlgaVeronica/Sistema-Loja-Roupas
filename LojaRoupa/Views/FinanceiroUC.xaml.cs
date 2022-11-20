@@ -17,9 +17,9 @@ using LojaRoupa.Views.SubViews;
 using LojaRoupa.ViewsModels;
 using LojaRoupa.DAOs;
 using MySql.Data.MySqlClient;
-using iTextSharp;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
+//using iTextSharp;
+//using iTextSharp.text;
+//using iTextSharp.text.pdf;
 
 namespace LojaRoupa.Views
 {
