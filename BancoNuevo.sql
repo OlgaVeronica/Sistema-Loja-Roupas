@@ -341,7 +341,7 @@ $$ DELIMITER ;
 
 
 DELIMITER $$
-create procedure InserirCliente(nome varchar(300), cpf varchar(300), telefone varchar(300), satus varchar(100))
+create procedure InserirCliente(codigo int, nome varchar(300), cpf varchar(300), telefone varchar(300), satus varchar(100))
 begin
 	insert into Cliente values(null, nome, cpf, telefone, status);
     select 'Cliente inserido com sucesso!' as Confirmacao;
