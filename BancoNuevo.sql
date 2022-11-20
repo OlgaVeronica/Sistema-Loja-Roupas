@@ -191,30 +191,27 @@ begin
 end;
 $$ DELIMITER ;
 
+call InserirLoja("Manas", "000000", "Centro");
+call InserirLoja("Grauna", "000000", "");
+
 DELIMITER $$
 create procedure AtualizarLoja(codigo int, nome varchar(300), cnpj varchar(300), endereco varchar(300))
 begin
     if ((codigo is not null) and (codigo <> '')) then
-        if((endereco is null) and (endereco <> '')) then
+        if((endereco is not null) and (endereco <> '')) then
             
-            update Loja set
-            nome_loja = nome, 
-            cnpj_loja = cnpj, 
-            endereco_loja = endereco
-
-            where id_loja = codigo;
-            
+            update Loja set nome_loja = nome, cnpj_loja = cnpj, endereco_loja = endereco where id_loja = codigo;
             select 'Loja atualizada com sucesso!' as Confirmacao;
 		else
 			select 'Endereço não pode estar vazio!' as Erro;
         end if;
 	else
-		select 'Endereço não pode estar vazio!' as Erro;
+		select 'Código não pode estar vazio!' as Erro;
     end if;
 end;
 $$ DELIMITER ;
-
-
+select*from loja;
+call AtualizarLoja(1, "Lince","111111111111", "COHAB");
 
 DELIMITER $$
 create procedure InserirFuncionario(
@@ -230,11 +227,22 @@ create procedure InserirFuncionario(
     -- avatar longblob,
     status varchar(100))
 begin
-	insert into Funcionario values(null, nome, telefone, cpf, sexo, email, rg, funcao, salario, /*avatar,*/ status);
-	select 'Funcionário inserido com sucesso!' as Confirmacao;
+	if ((nome is not null) and (nome <> '')) then
+		if((cpf is not null) and (cpf <> '')) then
+			insert into Funcionario values(null, nome, telefone, cpf, sexo, email, rg, funcao, salario, /*avatar,*/ status);
+			select 'Funcionário inserido com sucesso!' as Confirmacao;
+		else
+			select 'CPF inválido' as Erro;
+		end if;
+	else
+		select 'Nome não pode ser nulo ou vazio' as Erro;
+    end if;
 end
 $$ DELIMITER ;
 
+#call InserirFuncionario("Maria", "(69) 9999-9999", "Rua João de Oliveira", "000.000.000-00",
+#"Feminino", "maria@gmail.com", "000.000", "Vendedora", 1800, "ativo");
+select*from loja;
 DELIMITER $$
 create procedure AtualizarFuncionario(
 	codigo int,
