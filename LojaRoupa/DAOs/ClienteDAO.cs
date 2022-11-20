@@ -40,7 +40,7 @@ namespace LojaRoupa.DAOs
             {
 
                 var command = conn.Query();
-                command.CommandText = "insert into cliente values(null, @nome, @cpf, @telefone, @status";
+                command.CommandText = "insert into cliente values(null, @nome, @cpf, @telefone, @status)";
 
                 command.Parameters.AddWithValue("@telefone", cliente.Telefone);
                 command.Parameters.AddWithValue("@cpf", cliente.Cpf);
@@ -94,7 +94,7 @@ namespace LojaRoupa.DAOs
                 var lista = new List<ClienteModel>();
 
                 var command = conn.Query();
-                command.CommandText = "select * from cliente";
+                //command.CommandText = "select * from cliente";
 
                 command.CommandText = "select * from cliente where(status_cli like 'ativo');";
 
@@ -102,12 +102,14 @@ namespace LojaRoupa.DAOs
 
                 while (reader.Read())
                 {
-                    var cliente = new ClienteModel();
-                    cliente.Id = reader.GetInt32("id_cli");
-                    cliente.Nome = DAOHelper.GetString(reader, "nome_cli");
-                    cliente.Cpf = DAOHelper.GetString(reader, "cpf_cli");
-                    cliente.Telefone = DAOHelper.GetString(reader, "telefone_cli");
-                    cliente.Status = DAOHelper.GetString(reader, "status_cli");
+                    var cliente = new ClienteModel
+                    {
+                        Id = reader.GetInt32("id_cli"),
+                        Nome = DAOHelper.GetString(reader, "nome_cli"),
+                        Cpf = DAOHelper.GetString(reader, "cpf_cli"),
+                        Telefone = DAOHelper.GetString(reader, "telefone_cli"),
+                        Status = DAOHelper.GetString(reader, "status_cli")
+                    };
 
                     lista.Add(cliente);
 

@@ -15,7 +15,7 @@
             <RowDefinition Height="84*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Foreground="black" Grid.Row="0" HorizontalAlignment="Center" FontSize="40" Text="Cadastrar Marca" />
+        <TextBlock x:Name="txbMarca" Foreground="black" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40" Text="Cadastrar Marca" />
 
         <Grid Background="AliceBlue" HorizontalAlignment="Center" Margin="0,84,0,84" Grid.RowSpan="4">
             <Grid.ColumnDefinitions>
@@ -27,7 +27,7 @@
                
                 
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0, 10, 0, 10">
-                    <Label Content="Logomarca" FontSize="20" HorizontalAlignment="Center"/>
+                    <Label Content="Logotipo" FontSize="20" HorizontalAlignment="Center"/>
 
                     <Border CornerRadius="20" BorderThickness="1" >
                         <Ellipse Width="140" Height="140" Margin="15">
@@ -53,7 +53,7 @@
 
         </Grid>
 
-        <Button Grid.Row="3" Height="50" Width="150" x:Name="btnCadastrar" Click="btnCadastrar_Click" Margin="325,17,325,17">Cadastrar</Button>
+        <Button Grid.Row="3" Height="50" Width="150" x:Name="btnCadastrar" Click="btnCadastrar_Click" Margin="325,17,325,17" Content="Cadastrar"></Button>
         <Button Grid.Row="0" HorizontalAlignment="Left" Margin="10,17,0,17" Height="50" Width="150" x:Name="btnVoltar" Click="btnVoltar_Click">Voltar</Button>
     </Grid>
 </UserControl>

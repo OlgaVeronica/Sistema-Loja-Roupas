@@ -12,11 +12,15 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height=".3*"/>
         </Grid.RowDefinitions>
-        <TextBlock Foreground="black" Grid.Row="0" HorizontalAlignment="Center" FontSize="40" Text="Cadastro de Clientes" />
 
-        <Grid Background="AliceBlue" HorizontalAlignment="Center" Margin="0,84,0,84" Grid.RowSpan="4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="txbCliente" Grid.ColumnSpan="2" Foreground="black" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40" Text="Cadastro de Clientes" />
+
+        <Grid HorizontalAlignment="Center"  Grid.Row="1" Width="480" Height="450" VerticalAlignment="Bottom">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" MaxWidth="500"/>
                 <ColumnDefinition Width="*" MaxWidth="500"/>
             </Grid.ColumnDefinitions>
 
@@ -31,15 +35,48 @@
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10">
                     <Label Content="CPF" FontSize="20" HorizontalAlignment="Center"/>
-                    <TextBox MinWidth="500" FontSize="20" x:Name="txtCpf"></TextBox>
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtCpf" Width="209"></TextBox>
                 </StackPanel>
             </StackPanel>
 
+        </Grid>
+       
 
+        <Grid Grid.Row="1" Grid.Column="1">
+            <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Top">
+                <Label FontSize="16">Busca:</Label>
+                <TextBox FontSize="16" x:Name="txtFilter" TextChanged="txtFilter_TextChanged"  Width="300" Cursor="Arrow"></TextBox>
+            </StackPanel>
+            
+            <DataGrid x:Name="dtgCliente"  FontSize="16" AutoGenerateColumns="True" 
+                  CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" Background="White"
+                          MinHeight="200"
+                  AlternatingRowBackground="#f2f2f2" AlternationCount="2" CanUserReorderColumns="False" Margin="0,35,0,0">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Nome" Binding="{Binding Nome}" />
+                    <DataGridTextColumn Header="Telefone" Binding="{Binding Telefone}" />
+                    <DataGridTextColumn Header="CPF" Binding="{Binding Cpf}" />
+                   
+
+                    <DataGridTemplateColumn Header="Mudanças">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <Button Content="Editar" x:Name="btnEditar" Click="btnEditar_Click" Margin="10, 0, 0, 10"/>
+                                    <Button Content="Excluir" x:Name="btnExcluir" Click="btnExcluir_Click" Margin="10, 0, 0, 10"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                </DataGrid.Columns>
+            </DataGrid>
 
         </Grid>
+        <Grid Grid.Row="3" Grid.ColumnSpan="2">
+            <Button  Height="50" Width="150" x:Name="btnCadastrar" Click="btnCadastrar_Click" Content="Cadastrar"/>
+        </Grid>
 
-        <Button Grid.Row="3" Height="50" Width="150" x:Name="btnCadastrar" Click="btnCadastrar_Click" Margin="325,17,325,17">Cadastrar</Button>
         <Button Grid.Row="0" HorizontalAlignment="Left" Margin="10,0" Height="50" Width="150" x:Name="btnVoltar" Click="btnVoltar_Click">Voltar</Button>
     </Grid>
 </UserControl>

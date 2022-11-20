@@ -173,7 +173,7 @@ foreign key (id_roup_fk) references Roupa(id_roup)
 insert into cliente values (null, "doido", "4575", "8676", "Ativo");
 insert into cliente values (null, "CU", "4575", "8676", "Ativo");
 select*from funcionario;
-
+select*from cliente;
 
 DELIMITER $$
 create procedure InserirLoja(nome varchar(300), cnpj varchar(300), endereco varchar(300))
