@@ -26,7 +26,7 @@ email_func varchar(300),
 rg_func varchar(300),
 funcao_func varchar(300),
 salario_func float,
-avatar_func varchar(1000),
+#avatar_func varchar(1000),
 status_func varchar(100),
 id_loja_fk int,
 foreign key (id_loja_fk) references Loja(id_loja)
@@ -225,11 +225,13 @@ create procedure InserirFuncionario(
     funcao varchar(300),
     salario float,
     -- avatar longblob,
-    status varchar(100))
+    status varchar(100),
+    lojaFK int)
 begin
 	if ((nome is not null) and (nome <> '')) then
 		if((cpf is not null) and (cpf <> '')) then
-			insert into Funcionario values(null, nome, telefone, cpf, sexo, email, rg, funcao, salario, /*avatar,*/ status);
+			insert into Funcionario values(null, nome, telefone, endereco, cpf, 
+            sexo, email, rg, funcao, salario, /*avatar,*/ status, lojaFK);
 			select 'Funcionário inserido com sucesso!' as Confirmacao;
 		else
 			select 'CPF inválido' as Erro;
@@ -240,9 +242,10 @@ begin
 end
 $$ DELIMITER ;
 
-#call InserirFuncionario("Maria", "(69) 9999-9999", "Rua João de Oliveira", "000.000.000-00",
-#"Feminino", "maria@gmail.com", "000.000", "Vendedora", 1800, "ativo");
+call InserirFuncionario("Maria", "(69) 9999-9999", "Rua João de Oliveira", "000.000.000-00",
+"Feminino", "maria@gmail.com", "000.000", "Vendedora", 1800, "ativo",1);
 select*from loja;
+
 DELIMITER $$
 create procedure AtualizarFuncionario(
 	codigo int,
@@ -256,27 +259,41 @@ create procedure AtualizarFuncionario(
     funcao varchar(300),
     salario float,
     -- avatar longblob,
-    status varchar(100))
+    status varchar(100),
+    lojaFK int)
 begin
-	update Funcionario set 
-	nome_func = nome, 
-    telefone_func = telefone, 
-    cpf_func = cpf, 
-    sexo_func = sexo, 
-    email_func = email, 
-    rg_func = rg, 
-    funcao_func = funcao, 
-    salario_func = salario, 
-    -- avatar_func = avatar, 
-    status_func = status
-    
-    where id_func = codigo;
-    
-	select 'Funcionário atualizado com sucesso!' as Confirmacao;
+
+	if ((nome is not null) and (nome <> '')) then
+		if((cpf is not null) and (cpf <> '')) then
+			update Funcionario set 
+			nome_func = nome, 
+			telefone_func = telefone, 
+            endereco_func = endereco,
+			cpf_func = cpf, 
+			sexo_func = sexo, 
+			email_func = email, 
+			rg_func = rg, 
+			funcao_func = funcao, 
+			salario_func = salario, 
+			-- avatar_func = avatar, 
+			status_func = status,
+			id_loja_fk = lojaFK
+			
+			where id_func = codigo;
+			
+			select 'Funcionário atualizado com sucesso!' as Confirmacao;
+		else 
+			select 'CPF inválido' as Erro;
+		end if;
+	else
+		select 'Nome não pode ser nulo ou vazio' as Erro;
+	end if;
 end
 $$ DELIMITER ;
+select*from funcionario;
 
-
+call AtualizarFuncionario(1,"Maria Eduarda", "(69) 6969-6969", "Rua João de Oliveira", "000.000.000-00",
+"Feminino", "maria@gmail.com", "000.111", "Gerente", 5000, "ativo",1);
 
 DELIMITER $$
 create procedure InserirFornecedor(
@@ -288,11 +305,24 @@ create procedure InserirFornecedor(
     telefone varchar(300),
     status varchar(100))
 begin
-	insert into Fornecedor values(null, razaoSocial, cnpj, nomeFantasia, endereco, email, status);
-	select 'Fornecedor inserido com sucesso!' as Confirmacao;
 
+	if((razaoSocial is not null) and (razaoSocial <> '')) then
+		if((cnpj is not null) and (cnpj <> '')) then
+			insert into Fornecedor values(null, razaoSocial, cnpj,
+            nomeFantasia, endereco, email, telefone, status);
+			select 'Fornecedor inserido com sucesso!' as Confirmacao;
+        else
+			select 'CNPJ inválido' as Erro;
+		end if;
+	else
+		select 'Razão Social inválida' as Erro;
+    end if;
 end
 $$ DELIMITER ;
+
+call InserirFornecedor("Rosângela e Lara Telas Ltda", "52.501.698/0001-22",
+"RoLa Ltda", "Rua Itapicuru 837", "contabil@rosangelaelaratelasltda.com.br", "(11) 3785-6790", "Ativo");
+
 
 DELIMITER $$
 create procedure AtualizarFornecedor(
@@ -305,56 +335,97 @@ create procedure AtualizarFornecedor(
     telefone varchar(300),
     status varchar(100))
 begin
-
-	update Fornecedor set
-    
-    razao_social_forn = razaoSocial, 
-    cnpj_forn = cnpj, 
-    nome_fantasia_forn = nomeFantasia, 
-    endereco_forn = endereco, 
-    email_forn = email, 
-    status_forn = status
-    
-    where id_forn = codigo;
-    
-	select 'Fornecedor Atualizado com sucesso!' as Confirmacao;
-
+	if((razaoSocial is not null) and (razaoSocial <> '')) then
+		if((cnpj is not null) and (cnpj <> '')) then
+			update Fornecedor set
+			id_forn = codigo,
+			razao_social_forn = razaoSocial, 
+			cnpj_forn = cnpj, 
+			nome_fantasia_forn = nomeFantasia, 
+			endereco_forn = endereco, 
+			email_forn = email, 
+			status_forn = status
+			
+			where id_forn = codigo;
+			
+			select 'Fornecedor Atualizado com sucesso!' as Confirmacao;
+            
+		else
+            select 'CNPJ inválido' as Erro;
+		end if;
+	else
+		select 'Razão Social inválida' as Erro;
+    end if;
 end
 $$ DELIMITER ;
 
-
+call AtualizarFornecedor(1,"Rosângela e Lara Telas Ltda", "52.501.698/0001-22",
+"RoLa Telas Ltda", "Rua Itapicuru 837", "contabil@rosangelaelaratelasltda.com.br", "(11) 3785-6790", "Desativado");
+select*from fornecedor;
 
 DELIMITER $$
 create procedure InserirMarca(nome varchar(300), logo longblob, status varchar(100))
 begin
-	insert into Marca values(null, nome, logo, status);
-    select 'Marca inserida com sucesso!' as Confirmacao;
+
+	if((nome is not null) and (nome <> '')) then
+		if((status is not null) and (status <> '')) then
+			insert into Marca values(null, nome, logo, status);
+			select 'Marca inserida com sucesso!' as Confirmacao;
+            
+		else 
+			select concat('Defina o status da marca'+nome) as Erro;
+		end if;
+	else
+		select 'Nome inválido. Insira um nome válido para marca.' as Erro;
+	end if;
 end
 $$ DELIMITER ;
 
-DELIMITER $$
-create procedure InserirMarca(codigo int, nome varchar(300), logo longblob, status varchar(100))
-begin
-	update Marca set
-	nome_mar = nome, 
-    logo_mar = logo, 
-    status_mar = status
-    
-    where id_mar = codigo;
-    
-    select 'Marca atualizada com sucesso!' as Confirmacao;
-end
-$$ DELIMITER ;
-
+call InserirMarca ("Hering", null, "Ativo");
 
 
 DELIMITER $$
-create procedure InserirCliente(codigo int, nome varchar(300), cpf varchar(300), telefone varchar(300), satus varchar(100))
+create procedure AtualizarMarca(codigo int, nome varchar(300), logo longblob, status varchar(100))
 begin
-	insert into Cliente values(null, nome, cpf, telefone, status);
-    select 'Cliente inserido com sucesso!' as Confirmacao;
+	if((nome is not null) and (nome <> '')) then
+		if((status is not null) and (status <> '')) then
+			update Marca set
+			nome_mar = nome, 
+			logo_mar = logo, 
+			status_mar = status
+			
+			where id_mar = codigo;
+			
+			select 'Marca atualizada com sucesso!' as Confirmacao;
+		else
+			select 'Defina o status da marca.' as Erro;
+		end if;
+	else
+		select 'Nome inválido. Insira um nome válido para marca.' as Erro;
+	end if;
 end
 $$ DELIMITER ;
+
+select*from marca;
+call AtualizarMarca (1, "Arezzo", null, "Ativo");
+
+DELIMITER $$
+create procedure InserirCliente(nome varchar(300), cpf varchar(300), telefone varchar(300), status varchar(100))
+begin
+	if((nome is not null) and (nome <> '')) then
+		if((cpf is not null) and (cpf <> '')) then
+			insert into Cliente values (null, nome, cpf, telefone, status);
+			select 'Cliente inserido com sucesso!' as Confirmacao;
+		else
+			select 'Insira um CPF válido.' as Erro;
+		end if;
+	else
+		select 'Nome não pode ser nulo ou vazio.' as Erro;
+	end if;
+end
+$$ DELIMITER ;
+
+call InserirCliente ("Eloizy Campi", "987.654.321-00", "(69) 99292-9292", "Ativo");
 
 DELIMITER $$
 create procedure AtualizarCliente(codigo int, nome varchar(300), cpf varchar(300), telefone varchar(300), satus varchar(100))
