@@ -9,8 +9,8 @@ namespace LojaRoupa.ViewsModels
     public class VendaModel
     {
         public int Id { get; set; }
-        public FuncionarioModel Funcionario { get; set; }
-        public ClienteModel Cliente { get; set; }
+        public FuncionarioModel Funcionario { get; set; } = new FuncionarioModel();
+        public ClienteModel Cliente { get; set; } = new ClienteModel();
 
         public DateTime? Data { get; set; }
         public string Hora { get; set; }

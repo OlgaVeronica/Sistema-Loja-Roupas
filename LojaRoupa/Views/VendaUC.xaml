@@ -130,6 +130,10 @@
                     <Label Content="Valor: " FontSize="16" HorizontalAlignment="Center"/>
                     <TextBox MinWidth="150" Background="White" FontSize="16" x:Name="txtValor" Cursor="Arrow" IsReadOnly="True"></TextBox>
                 </StackPanel>
+
+                <Button Height="50" Width="150" x:Name="BtnRelatorio" Click="BtnRelatorio_Click">
+                    Relatório de Vendas
+                </Button>
             </StackPanel>
 
             
