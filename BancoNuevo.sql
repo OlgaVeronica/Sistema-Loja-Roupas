@@ -428,48 +428,86 @@ $$ DELIMITER ;
 call InserirCliente ("Eloizy Campi", "987.654.321-00", "(69) 99292-9292", "Ativo");
 
 DELIMITER $$
-create procedure AtualizarCliente(codigo int, nome varchar(300), cpf varchar(300), telefone varchar(300), satus varchar(100))
+create procedure AtualizarCliente(codigo int, nome varchar(300), cpf varchar(300), telefone varchar(300), status varchar(100))
 begin
-	update Cliente set
-    nome_cli = nome, 
-    cpf_cli = cpf, 
-    telefone_cli = telefone, 
-    status_cli = status
-    
-    where id_cli = codigo;
-    
-    select 'Cliente atualizado com sucesso!' as Confirmacao;
+	if((nome is not null) and (nome <> '')) then
+		if((cpf is not null) and (cpf <> '')) then
+			update Cliente set
+			nome_cli = nome, 
+			cpf_cli = cpf, 
+			telefone_cli = telefone, 
+			status_cli = status
+			
+			where id_cli = codigo;
+			
+			select 'Cliente atualizado com sucesso!' as Confirmacao;
+		else
+			select 'CPF inválido' as Erro;
+           end if;
+	else
+		select 'Nome não pode ser nulo ou vazio.' as Erro;
+	end if;
 end
 $$ DELIMITER ;
 
+call AtualizarCliente (1,"Eloizy Campi Reis", "987.654.321-00", "(69) 99292-6969", "Ativo");
 
 
 DELIMITER $$
 create procedure InserirVenda(data date, hora time, valor float, status varchar(100), funcionarioFK int, clienteFK int)
 begin
-	insert into Venda values(null, data, hora, valor, status, funcionarioFK, clienteFK);
-    select 'Venda inserida com sucesso!' as Confirmacao;
+	if((valor is not null) and (valor <> '')) then
+		if((funcionarioFK is not null) and (funcionarioFK <> '')) then
+			if((clienteFK is not null) and (clienteFK <> '')) then
+				insert into Venda values(null, data, hora, valor, status, funcionarioFK, clienteFK);
+					select 'Venda inserida com sucesso!' as Confirmacao;
+                else
+					select 'Informe um cliente válido.' as Erro;
+                end if;
+			else
+				select 'Informe um funcionario válido.' as Erro;
+            end if;
+		else
+			select 'Venda zerada. Informe um valor válido.' as Erro;
+        end if;
 end
 $$ DELIMITER ;
+
+select*from funcionario;
+select*from cliente;
+select*from venda;
+call InserirVenda("2022-11-21", "13:27:00", 1015, "Pago", 1, 1);
 
 DELIMITER $$
 create procedure AtualizarVenda(codigo int, data date, hora time, valor float, status varchar(100), funcionarioFK int, clienteFK int)
 begin
-	update Venda set
-    data_ven = data, 
-    hora_ven = hora, 
-    valor_ven = valor, 
-    status_ven = status, 
-    id_func_fk = funcionarioFK, 
-    id_cli_fk = clienteFK
-    
-    where id_ven = codigo;
-    
-    select 'Venda atualizada com sucesso!' as Confirmacao;
+	if((valor is not null) and (valor <> '')) then
+			if((funcionarioFK is not null) and (funcionarioFK <> '')) then
+				if((clienteFK is not null) and (clienteFK <> '')) then
+					update Venda set
+					data_ven = data, 
+					hora_ven = hora, 
+					valor_ven = valor, 
+					status_ven = status, 
+					id_func_fk = funcionarioFK, 
+					id_cli_fk = clienteFK
+					
+					where id_ven = codigo;
+					select 'Venda atualizada com sucesso!' as Confirmacao;
+                    
+                    else
+					select 'Informe um cliente válido.' as Erro;
+                end if;
+			else
+				select 'Informe um funcionario válido.' as Erro;
+            end if;
+		else
+			select 'Venda zerada. Informe um valor válido.' as Erro;
+        end if;
 end
 $$ DELIMITER ;
 
-
+call AtualizarVenda (1,"2022-11-21", "13:27:00", 1015, "Não pago", 1, 1);
 
 DELIMITER $$
 create procedure InserirRoupa(
@@ -482,8 +520,21 @@ create procedure InserirRoupa(
     valor float,
     marcaFK int)
 begin
-	insert into Roupa values(descricao, material, tipo, colecao, estampa, status, valor, marcaFK);
-    select 'Roupa inserida com sucesso!' as Confirmacao;
+	if((descricao is not null) and (descricao <> '')) then
+		if((valor is not null) and (valor <> '')) then
+			if((marcaFK is not null) and (marcaFK <> '')) then
+				insert into Roupa values(descricao, material, tipo, colecao, estampa, status, valor, marcaFK);
+					select 'Roupa inserida com sucesso!' as Confirmacao;
+			
+            else
+				select 'Informe a marca do roupa.' as Erro;
+            end if;
+		else
+			select 'Informe o valor do roupa.' as Erro;
+        end if;
+	else
+		select 'Informe a descrição da roupa.' as Erro;
+	end if;
 end
 $$ DELIMITER ;
 
