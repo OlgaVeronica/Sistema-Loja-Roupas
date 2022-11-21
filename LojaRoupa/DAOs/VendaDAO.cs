@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LojaRoupa.ViewsModels;
-
+using MySql.Data.MySqlClient;
+using LojaRoupa.Helpers;
 
 namespace LojaRoupa.DAOs
 {
@@ -80,7 +81,35 @@ namespace LojaRoupa.DAOs
 
         public override List<VendaModel> List()
         {
-            throw new NotImplementedException();
+            try
+            {
+                List<VendaModel> lista = new List<VendaModel>();
+                var command = conn.Query();
+                command.CommandText = "select id_ven, nome_cli, data_ven, hora_ven, valor_ven,nome_func  from venda, cliente, funcionario where ((Funcionario.id_func = Venda.id_func_fk) and (Cliente.id_cli = Venda.id_cli_fk));";
+                //command.CommandText = "select * from venda";
+
+                MySqlDataReader reader = command.ExecuteReader();
+
+                
+
+                while (reader.Read())
+                {
+                    var venda = new VendaModel();
+                    venda.Funcionario.Nome = DAOHelper.GetString(reader, "nome_func");
+                    venda.Hora = DAOHelper.GetString(reader, "hora_ven");
+                    venda.Cliente.Nome = DAOHelper.GetString(reader, "nome_cli");
+                    venda.Id = reader.GetInt32("id_ven");
+                    venda.Data = DAOHelper.GetDateTime(reader, "data_ven");
+                    venda.Valor = (float)DAOHelper.GetDouble(reader, "valor_ven");
+                    lista.Add(venda);
+                }
+                reader.Close();
+                return lista;
+
+            } catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public override void Update(VendaModel t)

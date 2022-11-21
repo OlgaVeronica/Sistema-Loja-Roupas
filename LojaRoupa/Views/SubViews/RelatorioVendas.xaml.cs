@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using LojaRoupa.DAOs;
 
 namespace LojaRoupa.Views.SubViews
 {
@@ -22,6 +23,33 @@ namespace LojaRoupa.Views.SubViews
         public RelatorioVendas()
         {
             InitializeComponent();
+            Loaded += RelatorioVendas_Loaded;
+        }
+
+        private void RelatorioVendas_Loaded(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                var dao = new VendaDAO();
+                dtgVendas.ItemsSource = dao.List();
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnEditar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void btnDeletar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Fechar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

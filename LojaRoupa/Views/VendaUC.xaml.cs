@@ -167,5 +167,12 @@ namespace LojaRoupa.Views
         {
             _frame.Content = new CadastrarClienteUC(_frame);
         }
+
+        private void BtnRelatorio_Click(object sender, RoutedEventArgs e)
+        {
+            RelatorioVendas relVendas = new RelatorioVendas();
+
+            relVendas.Show();
+        }
     }
 }

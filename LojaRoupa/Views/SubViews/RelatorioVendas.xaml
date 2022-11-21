@@ -14,21 +14,21 @@
         </Grid.RowDefinitions>
 
 
-        <Button x:Name="Close" Grid.Row="0" Height="50" Width="150" HorizontalAlignment="Left" Margin="10,0,0,0">
+        <Button x:Name="Fechar" Grid.Row="0" Height="50" Width="150" HorizontalAlignment="Left" Margin="10,0,0,0" Click="Fechar_Click">
             Voltar
         </Button>
 
 
-        <DataGrid Grid.Row="1" x:Name="dtgFuncionarios"  FontSize="20" AutoGenerateColumns="False" 
+        <DataGrid Grid.Row="1" x:Name="dtgVendas"  FontSize="20" AutoGenerateColumns="False" 
                   CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"
                   AlternatingRowBackground="#f2f2f2" AlternationCount="2" CanUserReorderColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Funcionario" Binding="{Binding Nome}" />
-                <DataGridTextColumn Header="Funcao" Binding="{Binding Funcao}" />
-                <DataGridTextColumn Header="Telefone" Binding="{Binding Telefone}" />
-                <DataGridTextColumn Header="Cpf" Binding="{Binding Cpf}" />
-                <DataGridTextColumn Header="Sexo" Binding="{Binding Sexo}" />
-                <DataGridTextColumn Header="Salario" Binding="{Binding Salario}" />
+                <DataGridTextColumn Header="Funcionario" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Funcao" Binding="{Binding Cliente.Nome}" />
+                <DataGridTextColumn Header="Telefone" Binding="{Binding Data}" />
+                <DataGridTextColumn Header="Cpf" Binding="{Binding Hora}" />
+                <DataGridTextColumn Header="Sexo" Binding="{Binding Valor}" />
+                <DataGridTextColumn Header="Salario" Binding="{Binding Funcionario.Nome}" />
 
 
 
