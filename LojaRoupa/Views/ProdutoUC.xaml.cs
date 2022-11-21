@@ -83,7 +83,6 @@ namespace LojaRoupa.Views
         private void btnEditar_Click(object sender, RoutedEventArgs e)
         {
             var produto = dtgProdutos.SelectedItem as ProdutoModel;
-
             _frame.Content = new CadastrarProdutoUC(_frame, produto);
         }
 

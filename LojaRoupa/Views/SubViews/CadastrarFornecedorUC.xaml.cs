@@ -78,6 +78,7 @@ namespace LojaRoupa.Views.SubViews
                 {
                     dao.Update(fornecedor);
                     MessageBox.Show("Update Realizado!");
+                    _frame.Content = new FornecedorUC(_frame);
 
                 }
                 else

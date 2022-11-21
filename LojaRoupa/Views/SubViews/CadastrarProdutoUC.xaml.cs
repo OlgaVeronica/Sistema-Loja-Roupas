@@ -51,10 +51,9 @@ namespace LojaRoupa.Views.SubViews
             txtColecao.Text = _produto.Colecao;
             txtTamanho.Text = _produto.Tamanho;
             txtEstampa.Text = _produto.Estampa;
-            cbMarca.SelectedItem = _produto.Marca.Id;
+            cbMarca.SelectedItem = _produto.Marca;
             txtPreco.Text = _produto.Preco.ToString();
             carregarListagem();
-
 
         }
 
@@ -64,7 +63,7 @@ namespace LojaRoupa.Views.SubViews
             {
                 var dao = new MarcaDAO();
                 cbMarca.ItemsSource = dao.List();
-
+                
             }
             catch (MySqlException ex)
             {
@@ -98,6 +97,7 @@ namespace LojaRoupa.Views.SubViews
                 {
                     dao.Update(produto);
                     MessageBox.Show("Update Realizado!");
+                    _frame.Content = new ProdutoUC(_frame);
 
                 }
                 else
