@@ -178,6 +178,9 @@
     <Compile Include="Views\TelaPrincipal.xaml.cs">
       <DependentUpon>TelaPrincipal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Usuario.xaml.cs">
+      <DependentUpon>Usuario.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\VendaUC.xaml.cs">
       <DependentUpon>VendaUC.xaml</DependentUpon>
     </Compile>
@@ -270,6 +273,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\TelaPrincipal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Usuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

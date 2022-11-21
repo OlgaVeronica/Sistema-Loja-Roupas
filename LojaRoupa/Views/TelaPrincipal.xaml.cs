@@ -95,5 +95,10 @@ namespace LojaRoupa.Views
         {
 
         }
+
+        private void btnUsuario_Click(object sender, RoutedEventArgs e)
+        {
+            _frame.Content = new Usuarioxaml(_frame);
+        }
     }
 }

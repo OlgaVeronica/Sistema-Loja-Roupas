@@ -51,6 +51,7 @@
             <Button x:Name="btnFinanceiro" Background="Transparent" BorderThickness="0, 0, 0 , 1" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Financeiro"  FontSize="30" Height="60" Click="btnFinanceiro_Click" Cursor="Hand" HorizontalContentAlignment="Left"/>
             <Button x:Name="Fornecedores" Background="Transparent" BorderThickness="0, 0, 0 , 1" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Fornecedores"  FontSize="30" Height="60" Cursor="Hand" Click="btnFornecedores_Click" HorizontalContentAlignment="Left"/>
             <Button x:Name="Caixa" Background="Transparent" BorderThickness="0, 0, 0 , 1" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Caixa"  FontSize="30" Height="60" Cursor="Hand" Click="btnCaixa_Click" HorizontalContentAlignment="Left"/>
+            <Button x:Name="Usuario" Background="Transparent" BorderThickness="0, 0, 0 , 1" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Usuário"  FontSize="30" Height="60" Cursor="Hand" Click="btnUsuario_Click" HorizontalContentAlignment="Left"/>
         </StackPanel>
         <Button Grid.Row="2" VerticalAlignment="Top" x:Name="btnLoja" Background="Transparent" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Loja" FontSize="30" Height="60" Cursor="Hand" Click="btnLoja_Click" Margin="0,11,0,0"/>
 
