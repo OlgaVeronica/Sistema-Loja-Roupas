@@ -5,8 +5,51 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LojaRoupa.Views.SubViews"
         mc:Ignorable="d"
-        Title="RelatorioVendas" Height="450" Width="800">
+        Title="RelatorioVendas" Height="720" Width="1280">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".3*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height=".3*" />
+        </Grid.RowDefinitions>
+
+
+        <Button x:Name="Close" Grid.Row="0" Height="50" Width="150" HorizontalAlignment="Left" Margin="10,0,0,0">
+            Voltar
+        </Button>
+
+
+        <DataGrid Grid.Row="1" x:Name="dtgFuncionarios"  FontSize="20" AutoGenerateColumns="False" 
+                  CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"
+                  AlternatingRowBackground="#f2f2f2" AlternationCount="2" CanUserReorderColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Funcionario" Binding="{Binding Nome}" />
+                <DataGridTextColumn Header="Funcao" Binding="{Binding Funcao}" />
+                <DataGridTextColumn Header="Telefone" Binding="{Binding Telefone}" />
+                <DataGridTextColumn Header="Cpf" Binding="{Binding Cpf}" />
+                <DataGridTextColumn Header="Sexo" Binding="{Binding Sexo}" />
+                <DataGridTextColumn Header="Salario" Binding="{Binding Salario}" />
+
+
+
+
+                <DataGridTemplateColumn Header="Mudanças">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="Editar" x:Name="btnEditar" Click="btnEditar_Click"  Margin="10, 0, 0, 10"/>
+                                <Button Content="Deletar" x:Name="btnDeletar" Click="btnDeletar_Click" Margin="10, 0, 0, 10"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+
+        <Button x:Name="Imprimir" Grid.Row="2" Height="50" Width="150" HorizontalAlignment="Right" Margin="0,0,10,0">
+            Imprimir
+        </Button>
     </Grid>
 </Window>

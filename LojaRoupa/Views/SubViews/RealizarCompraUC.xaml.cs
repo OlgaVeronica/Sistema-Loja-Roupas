@@ -120,6 +120,7 @@ namespace LojaRoupa.Views.SubViews
             DateTime? data = dtpData.SelectedDate;
 
 
+
             CompraModel compra = new CompraModel
             {
                 Funcionario = cbFuncionario.SelectedItem as FuncionarioModel,
