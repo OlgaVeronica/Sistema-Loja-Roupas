@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:LojaRoupa.Views.SubViews"
         mc:Ignorable="d"
         Title="RelatorioVendas" Height="720" Width="1280">
-    <Grid>
+    <Grid x:Name="print">
         <Grid.RowDefinitions>
             <RowDefinition Height=".3*" />
             <RowDefinition Height="*" />
@@ -48,7 +48,7 @@
 
 
 
-        <Button x:Name="Imprimir" Grid.Row="2" Height="50" Width="150" HorizontalAlignment="Right" Margin="0,0,10,0">
+        <Button x:Name="Imprimir" Grid.Row="2" Height="50" Width="150" HorizontalAlignment="Right" Margin="0,0,10,0" Click="Imprimir_Click" Cursor="Hand">
             Imprimir
         </Button>
     </Grid>
