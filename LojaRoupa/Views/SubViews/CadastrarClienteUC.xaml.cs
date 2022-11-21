@@ -30,6 +30,7 @@ namespace LojaRoupa.Views.SubViews
         {
             InitializeComponent();
             _frame = frame;
+            carregarListagem();
         }
         public CadastrarClienteUC(Frame frame, ClienteModel cliente)
         {
@@ -65,6 +66,7 @@ namespace LojaRoupa.Views.SubViews
                 {
                     dao.Update(cliente);
                     MessageBox.Show("Update Realizado!");
+                    _frame.Content = new CadastrarClienteUC(_frame);
 
                 }
                 else

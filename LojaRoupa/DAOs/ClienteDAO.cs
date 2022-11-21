@@ -64,12 +64,14 @@ namespace LojaRoupa.DAOs
 
         public override void Update(ClienteModel cliente)
         {
+            
             try
             {
+
                 var command = conn.Query();
-                command.CommandText = "update cliente set nome_cli = @nome, cpf_cli = @cpf,  telefone_func = @telefone, status_cli = @status";
+                command.CommandText = "update cliente set nome_cli = @nome, cpf_cli = @cpf, telefone_cli = @telefone, status_cli = @status where(id_cli = @id);";
 
-
+                command.Parameters.AddWithValue("@id", cliente.Id);
                 command.Parameters.AddWithValue("@telefone", cliente.Telefone);
                 command.Parameters.AddWithValue("@cpf", cliente.Cpf);
                 command.Parameters.AddWithValue("@nome", cliente.Nome);
