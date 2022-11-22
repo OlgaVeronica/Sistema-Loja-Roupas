@@ -81,6 +81,7 @@ tamanho_roup varchar(300),
 estampa_roup varchar(300),
 status_roup varchar(100),
 valor_roup float,
+qtd_estoque_roup int,
 id_mar_fk int,
 foreign key (id_mar_fk) references Marca(id_mar)
 );
@@ -702,7 +703,7 @@ DELIMITER $$
 create procedure InserirCaixa(data date, horaAbertura time, horaFechamento time, saldoInicial float, saldoFinal float)
 begin
 	if (data is not null) then
-		if(data is not null) then
+		if(horaAbertura is not null) then
 			if(saldoInicial is not null) then
 				insert into Caixa values(null, data, horaAbertura, horaFechamento, saldoInicial, saldoFinal);
 				select 'Caixa inserida com sucesso!' as Confirmacao;
@@ -718,28 +719,41 @@ begin
 end
 $$ DELIMITER ;
 
-drop procedure InserirCaixa;
+drop procedure AtualizarCaixa;
 select * from caixa;
 
-call InserirCaixa("2022-11-10", null, "18:00:00", 10000, 20000);
+call InserirCaixa("2022-11-10", "17:00:00", "18:00:00", 10000, 20000);
 
 
 DELIMITER $$
 create procedure AtualizarCaixa(codigo int, data date, horaAbertura time, horaFechamento time, saldoInicial float, saldoFinal float)
 begin
-	update Caixa set
-    data_cai = data, 
-    hora_abertura_cai = horaAbertura, 
-    hora_fechamento_cai = horaFechamento, 
-    saldo_inicial_cai = saldoInicial, 
-    saldo_final_cai = saldoFinal
+	if (data is not null) then
+		if(horaAbertura is not null) then
+			if(saldoInicial is not null) then
+				update Caixa set
+				data_cai = data, 
+				hora_abertura_cai = horaAbertura, 
+				hora_fechamento_cai = horaFechamento, 
+				saldo_inicial_cai = saldoInicial, 
+				saldo_final_cai = saldoFinal
     
-    where id_cai = codigo;
-    
-    select 'Caixa atualizada com sucesso!' as Confirmacao;
+				where id_cai = codigo;
+                
+				select 'Caixa atualizada com sucesso!' as Confirmacao;
+			else
+				select "Informe o saldo inicial!" as Erro;
+            end if;
+		else
+			select "Informe a hora de abertura!" as Erro;
+        end if;
+	else
+		select "Informe a data!" as Erro;
+    end if;
 end
 $$ DELIMITER ;
 
+call AtualizarCaixa(1, "2020-12-21", "17:00:00", "18:00:00", 10000, 20000);
 
 
 DELIMITER $$
@@ -752,10 +766,24 @@ create procedure InserirRecebimento(
     caixaFK int, 
     vendaFK int)
 begin
-	insert into Recebimento values(null, data, valor, hora, formaRecebimento, status, caixaFK, vendaFK);
-    select 'Recebimento inserido com sucesso!' as Confirmacao;
+	if(data is not null) then
+		if(caixaFK is not null) then
+			if(vendaFK is not null) then
+				insert into Recebimento values(null, data, valor, hora, formaRecebimento, status, caixaFK, vendaFK);
+				select 'Recebimento inserido com sucesso!' as Confirmacao;
+			else
+				select "Informe o código da venda!" as Erro;
+            end if;
+		else
+			select "Informe o código da caixa!" as Erro;
+		end if;
+	else
+		select "Informe a data!" as Erro;
+    end if;
 end
 $$ DELIMITER ;
+
+call inserirRecebimento("2022-12-01", 239, "12:00", "cartão", "aberto", 1, 1);
 
 DELIMITER $$
 create procedure AtualizarRecebimento(
@@ -768,21 +796,36 @@ create procedure AtualizarRecebimento(
     caixaFK int, 
     vendaFK int)
 begin
-	update Recebimento set 
-    data_receb = data, 
-    valor_receb = valor, 
-    hora_receb = hora, 
-    forma_recebimento_receb = formaRecebimento, 
-    status_receb = status, 
-    id_cai_fk = caixaFK, 
-    id_ven_fk = vendaFK
+
+	if(data is not null) then
+		if(caixaFK is not null) then
+			if(vendaFK is not null) then
+				update Recebimento set 
+				data_receb = data, 
+				valor_receb = valor, 
+				hora_receb = hora, 
+				forma_recebimento_receb = formaRecebimento, 
+				status_receb = status, 
+				id_cai_fk = caixaFK, 
+				id_ven_fk = vendaFK
     
-    where id_receb = codigo;
+				where id_receb = codigo;
     
-    select 'Recebimento atualizado com sucesso!' as Confirmacao;
+				select 'Recebimento atualizado com sucesso!' as Confirmacao;
+                
+                else
+				select "Informe o código da venda!" as Erro;
+            end if;
+		else
+			select "Informe o código da caixa!" as Erro;
+		end if;
+	else
+		select "Informe a data!" as Erro;
+    end if;
 end
 $$ DELIMITER ;
 
+call atualizarRecebimento(1, "2022-12-01", 239, "12:00", "cartão", "aberto", 1, 1);
 
 
 DELIMITER $$
@@ -795,10 +838,23 @@ create procedure InserirPagamento(
     caixaFK int,
     despesaFK int)
 begin
-	insert into Pagamento values(null, data, valor, hora, formaRecebimento, status, caixaFK, despesaFK);
-    select 'Pagamento inserido com sucesso!' as Confirmacao;
+	if(valor is not null) then
+		if(caixaFK is not null) then
+			if(despesaFK is not null) then
+				insert into Pagamento values(null, data, valor, hora, formaRecebimento, status, caixaFK, despesaFK);
+				select 'Pagamento inserido com sucesso!' as Confirmacao;
+			else
+				select "Informe o código da despesa!" as Erro;
+            end if;
+        else
+			select "Informe o código do caixa!" as Erro;
+        end if;
+    else
+		select "Informe o valor do Pagamento!" as Erro;
+    end if;
 end
 $$ DELIMITER ;
+call inserirPagamento("2022-10-11", 2000, "12:00", "Cartão", "fechado", 1, 1); 
 
 DELIMITER $$
 create procedure AtualizarPagamento(
@@ -811,42 +867,79 @@ create procedure AtualizarPagamento(
     caixaFK int,
     despesaFK int)
 begin
-	update Pagamento set 
-    data_pag = data, 
-    valor_pag = valor, 
-    hora_pag = hora, 
-    forma_recebimento_pag = formaRecebimento, 
-    status_pag = status, 
-    id_cai_fk = caixaFK, 
-    id_desp_fk = despesaFK
-    
-    where id_pag = codigo;
-    
-    select 'Pagamento atualizado com sucesso!' as Confirmacao;
+	if(valor is not null) then
+		if(caixaFK is not null) then
+			if(despesaFK is not null) then
+				update Pagamento set 
+				data_pag = data, 
+				valor_pag = valor, 
+				hora_pag = hora, 
+				forma_recebimento_pag = formaRecebimento, 
+				status_pag = status, 
+				id_cai_fk = caixaFK, 
+				id_desp_fk = despesaFK
+				
+				where id_pag = codigo;
+				
+				select 'Pagamento atualizado com sucesso!' as Confirmacao;
+			else
+				select "Informe o código da despesa!" as Erro;
+            end if;
+        else
+			select "Informe o código do caixa!" as Erro;
+        end if;
+    else
+		select "Informe o valor do Pagamento!" as Erro;
+    end if;
 end
 $$ DELIMITER ;
 
+call atualizarPagamento(1, "2022-10-11", 2000, "12:00", "Cartão", "fechado", 1, 1); 
 
 
 DELIMITER $$
 create procedure InserirVendaRoupa(quantidade int, vendaFK int, roupaFK int)
 begin
-	insert into VendaRoupa values(null, quantidade, vendaFK, roupaFK);
-    select 'Venda Roupa inserido com sucesso!' as Confirmacao;
+	if((quantidade > 0) and (quantidade is not null)) then
+		if(vendaFK is not null) then
+			if(roupaFK is not null) then
+				insert into VendaRoupa values(null, quantidade, vendaFK, roupaFK);
+				select 'Venda Roupa inserido com sucesso!' as Confirmacao;
+			else
+				select "Informe o código da roupa!" as Erro;
+            end if;
+		else
+			select "Informe o código da venda!" as Erro;
+		end if;
+	else
+		select "A quantidade tem que ser um número maior que 0!" as Erro;
+    end if;
 end
 $$ DELIMITER ;
 
 DELIMITER $$
 create procedure AtualizarVendaRoupa(codigo int, quantidade int, vendaFK int, roupaFK int)
 begin
-	update VendaRoupa set 
-    quantidade_ven_roup =  quantidade, 
-    id_ven_fk = vendaFK, 
-    id_roup_fk = roupaFK
+if((quantidade > 0) and (quantidade is not null)) then
+		if(vendaFK is not null) then
+			if(roupaFK is not null) then
+				update VendaRoupa set 
+				quantidade_ven_roup =  quantidade, 
+				id_ven_fk = vendaFK, 
+				id_roup_fk = roupaFK
+				
+				where id_ven_roup = codigo;
     
-    where id_ven_roup = codigo;
-    
-    select 'Venda Roupa atualizado com sucesso!' as Confirmacao;
+				select 'Venda Roupa atualizado com sucesso!' as Confirmacao;
+                else
+				select "Informe o código da roupa!" as Erro;
+            end if;
+		else
+			select "Informe o código da venda!" as Erro;
+		end if;
+	else
+		select "A quantidade tem que ser um número maior que 0!" as Erro;
+    end if;
 end
 $$ DELIMITER ;
 
@@ -855,21 +948,45 @@ $$ DELIMITER ;
 DELIMITER $$
 create procedure InserirCompraRoupa(quantidade int, compraFK int, roupaFK int)
 begin
-	insert into CompraRoupa values(null, quantidade, compraFK, roupaFK);
-    select 'Compra Roupa inserido com sucesso!' as Confirmacao;
+	if((quantidade > 0) and (quantidade is not null)) then
+		if(compraFK is not null) then
+			if(roupaFK is not null) then
+				insert into CompraRoupa values(null, quantidade, compraFK, roupaFK);
+				select 'Compra Roupa inserido com sucesso!' as Confirmacao;
+			else
+				select "Informe o código da roupa!" as Erro;
+            end if;
+		else
+			select "Informe o código da compra!" as Erro;
+		end if;
+	else
+		select "A quantidade tem que ser um número maior que 0!" as Erro;
+    end if;
 end
 $$ DELIMITER ;
 
 DELIMITER $$
 create procedure AtualizarCompraRoupa(codigo int, quantidade int, compraFK int, roupaFK int)
 begin
-	update CompraRoupa set 
-    quantidade_com_roup = quantidade, 
-    id_com_fk = compraFK, 
-    id_roup_fk = roupaFK
-    
-    where id_comp = codigo;
-    
-    select 'Compra Roupa atualizado com sucesso!' as Confirmacao;
+	if((quantidade > 0) and (quantidade is not null)) then
+		if(compraFK is not null) then
+			if(roupaFK is not null) then
+				update CompraRoupa set 
+				quantidade_com_roup = quantidade, 
+				id_com_fk = compraFK, 
+				id_roup_fk = roupaFK
+				
+				where id_comp = codigo;
+				
+				select 'Compra Roupa atualizado com sucesso!' as Confirmacao;
+			else
+				select "Informe o código da roupa!" as Erro;
+            end if;
+		else
+			select "Informe o código da compra!" as Erro;
+		end if;
+	else
+		select "A quantidade tem que ser um número maior que 0!" as Erro;
+    end if;
 end
 $$ DELIMITER ;
