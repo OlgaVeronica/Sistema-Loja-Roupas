@@ -75,12 +75,21 @@
                 <StackPanel Orientation="Horizontal">
                         
                     <Label FontSize="16">Produtos: </Label>
-                    <ComboBox x:Name="cbProdutos" FontSize="16" MinWidth="300" Background="White" Margin="5,  0,  10, 30" SelectionChanged="cbProdutos_SelectionChanged" DisplayMemberPath="Descricao" SelectedValuePath="Id">
+                    <ComboBox x:Name="cbProdutos" FontSize="16" MinWidth="300" Background="White" Margin="5,  0,  10, 30" DisplayMemberPath="Descricao" SelectedValuePath="Id">
                         
                     </ComboBox>
                             
                     <ComboBox x:Name="cbQuantidade" VerticalAlignment="Top" FontSize="16" Margin="30 0" MinWidth="60" Background="White" IsSynchronizedWithCurrentItem="False">
-                        
+                        <ComboBoxItem>1</ComboBoxItem>
+                        <ComboBoxItem>2</ComboBoxItem>
+                        <ComboBoxItem>3</ComboBoxItem>
+                        <ComboBoxItem>4</ComboBoxItem>
+                        <ComboBoxItem>5</ComboBoxItem>
+                        <ComboBoxItem>6</ComboBoxItem>
+                        <ComboBoxItem>7</ComboBoxItem>
+                        <ComboBoxItem>8</ComboBoxItem>
+                        <ComboBoxItem>9</ComboBoxItem>
+                        <ComboBoxItem>10</ComboBoxItem>
                     </ComboBox >
                     <Button x:Name="btAdicionar" Content="Adicionar" VerticalAlignment="Top" Click="btAdicionar_Click"/>
                         

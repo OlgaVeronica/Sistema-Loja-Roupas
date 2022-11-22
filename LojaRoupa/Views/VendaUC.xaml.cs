@@ -160,8 +160,7 @@ namespace LojaRoupa.Views
             cbQuantidade.SelectedIndex = -1;
 
             dtgProdutos.Items.Add(produto);
-               
-
+            
         }
 
         private void btnNovoCliente_Click(object sender, RoutedEventArgs e)
@@ -174,19 +173,6 @@ namespace LojaRoupa.Views
             RelatorioVendas relVendas = new RelatorioVendas();
 
             relVendas.Show();
-        }
-
-        private void cbProdutos_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var items = new List<int>();
-            items.Add(1);
-            items.Add(2);
-            items.Add(3);
-            items.Add(4);
-            items.Add(5);
-            items.Add(6);
-            items.Add(7);
-            cbQuantidade.ItemsSource = items;
         }
     }
 }
