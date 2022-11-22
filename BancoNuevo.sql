@@ -668,7 +668,9 @@ call inserirdespesa("Compra de produtos de limpeza","2022-10-29", 2000, "Aberto"
 DELIMITER $$
 create procedure AtualizarDespesa(codigo int, descricao varchar(300), vencimento date, valor float, status varchar(100), compraFK int)
 begin
-	if(descrição <> "") then
+	if((descricao <> "") and (descricao is not null)) then
+		if((valor <> "") and (valor is not null)) then
+			if((compraFK <> "") and (compraFK is not null)) then
 				update Despesa set 
 				descricao_desp = descricao, 
 				vencimento_desp = vencimento, 
@@ -677,15 +679,24 @@ begin
 				id_com_fk = compraFK
 						
 				where id_desp = codigo;
+                
+                select 'Despesa atualizada com sucesso!' as Confirmacao;
+
+			else
+				select "Informe a compra que gerou a despesa!" as Erro;
+            end if;
+			else
+				select "Informe o valor da compra!" as Erro;
+            end if;
 	else
-		select 'Insira a descrição da ocmpra' as erro;
+		select 'Informe a descrição da despesa!' as Erro;
     end if;
 end
 $$ DELIMITER ;
 
 drop procedure AtualizarDespesa;
 select*from despesa;
-call atualizardespesa(1,"Compra de produtos de limpeza", "2022-10-28", 2000, "Aberto", 1);
+call atualizardespesa(1, "", "2022-10-28", 2000, "Aberto", 1);
 
 
 DELIMITER $$
