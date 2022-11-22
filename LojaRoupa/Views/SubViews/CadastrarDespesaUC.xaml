@@ -60,5 +60,10 @@
                 </StackPanel>
             </StackPanel>
         </Grid>
+
+        <Grid Grid.Row="2">
+            <Button x:Name="btnCadastrarDesp" Content="Cadastrar" Height="50" Width="150" FontSize="20"
+            HorizontalAlignment="Center" Cursor="Hand" Click="btnCadastrarDesp_Click"/>
+        </Grid>
     </Grid>
 </UserControl>

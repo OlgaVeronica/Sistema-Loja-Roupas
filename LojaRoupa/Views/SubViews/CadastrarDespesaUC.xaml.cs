@@ -33,5 +33,15 @@ namespace LojaRoupa.Views.SubViews
         {
 
         }
+
+        private void btnVoltar_Click(object sender, RoutedEventArgs e)
+        {
+            _frame.Content = new ExibirDespesasUC(_frame);
+        }
+
+        private void btnCadastrarDesp_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
