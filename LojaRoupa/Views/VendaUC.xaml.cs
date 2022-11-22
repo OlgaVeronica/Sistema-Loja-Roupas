@@ -36,8 +36,7 @@ namespace LojaRoupa.Views
             _frame = frame;
             Loaded += VendaUC_Loaded;
 
-            
-;        }
+         }
 
         private void VendaUC_Loaded(object sender, RoutedEventArgs e)
         {
@@ -178,15 +177,22 @@ namespace LojaRoupa.Views
 
         private void cbProdutos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var items = new List<int>();
-            items.Add(1);
-            items.Add(2);
-            items.Add(3);
-            items.Add(4);
-            items.Add(5);
-            items.Add(6);
-            items.Add(7);
-            cbQuantidade.ItemsSource = items;
+
+            var dao = new VendaDAO();
+
+            ProdutoModel produto = cbProdutos.SelectedItem as ProdutoModel;
+
+            var numeroItems = dao.BuscaSimplesQuantidade("qtd_estoque_roup", produto.Id);
+
+            List<int> lista = new List<int>();
+
+            for(var item = 1; item <= numeroItems; item++)
+            {
+                lista.Add(item);
+            }
+
+
+            cbQuantidade.ItemsSource = lista;
         }
     }
 }

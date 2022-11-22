@@ -45,7 +45,7 @@ namespace LojaRoupa.DAOs
 
                 var command = conn.Query();
                 command.CommandText = "insert into roupa values(null, @descricao, @tecido, @tipo, @colecao, " +
-                    "@tamanho, @estampa, 'ativo', @preco, @id);";
+                    "@tamanho, @estampa, 'ativo', @preco, @estoque, @id);";
 
 
 
@@ -57,6 +57,7 @@ namespace LojaRoupa.DAOs
                 command.Parameters.AddWithValue("@estampa", prod.Estampa);
                 command.Parameters.AddWithValue("@preco", prod.Preco);
                 command.Parameters.AddWithValue("@id", prod.Marca.Id);
+                command.Parameters.AddWithValue("@estoque", prod.Estoque);
 
                 var resultado = command.ExecuteNonQuery();
 
@@ -112,6 +113,25 @@ namespace LojaRoupa.DAOs
                 throw ex;
             }
         }
+
+        public void AtualizarQuantidade(int id, int quantidade)
+        {
+            try
+            {
+
+                var command = conn.Query();
+                command.CommandText = "update roupa set qtd_estoque = @quantidade where (id_roup = @id)";
+
+                command.Parameters.AddWithValue("@id", id);
+                command.Parameters.AddWithValue("@quantidade", quantidade);
+                var resultado = command.ExecuteNonQuery();
+            } catch (MySqlException ex)
+            {
+                throw ex;
+            }
+
+        }
+
 
         public override void Update(ProdutoModel prod)
         {

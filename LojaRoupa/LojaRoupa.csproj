@@ -178,6 +178,9 @@
     <Compile Include="Views\SubViews\RealizarVenda.xaml.cs">
       <DependentUpon>RealizarVenda.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SubViews\RelatorioCompra.xaml.cs">
+      <DependentUpon>RelatorioCompra.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SubViews\RelatorioVendas.xaml.cs">
       <DependentUpon>RelatorioVendas.xaml</DependentUpon>
     </Compile>
@@ -279,6 +282,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SubViews\RealizarVenda.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SubViews\RelatorioCompra.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

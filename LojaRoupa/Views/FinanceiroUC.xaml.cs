@@ -58,8 +58,8 @@ namespace LojaRoupa.Views
         private void btnRelatorio_Click(object sender, RoutedEventArgs e)
         {
 
-            //_frame.Content = new RelatorioCompra(_frame);
-
+            RelatorioCompra tela = new RelatorioCompra();
+            tela.Show();
         }   
         private void btnRealizarCompra_Click(object sender, RoutedEventArgs e)
         {

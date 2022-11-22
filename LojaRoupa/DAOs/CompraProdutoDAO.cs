@@ -25,10 +25,25 @@ namespace LojaRoupa.DAOs
                 command.Parameters.AddWithValue("@compraID", compraProduto.CompraId);
                 command.Parameters.AddWithValue("@produtoId", compraProduto.ProdutoId);
 
+                
+
                 int resultado = command.ExecuteNonQuery();
                 if (resultado == 0)
                 {
                     throw new Exception("Erro ao inserir Venda - produto");
+                }
+                else
+                {
+                    try
+                    {
+                        var dao = new ProdutoDAO();
+                        dao.AtualizarQuantidade(compraProduto.ProdutoId, compraProduto.Quantidade);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        throw ex;
+                    }
                 }
             } catch(Exception error)
             {

@@ -89,6 +89,7 @@ namespace LojaRoupa.Views.SubViews
             produto.Status = "ativo";
             produto.Marca = cbMarca.SelectedItem as MarcaModel;
             produto.Preco = float.Parse(txtPreco.Text);
+            produto.Estoque = 0;
             try
             {
                 var dao = new ProdutoDAO();

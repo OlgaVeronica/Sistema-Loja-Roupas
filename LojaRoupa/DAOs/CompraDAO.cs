@@ -47,7 +47,7 @@ namespace LojaRoupa.DAOs
             {
 
                 var command = conn.Query();
-                command.CommandText = "insert into compra values (null, @data, @hora, @valor, @status, @funcionario, @fornecedor);";
+                command.CommandText = "insert into compra values (null, @data, @hora, @valor, @status,  @fornecedor, @funcionario);";
 
                 command.Parameters.AddWithValue("@data", compra.Data);
                 command.Parameters.AddWithValue("@hora", compra.Hora);

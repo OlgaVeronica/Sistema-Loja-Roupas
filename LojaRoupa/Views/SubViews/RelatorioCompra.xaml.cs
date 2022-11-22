@@ -23,5 +23,24 @@ namespace LojaRoupa.Views.SubViews
         {
             InitializeComponent();
         }
+
+        private void Fechar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Imprimir_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnDeletar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void btnEditar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

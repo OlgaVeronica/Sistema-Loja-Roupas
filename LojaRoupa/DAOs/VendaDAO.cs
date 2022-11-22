@@ -79,6 +79,34 @@ namespace LojaRoupa.DAOs
             
         }
 
+        public int BuscaSimplesQuantidade(string field, int id)
+        {
+            try
+            {
+                var command = conn.Query();
+
+
+
+                command.CommandText = "select @field from venda where (id_ven = @id";
+                command.Parameters.AddWithValue("@field", field);
+                command.Parameters.AddWithValue("@hora", id);
+
+
+                int resultado = Convert.ToInt32(command.ExecuteScalar());
+
+                if (resultado != 0)
+                {
+                    return resultado;
+                }
+
+                return 0;
+
+            } catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public override List<VendaModel> List()
         {
             try
