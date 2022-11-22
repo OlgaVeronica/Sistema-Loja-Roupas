@@ -17,9 +17,7 @@ using LojaRoupa.Views.SubViews;
 using LojaRoupa.ViewsModels;
 using LojaRoupa.DAOs;
 using MySql.Data.MySqlClient;
-//using iTextSharp;
-//using iTextSharp.text;
-//using iTextSharp.text.pdf;
+
 
 namespace LojaRoupa.Views
 {
@@ -58,40 +56,10 @@ namespace LojaRoupa.Views
         }
 
         private void btnRelatorio_Click(object sender, RoutedEventArgs e)
-        {   /*
-            //Criar objeto PDFViewer
-            PdfViewer viewer = new PdfViewer();
-            //Abrir arquivo PDF de entrada
-            viewer.BindPdf(dataDir + "Test.pdf");
-            //Imprimir documento PDF
-            viewer.PrintDocument();
-            //Fechar arquivo PDF
-            viewer.Close();*/
+        {
 
-            //string arquivo = PdfViewer
+            //_frame.Content = new RelatorioCompra(_frame);
 
-            /*FileStream arquivoPDF = new FileStream(arquivoPDF, FileMode.Create);
-            Document doc = new Document(PageSize.A4);
-            PdfWriter escritorPDF = PdfWriter.GetInstance(doc, arquivoPDF);
-
-            string dados = "";
-
-            Paragraph paragrafo = new Paragraph(dados, new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL, 14/*, (int)System.Drawing.FontStyle.Bold));
-            paragrafo.Alignment = Element.ALIGN_CENTER;
-            paragrafo.Add("RELATÓRIO\n");
-
-            paragrafo.Font = new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL, 12/*, (int)System.Drawing.FontStyle.Bold);
-            paragrafo.Alignment = Element.ALIGN_CENTER;
-            paragrafo.Add("variáveis");
-
-            string texto = "variáveis2variáveis2variáveis";
-            paragrafo.Font = new iTextSharp.text.Font(iTextSharp.text.Font.NORMAL, 12/*, (int)System.Drawing.FontStyle.Bold);
-            paragrafo.Alignment = Element.ALIGN_LEFT;
-            paragrafo.Add(texto + "\n");
-
-            doc.Open();
-            doc.Add(paragrafo);
-            doc.Close();*/
         }   
         private void btnRealizarCompra_Click(object sender, RoutedEventArgs e)
         {

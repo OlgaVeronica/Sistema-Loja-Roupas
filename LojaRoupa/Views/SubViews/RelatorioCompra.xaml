@@ -19,16 +19,15 @@
         </Button>
 
 
-        <DataGrid Grid.Row="1" x:Name="dtgVendas"  FontSize="20" AutoGenerateColumns="False" 
+        <DataGrid Grid.Row="1" x:Name="dtgCompras"  FontSize="20" AutoGenerateColumns="False" 
                   CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"
                   AlternatingRowBackground="#f2f2f2" AlternationCount="2" CanUserReorderColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Funcionario" Binding="{Binding Id}" />
-                <DataGridTextColumn Header="Funcao" Binding="{Binding Cliente.Nome}" />
-                <DataGridTextColumn Header="Telefone" Binding="{Binding Data}" />
-                <DataGridTextColumn Header="Cpf" Binding="{Binding Hora}" />
-                <DataGridTextColumn Header="Sexo" Binding="{Binding Valor}" />
-                <DataGridTextColumn Header="Salario" Binding="{Binding Funcionario.Nome}" />
+                <DataGridTextColumn Header="Funcionário" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Data" Binding="{Binding Data}" />
+                <DataGridTextColumn Header="Hora" Binding="{Binding Hora}" />
+                <DataGridTextColumn Header="Valor" Binding="{Binding Valor}" />
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
 
 
 
