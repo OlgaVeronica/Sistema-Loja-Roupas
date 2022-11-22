@@ -11,27 +11,31 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using LojaRoupa.ViewsModels;
 
 namespace LojaRoupa.Views
 {
     /// <summary>
-    /// Lógica interna para PerfilUC.xaml
+    /// Lógica interna para UsuarioUC.xaml
     /// </summary>
-    public partial class PerfilUC : UserControl
+    public partial class UsuarioUC : UserControl
     {
-        public PerfilUC()
+        public Frame _frame;
+        private UsuarioModel _model = new UsuarioModel();
+        public UsuarioUC(Frame frame)
         {
             InitializeComponent();
+            _frame = frame;
+            
         }
 
-        private void btnSairPerfil_Click(object sender, RoutedEventArgs e)
+        
+
+
+
+        private void btnSalvarUsuario_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
+            
         }
     }
 }

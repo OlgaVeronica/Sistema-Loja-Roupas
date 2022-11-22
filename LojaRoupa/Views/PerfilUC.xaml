@@ -33,7 +33,7 @@
 
             <Grid Grid.Column="0">
                 <TextBlock FontSize="28" Height="60" HorizontalAlignment="Center" VerticalAlignment="Top">Nome do funcionário</TextBlock>
-                <ComboBox FontSize="28" Height="50" Width="400" Margin="0,40,0,0" VerticalAlignment="Top"></ComboBox>
+                <ComboBox FontSize="28" Height="50" Width="400" Margin="0,40,0,0" VerticalAlignment="Top" SelectionChanged="ComboBox_SelectionChanged"></ComboBox>
 
                 <TextBlock FontSize="28" Height="60" HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top">CPF</TextBlock>
                 <ComboBox FontSize="28" Height="50" Width="400" Margin="0,160,0,0" VerticalAlignment="Top"></ComboBox>

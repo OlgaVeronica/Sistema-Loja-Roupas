@@ -115,6 +115,7 @@
     <Compile Include="ViewsModels\FuncionarioModel.cs" />
     <Compile Include="ViewsModels\MarcaModel.cs" />
     <Compile Include="ViewsModels\ProdutoModel.cs" />
+    <Compile Include="ViewsModels\UsuarioModel.cs" />
     <Compile Include="ViewsModels\VendaModel.cs" />
     <Compile Include="ViewsModels\VendaProdutoModel.cs" />
     <Compile Include="Views\CaixaUC.xaml.cs">
@@ -187,8 +188,8 @@
     <Compile Include="Views\TelaPrincipal.xaml.cs">
       <DependentUpon>TelaPrincipal.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Usuario.xaml.cs">
-      <DependentUpon>Usuario.xaml</DependentUpon>
+    <Compile Include="Views\UsuarioUC.xaml.cs">
+      <DependentUpon>UsuarioUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\VendaUC.xaml.cs">
       <DependentUpon>VendaUC.xaml</DependentUpon>
@@ -297,7 +298,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Usuario.xaml">
+    <Page Include="Views\UsuarioUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
