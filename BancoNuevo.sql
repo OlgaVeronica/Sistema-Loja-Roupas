@@ -663,13 +663,14 @@ $$ DELIMITER ;
 
 call inserirdespesa("Compra de produtos de limpeza","2022-10-29", 2000, "Aberto",1);
 
+
 ################ a partir daqui
 DELIMITER $$
 create procedure AtualizarDespesa(codigo int, descricao varchar(300), vencimento date, valor float, status varchar(100), compraFK int)
 begin
-	/*if((valor is not null) and (valor <> '')) then
-		if((descricao is not null) and (descricao <> '')) then
-			if((compraFK is not null) and (compraFK <> '')) then*/
+	if((descricao <> "") and (descricao is not null)) then
+		if((valor <> "") and (valor is not null)) then
+			if((compraFK <> "") and (compraFK is not null)) then
 				update Despesa set 
 				descricao_desp = descricao, 
 				vencimento_desp = vencimento, 
@@ -678,46 +679,49 @@ begin
 				id_com_fk = compraFK
 						
 				where id_desp = codigo;
-						
-				select 'Despesa atualizada com sucesso!' as Confirmacao;
-				
-                /*else
-				select 'Informe a compra que gerou a despesa!' as Erro;
+                
+                select 'Despesa atualizada com sucesso!' as Confirmacao;
+
+			else
+				select "Informe a compra que gerou a despesa!" as Erro;
 			end if;
 		else
-			select 'Informe a descrição da despesa!' as Erro;
+			select "Informe o valor da compra!" as Erro;
 		end if;
 	else
-		select 'Informe o valor da compra!' as Erro;
-	end if;*/
+		select 'Informe a descrição da despesa!' as Erro;
+    end if;
 end
 $$ DELIMITER ;
 
 select*from despesa;
-#call atualizardespesa(2,"Compra de calçado", "2022-10-29", 7000, "Aberto", 1);
+call atualizardespesa(1, "", "2022-10-28", 2000, "Aberto", 1);
 
 
 DELIMITER $$
 create procedure InserirCaixa(data date, horaAbertura time, horaFechamento time, saldoInicial float, saldoFinal float)
 begin
-	/*if ((data is not null) and (data <> '')) then
-		if ((saldoInicial is not null) and (saldoInicial <> '')) then
-			if ((saldoFinal is not null) and (saldoFinal <> '')) then*/
+	if (data is not null) then
+		if(data is not null) then
+			if(saldoInicial is not null) then
 				insert into Caixa values(null, data, horaAbertura, horaFechamento, saldoInicial, saldoFinal);
 				select 'Caixa inserida com sucesso!' as Confirmacao;
-                
-            /*else select 'Informe o saldo final do caixa!' as Erro;
+			else
+				select "Informe o saldo inicial!" as Erro;
             end if;
 		else
-			select 'Informe o saldo inicial do caixa!' as Erro;
-		end if;
+			select "Informe a hora de abertura!" as Erro;
+        end if;
 	else
-		select 'Informe a data do caixa' as Erro;
-    end if;*/
+		select "Informe a data!" as Erro;
+    end if;
 end
 $$ DELIMITER ;
 
-#call InserirCaixa("2022-11-20", "08:00:00", "18:00:00", 10000, 20000);
+drop procedure InserirCaixa;
+select * from caixa;
+
+call InserirCaixa("2022-11-10", null, "18:00:00", 10000, 20000);
 
 
 DELIMITER $$
