@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using LojaRoupa.DAOs;
+using System.IO;
 
 namespace LojaRoupa.Views.SubViews
 {
@@ -54,29 +55,23 @@ namespace LojaRoupa.Views.SubViews
 
         private void Imprimir_Click(object sender, RoutedEventArgs e)
         {
-            //try
-            //{
-            //    PrintDialog printDialog = new PrintDialog();
-            //    if (printDialog.ShowDialog() == true)
-            //    {
-            //        printDialog.PrintVisual(print, "invoice");
-            //    }
-            //}
-            //finally
-            //{
-            //    this.IsEnabled = true;
-            //}
 
 
-            PrintDialog Printdlg = new PrintDialog();
-            if (Printdlg.ShowDialog().GetValueOrDefault())
-            {
-                Size pageSize = new Size(Printdlg.PrintableAreaWidth, Printdlg.PrintableAreaHeight);
-                // sizing of the element.
-                dtgVendas.Measure(pageSize);
-                dtgVendas.Arrange(new Rect(5, 5, pageSize.Width, pageSize.Height));
-                Printdlg.PrintVisual(dtgVendas, Title);
-            }
+
+            //PrintDialog Printdlg = new PrintDialog();
+            //if (Printdlg.ShowDialog().GetValueOrDefault())
+            //{
+            //    Size pageSize = new Size(Printdlg.PrintableAreaWidth, Printdlg.PrintableAreaHeight);
+            //    // sizing of the element.
+            //    dtgVendas.Measure(pageSize);
+            //    dtgVendas.Arrange(new Rect(5, 5, pageSize.Width, pageSize.Height));
+            //    Printdlg.PrintVisual(dtgVendas, Title);
+            //}
+
+            var lista = dtgVendas.ItemsSource;
+
+
+
         }
     }
 }
