@@ -111,7 +111,7 @@ namespace LojaRoupa.DAOs
         {
             try
             {
-                var lista = new List<VendaModel>();
+                List<VendaModel> lista = new List<VendaModel>();
                 var command = conn.Query();
                 command.CommandText = "select id_ven, (select nome_cli from cliente where Venda.id_cli_fk = Cliente.id_cli) as cliente, data_ven, hora_ven, valor_ven,nome_func  from venda,  funcionario where ((Funcionario.id_func = Venda.id_func_fk));";
                 //command.CommandText = "select * from venda";
