@@ -81,6 +81,7 @@ tamanho_roup varchar(300),
 estampa_roup varchar(300),
 status_roup varchar(100),
 valor_roup float,
+qtd_estoque_roup int,
 id_mar_fk int,
 foreign key (id_mar_fk) references Marca(id_mar)
 );
