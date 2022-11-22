@@ -36,7 +36,7 @@ namespace LojaRoupa.DAOs
                     try
                     {
                         var dao = new ProdutoDAO();
-                        dao.AtualizarQuantidade(compraProduto.ProdutoId, compraProduto.Quantidade);
+                        dao.AtualizarQuantidade(compraProduto.ProdutoId, compraProduto.Quantidade, "somar");
                     }
                     catch (Exception ex)
                     {

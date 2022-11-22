@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace LojaRoupa.ViewsModels
 {
-    class CaixaModel
+    public class CaixaModel
     {
+        public int Id { get; set; }
         public string DataCaixa { get; set; }
         public string HoraAbertura { get; set; }
         public string HoraFechamento { get; set; }

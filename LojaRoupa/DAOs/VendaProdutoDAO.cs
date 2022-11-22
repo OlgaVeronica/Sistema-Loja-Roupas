@@ -33,6 +33,10 @@ namespace LojaRoupa.DAOs
                 {
                     throw new Exception("Erro ao inserir Venda - produto");
                 }
+                else{
+                    var dao = new ProdutoDAO();
+                    dao.AtualizarQuantidade(vendaProduto.ProdutoId, vendaProduto.Quantidade, "Subtrair");
+                }
             } catch (Exception ex)
             {
                 throw ex;           
