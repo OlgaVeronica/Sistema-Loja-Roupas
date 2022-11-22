@@ -52,7 +52,10 @@ namespace LojaRoupa.DAOs
                             vp.VendaId = idVend;
                             vp.ProdutoId = item.Id;
                             vp.Quantidade = item.Quantidade;
+
+
                             dao.Insert(vp);
+
                         }
                         catch
                         {

@@ -114,13 +114,22 @@ namespace LojaRoupa.DAOs
             }
         }
 
-        public void AtualizarQuantidade(int id, int quantidade)
+        public void AtualizarQuantidade(int id, int quantidade, string operador)
         {
             try
             {
 
                 var command = conn.Query();
-                command.CommandText = "update roupa set qtd_estoque_roup = (qtd_estoque_roup + @quantidade) where (id_roup = @id)";
+                if(operador == "somar")
+                {
+                    command.CommandText = "update roupa set qtd_estoque_roup = (qtd_estoque_roup + @quantidade) where (id_roup = @id)";
+
+                }
+                else
+                {
+                    command.CommandText = "update roupa set qtd_estoque_roup = (qtd_estoque_roup - @quantidade) where (id_roup = @id)";
+
+                }
 
                 command.Parameters.AddWithValue("@id", id);
                 command.Parameters.AddWithValue("@quantidade", quantidade);
