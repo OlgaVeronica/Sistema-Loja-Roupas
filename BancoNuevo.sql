@@ -516,13 +516,12 @@ create procedure InserirRoupa(
     estampa varchar(300),
     status varchar(100),
     valor float,
-    qtd_estoque int,
     marcaFK int)
 begin
 	if((descricao is not null) and (descricao <> '')) then
 		if((valor is not null) and (valor <> '')) then
 			if((marcaFK is not null) and (marcaFK <> '')) then
-				insert into Roupa values(null,descricao, material, tipo, colecao, tamanho, estampa, status, valor, qtd_estoque, marcaFK);
+				insert into Roupa values(null,descricao, material, tipo, colecao, tamanho, estampa, status, valor, marcaFK);
 					select 'Roupa inserida com sucesso!' as Confirmacao;
 			
             else
@@ -537,7 +536,7 @@ begin
 end
 $$ DELIMITER ;
 
-call InserirRoupa("Casaco para frio","Moletom","Casaco", "Inverno", "Único", "Cinza","Disponível", 180.99, 20, 1);
+call InserirRoupa("Casaco para frio","Moletom","Casaco", "Inverno", "Único", "Cinza","Disponível", 180.99,1);
 
 
 DELIMITER $$
@@ -697,7 +696,7 @@ end
 $$ DELIMITER ;
 
 select*from despesa;
-call atualizardespesa(1, "Compra de produtos de Limpeza", "2022-10-28", 2001, "Aberto", 1);
+call atualizardespesa(1, "", "2022-10-28", 2000, "Aberto", 1);
 
 
 DELIMITER $$
@@ -720,6 +719,8 @@ begin
 end
 $$ DELIMITER ;
 
+drop procedure AtualizarCaixa;
+select * from caixa;
 
 call InserirCaixa("2022-11-10", "17:00:00", "18:00:00", 10000, 20000);
 
