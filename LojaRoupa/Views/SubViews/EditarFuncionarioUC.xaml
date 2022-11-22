@@ -26,7 +26,7 @@
             <StackPanel Grid.Column="0" Margin="10, 0, 10, 0">
                 <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
                     <Label Content="Nome:" FontSize="20"/>
-                    <TextBox MinWidth="500" FontSize="20" x:Name="txtNome"></TextBox>
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtNome" Cursor="Arrow"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
                     <Label Content="CPF:" FontSize="20"/>
