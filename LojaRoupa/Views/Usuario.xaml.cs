@@ -39,7 +39,6 @@ namespace LojaRoupa.Views
 
         private void Usuarioxaml_Loaded(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
         }
 
         private void btnSalvarUsuario_Click(object sender, RoutedEventArgs e)
