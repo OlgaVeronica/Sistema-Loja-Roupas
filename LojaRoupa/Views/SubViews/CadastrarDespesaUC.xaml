@@ -7,6 +7,58 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="BlanchedAlmond">
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".3*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height=".3*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Button x:Name="btnVoltar" Content="Voltar" Height="50" Width="150" FontSize="20"
+            Cursor="Hand" HorizontalAlignment="Left" Margin="10" Click="btnVoltar_Click"/>
+
+            <TextBlock Text="Cadastrar Despesa" FontSize="40" Foreground="Black" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Grid>
+
+        <Grid Grid.Row="1" Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" MaxWidth="500"/>
+                <ColumnDefinition Width="*" MaxWidth="500"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Margin="10,0,10,0">
+                <StackPanel Orientation="Horizontal" Margin="0,10">
+                    <Label Content="Data:" FontSize="20" HorizontalAlignment="Left"/>
+                    <DatePicker Name="dtpData" Width="200" FontSize="16"></DatePicker>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="0,10">
+                    <Label Content="Descrição" HorizontalAlignment="Center" FontSize="20"/>
+                    <TextBox x:Name="txtDescDespesa" MinWidth="500" FontSize="20"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="0,10">
+                    <Label Content="Valor" FontSize="20" HorizontalAlignment="Center"/>
+                    <TextBox x:Name="txtValorDesp" MinWidth="300" FontSize="20"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Margin="10,0">
+                <StackPanel Orientation="Horizontal" Margin="0,10">
+                    <Label Content="Vencimento:" FontSize="20"/>
+                    <DatePicker Name="dtpVencimento" Width="200" FontSize="16"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="0,10">
+                    <Label Content="Status" HorizontalAlignment="Center" FontSize="20"/>
+                    <TextBox x:Name="txtStatusDesp" MinWidth="300" FontSize="20"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="0,10">
+                    <Label Content="Tipo:" FontSize="20" HorizontalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,10">
+                    <RadioButton Content="Conta" FontSize="22" Margin="20,0,0,0" />
+                    <RadioButton Content="Compra" FontSize="22" Margin="20,0,0,0"/>
+                    <RadioButton Content="Outras" FontSize="22" Margin="20,0,0,0"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>
