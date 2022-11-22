@@ -28,10 +28,12 @@ funcao_func varchar(300),
 salario_func float,
 #avatar_func varchar(1000),
 status_func varchar(100),
+avatar_func varchar(300),
 id_loja_fk int,
 foreign key (id_loja_fk) references Loja(id_loja)
 ); #okay
 
+select * from funcionario ;
 create table Fornecedor(
 id_forn int primary key auto_increment,
 razao_social_forn varchar(300),
@@ -172,7 +174,7 @@ foreign key (id_roup_fk) references Roupa(id_roup)
 );
 
 insert into cliente values (null, "doido", "4575", "8676", "Ativo");
-insert into cliente values (null, "CU", "4575", "8676", "Ativo");
+insert into cliente values (null, "test", "4575", "8676", "Ativo");
 select*from funcionario;
 select*from cliente;
 
@@ -242,6 +244,8 @@ begin
     end if;
 end
 $$ DELIMITER ;
+
+select qtd_estoque_roup from roupa where (id_roup = 1);
 
 call InserirFuncionario("Maria", "(69) 9999-9999", "Rua João de Oliveira", "000.000.000-00",
 "Feminino", "maria@gmail.com", "000.000", "Vendedora", 1800, "ativo",1);

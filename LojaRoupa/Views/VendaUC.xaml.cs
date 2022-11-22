@@ -178,21 +178,28 @@ namespace LojaRoupa.Views
         private void cbProdutos_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+
+
             var dao = new VendaDAO();
 
-            ProdutoModel produto = cbProdutos.SelectedItem as ProdutoModel;
+            var produto = cbProdutos.SelectedItem == null? null : cbProdutos.SelectedItem as ProdutoModel;
 
-            var numeroItems = dao.BuscaSimplesQuantidade("qtd_estoque_roup", produto.Id);
-
-            List<int> lista = new List<int>();
-
-            for(var item = 1; item <= numeroItems; item++)
+            if (produto != null)
             {
-                lista.Add(item);
+
+
+                var numeroItems = dao.BuscaSimplesQuantidade(produto.Id);
+
+                List<int> lista = new List<int>();
+
+                for(var item = 1; item <= numeroItems; item++)
+                {
+                    lista.Add(item);
+                }
+
+
+                cbQuantidade.ItemsSource = lista;
             }
-
-
-            cbQuantidade.ItemsSource = lista;
         }
     }
 }

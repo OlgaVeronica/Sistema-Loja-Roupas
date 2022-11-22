@@ -25,7 +25,6 @@ namespace LojaRoupa.DAOs
                 command.Parameters.AddWithValue("@compraID", compraProduto.CompraId);
                 command.Parameters.AddWithValue("@produtoId", compraProduto.ProdutoId);
 
-                
 
                 int resultado = command.ExecuteNonQuery();
                 if (resultado == 0)
@@ -38,7 +37,6 @@ namespace LojaRoupa.DAOs
                     {
                         var dao = new ProdutoDAO();
                         dao.AtualizarQuantidade(compraProduto.ProdutoId, compraProduto.Quantidade);
-
                     }
                     catch (Exception ex)
                     {

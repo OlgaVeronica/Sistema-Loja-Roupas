@@ -79,7 +79,7 @@ namespace LojaRoupa.DAOs
             
         }
 
-        public int BuscaSimplesQuantidade(string field, int id)
+        public int BuscaSimplesQuantidade(int id)
         {
             try
             {
@@ -87,9 +87,8 @@ namespace LojaRoupa.DAOs
 
 
 
-                command.CommandText = "select @field from venda where (id_ven = @id";
-                command.Parameters.AddWithValue("@field", field);
-                command.Parameters.AddWithValue("@hora", id);
+                command.CommandText = "select qtd_estoque_roup from roupa where (id_roup = @id)";
+                command.Parameters.AddWithValue("@id", id);
 
 
                 int resultado = Convert.ToInt32(command.ExecuteScalar());

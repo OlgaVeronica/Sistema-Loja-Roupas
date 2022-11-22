@@ -120,7 +120,7 @@ namespace LojaRoupa.DAOs
             {
 
                 var command = conn.Query();
-                command.CommandText = "update roupa set qtd_estoque = @quantidade where (id_roup = @id)";
+                command.CommandText = "update roupa set qtd_estoque_roup = (qtd_estoque_roup + @quantidade) where (id_roup = @id)";
 
                 command.Parameters.AddWithValue("@id", id);
                 command.Parameters.AddWithValue("@quantidade", quantidade);
