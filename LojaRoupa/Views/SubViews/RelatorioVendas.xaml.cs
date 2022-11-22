@@ -16,6 +16,15 @@ using System.IO;
 
 namespace LojaRoupa.Views.SubViews
 {
+    public struct IDatagrid
+    {
+        string id;
+        string Cliente;
+        string Data;
+        string Hora;
+        double Valor;
+
+    }
     /// <summary>
     /// Lógica interna para RelatorioVendas.xaml
     /// </summary>
@@ -32,6 +41,8 @@ namespace LojaRoupa.Views.SubViews
             try
             {
                 var dao = new VendaDAO();
+                var list = dao.List();
+
                 dtgVendas.ItemsSource = dao.List();
             } catch(Exception ex)
             {
