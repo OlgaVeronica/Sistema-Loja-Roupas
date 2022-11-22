@@ -54,18 +54,28 @@ namespace LojaRoupa.Views.SubViews
 
         private void Imprimir_Click(object sender, RoutedEventArgs e)
         {
-            try
+            //try
+            //{
+            //    PrintDialog printDialog = new PrintDialog();
+            //    if (printDialog.ShowDialog() == true)
+            //    {
+            //        printDialog.PrintVisual(print, "invoice");
+            //    }
+            //}
+            //finally
+            //{
+            //    this.IsEnabled = true;
+            //}
+
+
+            PrintDialog Printdlg = new PrintDialog();
+            if (Printdlg.ShowDialog().GetValueOrDefault())
             {
-                this.IsEnabled = false;
-                PrintDialog printDialog = new PrintDialog();
-                if (printDialog.ShowDialog() == true)
-                {
-                    printDialog.PrintVisual(print, "invoice");
-                }
-            }
-            finally
-            {
-                this.IsEnabled = true;
+                Size pageSize = new Size(Printdlg.PrintableAreaWidth, Printdlg.PrintableAreaHeight);
+                // sizing of the element.
+                dtgVendas.Measure(pageSize);
+                dtgVendas.Arrange(new Rect(5, 5, pageSize.Width, pageSize.Height));
+                Printdlg.PrintVisual(dtgVendas, Title);
             }
         }
     }

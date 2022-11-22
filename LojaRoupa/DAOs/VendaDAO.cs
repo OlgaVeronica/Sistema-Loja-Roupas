@@ -85,19 +85,22 @@ namespace LojaRoupa.DAOs
             {
                 List<VendaModel> lista = new List<VendaModel>();
                 var command = conn.Query();
-                command.CommandText = "select id_ven, nome_cli, data_ven, hora_ven, valor_ven,nome_func  from venda, cliente, funcionario where ((Funcionario.id_func = Venda.id_func_fk) and (Cliente.id_cli = Venda.id_cli_fk));";
+                command.CommandText = "select id_ven, (select nome_cli from cliente where Venda.id_cli_fk = Cliente.id_cli) as cliente, data_ven, hora_ven, valor_ven,nome_func  from venda,  funcionario where ((Funcionario.id_func = Venda.id_func_fk));";
                 //command.CommandText = "select * from venda";
 
                 MySqlDataReader reader = command.ExecuteReader();
 
-                
+
 
                 while (reader.Read())
                 {
+                    string cliente = DAOHelper.GetString(reader, "cliente") != null ? DAOHelper.GetString(reader, "cliente") : "Não consta";
+
+
                     var venda = new VendaModel();
                     venda.Funcionario.Nome = DAOHelper.GetString(reader, "nome_func");
                     venda.Hora = DAOHelper.GetString(reader, "hora_ven");
-                    venda.Cliente.Nome = DAOHelper.GetString(reader, "nome_cli");
+                    venda.Cliente.Nome = cliente;
                     venda.Id = reader.GetInt32("id_ven");
                     venda.Data = DAOHelper.GetDateTime(reader, "data_ven");
                     venda.Valor = (float)DAOHelper.GetDouble(reader, "valor_ven");
