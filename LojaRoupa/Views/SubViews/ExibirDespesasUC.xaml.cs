@@ -73,5 +73,10 @@ namespace LojaRoupa.Views.SubViews
         {
               dtgExibirDesp.ItemsSource = string.Format("[{0}] LIKE '%{1}%'", "Descrição", txtPesquisarDesp.Text);
         }
+
+        private void btnCadastrarDesp_Click(object sender, RoutedEventArgs e)
+        {
+            _frame.Content = new CadastrarDespesaUC(_frame);
+        }
     }
 }

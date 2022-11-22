@@ -20,9 +20,18 @@ namespace LojaRoupa.Views.SubViews
     /// </summary>
     public partial class CadastrarDespesaUC : UserControl
     {
-        public CadastrarDespesaUC()
+        public Frame _frame;
+
+        public CadastrarDespesaUC(Frame frame)
         {
             InitializeComponent();
+            _frame = frame;
+            Loaded += CadastrarDespesaUC_Loaded;
+        }
+
+        private void CadastrarDespesaUC_Loaded (object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
