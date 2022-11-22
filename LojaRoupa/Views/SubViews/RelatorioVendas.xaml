@@ -14,42 +14,35 @@
         </Grid.RowDefinitions>
 
 
-        <Button x:Name="Fechar" Grid.Row="0" Height="50" Width="150" HorizontalAlignment="Left" Margin="10,0,0,0" Click="Fechar_Click">
-            Voltar
-        </Button>
+        <Label Content="Relatório de vendas" Grid.Row="0" HorizontalAlignment="Center"  FontSize="30"/>
 
 
-        <DataGrid Grid.Row="1" x:Name="dtgVendas"  FontSize="20" AutoGenerateColumns="False" 
-                  CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"
-                  AlternatingRowBackground="#f2f2f2" AlternationCount="2" CanUserReorderColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Funcionario" Binding="{Binding Id}" />
-                <DataGridTextColumn Header="Funcao" Binding="{Binding Cliente.Nome}" />
-                <DataGridTextColumn Header="Telefone" Binding="{Binding Data}" />
-                <DataGridTextColumn Header="Cpf" Binding="{Binding Hora}" />
-                <DataGridTextColumn Header="Sexo" Binding="{Binding Valor}" />
-                <DataGridTextColumn Header="Salario" Binding="{Binding Funcionario.Nome}" />
+        <StackPanel Grid.Row="1">
+            
+
+            <DataGrid  x:Name="dtgVendas"  FontSize="20" AutoGenerateColumns="False" 
+                      CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"
+                      AlternatingRowBackground="#f2f2f2" AlternationCount="2" CanUserReorderColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="#" Binding="{Binding Id}" />
+                    <DataGridTextColumn Header="Cliente" Binding="{Binding Cliente.Nome}" />
+                    <DataGridTextColumn Header="Data" Binding="{Binding Data}" />
+                    <DataGridTextColumn Header="Hora" Binding="{Binding Hora}" />
+                    <DataGridTextColumn Header="Valor" Binding="{Binding Valor}" />
+                    <DataGridTextColumn Header="Funcionario" Binding="{Binding Funcionario.Nome}" />
 
 
 
 
-                <DataGridTemplateColumn Header="Mudanças">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Content="Editar" x:Name="btnEditar" Click="btnEditar_Click"  Margin="10, 0, 0, 10"/>
-                                <Button Content="Deletar" x:Name="btnDeletar" Click="btnDeletar_Click" Margin="10, 0, 0, 10"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>
+                    
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
 
 
 
         <Button x:Name="Imprimir" Grid.Row="2" Height="50" Width="150" HorizontalAlignment="Right" Margin="0,0,10,0" Click="Imprimir_Click" Cursor="Hand">
-            Imprimir
+            🖶Imprimir 
         </Button>
     </Grid>
 </Window>
