@@ -1,0 +1,54 @@
+﻿<Window x:Class="LojaRoupa.Views.SubViews.RelatorioVendas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LojaRoupa.Views.SubViews"
+        mc:Ignorable="d"
+        Title="RelatorioVendas" Height="720" Width="1280">
+    <Grid x:Name="print">
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".3*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height=".3*" />
+        </Grid.RowDefinitions>
+
+
+        <Button x:Name="Fechar" Grid.Row="0" Height="50" Width="150" HorizontalAlignment="Left" Margin="10,0,0,0" Click="Fechar_Click">
+            Voltar
+        </Button>
+
+
+        <DataGrid Grid.Row="1" x:Name="dtgCompras"  FontSize="20" AutoGenerateColumns="False" 
+                  CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"
+                  AlternatingRowBackground="#f2f2f2" AlternationCount="2" CanUserReorderColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Funcionário" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Data" Binding="{Binding Data}" />
+                <DataGridTextColumn Header="Hora" Binding="{Binding Hora}" />
+                <DataGridTextColumn Header="Valor" Binding="{Binding Valor}" />
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}" />
+
+
+
+
+                <DataGridTemplateColumn Header="Mudanças">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="Editar" x:Name="btnEditar" Click="btnEditar_Click"  Margin="10, 0, 0, 10"/>
+                                <Button Content="Deletar" x:Name="btnDeletar" Click="btnDeletar_Click" Margin="10, 0, 0, 10"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+
+        <Button x:Name="Imprimir" Grid.Row="2" Height="50" Width="150" HorizontalAlignment="Right" Margin="0,0,10,0" Click="Imprimir_Click" Cursor="Hand">
+            Imprimir
+        </Button>
+    </Grid>
+</Window>
