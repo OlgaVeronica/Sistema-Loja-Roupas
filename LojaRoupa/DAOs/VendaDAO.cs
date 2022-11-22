@@ -41,6 +41,24 @@ namespace LojaRoupa.DAOs
                     command.CommandText = "SELECT id_ven FROM venda ORDER BY id_ven DESC LIMIT 1";
                     int idVend = Convert.ToInt32(command.ExecuteScalar());
 
+                    try
+                    {
+                        var receb = new RecebimentoModel();
+                        receb.Data = null;
+                        receb.DataAbertura = DateTime.Now.ToString("yyyy-MM-dd");
+                        receb.Valor = venda.Valor;
+                        receb.Hora = null;
+                        receb.FormaReceb = "À vista";
+                        receb.StatusReceb = "Aberto";
+                        receb.Venda.Id = idVend;
+                        receb.Caixa.Id = null;
+                        var dao = new RecebimentoDAO();
+                        dao.Insert(receb);
+                    } catch (Exception ex)
+                    {
+                        throw ex;
+                    }
+
                     foreach(var item in venda.Produto)
                     {
                         try

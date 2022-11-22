@@ -125,6 +125,7 @@ saldo_final_cai float
 
 create table Recebimento(
 id_receb int primary key auto_increment,
+data_abertura date,
 data_receb date,
 valor_receb float,
 hora_receb time,

@@ -9,6 +9,7 @@ namespace LojaRoupa.ViewsModels
     public class RecebimentoModel
     {
         public int Id { get; set;}
+        public string DataAbertura { get; set;}
         public string Data { get; set;}
         public double Valor { get; set;}
         public string Hora { get; set; }
