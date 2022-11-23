@@ -31,7 +31,19 @@ namespace LojaRoupa.Views.SubViews
 
         private void Imprimir_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                this.IsEnabled = false;
+                PrintDialog printDialog = new PrintDialog();
+                if (printDialog.ShowDialog() == true)
+                {
+                    //printDialog.PrintVisual(print, "invoice");
+                }
+            }
+            finally
+            {
+                this.IsEnabled = true;
+            }
         }
 
         private void btnDeletar_Click(object sender, RoutedEventArgs e)

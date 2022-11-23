@@ -51,7 +51,7 @@
                     <Label Foreground="White" FontSize="20" Margin="0, -8, 0, 0" HorizontalAlignment="Center">
                         🖶
                     </Label>
-                    <Label FontSize="20" Foreground="White" Margin="0, -16, 0, 0" HorizontalAlignment="Center">Imprimir</Label>
+                    <Label FontSize="20" Foreground="White" Margin="0, -16, 0, 0" HorizontalAlignment="Center" Height="24">Imprimir</Label>
                 </StackPanel>
             </Button>
         </Grid>
