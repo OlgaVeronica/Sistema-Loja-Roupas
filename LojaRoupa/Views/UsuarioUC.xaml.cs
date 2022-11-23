@@ -35,6 +35,10 @@ namespace LojaRoupa.Views
 
         private void btnSalvarUsuario_Click(object sender, RoutedEventArgs e)
         {
+            if (_model.Senha1 != _model.Senha2)
+            {
+                MessageBox.Show("As senhas informadas não coincidem, tente novamente.");
+            }
             
         }
     }
