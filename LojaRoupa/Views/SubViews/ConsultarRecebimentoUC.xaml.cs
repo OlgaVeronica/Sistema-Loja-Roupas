@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using LojaRoupa.DAOs;
 namespace LojaRoupa.Views.SubViews
 {
     /// <summary>
@@ -30,22 +30,22 @@ namespace LojaRoupa.Views.SubViews
 
         private void ConsultarRecebimentoUC_loaded(object sender, RoutedEventArgs e)
         {
-            var source = new[]
+            AtualizarLista();
+        }
+
+        private void AtualizarLista()
+        {
+            try
             {
-                new {Descricao = "Venda short", Vencimento = "05/10/2022", Valor = "R$ 200,00", Status = "Pago"},
-                new {Descricao = "Venda Camiseta", Vencimento = "02/10/2022", Valor = "R$ 1.000,00", Status = "Pago"},
-                new {Descricao = "Venda short", Vencimento = "10/10/2022", Valor = "R$ 350,00", Status = "a receber"},
-                new {Descricao = "Venda short", Vencimento = "05/10/2022", Valor = "R$ 200,00", Status = "Pago"},
-                new {Descricao = "Venda Camiseta", Vencimento = "02/10/2022", Valor = "R$ 1.000,00", Status = "a receber"},
-                new {Descricao = "Venda moletom", Vencimento = "10/10/2022", Valor = "R$ 350,00", Status = "a receber"},
-                new {Descricao = "Venda short", Vencimento = "05/10/2022", Valor = "R$ 200,00", Status = "Pago"},
-                new {Descricao = "Venda Camiseta", Vencimento = "02/10/2022", Valor = "R$ 1.000,00", Status = "Pago"},
-                new {Descricao = "Venda Camiseta", Vencimento = "10/10/2022", Valor = "R$ 350,00", Status = "a receber"},
-                new {Descricao = "Venda moletom", Vencimento = "05/10/2022", Valor = "R$ 200,00", Status = "a receber"},
-                new {Descricao = "Venda Camiseta", Vencimento = "02/10/2022", Valor = "R$ 1.000,00", Status = "Pago"},
-                new {Descricao = "Venda moletom", Vencimento = "10/10/2022", Valor = "R$ 350,00", Status = "a receber"},
-            };
-            dtgExibirReceb.ItemsSource = source;
+                var dao = new RecebimentoDAO();
+
+                dtgExibirReceb.ItemsSource = dao.List();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao recuperar Listagem {ex.Message}");
+            }
         }
 
         private void btnBuscar_Click(object sender, RoutedEventArgs e)

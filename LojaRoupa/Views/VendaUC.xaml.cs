@@ -113,9 +113,9 @@ namespace LojaRoupa.Views
                 MessageBox.Show("Venda realizada com sucesso", "Sucesso!!", MessageBoxButton.OK, MessageBoxImage.Information);
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Não foi possíel inserir Registros", "Erro ao inserir Registros", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show( $"Não foi possíel inserir Registros {ex.Message}", "Erro ao inserir Registros", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             finally
             {

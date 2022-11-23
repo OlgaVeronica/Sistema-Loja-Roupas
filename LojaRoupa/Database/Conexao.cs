@@ -16,7 +16,7 @@ namespace LojaRoupa.Database
 
         private static string user = "root";
 
-        private static string password = "llobeauchamp";
+        private static string password = "root";
 
         private static string dbname = "bd_loja_de_roupas";
 
