@@ -57,17 +57,19 @@ namespace LojaRoupa.DAOs
                 {
                     DateTime? dataReceb = DAOHelper.GetDateTime(reader, "data_receb");
                     DateTime? dataAbertura = DAOHelper.GetDateTime(reader, "data_abertura");
-                    string hora = DAOHelper.GetString(reader, "hora_receb") != null ? DAOHelper.GetString(reader, "hora_receb") : " ";
-                    
+                    string hora = DAOHelper.GetString(reader, "hora_receb") ?? " ";
 
-                    var recebimento = new RecebimentoModel();
-                    recebimento.Id = reader.GetInt32("id_receb");
-                    recebimento.Data = dataReceb != null? dataReceb?.ToString("dd/MM/yyyy") : "";
-                    recebimento.DataAbertura = dataAbertura != null? dataAbertura?.ToString("dd/MM/yyyy") : "";
-                    recebimento.Valor = DAOHelper.GetDouble(reader, "valor_receb");
-                    recebimento.Hora = hora;
-                    recebimento.StatusReceb = DAOHelper.GetString(reader, "status_receb");
-                    recebimento.FormaReceb = DAOHelper.GetString(reader, "forma_recebimento_receb");
+
+                    var recebimento = new RecebimentoModel
+                    {
+                        Id = reader.GetInt32("id_receb"),
+                        Data = dataReceb != null ? dataReceb?.ToString("dd/MM/yyyy") : "",
+                        DataAbertura = dataAbertura != null ? dataAbertura?.ToString("dd/MM/yyyy") : "",
+                        Valor = DAOHelper.GetDouble(reader, "valor_receb"),
+                        Hora = hora,
+                        StatusReceb = DAOHelper.GetString(reader, "status_receb"),
+                        FormaReceb = DAOHelper.GetString(reader, "forma_recebimento_receb")
+                    };
                     recebimento.Caixa.Numero = DAOHelper.GetInt(reader, "caixa");
                     recebimento.Venda.Id = reader.GetInt32("id_ven_fk");
                     lista.Add(recebimento);
