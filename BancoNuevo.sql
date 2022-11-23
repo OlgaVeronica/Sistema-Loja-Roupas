@@ -228,14 +228,14 @@ create procedure InserirFuncionario(
     rg varchar(300),
     funcao varchar(300),
     salario float,
-    -- avatar longblob,
+    avatar varchar(300),
     status varchar(100),
     lojaFK int)
 begin
 	if ((nome is not null) and (nome <> '')) then
 		if((cpf is not null) and (cpf <> '')) then
 			insert into Funcionario values(null, nome, telefone, endereco, cpf, 
-            sexo, email, rg, funcao, salario, /*avatar,*/ status, lojaFK);
+            sexo, email, rg, funcao, salario, avatar, status, lojaFK);
 			select 'Funcionário inserido com sucesso!' as Confirmacao;
 		else
 			select 'CPF inválido' as Erro;
@@ -249,7 +249,7 @@ $$ DELIMITER ;
 select qtd_estoque_roup from roupa where (id_roup = 1);
 
 call InserirFuncionario("Maria", "(69) 9999-9999", "Rua João de Oliveira", "000.000.000-00",
-"Feminino", "maria@gmail.com", "000.000", "Vendedora", 1800, "ativo",1);
+"Feminino", "maria@gmail.com", "000.000", "Vendedora", 1800, null,  "ativo",1);
 select*from loja;
 
 DELIMITER $$
@@ -521,12 +521,13 @@ create procedure InserirRoupa(
     estampa varchar(300),
     status varchar(100),
     valor float,
+    qtdEstoque int,
     marcaFK int)
 begin
 	if((descricao is not null) and (descricao <> '')) then
 		if((valor is not null) and (valor <> '')) then
 			if((marcaFK is not null) and (marcaFK <> '')) then
-				insert into Roupa values(null,descricao, material, tipo, colecao, tamanho, estampa, status, valor, marcaFK);
+				insert into Roupa values(null,descricao, material, tipo, colecao, tamanho, estampa, status, valor, qtdEstoque,  marcaFK);
 					select 'Roupa inserida com sucesso!' as Confirmacao;
 			
             else
@@ -541,7 +542,7 @@ begin
 end
 $$ DELIMITER ;
 
-call InserirRoupa("Casaco para frio","Moletom","Casaco", "Inverno", "Único", "Cinza","Disponível", 180.99,1);
+call InserirRoupa("Casaco para frio","Moletom","Casaco", "Inverno", "Único", "Cinza","Disponível", 180.99, 10, 1);
 
 
 DELIMITER $$
@@ -555,6 +556,7 @@ create procedure AtualizarRoupa(
     estampa varchar(300),
     status varchar(100),
     valor float,
+    qtdEstoque int,
     marcaFK int)
 begin
 	if((descricao is not null) and (descricao <> '')) then
@@ -569,6 +571,7 @@ begin
 				estampa_roup = estampa, 
 				status_roup = status, 
 				valor_roup = valor, 
+                qtd_estoque_roup = qtdEstoque,
 				id_mar_fk = marcaFK
 				
 				where id_roup = codigo;
@@ -586,7 +589,7 @@ begin
 end
 $$ DELIMITER ;
 
-call AtualizarRoupa(1,"Casaco para frio","Moletom","Casaco", "Outono/Inverno", "P, M, G, EG", "Cinza","Disponível", 180.99,1);
+call AtualizarRoupa(1,"Casaco para frio","Moletom","Casaco", "Outono/Inverno", "P, M, G, EG", "Cinza","Disponível", 180.99, 3, 1);
 
 
 DELIMITER $$
@@ -724,7 +727,6 @@ begin
 end
 $$ DELIMITER ;
 
-drop procedure AtualizarCaixa;
 select * from caixa;
 
 call InserirCaixa("2022-11-10", "17:00:00", "18:00:00", 10000, 20000);
@@ -763,7 +765,8 @@ call AtualizarCaixa(1, "2020-12-21", "17:00:00", "18:00:00", 10000, 20000);
 
 DELIMITER $$
 create procedure InserirRecebimento(
-	data date, 
+	dataAbertura date, 
+    dataReceb date,
     valor float, 
     hora time, 
     formaRecebimento varchar(300), 
@@ -771,10 +774,10 @@ create procedure InserirRecebimento(
     caixaFK int, 
     vendaFK int)
 begin
-	if(data is not null) then
+	if(dataAbertura is not null) then
 		if(caixaFK is not null) then
 			if(vendaFK is not null) then
-				insert into Recebimento values(null, data, valor, hora, formaRecebimento, status, caixaFK, vendaFK);
+				insert into Recebimento values(null, dataAbertura, dataReceb, valor, hora, formaRecebimento, status, caixaFK, vendaFK);
 				select 'Recebimento inserido com sucesso!' as Confirmacao;
 			else
 				select "Informe o código da venda!" as Erro;
@@ -788,12 +791,13 @@ begin
 end
 $$ DELIMITER ;
 
-call inserirRecebimento("2022-12-01", 239, "12:00", "cartão", "aberto", 1, 1);
+call inserirRecebimento("2022-12-01", "2022-12-01" ,239, "12:00", "cartão", "aberto", 1, 1);
 
 DELIMITER $$
 create procedure AtualizarRecebimento(
 	codigo int,
-	data date, 
+	dataAbertura date, 
+    dataReceb date,
     valor float, 
     hora time, 
     formaRecebimento varchar(300), 
@@ -802,11 +806,12 @@ create procedure AtualizarRecebimento(
     vendaFK int)
 begin
 
-	if(data is not null) then
+	if(dataAbertura is not null) then
 		if(caixaFK is not null) then
 			if(vendaFK is not null) then
-				update Recebimento set 
-				data_receb = data, 
+				update Recebimento set
+                data_abertura = dataAbertura,
+				data_receb = dataReceb, 
 				valor_receb = valor, 
 				hora_receb = hora, 
 				forma_recebimento_receb = formaRecebimento, 
@@ -830,7 +835,7 @@ begin
 end
 $$ DELIMITER ;
 
-call atualizarRecebimento(1, "2022-12-01", 239, "12:00", "cartão", "aberto", 1, 1);
+call atualizarRecebimento(1, "2022-12-01","2022-12-01", 239, "12:00", "cartão", "aberto", 1, 1);
 
 
 DELIMITER $$
