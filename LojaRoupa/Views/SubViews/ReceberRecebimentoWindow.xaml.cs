@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using LojaRoupa.ViewsModels;
 
 namespace LojaRoupa.Views.SubViews
 {
@@ -19,9 +20,17 @@ namespace LojaRoupa.Views.SubViews
     /// </summary>
     public partial class ReceberRecebimentoWindow : Window
     {
-        public ReceberRecebimentoWindow()
+        RecebimentoModel _recebimento;
+        public ReceberRecebimentoWindow(RecebimentoModel recebimento)
         {
             InitializeComponent();
+            _recebimento = recebimento;
+            Loaded += ReceberRecebimentoWindow_Loaded;
+        }
+
+        private void ReceberRecebimentoWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            //throw new NotImplementedException();
         }
     }
 }
