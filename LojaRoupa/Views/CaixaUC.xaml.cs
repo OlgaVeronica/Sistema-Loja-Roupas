@@ -44,7 +44,7 @@ namespace LojaRoupa.Views
 
         private void btnCadastrarCaixa_Click(object sender, RoutedEventArgs e)
         {
-
+            _frame.Content = new CadastrarCaixaUC(_frame);
         }
     }
 }
