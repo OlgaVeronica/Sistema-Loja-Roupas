@@ -26,6 +26,7 @@
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
 
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
@@ -46,6 +47,15 @@
                 Height="50" Width="200"
                 Margin="10,0,10,0"
                 Content="Recebimentos" Click="btnConsultarRecebimentos_Click"
+                />
+
+            <Button
+                Grid.Column="3"
+                x:Name="btnCadastrarCaixa"
+                FontSize="20"
+                Height="50" Width="200"
+                Margin="10,0,10,0"
+                Content="Cadastrar Caixa" Click="btnCadastrarCaixa_Click" Cursor="Hand"
                 />
         </Grid>
     </Grid>
