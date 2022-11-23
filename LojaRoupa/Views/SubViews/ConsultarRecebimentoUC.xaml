@@ -40,7 +40,7 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <CheckBox x:Name="check"></CheckBox>
+                                <Button x:Name="btnReceber" Click="btnReceber_Click"></Button>
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>

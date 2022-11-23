@@ -77,5 +77,12 @@ namespace LojaRoupa.Views.SubViews
         {
             var thing = dtgExibirReceb.SelectedItem;
         }
+
+        
+
+        private void btnReceber_Click(object sender, RoutedEventArgs e)
+        {
+            ReceberRecebimentoWindow tela = new ReceberRecebimentoWindow();
+        }
     }
 }
