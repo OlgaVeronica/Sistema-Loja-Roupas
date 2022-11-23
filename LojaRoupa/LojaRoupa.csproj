@@ -138,6 +138,9 @@
     <Compile Include="Views\ProdutoUC.xaml.cs">
       <DependentUpon>ProdutoUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SubViews\CadastrarCaixaUC.xaml.cs">
+      <DependentUpon>CadastrarCaixaUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SubViews\CadastrarClienteUC.xaml.cs">
       <DependentUpon>CadastrarClienteUC.xaml</DependentUpon>
     </Compile>
@@ -232,6 +235,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ProdutoUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SubViews\CadastrarCaixaUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
