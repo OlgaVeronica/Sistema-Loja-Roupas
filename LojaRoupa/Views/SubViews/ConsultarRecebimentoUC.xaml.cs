@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LojaRoupa.DAOs;
+using LojaRoupa.ViewsModels;
 namespace LojaRoupa.Views.SubViews
 {
     /// <summary>
@@ -82,7 +83,8 @@ namespace LojaRoupa.Views.SubViews
 
         private void btnReceber_Click(object sender, RoutedEventArgs e)
         {
-            ReceberRecebimentoWindow tela = new ReceberRecebimentoWindow();
+            ReceberRecebimentoWindow tela = new ReceberRecebimentoWindow(dtgExibirReceb.SelectedItem as RecebimentoModel);
+            tela.ShowDialog();
         }
     }
 }
