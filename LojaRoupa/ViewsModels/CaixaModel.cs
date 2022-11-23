@@ -9,6 +9,7 @@ namespace LojaRoupa.ViewsModels
     public class CaixaModel
     {
         public int? Id { get; set; }
+        public int Numero { get; set; }
         public string DataCaixa { get; set; }
         public string HoraAbertura { get; set; }
         public string HoraFechamento { get; set; }

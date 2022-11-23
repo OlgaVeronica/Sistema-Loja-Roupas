@@ -33,7 +33,6 @@ id_loja_fk int,
 foreign key (id_loja_fk) references Loja(id_loja)
 ); #okay
 
-select * from funcionario ;
 create table Fornecedor(
 id_forn int primary key auto_increment,
 razao_social_forn varchar(300),
@@ -51,7 +50,7 @@ nome_mar varchar(300),
 logo_mar varchar(1000),
 status_mar varchar(100)
 );
-select * from marca;
+
 create table Cliente(
 id_cli int primary key auto_increment,
 nome_cli varchar(300), 
@@ -138,7 +137,7 @@ id_ven_fk int,
 foreign key (id_ven_fk) references Venda(id_ven)
 );
 
-select * from loja;
+
 
 create table Pagamento(
 id_pag int primary key auto_increment,
@@ -163,8 +162,7 @@ id_roup_fk int,
 foreign key (id_roup_fk) references Roupa(id_roup)
 );
 
-select * from venda;
-select * from compra;
+
 
 create table Compra_Roupa(
 id_com_roup int primary key auto_increment,
@@ -177,8 +175,8 @@ foreign key (id_roup_fk) references Roupa(id_roup)
 
 insert into cliente values (null, "doido", "4575", "8676", "Ativo");
 insert into cliente values (null, "test", "4575", "8676", "Ativo");
-select*from funcionario;
-select*from cliente;
+
+
 
 DELIMITER $$
 create procedure InserirLoja(nome varchar(300), cnpj varchar(300), endereco varchar(300))
@@ -215,7 +213,7 @@ begin
     end if;
 end;
 $$ DELIMITER ;
-select*from loja;
+
 call AtualizarLoja(1, "Lince","111111111111", "COHAB");
 
 DELIMITER $$
@@ -247,11 +245,11 @@ begin
 end
 $$ DELIMITER ;
 
-select qtd_estoque_roup from roupa where (id_roup = 1);
+
 
 call InserirFuncionario("Maria", "(69) 9999-9999", "Rua João de Oliveira", "000.000.000-00",
 "Feminino", "maria@gmail.com", "000.000", "Vendedora", 1800, null,  "ativo",1);
-select*from loja;
+
 
 DELIMITER $$
 create procedure AtualizarFuncionario(
@@ -297,7 +295,7 @@ begin
 	end if;
 end
 $$ DELIMITER ;
-select*from funcionario;
+
 
 call AtualizarFuncionario(1,"Maria Eduarda", "(69) 6969-6969", "Rua João de Oliveira", "000.000.000-00",
 "Feminino", "maria@gmail.com", "000.111", "Gerente", 5000, "ativo",1);
@@ -367,7 +365,7 @@ $$ DELIMITER ;
 
 call AtualizarFornecedor(1,"Rosângela e Lara Telas Ltda", "52.501.698/0001-22",
 "RoLa Telas Ltda", "Rua Itapicuru 837", "contabil@rosangelaelaratelasltda.com.br", "(11) 3785-6790", "Desativado");
-select*from fornecedor;
+
 
 DELIMITER $$
 create procedure InserirMarca(nome varchar(300), logo longblob, status varchar(100))
@@ -412,7 +410,7 @@ begin
 end
 $$ DELIMITER ;
 
-select*from marca;
+
 call AtualizarMarca (1, "Hering", null, "Ativo");
 
 DELIMITER $$
@@ -644,7 +642,7 @@ begin
 	end if;
 end
 $$ DELIMITER ;
-select*from compra;
+
 
 alter table compra change status_comp status_com varchar(100);
 call AtualizarCompra(1,"2022-10-29","16:30:00", 120, "Aberto", 1,1);
@@ -704,7 +702,7 @@ begin
 end
 $$ DELIMITER ;
 
-select*from despesa;
+
 call atualizardespesa(1, "", "2022-10-28", 2000, "Aberto", 1);
 
 
@@ -728,7 +726,7 @@ begin
 end
 $$ DELIMITER ;
 
-select * from caixa;
+
 
 call InserirCaixa("2022-11-10", 301, "17:00:00", "18:00:00", 10000, 20000);
 
@@ -792,7 +790,7 @@ begin
 end
 $$ DELIMITER ;
 
-call inserirRecebimento("2022-12-01", "2022-12-01" ,239, "12:00", "cartão", "aberto", 1, 1);
+call inserirRecebimento("2022-12-01", "2022-12-01" ,239, "12:00", "cartão", "Aberto", 1, 1);
 
 DELIMITER $$
 create procedure AtualizarRecebimento(
@@ -836,7 +834,7 @@ begin
 end
 $$ DELIMITER ;
 
-call atualizarRecebimento(1, "2022-12-01","2022-12-01", 239, "12:00", "cartão", "aberto", 1, 1);
+call atualizarRecebimento(1, "2022-12-01","2022-12-01", 239, "12:00", "cartão", "Aberto", 1, 1);
 
 
 DELIMITER $$
@@ -845,7 +843,7 @@ create procedure InserirPagamento(
     valor float,  
     hora time, 
     formaRecebimento varchar(300), 
-    status varchar(100),
+    status varchar(100), 	
     caixaFK int,
     despesaFK int)
 begin

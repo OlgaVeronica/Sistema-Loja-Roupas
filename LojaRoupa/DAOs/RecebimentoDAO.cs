@@ -25,6 +25,7 @@ namespace LojaRoupa.DAOs
 
                 command.Parameters.AddWithValue("@dataAbertura", recebimento.DataAbertura);
                 command.Parameters.AddWithValue("@dataReceb", recebimento.Data);
+                command.Parameters.AddWithValue("@dataAbertura", recebimento.DataAbertura);
                 command.Parameters.AddWithValue("@valor", recebimento.Valor);
                 command.Parameters.AddWithValue("@hora", recebimento.Hora);
                 command.Parameters.AddWithValue("@formaR", recebimento.FormaReceb);
@@ -48,24 +49,26 @@ namespace LojaRoupa.DAOs
 
                 var command = conn.Query();
                 //  COLOCAR NUMERO DO CAIXA 
-                command.CommandText = "select recebimento.*, (select id_cai from caixa where Caixa.id_cai = Recebimento.id_cai_fk) as caixa, Venda.id_ven from recebimento, venda where(Venda.id_ven = Recebimento.id_ven_fk);";
+                command.CommandText = "select recebimento.*, (select numero_cai from caixa where Caixa.id_cai = Recebimento.id_cai_fk) as caixa, Venda.id_ven from recebimento, venda where(Venda.id_ven = Recebimento.id_ven_fk);";
 
                 MySqlDataReader reader = command.ExecuteReader();
 
                 while (reader.Read())
                 {
                     DateTime? dataReceb = DAOHelper.GetDateTime(reader, "data_receb");
+                    DateTime? dataAbertura = DAOHelper.GetDateTime(reader, "data_abertura");
                     string hora = DAOHelper.GetString(reader, "hora_receb") != null ? DAOHelper.GetString(reader, "hora_receb") : " ";
                     
 
                     var recebimento = new RecebimentoModel();
                     recebimento.Id = reader.GetInt32("id_receb");
                     recebimento.Data = dataReceb != null? dataReceb?.ToString("dd/MM/yyyy") : "";
+                    recebimento.DataAbertura = dataAbertura != null? dataAbertura?.ToString("dd/MM/yyyy") : "";
                     recebimento.Valor = DAOHelper.GetDouble(reader, "valor_receb");
                     recebimento.Hora = hora;
                     recebimento.StatusReceb = DAOHelper.GetString(reader, "status_receb");
                     recebimento.FormaReceb = DAOHelper.GetString(reader, "forma_recebimento_receb");
-                    recebimento.Caixa.Id = DAOHelper.GetInt(reader, "caixa");
+                    recebimento.Caixa.Numero = DAOHelper.GetInt(reader, "caixa");
                     recebimento.Venda.Id = reader.GetInt32("id_ven_fk");
                     lista.Add(recebimento);
 

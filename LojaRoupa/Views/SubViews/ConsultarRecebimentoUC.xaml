@@ -36,6 +36,15 @@
                   AlternatingRowBackground="#f2f2f2" AlternationCount="2" CanUserReorderColumns="False">
 
             <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Mudanças">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <CheckBox x:Name="check"></CheckBox>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
                 <DataGridTextColumn Header="Venda" Binding="{Binding Venda.Id}" />
                 <DataGridTextColumn Header="Status" Binding="{Binding StatusReceb}" />
@@ -44,17 +53,8 @@
                 <DataGridTextColumn Header="Hora do Recebimento" Binding="{Binding Hora}" />
                 <DataGridTextColumn Header="Data do Recebimento" Binding="{Binding Data}" />
                 <DataGridTextColumn Header="Forma" Binding="{Binding FormaReceb}" />
-                <DataGridTextColumn Header="Caixa" Binding="{Binding Salario}" />
+                <DataGridTextColumn Header="Caixa" Binding="{Binding Caixa.Numero}" />
 
-                <DataGridTemplateColumn Header="Mudanças">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <Button Content="Alterar Status" Click="Button_Alter_Click"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
         
