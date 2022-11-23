@@ -116,6 +116,7 @@ foreign key (id_com_fk) references Compra(id_com)
 create table Caixa(
 id_cai int primary key auto_increment,
 data_cai date,
+numero_cai int,
 hora_abertura_cai time,
 hora_fechamento_cai time,
 saldo_inicial_cai float, 
@@ -708,12 +709,12 @@ call atualizardespesa(1, "", "2022-10-28", 2000, "Aberto", 1);
 
 
 DELIMITER $$
-create procedure InserirCaixa(data date, horaAbertura time, horaFechamento time, saldoInicial float, saldoFinal float)
+create procedure InserirCaixa(data date, numero int, horaAbertura time, horaFechamento time, saldoInicial float, saldoFinal float)
 begin
 	if (data is not null) then
 		if(horaAbertura is not null) then
 			if(saldoInicial is not null) then
-				insert into Caixa values(null, data, horaAbertura, horaFechamento, saldoInicial, saldoFinal);
+				insert into Caixa values(null, data, numero, horaAbertura, horaFechamento, saldoInicial, saldoFinal);
 				select 'Caixa inserida com sucesso!' as Confirmacao;
 			else
 				select "Informe o saldo inicial!" as Erro;
@@ -729,11 +730,11 @@ $$ DELIMITER ;
 
 select * from caixa;
 
-call InserirCaixa("2022-11-10", "17:00:00", "18:00:00", 10000, 20000);
+call InserirCaixa("2022-11-10", 301, "17:00:00", "18:00:00", 10000, 20000);
 
 
 DELIMITER $$
-create procedure AtualizarCaixa(codigo int, data date, horaAbertura time, horaFechamento time, saldoInicial float, saldoFinal float)
+create procedure AtualizarCaixa(codigo int, data date, numero int, horaAbertura time, horaFechamento time, saldoInicial float, saldoFinal float)
 begin
 	if (data is not null) then
 		if(horaAbertura is not null) then
@@ -743,8 +744,8 @@ begin
 				hora_abertura_cai = horaAbertura, 
 				hora_fechamento_cai = horaFechamento, 
 				saldo_inicial_cai = saldoInicial, 
-				saldo_final_cai = saldoFinal
-    
+				saldo_final_cai = saldoFinal,
+				numero_cai = numero
 				where id_cai = codigo;
                 
 				select 'Caixa atualizada com sucesso!' as Confirmacao;
@@ -760,7 +761,7 @@ begin
 end
 $$ DELIMITER ;
 
-call AtualizarCaixa(1, "2020-12-21", "17:00:00", "18:00:00", 10000, 20000);
+call AtualizarCaixa(1, "2020-12-21",302, "17:00:00", "18:00:00", 10000, 20000);
 
 
 DELIMITER $$
