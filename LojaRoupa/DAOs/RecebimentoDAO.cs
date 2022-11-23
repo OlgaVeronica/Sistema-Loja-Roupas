@@ -54,13 +54,13 @@ namespace LojaRoupa.DAOs
 
                 while (reader.Read())
                 {
-                    DateTime? data = DAOHelper.GetDateTime(reader, "data_receb");
+                    DateTime? dataReceb = DAOHelper.GetDateTime(reader, "data_receb");
                     string hora = DAOHelper.GetString(reader, "hora_receb") != null ? DAOHelper.GetString(reader, "hora_receb") : " ";
                     
 
                     var recebimento = new RecebimentoModel();
                     recebimento.Id = reader.GetInt32("id_receb");
-                    recebimento.Data = data != null? data?.ToString("dd/MM/yyyy") : "";
+                    recebimento.Data = dataReceb != null? dataReceb?.ToString("dd/MM/yyyy") : "";
                     recebimento.Valor = DAOHelper.GetDouble(reader, "valor_receb");
                     recebimento.Hora = hora;
                     recebimento.StatusReceb = DAOHelper.GetString(reader, "status_receb");
