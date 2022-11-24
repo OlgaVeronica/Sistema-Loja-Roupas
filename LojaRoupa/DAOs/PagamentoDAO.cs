@@ -54,10 +54,12 @@ namespace LojaRoupa.DAOs
                 while (reader.Read())
                 {
                     var pagamento = new PagamentoModel();
+
+
                     pagamento.Id = reader.GetInt32("id_pag");
                     pagamento.Data = DAOHelper.GetDateTime(reader, "data_pag");
                     pagamento.Valor = DAOHelper.GetDouble(reader, "valor_pag");
-                    pagamento.Hora = DAOHelper.GetDateTime(reader, "hora_pag");
+                    pagamento.Hora = DAOHelper.GetString(reader, "hora_pag");
                     pagamento.FormaPagamento = DAOHelper.GetString(reader, "forma_pag");
                     pagamento.Status = DAOHelper.GetString(reader, "status_pag");
 

@@ -29,22 +29,22 @@
             <StackPanel Grid.Column="0" Margin="10,0,10,0">
                 <StackPanel Orientation="Vertical" Margin="0,10">
                     <Label Content="Descrição" HorizontalAlignment="Center" FontSize="20"/>
-                    <TextBox x:Name="txtDescDespesa" MinWidth="400" FontSize="20" Cursor="Arrow"/>
+                    <TextBox x:Name="txtDescDespesa" MinWidth="400" FontSize="20" Background="#f1f1f1" Cursor="Arrow"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Margin="0,10">
                     <Label Content="Valor" FontSize="20" HorizontalAlignment="Center"/>
-                    <TextBox x:Name="txtValorDesp" MinWidth="300" FontSize="20" Cursor="Arrow"/>
+                    <TextBox x:Name="txtValorDesp" MinWidth="300" FontSize="20" Background="#f1f1f1" Cursor="Arrow"/>
                 </StackPanel>
             </StackPanel>
 
             <StackPanel Grid.Column="1" Margin="10,35,0,0">
                 <StackPanel Orientation="Horizontal" Margin="0,10">
                     <Label Content="Vencimento:" FontSize="20"/>
-                    <DatePicker Name="dtpVencimento" Width="200" FontSize="16"/>
+                    <DatePicker Name="dtpVencimento" Width="200" Background="#f1f1f1" FontSize="16"/>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Margin="0,10, 10,0">
                     <Label Content="Status" HorizontalAlignment="Center" FontSize="20"/>
-                    <TextBox x:Name="txtStatusDesp" MinWidth="300" FontSize="20" Cursor="Arrow"/>
+                    <TextBox x:Name="txtStatusDesp" MinWidth="300" FontSize="20" Background="#f1f1f1" Cursor="Arrow"/>
                 </StackPanel>
             
             </StackPanel>

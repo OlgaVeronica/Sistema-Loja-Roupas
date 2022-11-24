@@ -46,11 +46,11 @@
                 </DataGridTemplateColumn>
                 <DataGridTextColumn Header="Id " Binding="{Binding Id}" />
                 <DataGridTextColumn Header="Compra " Binding="{Binding Compra.Id}" />
-                <DataGridTextColumn Header="Status " Binding="{Binding StatusReceb}" />
+                <DataGridTextColumn Header="Status " Binding="{Binding Status}" />
                 <DataGridTextColumn Header="Valor " Binding="{Binding Valor}" />
                 <DataGridTextColumn Header="Data " Binding="{Binding Data}" />
                 <DataGridTextColumn Header="Hora " Binding="{Binding Hora}" />
-                <DataGridTextColumn Header="Forma " Binding="{Binding FormaReceb}" />
+                <DataGridTextColumn Header="Forma " Binding="{Binding FormaPagamento}" />
                 <DataGridTextColumn Header="Caixa " Binding="{Binding Caixa.Numero}" />
 
             </DataGrid.Columns>

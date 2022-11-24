@@ -50,7 +50,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0" Height="50" Width="150" x:Name="btnRelatorio" Click="btnRelatorio_Click" Cursor="Hand">Gerar Relatório</Button>
-            <Button Grid.Column="1" Height="50" Width="150" x:Name="btnPagamento" Click="btnCadastrarPagamento_Click" Cursor="Hand">Exibir Despesas</Button>
+            <Button Grid.Column="1" Height="50" Width="150" x:Name="btnPagamento" Click="btnCadastrarPagamento_Click" Cursor="Hand">Exibir Pagamentos</Button>
             <Button Grid.Column="2" Height="50" Width="150" x:Name="btnRecebimentos" Click="btnRecebimentos_Click" Cursor="Hand">Exibir recebimentos</Button>
         </Grid>
 

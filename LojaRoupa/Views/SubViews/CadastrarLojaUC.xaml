@@ -39,7 +39,7 @@
 
                 <StackPanel Orientation="Vertical">
                     <Label Content="Rua" FontSize="20" HorizontalAlignment="left"/>
-                    <TextBox x:Name="txtRuaLoja" FontSize="20" MinWidth="400" Background="#f1f1f1"></TextBox>
+                    <TextBox x:Name="txtRuaLoja" FontSize="20" MinWidth="400" Background="#f1f1f1" Cursor="Arrow"></TextBox>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
