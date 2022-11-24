@@ -61,5 +61,10 @@ namespace LojaRoupa.Views
         {
             _frame.Content = new CadastrarPagamento(_frame);
         }
+
+        private void btnRecebimentos_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

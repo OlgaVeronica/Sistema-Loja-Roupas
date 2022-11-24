@@ -93,9 +93,14 @@ namespace LojaRoupa.Views.SubViews
 
         private void txtPesquisarReceb_TextChanged(object sender, TextChangedEventArgs e)
         {
+            AtualizarFiltro();
+        }
+
+        private void AtualizarFiltro()
+        {
             var txt = txtPesquisarReceb;
             string filter = cbFilters.Text;
-            string rdChecked = rdAbertos.IsChecked == true? "Aberto" : "";
+            string rdChecked = rdAbertos.IsChecked == true ? "Aberto" : "";
             rdChecked = rdRecebidos.IsChecked != true ? rdChecked : "Recebido";
 
 
@@ -105,18 +110,18 @@ namespace LojaRoupa.Views.SubViews
             {
 
                 List<RecebimentoModel> listaFiltrada = list.FindAll(item =>
-                { 
-                    if(filter == "Data")
+                {
+                    if (filter == "Data")
                     {
                         return item.DataAbertura.ToLower().Contains(txt.Text.ToLower()) && item.StatusReceb.ToLower().Contains(rdChecked.ToLower());
 
                     }
-                    else if(filter == "Id")
+                    else if (filter == "Id")
                     {
                         return item.Id.ToString().Contains(txt.Text.ToLower()) && item.StatusReceb.ToLower().Contains(rdChecked.ToLower());
 
                     }
-                    else if(filter == "Caixa")
+                    else if (filter == "Caixa")
                     {
                         return item.Caixa.Numero.ToString().Contains(txt.Text.ToLower()) && item.StatusReceb.ToLower().Contains(rdChecked.ToLower());
                     }
