@@ -71,7 +71,7 @@ namespace LojaRoupa.DAOs
 
                 while (reader.Read())
                 {
-                    var caixa = new CaixaModel();
+                    //var caixa = new CaixaModel();
                     caixa.Id = reader.GetInt32("id_cai");
                     caixa.DataCaixa = DAOHelper.GetDateTime(reader, "data_cai");
                     caixa.HoraAbertura = DAOHelper.GetString(reader, "hora_abertura_cai");
@@ -82,13 +82,13 @@ namespace LojaRoupa.DAOs
                     caixa.TotalSaida = DAOHelper.GetDouble(reader, "total_saida_cai");
                     caixa.Status = DAOHelper.GetString(reader, "status_cai");
 
-                    .Add(caixa);
+                    //.Add(caixa);
 
                 }
                 reader.Close();
 
 
-                return lista;
+                return caixa;
             }
             catch (MySqlException ex)
             {
