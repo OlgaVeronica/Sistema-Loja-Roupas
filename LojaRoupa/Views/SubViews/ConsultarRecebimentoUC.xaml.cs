@@ -22,6 +22,7 @@ namespace LojaRoupa.Views.SubViews
     public partial class ConsultarRecebimentoUC : UserControl
     {
         public Frame _frame;
+        private List<RecebimentoModel> _recebimentosInGrid;
         public ConsultarRecebimentoUC(Frame frame)
         {
             InitializeComponent();
@@ -32,6 +33,7 @@ namespace LojaRoupa.Views.SubViews
         private void ConsultarRecebimentoUC_loaded(object sender, RoutedEventArgs e)
         {
             AtualizarLista();
+            cbFilters.SelectedIndex = 0;
         }
 
         private void AtualizarLista()
@@ -39,8 +41,8 @@ namespace LojaRoupa.Views.SubViews
             try
             {
                 var dao = new RecebimentoDAO();
-
-                dtgExibirReceb.ItemsSource = dao.List();
+                _recebimentosInGrid = dao.List();
+                dtgExibirReceb.ItemsSource = _recebimentosInGrid;
 
             }
             catch (Exception ex)
@@ -86,6 +88,70 @@ namespace LojaRoupa.Views.SubViews
             ReceberRecebimentoWindow tela = new ReceberRecebimentoWindow(dtgExibirReceb.SelectedItem as RecebimentoModel);
             tela.ShowDialog();
             AtualizarLista();
+
+        }
+
+        private void txtPesquisarReceb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var txt = txtPesquisarReceb;
+            string filter = cbFilters.Text;
+            string rdChecked = rdAbertos.IsChecked == true? "Aberto" : "";
+            rdChecked = rdRecebidos.IsChecked != true ? rdChecked : "Recebido";
+
+
+            List<RecebimentoModel> list = _recebimentosInGrid;
+
+            if (!String.IsNullOrWhiteSpace(txt.Text))
+            {
+
+                List<RecebimentoModel> listaFiltrada = list.FindAll(item =>
+                { 
+                    if(filter == "Data")
+                    {
+                        return item.DataAbertura.ToLower().Contains(txt.Text.ToLower()) && item.StatusReceb.ToLower().Contains(rdChecked.ToLower());
+
+                    }
+                    else if(filter == "Id")
+                    {
+                        return item.Id.ToString().Contains(txt.Text.ToLower()) && item.StatusReceb.ToLower().Contains(rdChecked.ToLower());
+
+                    }
+                    else if(filter == "Caixa")
+                    {
+                        return item.Caixa.Numero.ToString().Contains(txt.Text.ToLower()) && item.StatusReceb.ToLower().Contains(rdChecked.ToLower());
+                    }
+                    else
+                    {
+                        return item.Venda.Id.ToString().Contains(txt.Text.ToLower()) && item.StatusReceb.ToLower().Contains(rdChecked.ToLower());
+
+                    }
+                });
+
+                dtgExibirReceb.ItemsSource = listaFiltrada;
+            }
+            else
+            {
+                dtgExibirReceb.ItemsSource = _recebimentosInGrid;
+            }
+        }
+
+        private void cbFilters_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void rdAbertos_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void rdRecebidos_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void rdTodos_Checked(object sender, RoutedEventArgs e)
+        {
 
         }
     }

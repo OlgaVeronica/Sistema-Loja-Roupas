@@ -25,8 +25,24 @@
             <Label Content="Recebimentos" HorizontalAlignment="Center" FontSize="30" FontWeight="Normal" Foreground="#DD1F1D1D"/>
 
             <StackPanel Orientation="Horizontal" MaxWidth="700" Margin="1,-10,1,1">
-                <TextBox x:Name="txtPesquisarDesp" Padding="5" Height="35" HorizontalAlignment="Left" Width="500" Background="#f1f1f1" FontSize="20" VerticalContentAlignment="Bottom" Cursor="Arrow"/>
+                <TextBox x:Name="txtPesquisarReceb" Padding="5" Height="35" HorizontalAlignment="Left" Width="500" Background="#f1f1f1" FontSize="20" VerticalContentAlignment="Bottom" Cursor="Arrow" TextChanged="txtPesquisarReceb_TextChanged"/>
                 <Button x:Name="btnPesquisar" Content="Pesquisar" Margin="10" Width="150" Height="35" Cursor="Hand" FontSize="20" HorizontalAlignment="Right" Click="btnPesquisar_Click"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+
+                <ComboBox Width="300" FontSize="20" Background="#f1f1f1" x:Name="cbFilters" SelectionChanged="cbFilters_SelectionChanged" HorizontalAlignment="Left" Margin="30, 10, 0,0">
+                    <ComboBoxItem>Data</ComboBoxItem>
+                    <ComboBoxItem>Id</ComboBoxItem>
+                    <ComboBoxItem>Caixa</ComboBoxItem>
+                    <ComboBoxItem>Venda</ComboBoxItem>
+                </ComboBox>
+
+                <StackPanel Orientation="Horizontal" Margin="30,0,0,0" VerticalAlignment="Center">
+                    <RadioButton Checked="rdTodos_Checked" x:Name="rdTodos" VerticalAlignment="Center" Margin="10,0,0,0" VerticalContentAlignment="Center" IsChecked="True" GroupName="FilterStatus">Todos</RadioButton>
+                    <RadioButton Checked="rdAbertos_Checked" x:Name="rdAbertos" VerticalAlignment="Center" Margin="10,0,0,0" VerticalContentAlignment="Center" GroupName="FilterStatus" >Abertos</RadioButton>
+                    <RadioButton Checked="rdRecebidos_Checked" x:Name="rdRecebidos" VerticalAlignment="Center" Margin="10,0,0,0" VerticalContentAlignment="Center" GroupName="FilterStatus" >Recebidos</RadioButton>
+                </StackPanel>
             </StackPanel>
 
         </StackPanel>
