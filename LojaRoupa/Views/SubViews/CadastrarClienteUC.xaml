@@ -26,16 +26,16 @@
 
             <StackPanel Grid.Column="0" Margin="10, 0, 10, 0" VerticalAlignment="Center">
                 <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10">
-                    <Label Content="Nome" FontSize="20" HorizontalAlignment="Center"/>
-                    <TextBox MinWidth="500" FontSize="20" x:Name="txtNome"></TextBox>
+                    <Label Content="Nome" FontSize= "20" HorizontalAlignment="Left"/>
+                    <TextBox MinWidth="200" FontSize="20" x:Name="txtNome"  Background="#f1f1f1"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10">
-                    <Label Content="Telefone" FontSize="20" HorizontalAlignment="Center"/>
-                    <TextBox MinWidth="500" FontSize="20" x:Name="txtTelefone"></TextBox>
+                    <Label Content="Telefone" FontSize="20" HorizontalAlignment="Left"/>
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtTelefone" Background="#f1f1f1"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10">
-                    <Label Content="CPF" FontSize="20" HorizontalAlignment="Center"/>
-                    <TextBox MinWidth="500" FontSize="20" x:Name="txtCpf" Width="209"></TextBox>
+                    <Label Content="CPF" FontSize="20" HorizontalAlignment="Left"/>
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtCpf" Width="209" Background="#f1f1f1"></TextBox>
                 </StackPanel>
             </StackPanel>
 
@@ -45,7 +45,7 @@
         <Grid Grid.Row="1" Grid.Column="1">
             <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Top">
                 <Label FontSize="16">Busca:</Label>
-                <TextBox FontSize="16" x:Name="txtFilter" TextChanged="txtFilter_TextChanged"  Width="300" Cursor="Arrow"></TextBox>
+                <TextBox FontSize="16" x:Name="txtFilter" TextChanged="txtFilter_TextChanged"  Width="300" Cursor="Arrow" Background="#f1f1f1"></TextBox>
             </StackPanel>
             
             <DataGrid x:Name="dtgCliente"  FontSize="16" AutoGenerateColumns="False" 

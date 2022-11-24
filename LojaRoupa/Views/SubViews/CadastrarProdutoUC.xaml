@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:LojaRoupa.Views.SubViews"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1000">
-    <Grid Background="AliceBlue">
+    <Grid Background="white">
 
 
 
@@ -24,50 +24,51 @@
                 <ColumnDefinition Width="*" MaxWidth="500"/>
             </Grid.ColumnDefinitions>
 
-            <StackPanel Grid.Column="0" Margin="10, 0, 10, 0">
-                <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10">
-                    <Label Content="Descrição" FontSize="20" HorizontalAlignment="Center"/>
-                    <TextBox MinWidth="500" FontSize="20" x:Name="txtDescricao"></TextBox>
+            <StackPanel HorizontalAlignment="Left" Grid.Column="0" Margin="10, 0, 20, 0" VerticalAlignment="Center">
+                <StackPanel Margin="0, 10, 0, 10">
+                    <Label Content="Descrição" FontSize="20" />
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtDescricao" Background="#f1f1f1"></TextBox>
                 </StackPanel>
-                <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10" Cursor="Hand">
-                    <Label Content="Tecido" FontSize="20" HorizontalAlignment="Center"/>
-                    <TextBox MinWidth="500" FontSize="20" x:Name="txtTecido"></TextBox>
+                <StackPanel  Margin="0, 10, 0, 10" Cursor="Hand">
+                    <Label Content="Tecido" FontSize="20"/>
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtTecido" Background="#f1f1f1"></TextBox>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10">
-                        <Label Content="Marca" FontSize="20" HorizontalAlignment="Center"/>
-                        <ComboBox MinWidth="150" FontSize="20" x:Name="cbMarca"
+                    <StackPanel Orientation="Vertical" Margin="0, 10, 60, 0">
+                        <Label Content="Marca" FontSize="20" HorizontalAlignment="left"/>
+                        <ComboBox MinWidth="180" FontSize="20" x:Name="cbMarca"
                                   DisplayMemberPath="Nome"
+                                  Background="#f1f1f1"
                                   SelectedValuePath="Id"
                                   ></ComboBox>
                     </StackPanel>
-                    <StackPanel Orientation="Vertical" Margin="50, 10, 0, 0">
-                        <Label Content="Tipo" FontSize="20" HorizontalAlignment="Center"/>
-                        <TextBox MinWidth="150" FontSize="20" x:Name="txtTipo"></TextBox>
+                    <StackPanel Orientation="Vertical" Margin="60, 10, 0, 0">
+                        <Label Content="Tipo" FontSize="20" HorizontalAlignment="left"/>
+                        <TextBox MinWidth="180" FontSize="20" x:Name="txtTipo" Background="#f1f1f1"></TextBox>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>
 
-            <StackPanel Grid.Column="1" Margin="10, 0, 10, 0">
+            <StackPanel Grid.Column="1" Margin="20, 0, 10, 0" VerticalAlignment="Center">
                 <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10">
-                    <Label Content="Coleção" FontSize="20" HorizontalAlignment="Center"/>
-                    <TextBox MinWidth="500" FontSize="20" x:Name="txtColecao"></TextBox>
+                    <Label Content="Coleção" FontSize="20" HorizontalAlignment="left"/>
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtColecao" Background="#f1f1f1"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10">
-                    <Label Content="Tamanho" FontSize="20" HorizontalAlignment="Center"/>
-                    <TextBox MinWidth="500" FontSize="20" x:Name="txtTamanho"></TextBox>
+                    <Label Content="Tamanho" FontSize="20" HorizontalAlignment="left"/>
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtTamanho" Background="#f1f1f1"></TextBox>
                 </StackPanel>
 
-                <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 0" HorizontalAlignment="Center">
                     <StackPanel Margin="0, 10, 0, 0">
-                        <Label Content="Estampa" FontSize="16" HorizontalAlignment="Center"/>
-                        <TextBox MinWidth="150" FontSize="16" x:Name="txtEstampa"></TextBox>
+                        <Label Content="Estampa" FontSize="20" HorizontalAlignment="left"/>
+                        <TextBox Background="#f1f1f1" MinWidth="180" FontSize="20" x:Name="txtEstampa"></TextBox>
                         
                     </StackPanel>
                     <StackPanel Margin="50, 10, 0, 0">
-                        <Label Content="Preco" FontSize="16" HorizontalAlignment="Center"/>
-                        <TextBox MinWidth="150" FontSize="16" x:Name="txtPreco"></TextBox>
+                        <Label Content="Preco" FontSize="20" HorizontalAlignment="left"/>
+                        <TextBox Background="#f1f1f1" MinWidth="180" FontSize="20" x:Name="txtPreco"></TextBox>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>

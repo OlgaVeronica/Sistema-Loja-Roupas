@@ -8,11 +8,11 @@ cnpj_loja varchar(300),
 endereco_loja varchar(300)
 ); 
 
-insert into Loja values(null, 'Lince', '111111111111', 'Rua 2 de abril, Nº157');
+/*insert into Loja values(null, 'Lince', '111111111111', 'Rua 2 de abril, Nº157');
 insert into Loja values(null, 'Ellus', '111111111111', 'Rua 2 de abril, Nº157');
 insert into Loja values(null, 'IFROStore', '111111111111', 'Rua 2 de abril, Nº157');
 insert into Loja values(null, 'Lince', '111111111111', 'Rua 2 de abril, Nº157');
-insert into Loja values(null, 'Lince', '111111111111', 'Rua 2 de abril, Nº157');
+insert into Loja values(null, 'Lince', '111111111111', 'Rua 2 de abril, Nº157');*/
 
 
 create table Funcionario(
@@ -119,7 +119,10 @@ numero_cai int,
 hora_abertura_cai time,
 hora_fechamento_cai time,
 saldo_inicial_cai float, 
-saldo_final_cai float
+saldo_final_cai float,
+total_entrada_cai float,
+total_saida_cai float,
+status_cai varchar(100)
 );
 
 
@@ -194,8 +197,16 @@ begin
 end;
 $$ DELIMITER ;
 
-call InserirLoja("Manas", "000000", "Centro");
-call InserirLoja("Grauna", "000000", "");
+call InserirLoja("Manas", "02.954.741/0001-37", "Urias, 2341, Centro, Rondônia");
+call InserirLoja("Grauna", "65.740.854/0001-50", "da Paz, 7575, Vila Nova, Pernambuco");
+call InserirLoja("EasyWay", "09.652.085/0001-67", "Vinte e Quatro, 697, Centro, Sergipe");
+call InserirLoja("Monumental", "56.877.729/0001-03", "Projetada, 303, São José, Alagoas");
+call InserirLoja("Bahamas", "21.322.185/0001-20", "São Francisco, 4501, Industrial, Distrito Federal");
+call InserirLoja("Carmen Steffen's", "34.142.252/0001-77", "Maranhão, 1059, Planalto, Mato Grosso");
+call InserirLoja("Amadeus", "11.435.832/0001-57", "Vinte e Quatro, 3804, Industrial, Rio de Janeiro");
+call InserirLoja("Ideal Roupas", "80.852.119/0001-21", "Vinte, 72, Industrial, São Paulo");
+call InserirLoja("BigStar", "80.852.119/0001-21", "das flores, 892, Industrial, São Paulo");
+call InserirLoja("Dynamic", "80.852.119/0001-21", "das camélias, 757, Industrial, São Paulo");
 
 DELIMITER $$
 create procedure AtualizarLoja(codigo int, nome varchar(300), cnpj varchar(300), endereco varchar(300))
@@ -214,7 +225,16 @@ begin
 end;
 $$ DELIMITER ;
 
-call AtualizarLoja(1, "Lince","111111111111", "COHAB");
+call AtualizarLoja(1, "Manas", "02.954.741/0001-37", "Urias, 2341, Centro, Rondônia");
+call AtualizarLoja(2, "Grauna", "65.740.854/0001-50", "da Paz, 7575, Vila Nova, Pernambuco");
+call AtualizarLoja(3, "EasyWay", "09.652.085/0001-67", "Vinte e Quatro, 697, Centro, Sergipe");
+call AtualizarLoja(4, "Monumental", "56.877.729/0001-03", "Projetada, 303, São José, Alagoas");
+call AtualizarLoja(5, "Bahamas", "21.322.185/0001-20", "São Francisco, 4501, Industrial, Distrito Federal");
+call AtualizarLoja(6, "Carmen Steffen's", "34.142.252/0001-77", "Maranhão, 1059, Planalto, Mato Grosso");
+call AtualizarLoja(7, "Amadeus", "11.435.832/0001-57", "Vinte e Quatro, 3804, Industrial, Rio de Janeiro");
+call AtualizarLoja(8, "Ideal Roupas", "80.852.119/0001-21", "Vinte, 72, Industrial, São Paulo");
+call AtualizarLoja(9, "BigStar", "80.852.119/0001-21", "das flores, 892, Industrial, São Paulo");
+call AtualizarLoja(10, "Dynamic", "80.852.119/0001-21", "das camélias, 757, Industrial, São Paulo");
 
 DELIMITER $$
 create procedure InserirFuncionario(
@@ -247,8 +267,11 @@ $$ DELIMITER ;
 
 
 
-call InserirFuncionario("Maria", "(69) 9999-9999", "Rua João de Oliveira", "000.000.000-00",
-"Feminino", "maria@gmail.com", "000.000", "Vendedora", 1800, null,  "ativo",1);
+call InserirFuncionario("Maria", "(69) 9999-9999", "Rua João de Oliveira", "000.000.000-00", "Feminino", "maria@gmail.com", "000.000", "Vendas", 1800, null,  "ativo",1);
+call InserirFuncionario("Urias", "(69) 9999-9999", "Rua João de Oliveira", "000.000.000-00", "Feminino", "urias@gmail.com", "000.000", "Caixa", 2300, null,  "ativo", 1);
+call InserirFuncionario("Beca", "(69) 9999-9999", "Rua João de Oliveira", "000.000.000-00", "Feminino", "beca@gmail.com", "000.000", "Limpeza", 1400, null,  "ativo", 1);
+call InserirFuncionario("Catia", "(69) 9999-9999", "Rua João de Oliveira", "000.000.000-00", "Feminino", "catiaa@gmail.com", "000.000", "Atendimento", 1800, null,  "ativo", 1);
+call InserirFuncionario("Fernanda", "(69) 9999-9999", "Rua João de Oliveira", "000.000.000-00", "Feminino", "fernandaa@gmail.com", "000.000", "Caixa", 2300, null,  "ativo", 1);
 
 
 DELIMITER $$
@@ -297,8 +320,12 @@ end
 $$ DELIMITER ;
 
 
-call AtualizarFuncionario(1,"Maria Eduarda", "(69) 6969-6969", "Rua João de Oliveira", "000.000.000-00",
-"Feminino", "maria@gmail.com", "000.111", "Gerente", 5000, "ativo",1);
+call AtualizarFuncionario(1,"Maria Eduarda", "(69) 6969-6969", "Rua João de Oliveira", "000.000.000-00", "Feminino", "maria@gmail.com", "000.111", "Gerente", 5000, "ativo",1);
+call AtualizarFuncionario(2, "Urias", "(69) 99426-5056", "Rua Tenente-Coronel Cardoso", "000.000.000-00", "Feminino", "urias@gmail.com", "000.222", "Caixa", 2300, null,  "ativo", 1);
+call AtualizarFuncionario(3, "Beca", "(69) 99366-8565", "Rua Domingos Olímpio", "000.000.000-00", "Feminino", "beca@gmail.com", "000.333", "Limpeza", 1400, null,  "ativo", 1);
+call AtualizarFuncionario(4, "Catia", "(69) 97486-4855", "Avenida Esbertalina Barbosa Damiani", "000.000.000-00", "Feminino", "catiaa@gmail.com", "000.444", "Atendimento", 1800, null,  "ativo", 1);
+call AtualizarFuncionario(5, "Fernanda", "(69) 97428-1441", "Avenida Afonso Pena", "000.000.000-00", "Feminino", "fernandaa@gmail.com", "000.555", "Caixa", 2300, null,  "ativo", 1);
+
 
 DELIMITER $$
 create procedure InserirFornecedor(
@@ -325,8 +352,7 @@ begin
 end
 $$ DELIMITER ;
 
-call InserirFornecedor("Rosângela e Lara Telas Ltda", "52.501.698/0001-22",
-"RoLa Ltda", "Rua Itapicuru 837", "contabil@rosangelaelaratelasltda.com.br", "(11) 3785-6790", "Ativo");
+call InserirFornecedor("Rosângela e Lara Telas Ltda", "52.501.698/0001-22", "RoLa Ltda", "Rua Itapicuru 837", "contabil@rosangelaelaratelasltda.com.br", "(11) 3785-6790", "Ativo");
 
 
 DELIMITER $$
@@ -707,7 +733,7 @@ call atualizardespesa(1, "", "2022-10-28", 2000, "Aberto", 1);
 
 
 DELIMITER $$
-create procedure InserirCaixa(data date, numero int, horaAbertura time, horaFechamento time, saldoInicial float, saldoFinal float)
+create procedure InserirCaixa(data date, numero int, horaAbertura time, horaFechamento time, saldoInicial float, saldoFinal float, totalEntrada float, totalSaida float, status varchar(100))
 begin
 	if (data is not null) then
 		if(horaAbertura is not null) then
@@ -728,11 +754,11 @@ $$ DELIMITER ;
 
 
 
-call InserirCaixa("2022-11-10", 301, "17:00:00", "18:00:00", 10000, 20000);
+#call InserirCaixa("2022-11-10", 301, "17:00:00", "18:00:00", 10000, 20000);
 
 
 DELIMITER $$
-create procedure AtualizarCaixa(codigo int, data date, numero int, horaAbertura time, horaFechamento time, saldoInicial float, saldoFinal float)
+create procedure AtualizarCaixa(codigo int, data date, numero int, horaAbertura time, horaFechamento time, saldoInicial float, saldoFinal float, totalEntrada float, totalSaida float, status varchar(100))
 begin
 	if (data is not null) then
 		if(horaAbertura is not null) then
@@ -743,7 +769,10 @@ begin
 				hora_fechamento_cai = horaFechamento, 
 				saldo_inicial_cai = saldoInicial, 
 				saldo_final_cai = saldoFinal,
-				numero_cai = numero
+				numero_cai = numero,
+                total_entrada_cai = totalEntrada,
+                totalSaida_cai = totalSaida,
+                status_cai = status
 				where id_cai = codigo;
                 
 				select 'Caixa atualizada com sucesso!' as Confirmacao;
@@ -759,7 +788,7 @@ begin
 end
 $$ DELIMITER ;
 
-call AtualizarCaixa(1, "2020-12-21",302, "17:00:00", "18:00:00", 10000, 20000);
+#call AtualizarCaixa(1, "2020-12-21",302, "17:00:00", "18:00:00", 10000, 20000);
 
 
 DELIMITER $$
@@ -790,7 +819,7 @@ begin
 end
 $$ DELIMITER ;
 
-call inserirRecebimento("2022-12-01", "2022-12-01" ,239, "12:00", "cartão", "Aberto", 1, 1);
+#call inserirRecebimento("2022-12-01", "2022-12-01" ,239, "12:00", "cartão", "Aberto", 1, 1);
 
 DELIMITER $$
 create procedure AtualizarRecebimento(
@@ -834,7 +863,7 @@ begin
 end
 $$ DELIMITER ;
 
-call atualizarRecebimento(1, "2022-12-01","2022-12-01", 239, "12:00", "cartão", "Aberto", 1, 1);
+#call atualizarRecebimento(1, "2022-12-01","2022-12-01", 239, "12:00", "cartão", "Aberto", 1, 1);
 
 
 DELIMITER $$
@@ -863,7 +892,7 @@ begin
     end if;
 end
 $$ DELIMITER ;
-call inserirPagamento("2022-10-11", 2000, "12:00", "Cartão", "fechado", 1, 1); 
+#call inserirPagamento("2022-10-11", 2000, "12:00", "Cartão", "fechado", 1, 1); 
 
 DELIMITER $$
 create procedure AtualizarPagamento(
@@ -903,7 +932,7 @@ begin
 end
 $$ DELIMITER ;
 
-call atualizarPagamento(1, "2022-10-11", 2000, "12:00", "Cartão", "fechado", 1, 1); 
+#call atualizarPagamento(1, "2022-10-11", 2000, "12:00", "Cartão", "fechado", 1, 1); 
 
 
 DELIMITER $$

@@ -8,25 +8,25 @@
              d:DesignHeight="720" d:DesignWidth="1000">
 
 
-    <Grid Background="#f1f1f1f1" >
+    <Grid Background="White" >
 
 
         <Grid.RowDefinitions>
-            <RowDefinition Height=".3*"/>
+            <RowDefinition Height=".2*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height=".3*"/>
+            <RowDefinition Height=".2*"/>
         </Grid.RowDefinitions>
 
         <TextBlock x:Name="txbFuncionario" Foreground="black" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40" Text="Cadastrar Funcionário" />
 
 
-        <Grid Grid.Row="1" Background="White" HorizontalAlignment="Left" Margin="10,0,0,0">
-            <Grid.ColumnDefinitions>
+        <Grid Grid.Row="1" HorizontalAlignment="Left" Margin="30,0,0,0">
+            <Grid.ColumnDefinitions >
                 <ColumnDefinition Width="*" MaxWidth="500"/>
                 <ColumnDefinition Width="*" MaxWidth="500"/>
             </Grid.ColumnDefinitions>
 
-            <StackPanel Grid.Column="0" Margin="10, 0, 10, 0">
+            <StackPanel Grid.Column="0" Margin="40, 0, 60, 0">
 
                 <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0, 23, 0, 10" Background="AliceBlue">
                     <Image x:Name="imgFuncionario" Height="140" Width="140"/>
@@ -47,17 +47,17 @@
                     <Button x:Name="btnEscolherImg" Content="Escolher Imagem" Click="btnEscolherImg_Click"/>
                 </StackPanel>
 
-                <StackPanel Orientation="Horizontal" Margin="0, 0, 0, 10">
+                <StackPanel HorizontalAlignment="Left" Margin="0, 0, 0, 0">
                     <Label Content="Nome:" FontSize="20"/>
-                    <TextBox MinWidth="500" FontSize="20" x:Name="txtNome"></TextBox>
+                    <TextBox MinWidth="400" FontSize="20"  x:Name="txtNome" Background="#f1f1f1"></TextBox>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
+                <StackPanel HorizontalAlignment="Left" Margin="0, 0 , 0, 10">
                     <Label Content="CPF:" FontSize="20"/>
-                    <TextBox MinWidth="500" FontSize="20" x:Name="txtCPF" Cursor="Arrow"></TextBox>
+                    <TextBox MinWidth="400" FontSize="20" x:Name="txtCPF" Cursor="Arrow" Background="#f1f1f1"></TextBox>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
+                <StackPanel HorizontalAlignment="Left" Margin="0, 0, 0, 10">
                     <Label Content="RG:" FontSize="20"/>
-                    <TextBox MinWidth="500" FontSize="20" x:Name="txtRG"></TextBox>
+                    <TextBox MinWidth="400" FontSize="20" x:Name="txtRG" Background="#f1f1f1"></TextBox>
                 </StackPanel>
          
 
@@ -69,34 +69,34 @@
 
 
 
-            <StackPanel Grid.Column="1" Margin="10, 0, 10, 0" VerticalAlignment="center">
+            <StackPanel Grid.Column="1" Margin="10, 0, 40, 0" VerticalAlignment="center">
 
-                <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
+                <StackPanel HorizontalAlignment="Left" Margin="0, 0, 0, 10">
                     <Label Content="Telefone:" FontSize="20"/>
-                    <TextBox MinWidth="500" FontSize="20" x:Name="txtTelefone"></TextBox>
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtTelefone" Background="#f1f1f1"></TextBox>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
+                <StackPanel HorizontalAlignment="Left" Margin="0, 0, 0, 10">
                     <Label Content="Sexo:" FontSize="20"/>
-                    <TextBox MinWidth="500" FontSize="20" x:Name="txtSexo"></TextBox>
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtSexo" Background="#f1f1f1"></TextBox>
                 </StackPanel>
 
 
-                <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
+                <StackPanel HorizontalAlignment="Left" Margin="0, 0, 0, 10">
                     <Label Content="Email:" FontSize="20"/>
-                    <TextBox MinWidth="500" FontSize="20" x:Name="txtEmail"></TextBox>
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtEmail" Background="#f1f1f1"></TextBox>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
+                <StackPanel HorizontalAlignment="Left" Margin="0, 0, 0, 10">
                     <Label Content="Endereco:" FontSize="20"/>
-                    <TextBox MinWidth="500" FontSize="20" x:Name="txtEndereco" Cursor="Arrow"></TextBox>
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtEndereco" Cursor="Arrow" Background="#f1f1f1"></TextBox>
                 </StackPanel>
 
-                <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
+                <StackPanel HorizontalAlignment="Left" Margin="0, 0, 0, 10">
                     <Label Content="Funcao:" FontSize="20"/>
-                    <TextBox MinWidth="500" FontSize="20" x:Name="txtFuncao"></TextBox>
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtFuncao" Background="#f1f1f1"></TextBox>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
+                <StackPanel HorizontalAlignment="Left" Margin="0, 0, 0, 10">
                     <Label Content="Salario:" FontSize="20"/>
-                    <TextBox MinWidth="500" FontSize="20" x:Name="txtSalario"></TextBox>
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtSalario" Background="#f1f1f1"></TextBox>
                 </StackPanel>
 
 

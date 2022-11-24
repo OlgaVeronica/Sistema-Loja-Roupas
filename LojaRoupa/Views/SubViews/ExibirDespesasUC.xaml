@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:LojaRoupa.Views.SubViews"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1000">
-    <Grid Background="BlanchedAlmond">
+    <Grid Background="AliceBlue">
         <Grid.RowDefinitions>
             <RowDefinition Height="67*"/>
             <RowDefinition Height="75*"/>

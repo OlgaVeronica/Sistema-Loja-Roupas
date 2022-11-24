@@ -46,6 +46,11 @@ namespace LojaRoupa.Views.SubViews
             btnAbrirCaixa.IsEnabled = !TodayHasCaixa();
             btnFecharCaixa.IsEnabled = TodayHasCaixa();
 
+            if (TodayHasCaixa())
+            {
+
+            }
+
         }
 
         private bool TodayHasCaixa()
@@ -83,12 +88,15 @@ namespace LojaRoupa.Views.SubViews
 
         private void btnAbrirCaixa_Click(object sender, RoutedEventArgs e)
         {
-
+            CaixaModel caixa = new CaixaModel();
+            AbrirCaixaWindow tela = new AbrirCaixaWindow(caixa);
+            tela.ShowDialog();
+            txtSaldoInicial.Text = tela.SaldoInicial.ToString();
         }
 
         private void btnFecharCaixa_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
     }
 }

@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:LojaRoupa.Views.SubViews"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1000">
-    <Grid Background="AliceBlue">
+    <Grid Background="white">
 
         <Grid.RowDefinitions>
             
@@ -22,11 +22,11 @@
         <Grid Grid.Row="1">
             <StackPanel Orientation="Vertical" Margin="120, 0, 120, 10">
                 <Label Content="Data do caixa" FontSize="20" HorizontalAlignment="Center"/>
-                <TextBox MinWidth="500" FontSize="20" Width="30" x:Name="txtDataCaixa"></TextBox>
+                <TextBox MinWidth="500" FontSize="20" Width="30" x:Name="txtDataCaixa"  Background="#f1f1f1"></TextBox>
             </StackPanel>
         </Grid>
         
-        <Grid Grid.Row="2" Background="White" HorizontalAlignment="Center">
+        <Grid Grid.Row="2" Background="White"  HorizontalAlignment="Center">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" MaxWidth="500"/> 
                 <ColumnDefinition Width="*" MaxWidth="500"/>
@@ -34,23 +34,23 @@
 
             <StackPanel Grid.Column="0" Margin="10, 0, 10, 0">
                 <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10">
-                    <Label Content="Hora de abertura" FontSize="20" HorizontalAlignment="Center"/>
-                    <TextBox MinWidth="500" IsReadOnly="True" FontSize="20" x:Name="txtHoraAbertura" Cursor="Arrow"></TextBox>
+                    <Label Content="Hora de abertura" FontSize="20" HorizontalAlignment="left"/>
+                    <TextBox MinWidth="500" IsReadOnly="True" FontSize="20" x:Name="txtHoraAbertura" Cursor="Arrow"  Background="#f1f1f1"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10">
-                    <Label Content="Hora de fechamento" FontSize="20" HorizontalAlignment="Center"/>
-                    <TextBox MinWidth="500" IsReadOnly="True" FontSize="20" x:Name="txtHoraFechamento"></TextBox>
+                    <Label Content="Hora de fechamento" FontSize="20" HorizontalAlignment="left"/>
+                    <TextBox MinWidth="500" IsReadOnly="True" FontSize="20" x:Name="txtHoraFechamento"  Background="#f1f1f1"></TextBox>
                 </StackPanel>
             </StackPanel>
 
             <StackPanel Grid.Column="1" Margin="10, 0, 10, 0">
                 <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10">
-                    <Label Content="Saldo inicial" FontSize="20" HorizontalAlignment="Center"/>
-                    <TextBox MinWidth="500" IsReadOnly="True" FontSize="20" x:Name="txtSaldoInicial"></TextBox>
+                    <Label Content="Saldo inicial" FontSize="20" HorizontalAlignment="left"/>
+                    <TextBox MinWidth="500" IsReadOnly="True" FontSize="20" x:Name="txtSaldoInicial"  Background="#f1f1f1"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10">
-                    <Label Content="Saldo final" FontSize="20" HorizontalAlignment="Center"/>
-                    <TextBox MinWidth="500" IsReadOnly="True" FontSize="20" x:Name="txtSaldoFinal"></TextBox>
+                    <Label Content="Saldo final" FontSize="20" HorizontalAlignment="left"/>
+                    <TextBox MinWidth="500" IsReadOnly="True" FontSize="20" x:Name="txtSaldoFinal"  Background="#f1f1f1"></TextBox>
                 </StackPanel>
             </StackPanel>
 
