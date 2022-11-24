@@ -39,18 +39,27 @@ namespace LojaRoupa.Views.SubViews
         private void Cadastrar_Click(object sender, RoutedEventArgs e)
         {
             CaixaModel caixa = new CaixaModel();
-            //_caixa.SaldoInicial = double.Parse(txtValor.Text);
-            SaldoInicial = double.Parse(txtValor.Text);
-            caixa.SaldoInicial = SaldoInicial;
-
-            try
+            if (
+               String.IsNullOrWhiteSpace(txtSenha.Text) ||
+               String.IsNullOrWhiteSpace(txtValor.Text)
+               )
             {
-                var dao = new CaixaDAO();
-                dao.Insert(caixa);
+                MessageBox.Show("Unable to save file, try again.", "Save error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Não foi possível Abrir caixa {ex.Message}", "Erro ao Abrir caixa", MessageBoxButton.OK, MessageBoxImage.Error);
+            else { 
+                //_caixa.SaldoInicial = double.Parse(txtValor.Text);
+                SaldoInicial = double.Parse(txtValor.Text);
+                caixa.SaldoInicial = SaldoInicial;
+
+                try
+                {
+                    var dao = new CaixaDAO();
+                    dao.Insert(caixa);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Não foi possível Abrir caixa {ex.Message}", "Erro ao Abrir caixa", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
             this.Close();
         }

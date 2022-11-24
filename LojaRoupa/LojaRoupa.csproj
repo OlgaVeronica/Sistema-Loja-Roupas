@@ -99,9 +99,11 @@
     <Compile Include="DAOs\ClienteDAO.cs" />
     <Compile Include="DAOs\CompraDAO.cs" />
     <Compile Include="DAOs\CompraProdutoDAO.cs" />
+    <Compile Include="DAOs\DespesaDAO.cs" />
     <Compile Include="DAOs\FornecedorDAO.cs" />
     <Compile Include="DAOs\FuncionarioDAO.cs" />
     <Compile Include="DAOs\MarcaDAO.cs" />
+    <Compile Include="DAOs\PagamentoDAO.cs" />
     <Compile Include="DAOs\ProdutoDAO.cs" />
     <Compile Include="DAOs\RecebimentoDAO.cs" />
     <Compile Include="DAOs\UsuarioDAO.cs" />
@@ -110,6 +112,8 @@
     <Compile Include="Database\Conexao.cs" />
     <Compile Include="Helpers\DAOHelper.cs" />
     <Compile Include="ViewsModels\CaixaModel.cs" />
+    <Compile Include="ViewsModels\DespesaModel.cs" />
+    <Compile Include="ViewsModels\PagamentoModel.cs" />
     <Compile Include="ViewsModels\RecebimentoModel.cs" />
     <Compile Include="ViewsModels\ClienteModel.cs" />
     <Compile Include="ViewsModels\CompraModel.cs" />
@@ -164,6 +168,9 @@
     </Compile>
     <Compile Include="Views\SubViews\CadastrarMarcaUC.xaml.cs">
       <DependentUpon>CadastrarMarcaUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SubViews\CadastrarPagamento.xaml.cs">
+      <DependentUpon>CadastrarPagamento.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SubViews\CadastrarProdutoUC.xaml.cs">
       <DependentUpon>CadastrarProdutoUC.xaml</DependentUpon>
@@ -272,6 +279,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SubViews\CadastrarMarcaUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SubViews\CadastrarPagamento.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
