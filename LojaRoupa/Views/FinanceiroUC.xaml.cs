@@ -34,17 +34,6 @@ namespace LojaRoupa.Views
             _frame = frame;
         }
 
-        private void btnExibirDesp_Click(object sender, RoutedEventArgs e)
-        {
-            _frame.Content = new ExibirDespesasUC(_frame);
-        }
-
-        private void btnExibirReceb_Click(object sender, RoutedEventArgs e)
-        {
-           _frame.Content = new ConsultarRecebimentoUC(_frame);
-
-        }
-
         private void dtgFinanceiro_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -66,6 +55,11 @@ namespace LojaRoupa.Views
         private void btnRealizarCompra_Click(object sender, RoutedEventArgs e)
         {
             _frame.Content = new RealizarCompraUC(_frame);
+        }
+
+        private void btnCadastrarPagamento_Click(object sender, RoutedEventArgs e)
+        {
+            _frame.Content = new CadastrarPagamento(_frame);
         }
     }
 }
