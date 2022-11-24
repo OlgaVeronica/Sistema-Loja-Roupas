@@ -25,12 +25,13 @@ namespace LojaRoupa.Views.SubViews
     {
         public Frame _frame;
         private List<PagamentoModel> _productsInGrid;
-        PagamentoModel _pagamento;
+        //PagamentoModel _pagamento;
 
         public CadastrarPagamento(Frame frame)
         {
             InitializeComponent();
             Loaded += CadastrarPagamento_Loaded;
+            _frame = frame;
         }
 
         private void CadastrarPagamento_Loaded(object sender, RoutedEventArgs e)
@@ -67,8 +68,7 @@ namespace LojaRoupa.Views.SubViews
         {
             PagamentoModel pagamento = new PagamentoModel
             {
-                Id = _pagamento.Id,
-                Status = "Pago"     
+                Status = "Pago"
             };
 
             try
@@ -80,6 +80,8 @@ namespace LojaRoupa.Views.SubViews
             {
 
             }
+
+            carregarListagem();
         }
 
         private void carregarListagem()

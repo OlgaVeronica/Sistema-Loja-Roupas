@@ -11,7 +11,7 @@ namespace LojaRoupa.ViewsModels
         public int Id { get; set; }
         public DateTime? Data { get; set; }
         public double Valor { get; set; }
-        public  DateTime? Hora { get; set; }
+        public  string Hora { get; set; }
         public string FormaPagamento { get; set; }
         public string Status { get; set; }
 
