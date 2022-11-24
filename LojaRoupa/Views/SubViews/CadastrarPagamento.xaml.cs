@@ -23,6 +23,12 @@ namespace LojaRoupa.Views.SubViews
         public CadastrarPagamento()
         {
             InitializeComponent();
+            Loaded += CadastrarPagamento_Loaded;
+        }
+
+        private void CadastrarPagamento_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
