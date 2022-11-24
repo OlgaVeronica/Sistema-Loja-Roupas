@@ -37,6 +37,25 @@ namespace LojaRoupa.Views.SubViews
             txtstatus.Text = _recebimento.StatusReceb;
             txtValor.Text = _recebimento.Valor.ToString();
             txtVenda.Text = _recebimento.Venda.Id.ToString();
+
+            
+            List<CaixaModel> lista = new List<CaixaModel>();
+            try
+            {
+                var dao = new CaixaDAO();
+                lista = dao.List("Abertos");
+            }
+            catch
+            {
+                cbNumCaixa.Text = "Não Há caixas abertos no momento";
+            }
+            cbNumCaixa.ItemsSource = lista as List<CaixaModel>;
+            EnableOrDisableButton();
+        }
+
+        private void EnableOrDisableButton()
+        {
+            BtnReceber.IsEnabled = cbNumCaixa.SelectedIndex != -1;
         }
 
         private void BtnReceber_Click(object sender, RoutedEventArgs e)
@@ -46,6 +65,8 @@ namespace LojaRoupa.Views.SubViews
                 Id = _recebimento.Id,
                 StatusReceb = "Recebido"
             };
+
+            
 
             try
             {
@@ -60,6 +81,11 @@ namespace LojaRoupa.Views.SubViews
             {
                 this.Close();
             }
+        }
+
+        private void cbNumCaixa_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            EnableOrDisableButton();
         }
     }
 }

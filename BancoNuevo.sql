@@ -399,11 +399,11 @@ begin
 end
 $$ DELIMITER ;
 
-call InserirFornecedor("Rosângela e Lara Telas Ltda", "52.501.698/0001-22", "RoLa Ltda", "Rua Itapicuru 837", "contabil@rosangelaelaratelasltda.com.br", "(11) 3785-6790", "Ativo");
-call InserirFornecedor("Chinelos Universo Ltda", "52.501.698/0001-22", "CU Ltda", "Rua Itapicuru 837", "chinelos@chinelouniversoltda.com.br", "(11) 3785-6790", "Ativo");
+call InserirFornecedor("Rosângela e Lara Telas Ltda", "52.501.698/0001-22", "RosaLau Ltda", "Rua Itapicuru 837", "contabil@rosangelaelaratelasltda.com.br", "(11) 3785-6790", "Ativo");
+call InserirFornecedor("Chinelos Universo Ltda", "52.501.698/0001-22", "Chinelos Ltda", "Rua Itapicuru 837", "chinelos@chinelouniversoltda.com.br", "(11) 3785-6790", "Ativo");
 call InserirFornecedor("Carlos e Heloisa Marketing Ltda", "52.501.698/0001-22", "Flores Lindas Ltda", "Rua Itapicuru 837", "marketin@carlosheloltda.com.br", "(11) 3785-6790", "Ativo");
-call InserirFornecedor("Lucas e Juliana Transportes Ltda", "52.501.698/0001-22", "Lucas Trans Ltda", "Rua Itapicuru 837", "Lucas@TransportadoraLucasltda.com.br", "(11) 3785-6790", "Ativo");
-call InserirFornecedor("Levi e Sara acompanhamento financeiro ME", "52.501.698/0001-22", "ADMLiberado Ltda", "Rua Itapicuru 837", "contabil@contabilidadeltda.com.br", "(11) 3785-6790", "Ativo");
+call InserirFornecedor("Lucas e Juliana Transportes Ltda", "52.501.698/0001-22", "Lucas Transportes Ltda", "Rua Itapicuru 837", "Lucas@TransportadoraLucasltda.com.br", "(11) 3785-6790", "Ativo");
+call InserirFornecedor("Levi e Sara acompanhamento financeiro ME", "52.501.698/0001-22", "SaVi Acompanhamento Financeiro Ltda", "Rua Itapicuru 837", "contabil@contabilidadeltda.com.br", "(11) 3785-6790", "Ativo");
 
 
 DELIMITER $$
@@ -831,7 +831,7 @@ begin
 		if(horaAbertura is not null) then
 			if(saldoInicial is not null) then
 				insert into Caixa values(null, data, numero, horaAbertura, horaFechamento, saldoInicial, saldoFinal);
-				select 'Caixa inserida com sucesso!' as Confirmacao;
+				select 'Caixa inserido com sucesso!' as Confirmacao;
 			else
 				select "Informe o saldo inicial!" as Erro;
             end if;

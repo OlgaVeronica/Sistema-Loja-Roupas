@@ -22,7 +22,7 @@
                 
                     <StackPanel HorizontalAlignment="Left">
                         <Label Content="Caixa" FontSize="20" />
-                        <TextBox IsReadOnly="True" x:Name="txtNumCaixa" Width="300" Padding="5" FontSize="16" Background="#f1f1f1"/>
+                        <ComboBox  DisplayMemberPath="Numero" SelectedValuePath="Id" x:Name="cbNumCaixa" SelectionChanged="cbNumCaixa_SelectionChanged" Width="300" Padding="5" FontSize="16" Background="#f1f1f1"/>
                     </StackPanel>
                     <StackPanel HorizontalAlignment="Left">
                         <Label Content="Valor" FontSize="20" />
