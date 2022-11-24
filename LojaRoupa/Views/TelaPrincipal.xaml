@@ -20,17 +20,17 @@
             <RowDefinition Height="71*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Background="#F7E5FF" MouseDown="BtnDrag">
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Background="#FF232323" MouseDown="BtnDrag">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 2 10 0">
-                <Ellipse Fill="#6F4D80" Height="14" Width="14" MouseDown="BtnMinimize" Margin="0 0 10 0" />
-                <Ellipse Fill="#6F4D80" Height="14" Width="14" MouseDown="BtnMax" Margin="0 0 10 0" />
+                <Ellipse Fill="#FFDDDDDD" Height="14" Width="14" MouseDown="BtnMinimize" Margin="0 0 10 0" />
+                <Ellipse Fill="#FF838383" Height="14" Width="14" MouseDown="BtnMax" Margin="0 0 10 0" />
                 <Ellipse Fill="#6F4D80" Height="14" Width="14" MouseDown="BtnClose" />
             </StackPanel>
 
         </StackPanel>
 
 
-        <StackPanel Grid.Row="1" Background="#6F4D80" Grid.RowSpan="2">
+        <StackPanel Grid.Row="1" Background="#FF232323" Grid.RowSpan="2">
 
             <StackPanel Orientation="Horizontal">
                 <Border CornerRadius="20" BorderThickness="1" >
@@ -41,19 +41,19 @@
                     </Ellipse>
                 </Border>
 
-                <TextBlock Text="Funcionário" Foreground="#F7E5FF" FontSize="35" VerticalAlignment="Center" Margin="-10,15,0,15"/>
+                <TextBlock Text="Funcionário" Foreground="#FFDDDDDD" FontSize="35" VerticalAlignment="Center" Margin="-10,15,0,15"/>
             </StackPanel>
 
-            <Button x:Name="btnPerfil" Background="Transparent" BorderThickness="0, 1, 0 , 1" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Perfil"  FontSize="30" Height="60" Click="btnPerfil_Click" Cursor="Hand" HorizontalContentAlignment="Left"/>
-            <Button x:Name="btnProduto" Background="Transparent" BorderThickness="0, 1, 0 , 1" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Produto"  FontSize="30" Height="60" Click="btnProduto_Click" Cursor="Hand" HorizontalContentAlignment="Left"/>
-            <Button x:Name="btnVenda" Background="Transparent" BorderThickness="0, 0, 0 , 1" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Vendas"  FontSize="30" Height="60" Click="btnVenda_Click" HorizontalContentAlignment="Left"/>
-            <Button x:Name="btnFuncionario" Background="Transparent" BorderThickness="0, 0, 0 , 1" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Funcionários"  FontSize="30" Height="60" Click="btnFuncionario_Click" Cursor="Hand" HorizontalContentAlignment="Left"/>
-            <Button x:Name="btnFinanceiro" Background="Transparent" BorderThickness="0, 0, 0 , 1" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Financeiro"  FontSize="30" Height="60" Click="btnFinanceiro_Click" Cursor="Hand" HorizontalContentAlignment="Left"/>
-            <Button x:Name="Fornecedores" Background="Transparent" BorderThickness="0, 0, 0 , 1" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Fornecedores"  FontSize="30" Height="60" Cursor="Hand" Click="btnFornecedores_Click" HorizontalContentAlignment="Left"/>
-            <Button x:Name="Caixa" Background="Transparent" BorderThickness="0, 0, 0 , 1" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Caixa"  FontSize="30" Height="60" Cursor="Hand" Click="btnCaixa_Click" HorizontalContentAlignment="Left"/>
-            <Button x:Name="Usuario" Background="Transparent" BorderThickness="0, 0, 0 , 1" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Usuário"  FontSize="30" Height="60" Cursor="Hand" Click="btnUsuario_Click" HorizontalContentAlignment="Left"/>
+            <Button x:Name="btnPerfil" Background="Transparent" BorderThickness="0, 1, 0 , 1" BorderBrush="#FFDDDDDD" Foreground="#FFDDDDDD" Content="Perfil"  FontSize="30" Height="60" Click="btnPerfil_Click" Cursor="Hand" HorizontalContentAlignment="Left"/>
+            <Button x:Name="btnProduto" Background="Transparent" BorderThickness="0, 1, 0 , 1" BorderBrush="#FFDDDDDD" Foreground="#FFDDDDDD" Content="Produto"  FontSize="30" Height="60" Click="btnProduto_Click" Cursor="Hand" HorizontalContentAlignment="Left"/>
+            <Button x:Name="btnVenda" Background="Transparent" BorderThickness="0, 0, 0 , 1" BorderBrush="#FFDDDDDD" Foreground="#FFDDDDDD" Content="Vendas"  FontSize="30" Height="60" Click="btnVenda_Click" HorizontalContentAlignment="Left"/>
+            <Button x:Name="btnFuncionario" Background="Transparent" BorderThickness="0, 0, 0 , 1" BorderBrush="#FFDDDDDD" Foreground="#FFDDDDDD" Content="Funcionários"  FontSize="30" Height="60" Click="btnFuncionario_Click" Cursor="Hand" HorizontalContentAlignment="Left"/>
+            <Button x:Name="btnFinanceiro" Background="Transparent" BorderThickness="0, 0, 0 , 1" BorderBrush="#FFDDDDDD" Foreground="#FFDDDDDD" Content="Financeiro"  FontSize="30" Height="60" Click="btnFinanceiro_Click" Cursor="Hand" HorizontalContentAlignment="Left"/>
+            <Button x:Name="Fornecedores" Background="Transparent" BorderThickness="0, 0, 0 , 1" BorderBrush="#FFDDDDDD" Foreground="#FFDDDDDD" Content="Fornecedores"  FontSize="30" Height="60" Cursor="Hand" Click="btnFornecedores_Click" HorizontalContentAlignment="Left"/>
+            <Button x:Name="Caixa" Background="Transparent" BorderThickness="0, 0, 0 , 1" BorderBrush="#FFDDDDDD" Foreground="#FFDDDDDD" Content="Caixa"  FontSize="30" Height="60" Cursor="Hand" Click="btnCaixa_Click" HorizontalContentAlignment="Left"/>
+            <Button x:Name="Usuario" Background="Transparent" BorderThickness="0, 0, 0 , 1" BorderBrush="#FFDDDDDD" Foreground="#FFDDDDDD" Content="Usuário"  FontSize="30" Height="60" Cursor="Hand" Click="btnUsuario_Click" HorizontalContentAlignment="Left"/>
         </StackPanel>
-        <Button Grid.Row="2" VerticalAlignment="Top" x:Name="btnLoja" Background="Transparent" BorderBrush="#F7E5FF" Foreground="#F7E5FF" Content="Loja" FontSize="30" Height="60" Cursor="Hand" Click="btnLoja_Click" Margin="0,11,0,0"/>
+        <Button Grid.Row="2" VerticalAlignment="Top" x:Name="btnLoja" Background="Transparent" BorderBrush="#FF232323" Foreground="#FF232323" Content="Loja" FontSize="30" Height="60" Cursor="Hand" Click="btnLoja_Click" Margin="0,11,0,0"/>
 
         <!--<ContentControl Grid.Row="1" Grid.Column="1" Content="{Binding}"></ContentControl>-->
         <Frame x:Name="_frame" Grid.Row="1" NavigationUIVisibility="Hidden" Grid.ColumnSpan="2" Margin="295,0,0,0" Grid.RowSpan="2"/>

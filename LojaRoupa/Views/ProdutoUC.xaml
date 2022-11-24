@@ -14,7 +14,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height=".3*"/>
         </Grid.RowDefinitions>
-        
+
         <StackPanel Grid.Row="0">
             <TextBlock Text="Produtos" FontSize="40" TextAlignment="Center"/>
             <Border CornerRadius="20" BorderThickness="1" >
@@ -28,7 +28,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
-            <Label FontSize="16">Busca: </Label>
+            <Label FontSize="16">Busca:</Label>
             <TextBox FontSize="16" x:Name="txtFilter" TextChanged="txtFilter_TextChanged" Background="#f1f1f1" Width="300" Cursor="Arrow"></TextBox>
         </StackPanel>
         <DataGrid Grid.Row="2" x:Name="dtgProdutos"  FontSize="20" AutoGenerateColumns="False" 
@@ -65,6 +65,6 @@
             <Button Grid.Column="2" Height="50" Width="150" x:Name="btnMarca" Click="btnMarca_Click" Cursor="Hand">Marcas</Button>
         </Grid>
 
-      
+
     </Grid>
 </UserControl>
