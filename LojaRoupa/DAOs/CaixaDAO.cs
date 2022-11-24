@@ -15,9 +15,23 @@ namespace LojaRoupa.DAOs
             throw new NotImplementedException();
         }
 
-        public override void Insert(CaixaModel t)
+        public override void Insert(CaixaModel caixa)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var command = conn.Query();
+                command.CommandText = "call AbrirCaixa(@saldoInicial);";
+                command.Parameters.AddWithValue("@saldoInicial", caixa.SaldoInicial);
+                var resultado = command.ExecuteNonQuery();
+            }
+            catch (MySqlException error)
+            {
+                throw error;
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public override List<CaixaModel> List()
@@ -95,6 +109,8 @@ namespace LojaRoupa.DAOs
                 throw ex;
             }
         }
+
+       
 
         public override void Update(CaixaModel t)
         {

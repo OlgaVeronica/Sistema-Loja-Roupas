@@ -13,31 +13,37 @@
             <RowDefinition Height=".3*"/>
         </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width=".4*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width=".4*"/>
-        </Grid.ColumnDefinitions>
+        
 
         <Grid Grid.Row="0" Grid.Column="1">
             <StackPanel Orientation="Vertical" Margin="20 60 20 0">
-
                 <Label x:Name="lbCadUsuario" Content="Usuário" FontSize="50px" VerticalAlignment="Top" HorizontalAlignment="Center" FontFamily="Bahnschrift"/>
             </StackPanel>
         </Grid>
 
         <!--Imagem-->
         <Grid Grid.Row="0" Grid.Column="2" Margin="20 60 20 0">
-            <Image Source="../Images/Banner/Renoir-Logo-Pequena-png.png" Stretch="Fill" Width="100px" Height="100px" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Image Source="../Images/Banner/Renoir-Logo-Pequena-png.png" Stretch="Fill" Width="100px" Height="100px" HorizontalAlignment="Right" VerticalAlignment="Center" />
         </Grid>
 
-        <Grid Grid.Column="1" Grid.Row="1">
-            <StackPanel Orientation="Vertical">
-                <Label x:Name="lbCadNomeUsuario" Content="Nome:" FontSize="28px" VerticalAlignment="Top" HorizontalAlignment="Center" FontFamily="Bahnschrift"/>
-                <TextBox x:Name="txtCadNomeUsuario" Height="40" Width="500" TextAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Cursor="Arrow"></TextBox>
+        <Grid Grid.Row="1">
 
-                <Label x:Name="lbCadCPF" Content="Cadastro de Pessoa Física (CPF):" FontSize="28px" VerticalAlignment="Center" Margin="0,10,0,-2" HorizontalAlignment="Center" FontFamily="Bahnschrift"/>
-                <TextBox x:Name="txtCadCPF" Height="40" Width="500" TextAlignment="Center" VerticalContentAlignment="Center" FontSize="20"></TextBox>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <StackPanel Grid.Column="0">
+                <StackPanel>
+                    <Label x:Name="lbCadNomeUsuario" Content="Nome:" FontSize="28px" VerticalAlignment="Top" HorizontalAlignment="Center" FontFamily="Bahnschrift"/>
+                    <TextBox x:Name="txtCadNomeUsuario" Height="40" Width="500" TextAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Cursor="Arrow"></TextBox>
+                </StackPanel>
+
+                <StackPanel>
+                    
+                    <Label x:Name="lbCadCPF" Content="Cadastro de Pessoa Física (CPF):" FontSize="28px" VerticalAlignment="Center" Margin="0,10,0,-2" HorizontalAlignment="Center" FontFamily="Bahnschrift"/>
+                    <TextBox x:Name="txtCadCPF" Height="40" Width="500" TextAlignment="Center" VerticalContentAlignment="Center" FontSize="20"></TextBox>
+                </StackPanel>
 
                 <Label x:Name="lbCadSenha" Content="Senha:" FontSize="28px" VerticalAlignment="Center" Margin="0,10,0,0" HorizontalAlignment="Center" FontFamily="Bahnschrift"/>
                 <TextBox x:Name="txtCadSenha" Height="40" Width="500" TextAlignment="Center" VerticalContentAlignment="Center" FontSize="20"></TextBox>
@@ -46,19 +52,21 @@
                 <TextBox x:Name="txtCadConfirmarSenha" Height="40" Width="500" TextAlignment="Center" VerticalContentAlignment="Center" FontSize="20"></TextBox>
 
                 <Label x:Name="lbCadTipo" Content="Tipo de Usuário:" FontSize="28px" VerticalAlignment="Center" Margin="0,10,0,0" HorizontalAlignment="Center" FontFamily="Bahnschrift"/>
-                <ComboBox Name="cbCadTipoUsuario" Height="40" Width="500">
+                <ComboBox Name="cbCadTipoUsuario" Height="40" Width="500" FontSize="20">
                     <ComboBoxItem Content="Administrador"/>
                     <ComboBoxItem Content="Comum"/>
                 </ComboBox>
             </StackPanel>
-
+            
+            
+            
+            
+            
         </Grid>
 
+       
+
         <Grid Grid.Row="2" Grid.Column="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="124*"/>
-                <ColumnDefinition Width="15*"/>
-            </Grid.ColumnDefinitions>
             <Button Height="50" Width="150" x:Name="btnSalvarUsuario" Click="btnSalvarUsuario_Click" Cursor="Hand" FontSize="30px" FontFamily="Bahnschrift" Margin="203,42,143,43">Salvar</Button>
         </Grid>
 

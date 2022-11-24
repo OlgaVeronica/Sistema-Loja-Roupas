@@ -176,6 +176,27 @@ id_roup_fk int,
 foreign key (id_roup_fk) references Roupa(id_roup)
 );
 
+
+select * from caixa;
+
+delete from caixa ;
+
+
+DELIMITER $$
+create procedure AbrirCaixa(saldoInicial float)
+begin
+	declare dataHoje date;
+	declare horaAgora time;
+    select curdate() into dataHoje;
+    select curtime() into horaAgora;
+    insert into Caixa values(null, dataHoje, 1, horaAgora, null, saldoInicial, null, null, null, 'Aberto');
+    select 'Caixa Inserido com sucesso!' as Confirmacao;
+end
+$$ DELIMITER ;
+
+call AbrirCaixa(100);
+
+
 insert into cliente values (null, "doido", "4575", "8676", "Ativo");
 insert into cliente values (null, "test", "4575", "8676", "Ativo");
 
