@@ -26,23 +26,23 @@
             <StackPanel Grid.Column="0" Margin="10, 0, 10, 0">
                 <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
                     <Label Content="Nome:" FontSize="20"/>
-                    <TextBox MinWidth="500" FontSize="20" x:Name="txtNome" Cursor="Arrow"></TextBox>
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtNome" Background="#f1f1f1" Cursor="Arrow"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
                     <Label Content="CPF:" FontSize="20"/>
-                    <TextBox MinWidth="500" FontSize="20" x:Name="txtCPF" Cursor="Arrow"></TextBox>
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtCPF" Background="#f1f1f1" Cursor="Arrow"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
                     <Label Content="RG:" FontSize="20"/>
-                    <TextBox MinWidth="500" FontSize="20" x:Name="txtRG"></TextBox>
+                    <TextBox MinWidth="500" FontSize="20" Background="#f1f1f1" x:Name="txtRG"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
                     <Label Content="Telefone:" FontSize="20"/>
-                    <TextBox MinWidth="500" FontSize="20" x:Name="txtTelefone"></TextBox>
+                    <TextBox MinWidth="500" FontSize="20" Background="#f1f1f1" x:Name="txtTelefone"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
                     <Label Content="Sexo:" FontSize="20"/>
-                    <TextBox MinWidth="500" FontSize="20" x:Name="txtSexo"></TextBox>
+                    <TextBox MinWidth="500" FontSize="20" Background="#f1f1f1" x:Name="txtSexo"></TextBox>
                 </StackPanel>
 
 
@@ -51,20 +51,20 @@
             <StackPanel Grid.Column="1" Margin="10, 0, 10, 0">
                 <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
                     <Label Content="Email:" FontSize="20"/>
-                    <TextBox MinWidth="500" FontSize="20" x:Name="txtEmail"></TextBox>
+                    <TextBox MinWidth="500" FontSize="20" Background="#f1f1f1" x:Name="txtEmail"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
                     <Label Content="Endereco:" FontSize="20"/>
-                    <TextBox MinWidth="500" FontSize="20" x:Name="txtEndereco" Cursor="Arrow"></TextBox>
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtEndereco" Background="#f1f1f1" Cursor="Arrow"></TextBox>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
                     <Label Content="Funcao:" FontSize="20"/>
-                    <TextBox MinWidth="500" FontSize="20" x:Name="txtFuncao"></TextBox>
+                    <TextBox MinWidth="500" FontSize="20" Background="#f1f1f1" x:Name="txtFuncao"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
                     <Label Content="Salario:" FontSize="20"/>
-                    <TextBox MinWidth="500" FontSize="20" x:Name="txtSalario"></TextBox>
+                    <TextBox MinWidth="500" FontSize="20" Background="#f1f1f1" x:Name="txtSalario"></TextBox>
                 </StackPanel>
 
 

@@ -23,11 +23,11 @@
             <StackPanel Grid.Column="0" Width="375" Margin="0,10">
                 <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
                     <Label Content="Produto:" FontSize="20"/>
-                    <TextBox MinWidth="500" FontSize="20" x:Name="txtProd"></TextBox>
+                    <TextBox MinWidth="500" FontSize="20"   x:Name="txtProd"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
                     <Label Content="Descrição:" FontSize="20"/>
-                    <TextBox MinWidth="500" FontSize="20" x:Name="txtDesc"></TextBox>
+                    <TextBox MinWidth="500" FontSize="20"  x:Name="txtDesc"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
                     <Label Content="ID:" FontSize="20"/>
