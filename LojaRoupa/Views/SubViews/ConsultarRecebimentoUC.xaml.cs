@@ -142,22 +142,19 @@ namespace LojaRoupa.Views.SubViews
 
         private void cbFilters_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            AtualizarFiltro();
         }
 
         private void rdAbertos_Checked(object sender, RoutedEventArgs e)
         {
-
         }
 
         private void rdRecebidos_Checked(object sender, RoutedEventArgs e)
         {
-
         }
 
         private void rdTodos_Checked(object sender, RoutedEventArgs e)
         {
-
         }
     }
 }
