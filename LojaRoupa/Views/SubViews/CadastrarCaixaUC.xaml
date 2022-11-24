@@ -24,19 +24,19 @@
             <StackPanel Grid.Column="0" Margin="10, 0, 10, 0">
                 <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10">
                     <Label Content="Saldo Inicial" FontSize="20" HorizontalAlignment="Left"/>
-                    <TextBox MinWidth="200" FontSize="20" x:Name="txtSaldoInicial" Background="#f1f1f1"></TextBox>
+                    <TextBox MinWidth="200" FontSize="20" x:Name="txtSaldoInicial" Background="#f1f1f1" IsReadOnly="True"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10" Cursor="Hand">
                     <Label Content="Total Entrada" FontSize="20" HorizontalAlignment="Left"/>
-                    <TextBox MinWidth="200" FontSize="20" x:Name="txtTotalEntrada" Background="#f1f1f1"></TextBox>
+                    <TextBox MinWidth="200" FontSize="20" x:Name="txtTotalEntrada" Background="#f1f1f1" IsReadOnly="True"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10" Cursor="Hand">
                     <Label Content="Total Saída" FontSize="20" HorizontalAlignment="Left"/>
-                    <TextBox MinWidth="200" FontSize="20" x:Name="txtTotalSaida" Background="#f1f1f1"></TextBox>
+                    <TextBox MinWidth="200" FontSize="20" x:Name="txtTotalSaida" Background="#f1f1f1" IsReadOnly="True"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10" Cursor="Hand">
                     <Label Content="Saldo Final" FontSize="20" HorizontalAlignment="Left"/>
-                    <TextBox MinWidth="200" FontSize="20" x:Name="txtSaldoFinal" Background="#f1f1f1"></TextBox>
+                    <TextBox MinWidth="200" FontSize="20" x:Name="txtSaldoFinal" Background="#f1f1f1" IsReadOnly="True"></TextBox>
                 </StackPanel>
          
 
@@ -46,7 +46,7 @@
             <StackPanel Grid.Column="1" Margin="10, 0, 10, 0" >
                 <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10">
                     <Label Content="Nº" FontSize="20" HorizontalAlignment="Left"/>
-                    <TextBox MinWidth="200" FontSize="20" x:Name="txtNumeroCaixa" Background="#f1f1f1"></TextBox>
+                    <TextBox MinWidth="200" FontSize="20" x:Name="txtNumeroCaixa" Background="#f1f1f1" IsReadOnly="True"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10">
                     <Label Content="Data:" FontSize="20" HorizontalAlignment="Left"/>
@@ -54,7 +54,7 @@
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10">
                     <Label Content="Status" FontSize="20" HorizontalAlignment="Left"/>
-                    <TextBox MinWidth="200" FontSize="20" x:Name="txtStatus" Background="#f1f1f1"></TextBox>
+                    <TextBox MinWidth="200" FontSize="20" x:Name="txtStatus" Background="#f1f1f1" IsReadOnly="True"></TextBox>
                 </StackPanel>
             </StackPanel>
 

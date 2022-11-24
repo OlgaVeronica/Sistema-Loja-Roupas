@@ -13,5 +13,6 @@ namespace LojaRoupa.ViewsModels
         public string CPF { get; set; }
         public string Senha { get; set; }
         public string Senha2 { get; set; }
+        public string Tipo { get; set; }
     }
 }

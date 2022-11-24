@@ -13,7 +13,7 @@ namespace LojaRoupa.DAOs
 {
     class UsuarioDAO : AbstractDAO<UsuarioModel>
     {
-        public override void Delete(UsuarioModel t)
+        public override void Delete(UsuarioModel user)
         {
             throw new NotImplementedException();
         }
@@ -58,21 +58,15 @@ namespace LojaRoupa.DAOs
 
                 while (reader.Read())
                 {
-                    var usuario = new UsuarioModel();
-
-
+                    var user = new UsuarioModel
                     {
-                        /*Id = reader.GetInt32("id_user"),
-                        RazaoSocial = DAOHelper.GetString(reader, "razao_social_forn"),
-                        Cnpj = DAOHelper.GetString(reader, "cnpj_forn"),
-                        NomeFantasia = DAOHelper.GetString(reader, "nome_fantasia_forn"),
-                        Endereco = DAOHelper.GetString(reader, "endereco_forn"),
-                        Email = DAOHelper.GetString(reader, "email_forn"),
-                        Telefone = DAOHelper.GetString(reader, "telefone_forn"),
-                        Status = DAOHelper.GetString(reader, "status_forn")*/
+                        Nome = DAOHelper.GetString(reader,"nome_user"),
+                        CPF = DAOHelper.GetString(reader,"cpf_user"),
+                        Senha = DAOHelper.GetString(reader,"senha_user")
+
                     };
 
-                    lista.Add(usuario);
+                    lista.Add(user);
 
                 }
                 reader.Close();
