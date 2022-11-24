@@ -5,8 +5,58 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:LojaRoupa.Views.SubViews"
              mc:Ignorable="d" 
-             d:DesignHeight="1080" d:DesignWidth="800">
+             d:DesignHeight="720" d:DesignWidth="1000">
     <Grid Background="White">
-            
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="67*"/>
+            <RowDefinition Height="75*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="250*"/>
+
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Margin="10,10,10,10">
+            <Button x:Name="btnVoltar" Content="Voltar" Height="50" Width="150"
+            HorizontalAlignment="Left" Cursor="Hand" FontSize="20" Click="btnVoltar_Click" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Margin="10,10,10,10" Grid.RowSpan="2">
+            <Label Content="Pagamentos" HorizontalAlignment="Center" FontSize="30" FontWeight="Normal" Foreground="#DD1F1D1D"/>
+
+            <StackPanel Orientation="Horizontal" MaxWidth="700" Margin="1,-10,1,1">
+                <TextBox x:Name="txtPesquisarPag" Padding="5" Height="35" HorizontalAlignment="Left" Width="500" Background="#f1f1f1" FontSize="20" VerticalContentAlignment="Bottom" Cursor="Arrow"/>
+                <Button x:Name="btnPesquisar" Content="Pesquisar" Margin="10" Width="150" Height="35" Cursor="Hand" FontSize="20" HorizontalAlignment="Right" Click="btnPesquisar_Click"/>
+            </StackPanel>
+
+        </StackPanel>
+
+        <DataGrid Grid.Row="3" Margin="10,10,10,10" x:Name="dtgExibirPag" FontSize="20" AutoGenerateColumns="False" 
+                  CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"
+                  AlternatingRowBackground="#f2f2f2" AlternationCount="2" CanUserReorderColumns="False">
+
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Mudanças">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button x:Name="btnPagar" Click="btnPagar_Click" Content="Pagar"></Button>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Venda" Binding="{Binding Venda.Id}" />
+                <DataGridTextColumn Header="Status" Binding="{Binding StatusReceb}" />
+                <DataGridTextColumn Header="Valor" Binding="{Binding Valor}" />
+                <DataGridTextColumn Header="Data Emissão" Binding="{Binding DataAbertura}" />
+                <DataGridTextColumn Header="Hora do Recebimento" Binding="{Binding Hora}" />
+                <DataGridTextColumn Header="Data do Recebimento" Binding="{Binding Data}" />
+                <DataGridTextColumn Header="Forma" Binding="{Binding FormaReceb}" />
+                <DataGridTextColumn Header="Caixa" Binding="{Binding Caixa.Numero}" />
+
+            </DataGrid.Columns>
+        </DataGrid>
+
     </Grid>
 </UserControl>
