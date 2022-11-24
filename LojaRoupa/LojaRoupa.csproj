@@ -103,6 +103,7 @@
     <Compile Include="DAOs\MarcaDAO.cs" />
     <Compile Include="DAOs\ProdutoDAO.cs" />
     <Compile Include="DAOs\RecebimentoDAO.cs" />
+    <Compile Include="DAOs\UsuarioDAO.cs" />
     <Compile Include="DAOs\VendaDAO.cs" />
     <Compile Include="DAOs\VendaProdutoDAO.cs" />
     <Compile Include="Database\Conexao.cs" />
