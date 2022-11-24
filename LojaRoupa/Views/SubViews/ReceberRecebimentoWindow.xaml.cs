@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using LojaRoupa.ViewsModels;
+using LojaRoupa.DAOs;
 
 namespace LojaRoupa.Views.SubViews
 {
@@ -26,11 +27,39 @@ namespace LojaRoupa.Views.SubViews
             InitializeComponent();
             _recebimento = recebimento;
             Loaded += ReceberRecebimentoWindow_Loaded;
+
+            BtnReceber.IsEnabled = recebimento.StatusReceb == "Aberto";
         }
 
         private void ReceberRecebimentoWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            //throw new NotImplementedException();
+            txtData.Text = _recebimento.DataAbertura;
+            txtstatus.Text = _recebimento.StatusReceb;
+            txtValor.Text = _recebimento.Valor.ToString();
+            txtVenda.Text = _recebimento.Venda.Id.ToString();
+        }
+
+        private void BtnReceber_Click(object sender, RoutedEventArgs e)
+        {
+            RecebimentoModel recebimento = new RecebimentoModel
+            {
+                Id = _recebimento.Id,
+                StatusReceb = "Recebido"
+            };
+
+            try
+            {
+                var dao = new RecebimentoDAO();
+                dao.Update(recebimento);
+            }
+            catch
+            {
+                
+            }
+            finally
+            {
+                this.Close();
+            }
         }
     }
 }

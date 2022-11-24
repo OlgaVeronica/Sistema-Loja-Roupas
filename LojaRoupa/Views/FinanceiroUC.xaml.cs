@@ -60,6 +60,8 @@ namespace LojaRoupa.Views
 
             RelatorioCompra tela = new RelatorioCompra();
             tela.Show();
+
+
         }   
         private void btnRealizarCompra_Click(object sender, RoutedEventArgs e)
         {

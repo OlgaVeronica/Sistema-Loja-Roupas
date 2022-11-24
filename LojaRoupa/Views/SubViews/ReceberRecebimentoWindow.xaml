@@ -16,11 +16,32 @@
         <Label Grid.Row="0" FontSize="26" Content="Receber Vendas"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
         <Grid Grid.Row="1">
-            <StackPanel>
+            <StackPanel Margin="10,0,0,0" HorizontalAlignment="Center" Orientation="Horizontal" >
+                <StackPanel>
+                    
                 
-                <StackPanel Orientation="Horizontal">
-                    <Label Content="Caixa" FontSize="20" />
-                    <TextBox IsReadOnly="True" x:Name="NumCaixa" />
+                    <StackPanel HorizontalAlignment="Left">
+                        <Label Content="Caixa" FontSize="20" />
+                        <TextBox IsReadOnly="True" x:Name="txtNumCaixa" Width="300" Padding="5" FontSize="16" Background="#f1f1f1"/>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Left">
+                        <Label Content="Valor" FontSize="20" />
+                        <TextBox IsReadOnly="True" x:Name="txtValor" Width="300" Padding="5" FontSize="16" Background="#f1f1f1"/>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Left">
+                        <Label Content="Venda" FontSize="20" />
+                        <TextBox IsReadOnly="True" x:Name="txtVenda" Width="300" Padding="5" FontSize="16" Background="#f1f1f1"/>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Left">
+                        <Label Content="Data Emissão" FontSize="20" />
+                        <TextBox IsReadOnly="True" x:Name="txtData" FontSize="16" Padding="5" Width="300"  Background="#f1f1f1" />
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Left">
+                        <Label Content="Status" FontSize="20" />
+                        <TextBox IsReadOnly="True" x:Name="txtstatus" Padding="5" Width="300" FontSize="16" Background="#f1f1f1"/>
+                    </StackPanel>
+
+                    <Button Margin="0,30,0,0" FontSize="20" Height="40" x:Name="BtnReceber" Click="BtnReceber_Click">Receber</Button>
                 </StackPanel>
             </StackPanel>
         </Grid>
