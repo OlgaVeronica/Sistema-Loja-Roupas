@@ -120,9 +120,9 @@ hora_abertura_cai time,
 hora_fechamento_cai time,
 saldo_inicial_cai float, 
 saldo_final_cai float,
-total_entrada float,
-total_saida float,
-status varchar(100)
+total_entrada_cai float,
+total_saida_cai float,
+status_cai varchar(100)
 );
 
 
@@ -710,7 +710,7 @@ call atualizardespesa(1, "", "2022-10-28", 2000, "Aberto", 1);
 
 
 DELIMITER $$
-create procedure InserirCaixa(data date, numero int, horaAbertura time, horaFechamento time, saldoInicial float, saldoFinal float)
+create procedure InserirCaixa(data date, numero int, horaAbertura time, horaFechamento time, saldoInicial float, saldoFinal float, totalEntrada float, totalSaida float, status varchar(100))
 begin
 	if (data is not null) then
 		if(horaAbertura is not null) then
@@ -731,11 +731,11 @@ $$ DELIMITER ;
 
 
 
-call InserirCaixa("2022-11-10", 301, "17:00:00", "18:00:00", 10000, 20000);
+#call InserirCaixa("2022-11-10", 301, "17:00:00", "18:00:00", 10000, 20000);
 
 
 DELIMITER $$
-create procedure AtualizarCaixa(codigo int, data date, numero int, horaAbertura time, horaFechamento time, saldoInicial float, saldoFinal float)
+create procedure AtualizarCaixa(codigo int, data date, numero int, horaAbertura time, horaFechamento time, saldoInicial float, saldoFinal float, totalEntrada float, totalSaida float, status varchar(100))
 begin
 	if (data is not null) then
 		if(horaAbertura is not null) then
@@ -746,7 +746,10 @@ begin
 				hora_fechamento_cai = horaFechamento, 
 				saldo_inicial_cai = saldoInicial, 
 				saldo_final_cai = saldoFinal,
-				numero_cai = numero
+				numero_cai = numero,
+                total_entrada_cai = totalEntrada,
+                totalSaida_cai = totalSaida,
+                status_cai = status
 				where id_cai = codigo;
                 
 				select 'Caixa atualizada com sucesso!' as Confirmacao;
@@ -762,7 +765,7 @@ begin
 end
 $$ DELIMITER ;
 
-call AtualizarCaixa(1, "2020-12-21",302, "17:00:00", "18:00:00", 10000, 20000);
+#call AtualizarCaixa(1, "2020-12-21",302, "17:00:00", "18:00:00", 10000, 20000);
 
 
 DELIMITER $$
