@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using LojaRoupa.ViewsModels;
 
 namespace LojaRoupa.Views.SubViews
 {
@@ -19,9 +20,26 @@ namespace LojaRoupa.Views.SubViews
     /// </summary>
     public partial class AbrirCaixaWindow : Window
     {
-        public AbrirCaixaWindow()
+        public CaixaModel Caixa = new CaixaModel();
+
+        public double SaldoInicial { get; private set; } = 0.0;
+
+        public AbrirCaixaWindow(CaixaModel caixa)
         {
             InitializeComponent();
+            //_caixa = caixa;
+            Loaded += AbrirCaixaWindow_Loaded;
+        }
+
+        private void AbrirCaixaWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void Cadastrar_Click(object sender, RoutedEventArgs e)
+        {
+            //_caixa.SaldoInicial = double.Parse(txtValor.Text);
+            SaldoInicial = double.Parse(txtValor.Text);
+            this.Close();
         }
     }
 }
