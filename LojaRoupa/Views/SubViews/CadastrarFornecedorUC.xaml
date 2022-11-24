@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:LojaRoupa.Views.SubViews"
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1000">
-    <Grid Background="#f1f1f1f1">
+    <Grid Background="White">
         <Grid.RowDefinitions>
             <RowDefinition Height=".3*"/>
             <RowDefinition Height="*"/>
@@ -15,42 +15,42 @@
 
         <TextBlock x:Name="txbFornecedor" Foreground="black" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40" Text="Cadastrar Fornecedor"/>
 
-        <Grid Grid.Row="1" Background="White" HorizontalAlignment="Center">
+        <Grid Grid.Row="1" HorizontalAlignment="Center">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" MaxWidth="500"/>
                 <ColumnDefinition Width="*" MaxWidth="500"/>
             </Grid.ColumnDefinitions>
 
-            <StackPanel Grid.Column="0" Margin="10, 0, 10, 0">
-                <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
+            <StackPanel Grid.Column="0" Margin="40, 0, 30, 0" VerticalAlignment="Center">
+                <StackPanel HorizontalAlignment="Left" Margin="0, 10, 0, 10">
                     <Label Content="Nome Fantasia:" FontSize="20"/>
-                    <TextBox MinWidth="500" FontSize="20" x:Name="txtNomeFantasia"></TextBox>
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtNomeFantasia" Background="#f1f1f1"></TextBox>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
+                <StackPanel HorizontalAlignment="Left" Margin="0, 10, 0, 10">
                     <Label Content="Razão Social:" FontSize="20"/>
-                    <TextBox MinWidth="500" FontSize="20" x:Name="txtRazaoSocial" Cursor="Arrow"></TextBox>
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtRazaoSocial" Cursor="Arrow" Background="#f1f1f1"></TextBox>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
+                <StackPanel HorizontalAlignment="Left" Margin="0, 10, 0, 10">
                     <Label Content="Cnpj:" FontSize="20"/>
-                    <TextBox MinWidth="500" FontSize="20" x:Name="txtCnpj"></TextBox>
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtCnpj" Background="#f1f1f1"></TextBox>
                 </StackPanel>
                 
 
             </StackPanel>
-            
 
-            <StackPanel Grid.Column="1" Margin="10, 0, 10, 0">
-                <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
+
+            <StackPanel Grid.Column="1" Margin="30, 0, 40, 0" VerticalAlignment="Center">
+                <StackPanel HorizontalAlignment="Left" Margin="0, 10, 0, 10">
                     <Label Content="Email:" FontSize="20"/>
-                    <TextBox MinWidth="500" FontSize="20" x:Name="txtEmail"></TextBox>
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtEmail" Background="#f1f1f1"></TextBox>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
+                <StackPanel HorizontalAlignment="Left" Margin="0, 10, 0, 10">
                     <Label Content="Endereco:" FontSize="20"/>
-                    <TextBox MinWidth="500" FontSize="20" x:Name="txtEndereco" Cursor="Arrow"></TextBox>
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtEndereco" Cursor="Arrow" Background="#f1f1f1"></TextBox>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0, 10, 0, 10">
+                <StackPanel HorizontalAlignment="Left" Margin="0, 10, 0, 10">
                     <Label Content="Telefone:" FontSize="20"/>
-                    <TextBox MinWidth="500" FontSize="20" x:Name="txtTelefone"></TextBox>
+                    <TextBox MinWidth="500" FontSize="20" x:Name="txtTelefone" Background="#f1f1f1"></TextBox>
                 </StackPanel>
 
 

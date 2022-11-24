@@ -37,7 +37,7 @@ namespace LojaRoupa.Views.SubViews
 
         private void CadastrarCaixaUC_Loaded(object sender, RoutedEventArgs e)
         {
-            //txtSaldoInicial.Text = _caixaModel.SaldoInicial.ToString();
+            //txtSaldoIni.Text = _caixaModel.SaldoInicial.ToString();
             //txtSaldoFinal.Text = _caixaModel.SaldoFinal.ToString();
             //txtTotalEntrada.Text = _caixaModel.TotalEntrada.ToString();
             //txtTotalSaida.Text = _caixaModel.TotalSaida.ToString();
@@ -91,7 +91,7 @@ namespace LojaRoupa.Views.SubViews
             CaixaModel caixa = new CaixaModel();
             AbrirCaixaWindow tela = new AbrirCaixaWindow(caixa);
             tela.ShowDialog();
-            txtSaldoInicial.Text = tela.SaldoInicial.ToString();
+            txtSaldoIni.Text = tela.SaldoInicial.ToString();
         }
 
         private void btnFecharCaixa_Click(object sender, RoutedEventArgs e)
