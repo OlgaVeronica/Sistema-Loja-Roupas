@@ -53,40 +53,54 @@ namespace LojaRoupa.Views.SubViews
         private void btnCadastrar_Click(object sender, RoutedEventArgs e)
         {
             ClienteModel cliente = _cliente;
-            cliente.Nome = txtNome.Text;
-            cliente.Telefone = txtTelefone.Text;
-            cliente.Cpf = txtCpf.Text;
-            cliente.Status = "Ativo";
-
-            try
+            if (
+               String.IsNullOrWhiteSpace(txtNome.Text) ||
+               String.IsNullOrWhiteSpace(txtTelefone.Text) ||
+               String.IsNullOrWhiteSpace(txtCpf.Text)
+               )
             {
-                var dao = new ClienteDAO();
+                MessageBox.Show("Unable to save file, try again.", "Save error", MessageBoxButton.OK, MessageBoxImage.Error);
 
-                if (cliente.Id > 0)
-                {
-                    dao.Update(cliente);
-                    MessageBox.Show("Update Realizado!");
-                    _frame.Content = new CadastrarClienteUC(_frame);
-
-                }
-                else if (String.IsNullOrWhiteSpace(cliente.Nome) && String.IsNullOrWhiteSpace(cliente.Telefone) && 
-                    String.IsNullOrWhiteSpace(cliente.Cpf) && String.IsNullOrWhiteSpace(cliente.Status))
-                {
-                    dao.Insert(cliente);
-                    MessageBox.Show("Cadastro Realizado!");
-
-                }
-                else
-                {
-                 //   MessageBox.Show("Unable to save file, try again.", "Save error", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
             }
-            catch (MySqlException error)
+            else
             {
 
-                MessageBox.Show(error.Message);
-            }
 
+                cliente.Nome = txtNome.Text;
+                cliente.Telefone = txtTelefone.Text;
+                cliente.Cpf = txtCpf.Text;
+                cliente.Status = "Ativo";
+
+
+                try
+                {
+                    var dao = new ClienteDAO();
+
+                    if (cliente.Id > 0)
+                    {
+                        dao.Update(cliente);
+                        MessageBox.Show("Update Realizado!");
+                        _frame.Content = new CadastrarClienteUC(_frame);
+
+                    }
+                    else 
+                    {
+                        dao.Insert(cliente);
+                        MessageBox.Show("Cadastro Realizado!");
+
+                    }
+                }
+                catch (MySqlException error)
+                {
+
+                    MessageBox.Show(error.Message);
+                }
+                finally
+                {
+                    carregarListagem();
+                }
+
+            }
             Clear();
         }
 

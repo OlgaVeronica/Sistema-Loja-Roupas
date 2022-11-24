@@ -47,6 +47,7 @@ namespace LojaRoupa.Views
             carregarListagemCliente();
 
             carregarListagemProdutos();
+            EnableAndDisableButtom();
         }
 
         private void carregarListagemFuncionario()
@@ -89,6 +90,11 @@ namespace LojaRoupa.Views
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void EnableAndDisableButtom()
+        {
+            btnRealizar.IsEnabled = dtgProdutos.Items.Count > 0;
         }
 
         private void btnRealizar_Click(object sender, RoutedEventArgs e)
@@ -142,24 +148,30 @@ namespace LojaRoupa.Views
             _valorVenda -= produto.Preco * produto.Quantidade;
             txtValor.Text = _valorVenda.ToString();
             dtgProdutos.Items.RemoveAt(dtgProdutos.SelectedIndex);
-
+            EnableAndDisableButtom();
         }
 
 
         private void btAdicionar_Click(object sender, RoutedEventArgs e)
         {
-            var produto = cbProdutos.SelectedItem as ProdutoModel;
-            produto.Quantidade = int.Parse(cbQuantidade.Text);
-            float valorPecas = produto.Preco * float.Parse(cbQuantidade.Text);
-            _valorVenda += valorPecas;
+            if(cbQuantidade.Text == String.Empty)
+            {
+                MessageBox.Show("Erro ao inserir produtos");
+            }else
+            {
+                var produto = cbProdutos.SelectedItem as ProdutoModel;
+                produto.Quantidade = int.Parse(cbQuantidade.Text);
+                float valorPecas = produto.Preco * float.Parse(cbQuantidade.Text);
+                _valorVenda += valorPecas;
 
-            txtValor.Text = _valorVenda.ToString();
+                txtValor.Text = _valorVenda.ToString();
 
-            cbProdutos.SelectedIndex = -1;
-            cbQuantidade.SelectedIndex = -1;
+                cbProdutos.SelectedIndex = -1;
+                cbQuantidade.SelectedIndex = -1;
 
-            dtgProdutos.Items.Add(produto);
-               
+                dtgProdutos.Items.Add(produto);
+                EnableAndDisableButtom();
+            }
 
         }
 
