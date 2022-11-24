@@ -43,14 +43,19 @@ namespace LojaRoupa.Views.SubViews
             //txtTotalSaida.Text = _caixaModel.TotalSaida.ToString();
             //txtNumeroCaixa.Text = _caixaModel.Numero.ToString();
             //txtStatus.Text = _caixaModel.Status; 
-            btnAbrirCaixa.IsEnabled = !TodayHasCaixa();
-            btnFecharCaixa.IsEnabled = TodayHasCaixa();
+            EnableAndDisableButtons();
 
             if (TodayHasCaixa())
             {
-
+                AtualizarCaixa();
             }
 
+        }
+
+        private void EnableAndDisableButtons()
+        {
+            btnAbrirCaixa.IsEnabled = !TodayHasCaixa();
+            btnFecharCaixa.IsEnabled = TodayHasCaixa();
         }
 
         private bool TodayHasCaixa()
@@ -62,7 +67,14 @@ namespace LojaRoupa.Views.SubViews
                 lista = dao.List();
                 foreach (var item in lista)
                 {
-                    if (item.DataCaixa == DateTime.Now.Date) return true;
+                    if (item.DataCaixa == DateTime.Now.Date)
+                    {
+                        if (item.Status == "Aberto")
+                        {
+                            return true;
+
+                        }
+                    }
                 }
 
                 return false;
@@ -89,14 +101,59 @@ namespace LojaRoupa.Views.SubViews
             AbrirCaixaWindow tela = new AbrirCaixaWindow(caixa);
             tela.ShowDialog();
 
-            txtSaldoIni.Text = tela.SaldoInicial.ToString();
-            
+            AtualizarCaixa();
 
+
+
+
+        }
+        private void AtualizarCaixa()
+        {
+            CaixaModel caixa = new CaixaModel();
+
+            try
+            {
+                var dao = new CaixaDAO();
+                caixa = dao.UltimoCaixa();
+
+                if (caixa == null) return;
+
+
+                txtNumeroCaixa.Text = caixa.Numero.ToString();
+                txtSaldoFinal.Text = caixa.SaldoFinal.ToString("0.00");
+                txtSaldoIni.Text = caixa.SaldoInicial.ToString("0.00");
+                txtStatus.Text = caixa.Status;
+                txtTotalEntrada.Text = caixa.TotalEntrada.ToString("0.00");
+                txtTotalSaida.Text = caixa.TotalSaida.ToString("0.00");
+                dtpData.SelectedDate = caixa.DataCaixa;
+
+                EnableAndDisableButtons();
+            }
+            catch
+            {
+                MessageBox.Show("Erro ao consultar Caixas", "Erro na listagem");
+            }
         }
 
         private void btnFecharCaixa_Click(object sender, RoutedEventArgs e)
         {
-            
+            int numero = int.Parse(txtNumeroCaixa.Text);
+
+
+
+            try
+            {
+                var dao = new CaixaDAO();
+                dao.fecharCaixa(numero);
+            }
+            catch
+            {
+                MessageBox.Show("Não foi possível fechar o caixa");
+            }
+            finally
+            {
+                AtualizarCaixa();
+            }
         }
     }
 }
