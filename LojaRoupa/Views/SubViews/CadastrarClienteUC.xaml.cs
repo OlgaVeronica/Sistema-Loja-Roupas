@@ -69,11 +69,16 @@ namespace LojaRoupa.Views.SubViews
                     _frame.Content = new CadastrarClienteUC(_frame);
 
                 }
-                else
+                else if (String.IsNullOrWhiteSpace(cliente.Nome) && String.IsNullOrWhiteSpace(cliente.Telefone) && 
+                    String.IsNullOrWhiteSpace(cliente.Cpf) && String.IsNullOrWhiteSpace(cliente.Status))
                 {
                     dao.Insert(cliente);
                     MessageBox.Show("Cadastro Realizado!");
 
+                }
+                else
+                {
+                 //   MessageBox.Show("Unable to save file, try again.", "Save error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             catch (MySqlException error)

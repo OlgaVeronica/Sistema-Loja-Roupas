@@ -41,6 +41,7 @@ namespace LojaRoupa.DAOs
 
                 var command = conn.Query();
                 command.CommandText = "insert into cliente values(null, @nome, @cpf, @telefone, @status)";
+                
 
                 command.Parameters.AddWithValue("@telefone", cliente.Telefone);
                 command.Parameters.AddWithValue("@cpf", cliente.Cpf);
