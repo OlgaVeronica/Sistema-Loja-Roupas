@@ -58,6 +58,43 @@ namespace LojaRoupa.DAOs
             }
         }
     
+        public CaixaModel UltimoCaixa()
+        {
+            try
+            {
+                var caixa = new CaixaModel();
+
+                var command = conn.Query();
+
+                command.CommandText = "select * from Caixa desc limit 1;";
+                MySqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    var caixa = new CaixaModel();
+                    caixa.Id = reader.GetInt32("id_cai");
+                    caixa.DataCaixa = DAOHelper.GetDateTime(reader, "data_cai");
+                    caixa.HoraAbertura = DAOHelper.GetString(reader, "hora_abertura_cai");
+                    caixa.HoraFechamento = DAOHelper.GetString(reader, "hora_fechamento_cai");
+                    caixa.SaldoInicial = DAOHelper.GetDouble(reader, "saldo_inicial_cai");
+                    caixa.SaldoFinal = DAOHelper.GetDouble(reader, "saldo_final_cai");
+                    caixa.TotalEntrada = DAOHelper.GetDouble(reader, "total_entrada_cai");
+                    caixa.TotalSaida = DAOHelper.GetDouble(reader, "total_saida_cai");
+                    caixa.Status = DAOHelper.GetString(reader, "status_cai");
+
+                    .Add(caixa);
+
+                }
+                reader.Close();
+
+
+                return lista;
+            }
+            catch (MySqlException ex)
+            {
+                throw ex;
+            }
+        }
 
         public override void Update(CaixaModel t)
         {

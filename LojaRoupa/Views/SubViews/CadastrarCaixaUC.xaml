@@ -50,7 +50,7 @@
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10">
                     <Label Content="Data:" FontSize="20" HorizontalAlignment="Left"/>
-                    <DatePicker MinWidth="200" FontSize="20" x:Name="txtData" Cursor="Arrow" Background="#f1f1f1"></DatePicker>
+                    <DatePicker MinWidth="200" FontSize="20" x:Name="dtpData" Cursor="Arrow" Background="#f1f1f1"></DatePicker>
                 </StackPanel>
                 <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10">
                     <Label Content="Status" FontSize="20" HorizontalAlignment="Left"/>

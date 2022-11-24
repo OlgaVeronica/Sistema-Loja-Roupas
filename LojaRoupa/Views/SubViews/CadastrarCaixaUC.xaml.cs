@@ -46,6 +46,11 @@ namespace LojaRoupa.Views.SubViews
             btnAbrirCaixa.IsEnabled = !TodayHasCaixa();
             btnFecharCaixa.IsEnabled = TodayHasCaixa();
 
+            if (TodayHasCaixa())
+            {
+
+            }
+
         }
 
         private bool TodayHasCaixa()
