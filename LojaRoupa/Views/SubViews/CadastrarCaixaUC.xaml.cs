@@ -91,6 +91,7 @@ namespace LojaRoupa.Views.SubViews
             CaixaModel caixa = new CaixaModel();
             AbrirCaixaWindow tela = new AbrirCaixaWindow(caixa);
             tela.ShowDialog();
+
             txtSaldoIni.Text = tela.SaldoInicial.ToString();
         }
 

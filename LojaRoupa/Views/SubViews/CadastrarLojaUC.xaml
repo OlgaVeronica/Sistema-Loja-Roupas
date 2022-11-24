@@ -60,7 +60,7 @@
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Margin="100, 0, 0, 0">
                         <Label Content="Estado" FontSize="20" HorizontalAlignment="left"/>
-                        <TextBox x:Name="txtEstadoLoja" FontSize="20" MinWidth="150" Background="#f1f1f1"></TextBox>
+                        <TextBox x:Name="txtEstadoLoja" FontSize="20" MinWidth="150" Background="#f1f1f1" Cursor="Arrow"></TextBox>
                     </StackPanel>
                 </StackPanel>
 
