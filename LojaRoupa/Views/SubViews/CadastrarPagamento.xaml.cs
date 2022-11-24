@@ -37,6 +37,7 @@ namespace LojaRoupa.Views.SubViews
         {
             carregarListagem();
         }
+
             //VERIFICAÇÃO DE NLO OU VAZIO DE PAGAMENTO
 
             /*if (
@@ -56,19 +57,6 @@ namespace LojaRoupa.Views.SubViews
             {
                 //aaaaaaaaaaaaa
             }*/
-        }
-
-        private void btnVoltar_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        
-        private void btnPagar_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-        private void btnPesquisar_Click(object sender, RoutedEventArgs e)
-        {
 
         private void btnVoltar_Click(object sender, RoutedEventArgs e)
         {
