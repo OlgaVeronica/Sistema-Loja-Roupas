@@ -291,7 +291,7 @@ create procedure AtualizarFuncionario(
     rg varchar(300),
     funcao varchar(300),
     salario float,
-    -- avatar longblob,
+    avatar varchar(300),
     status varchar(100),
     lojaFK int)
 begin
@@ -330,11 +330,11 @@ call AtualizarFuncionario(2, "Urias", "(69) 99426-5056", "Rua Tenente-Coronel Ca
 call AtualizarFuncionario(3, "Beca", "(69) 99366-8565", "Rua Domingos Olímpio", "000.000.000-00", "Feminino", "beca@gmail.com", "000.333", "Limpeza", 1400, null,  "ativo", 1);
 call AtualizarFuncionario(4, "Catia", "(69) 97486-4855", "Avenida Esbertalina Barbosa Damiani", "000.000.000-00", "Feminino", "catiaa@gmail.com", "000.444", "Atendimento", 1800, null,  "ativo", 1);
 call AtualizarFuncionario(5, "Fernanda", "(69) 97428-1441", "Avenida Afonso Pena", "000.000.000-00", "Feminino", "fernandaa@gmail.com", "000.555", "Caixa", 2300, null,  "ativo", 1);
-call AtualizarFuncionario(6, "Gabriela", "(69) 99212-8553", "Vila Nova", "000.000.000-00", "Feminino", "@gmail", "00.666", "", 1800, null, "ativo", 1);
-call AtualizarFuncionario(7, "Jania", "(69) 99104-4521", "São Cristóvão", "000.000.000-00", "Feminino", "@gmail", "00.666", "", 1800, null, "ativo", 1);
-call AtualizarFuncionario(8, "Vitoria", "(69) 99356-7607", "Industrial", "000.000.000-00", "Feminino", "@gmail", "00.666", "", 1800, null, "ativo", 1);
-call AtualizarFuncionario(9, "Patricia", "(69) 97386-4482", "São Jorge", "000.000.000-00", "Feminino", "@gmail", "00.666", "", 1800, null, "ativo", 1);
-call AtualizarFuncionario(10, "Samara", "(69) 97494-8778", "Sergipe", "000.000.000-00", "Feminino", "@gmail", "00.666", "", 1800, null, "ativo", 1);
+call AtualizarFuncionario(6, "Gabriela", "(69) 99212-8553", "Vila Nova", "000.000.000-00", "Feminino", "gabriela@gmail", "00.666", "Atendimento", 1800, null, "ativo", 1);
+call AtualizarFuncionario(7, "Jania", "(69) 99104-4521", "São Cristóvão", "000.000.000-00", "Feminino", "jania@gmail", "00.777", "Caixa", 2300, null, "ativo", 1);
+call AtualizarFuncionario(8, "Vitoria", "(69) 99356-7607", "Industrial", "000.000.000-00", "Feminino", "vitoria@gmail", "00.888", "Atendimento", 2300, null, "ativo", 1);
+call AtualizarFuncionario(9, "Patricia", "(69) 97386-4482", "São Jorge", "000.000.000-00", "Feminino", "patricia@gmail", "00.999", "Limpeza", 1300, null, "ativo", 1);
+call AtualizarFuncionario(10, "Samara", "(69) 97494-8778", "Sergipe", "000.000.000-00", "Feminino", "samara@gmail", "00.000", "Atendimento", 1800, null, "ativo", 1);
 
 DELIMITER $$
 create procedure InserirFornecedor(
