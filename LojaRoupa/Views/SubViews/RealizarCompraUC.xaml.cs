@@ -106,11 +106,7 @@ namespace LojaRoupa.Views.SubViews
             produto.Quantidade = int.Parse(cbQuantidade.Text);
             float valorPecas = produto.Preco * float.Parse(cbQuantidade.Text);
             _valorCompra += valorPecas;
-
-            txtValor.Text = _valorCompra.ToString();
-
-            cbProdutos.SelectedIndex = -1;
-            cbQuantidade.SelectedIndex = -1;
+   
 
             dtgProdutos.Items.Add(produto);
         }
