@@ -32,30 +32,53 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+
             
-            <StackPanel Grid.Column="0">
-                <StackPanel>
-                    <Label x:Name="lbCadNomeUsuario" Content="Nome:" FontSize="28px" VerticalAlignment="Top" HorizontalAlignment="Center" FontFamily="Bahnschrift"/>
-                    <TextBox x:Name="txtCadNomeUsuario" Height="40" Width="500" TextAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Cursor="Arrow"></TextBox>
+            
+            <StackPanel Grid.Column="0" MaxWidth="400">
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0, 10, 0, 10">
+                    <Border CornerRadius="20" BorderThickness="1" >
+                        <Ellipse Width="140" Height="140" Margin="15">
+                            <Ellipse.Fill>
+                                <ImageBrush x:Name="imgUsuario" ImageSource="/Images/avatar.png"  Stretch="UniformToFill" />
+                            </Ellipse.Fill>
+                        </Ellipse>
+                    </Border>
+                </StackPanel>
+
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0, 0, 0, 10">
+                    <Button x:Name="btnEscolherImg" Content="Escolher Imagem" Click="btnEscolherImg_Click"/>
                 </StackPanel>
 
                 <StackPanel>
-                    
-                    <Label x:Name="lbCadCPF" Content="Cadastro de Pessoa Física (CPF):" FontSize="28px" VerticalAlignment="Center" Margin="0,10,0,-2" HorizontalAlignment="Center" FontFamily="Bahnschrift"/>
-                    <TextBox x:Name="txtCadCPF" Height="40" Width="500" TextAlignment="Center" VerticalContentAlignment="Center" FontSize="20"></TextBox>
+                    <Label x:Name="lbCadNomeUsuario" Content="Nome:" FontSize="28px" VerticalAlignment="Top" HorizontalAlignment="Left" FontFamily="Bahnschrift"/>
+                    <TextBox x:Name="txtCadNomeUsuario" Height="40"  TextAlignment="Left" VerticalContentAlignment="Center" FontSize="20" Cursor="Arrow"/>
                 </StackPanel>
 
-                <Label x:Name="lbCadSenha" Content="Senha:" FontSize="28px" VerticalAlignment="Center" Margin="0,10,0,0" HorizontalAlignment="Center" FontFamily="Bahnschrift"/>
-                <TextBox x:Name="txtCadSenha" Height="40" Width="500" TextAlignment="Center" VerticalContentAlignment="Center" FontSize="20"></TextBox>
+                <StackPanel>
+                    <Label x:Name="lbCadCPF" Content="CPF:" FontSize="28px" VerticalAlignment="Center" Margin="0,10,0,-2" HorizontalAlignment="Left" FontFamily="Bahnschrift"/>
+                    <TextBox x:Name="txtCadCPF" Height="40" TextAlignment="Left" VerticalContentAlignment="Center" FontSize="20"></TextBox>
+                </StackPanel>
+            </StackPanel>
 
-                <Label x:Name="lbCadConfirmarSenha" Content="Confirme sua senha:" FontSize="28px" VerticalAlignment="Center" Margin="0,10,0,0" HorizontalAlignment="Center" FontFamily="Bahnschrift"/>
-                <TextBox x:Name="txtCadConfirmarSenha" Height="40" Width="500" TextAlignment="Center" VerticalContentAlignment="Center" FontSize="20"></TextBox>
-
-                <Label x:Name="lbCadTipo" Content="Tipo de Usuário:" FontSize="28px" VerticalAlignment="Center" Margin="0,10,0,0" HorizontalAlignment="Center" FontFamily="Bahnschrift"/>
-                <ComboBox Name="cbCadTipoUsuario" Height="40" Width="500" FontSize="20">
-                    <ComboBoxItem Content="Administrador"/>
-                    <ComboBoxItem Content="Comum"/>
-                </ComboBox>
+            <StackPanel Grid.Column="1" MaxWidth="400">
+                <StackPanel>
+                    <Label x:Name="lbCadSenha" Content="Senha:" FontSize="28px" VerticalAlignment="Center" Margin="0,10,0,0" HorizontalAlignment="Left" FontFamily="Bahnschrift"/>
+                    <PasswordBox x:Name="pwbCadSenha" Height="40"  VerticalContentAlignment="Center" FontSize="20"></PasswordBox>
+                </StackPanel>
+                <StackPanel>
+                    <Label x:Name="lbCadConfirmarSenha" Content="Confirme sua senha:" FontSize="28px" VerticalAlignment="Center" Margin="0,10,0,0" HorizontalAlignment="Left" FontFamily="Bahnschrift"/>
+                    <PasswordBox x:Name="pwbCadConfirmarSenha" Height="40" VerticalContentAlignment="Center" FontSize="20" Cursor="Arrow"></PasswordBox>
+                </StackPanel>
+                <StackPanel >
+                    <Label x:Name="lbCadTipo" Content="Tipo de Usuário:" FontSize="28px" VerticalAlignment="Center" Margin="0,10,0,0" HorizontalAlignment="Left" FontFamily="Bahnschrift"/>
+                    <ComboBox Name="cbCadTipoUsuario" Height="40" FontSize="20">
+                        <ComboBoxItem Content="Administrador"/>
+                        <ComboBoxItem Content="Comum"/>
+                    </ComboBox>
+                </StackPanel>
             </StackPanel>
             
             

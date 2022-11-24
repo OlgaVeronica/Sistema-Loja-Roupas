@@ -23,11 +23,13 @@ namespace LojaRoupa.DAOs
             try
             {
                 var command = conn.Query();
-                command.CommandText = "insert into usuario values (null,@nome, @cpf,@senha)";
+                command.CommandText = "insert into usuario values (null, @nome, @cpf, @senha, @tipo, @avatar)";
 
                 command.Parameters.AddWithValue("@nome", user.Nome);
                 command.Parameters.AddWithValue("@cpf", user.CPF);
                 command.Parameters.AddWithValue("@senha", user.Senha);
+                command.Parameters.AddWithValue("@tipo", user.Tipo);
+                command.Parameters.AddWithValue("@avatar", user.Avatar);
 
                 var resultado = command.ExecuteNonQuery();
             } catch (MySqlException error)
@@ -63,7 +65,8 @@ namespace LojaRoupa.DAOs
                         Nome = DAOHelper.GetString(reader,"nome_user"),
                         CPF = DAOHelper.GetString(reader,"cpf_user"),
                         Senha = DAOHelper.GetString(reader,"senha_user"),
-                        Tipo = DAOHelper.GetString(reader,"tipo_user")
+                        Tipo = DAOHelper.GetString(reader,"tipo_user"),
+                        Avatar = DAOHelper.GetString(reader,"avatar_user")
                     };
 
                     lista.Add(user);

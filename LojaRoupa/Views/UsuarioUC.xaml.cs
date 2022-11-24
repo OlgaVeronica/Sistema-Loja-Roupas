@@ -18,6 +18,7 @@ using LojaRoupa.Helpers;
 using LojaRoupa.Properties;
 using LojaRoupa.Views;
 using MySql.Data.MySqlClient;
+using Microsoft.Win32;
 
 namespace LojaRoupa.Views
 {
@@ -28,6 +29,8 @@ namespace LojaRoupa.Views
     {
         public Frame _frame;
         private UsuarioModel _usuario = new UsuarioModel();
+        private ImageSource _imageSourceUsuario;
+
         public UsuarioUC(Frame frame)
         {
             InitializeComponent();
@@ -46,23 +49,46 @@ namespace LojaRoupa.Views
         {
             txtCadNomeUsuario.Text = _usuario.Nome;
             txtCadCPF.Text = _usuario.CPF;
-            txtCadSenha.Text = _usuario.Senha;
+            pwbCadSenha.Password = _usuario.Senha;
         }
 
-        
+        private void btnEscolherImg_Click(object sender, RoutedEventArgs e)
+        {
+            _imageSourceUsuario = imgUsuario.ImageSource;
+            OpenFileDialog openDialog = new OpenFileDialog();
+            openDialog.Filter = "Image files|*.bmp; *.jpg; *.png";
+            openDialog.FilterIndex = 1;
+            if (openDialog.ShowDialog() == true)
+            {
+                imgUsuario.ImageSource = new BitmapImage(new Uri(openDialog.FileName));
+            }
+        }
+
+        private void Clear()
+        {
+            txtCadNomeUsuario.Clear();
+            txtCadCPF.Clear();
+            pwbCadSenha.Clear();
+            pwbCadConfirmarSenha.Clear();
+            cbCadTipoUsuario.SelectedIndex = -1;
+            imgUsuario.ImageSource = _imageSourceUsuario;
+        }
+
+
         private void btnSalvarUsuario_Click(object sender, RoutedEventArgs e)
         {
 
             UsuarioModel usuario = _usuario;
             usuario.Nome = txtCadNomeUsuario.Text;
             usuario.CPF = txtCadCPF.Text;
-            usuario.Senha = txtCadSenha.Text;
+            usuario.Senha = pwbCadSenha.Password;
             usuario.Tipo = cbCadTipoUsuario.Text;
+            usuario.Avatar = imgUsuario.ImageSource.ToString();
             try
             {
                 var dao = new UsuarioDAO();
 
-                if (_usuario.Senha != _usuario.Senha2)
+                if (pwbCadSenha.ToString() != pwbCadConfirmarSenha.ToString())
                 {
                     MessageBox.Show("As senhas informadas não coincidem, tente novamente.");
                 }
@@ -78,6 +104,8 @@ namespace LojaRoupa.Views
 
                 MessageBox.Show(error.Message);
             }
+
+            Clear();
         }
     }
 }

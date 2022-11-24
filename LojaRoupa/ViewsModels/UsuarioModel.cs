@@ -14,5 +14,7 @@ namespace LojaRoupa.ViewsModels
         public string Senha { get; set; }
         public string Senha2 { get; set; }
         public string Tipo { get; set; }
+
+        public string Avatar { get; set; }
     }
 }
