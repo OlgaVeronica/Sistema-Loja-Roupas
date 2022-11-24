@@ -57,7 +57,7 @@ namespace LojaRoupa.Views
             usuario.Nome = txtCadNomeUsuario.Text;
             usuario.CPF = txtCadCPF.Text;
             usuario.Senha = txtCadSenha.Text;
-            
+            usuario.Tipo = cbCadTipoUsuario.Text;
             try
             {
                 var dao = new UsuarioDAO();

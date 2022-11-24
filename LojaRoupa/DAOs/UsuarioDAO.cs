@@ -62,8 +62,8 @@ namespace LojaRoupa.DAOs
                     {
                         Nome = DAOHelper.GetString(reader,"nome_user"),
                         CPF = DAOHelper.GetString(reader,"cpf_user"),
-                        Senha = DAOHelper.GetString(reader,"senha_user")
-
+                        Senha = DAOHelper.GetString(reader,"senha_user"),
+                        Tipo = DAOHelper.GetString(reader,"tipo_user")
                     };
 
                     lista.Add(user);
