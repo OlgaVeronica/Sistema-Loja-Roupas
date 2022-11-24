@@ -32,16 +32,43 @@ namespace LojaRoupa.Views.SubViews
             InitializeComponent();
             _frame = frame;
             Loaded += CadastrarCaixaUC_Loaded;
+            
         }
 
         private void CadastrarCaixaUC_Loaded(object sender, RoutedEventArgs e)
         {
-            txtSaldoInicial.Text = _caixaModel.SaldoInicial.ToString();
-            txtSaldoFinal.Text = _caixaModel.SaldoFinal.ToString();
-            txtTotalEntrada.Text = _caixaModel.TotalEntrada.ToString();
-            txtTotalSaida.Text = _caixaModel.TotalSaida.ToString();
-            txtNumeroCaixa.Text = _caixaModel.Numero.ToString();
-            txtStatus.Text = _caixaModel.Status; 
+            //txtSaldoInicial.Text = _caixaModel.SaldoInicial.ToString();
+            //txtSaldoFinal.Text = _caixaModel.SaldoFinal.ToString();
+            //txtTotalEntrada.Text = _caixaModel.TotalEntrada.ToString();
+            //txtTotalSaida.Text = _caixaModel.TotalSaida.ToString();
+            //txtNumeroCaixa.Text = _caixaModel.Numero.ToString();
+            //txtStatus.Text = _caixaModel.Status; 
+            btnAbrirCaixa.IsEnabled = !TodayHasCaixa();
+            btnFecharCaixa.IsEnabled = TodayHasCaixa();
+
+        }
+
+        private bool TodayHasCaixa()
+        {
+            var lista = new List<CaixaModel>();
+            try
+            {
+                var dao = new CaixaDAO();
+                lista = dao.List();
+                foreach (var item in lista)
+                {
+                    if (item.DataCaixa == DateTime.Now.Date) return true;
+                }
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao consultar caixas {ex.Message}");
+                return true;
+            }
+
+            
         }
 
         public void VerificarCaixa()
