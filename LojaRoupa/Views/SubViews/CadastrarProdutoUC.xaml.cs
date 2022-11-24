@@ -45,6 +45,7 @@ namespace LojaRoupa.Views.SubViews
 
         private void CadastrarProdutoUC_Loaded(object sender, RoutedEventArgs e)
         {
+            
             txtDescricao.Text = _produto.Descricao;
             txtTecido.Text = _produto.Tecido;
             txtTipo.Text = _produto.Tipo;
@@ -75,46 +76,78 @@ namespace LojaRoupa.Views.SubViews
         {
             ProdutoModel produto = _produto;
 
-            if(cbMarca.SelectedItem != null)
+            /*if (
+                String.IsNullOrWhiteSpace(txtNomeLoja.Text) ||
+                String.IsNullOrWhiteSpace(txtCnpjLoja.Text) ||
+                String.IsNullOrWhiteSpace(txtRuaLoja.Text) ||
+                String.IsNullOrWhiteSpace(txtBairroLoja.Text) ||
+                String.IsNullOrWhiteSpace(txtCidadeLoja.Text) ||
+                String.IsNullOrWhiteSpace(txtNumeroLoja.Text) ||
+                String.IsNullOrWhiteSpace(txtEstadoLoja.Text)
+
+               )
             {
+                MessageBox.Show("Existem campos em branco que precisam ser preenchidos!");
+            }
+            else
+            {
+                //aaaaaaaaaaaaa
+            }*/
+            if (
+                String.IsNullOrWhiteSpace(txtDescricao.Text) ||
+                String.IsNullOrWhiteSpace(txtTecido.Text) ||
+                String.IsNullOrWhiteSpace(txtColecao.Text) ||
+                String.IsNullOrWhiteSpace(txtTamanho.Text) ||
+                String.IsNullOrWhiteSpace(txtTipo.Text) ||
+                String.IsNullOrWhiteSpace(txtEstampa.Text) ||
+                String.IsNullOrWhiteSpace(txtPreco.Text) ||
+                String.IsNullOrWhiteSpace(cbMarca.Text)                 )
+            {
+                MessageBox.Show("Existem campos em branco que precisam ser preenchidos!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                if (cbMarca.SelectedItem != null)
+                {
+                    produto.Marca = cbMarca.SelectedItem as MarcaModel;
+                }
+
+                produto.Descricao = txtDescricao.Text;
+                produto.Tecido = txtTecido.Text;
+                produto.Tipo = txtTipo.Text;
+                produto.Colecao = txtColecao.Text;
+                produto.Tamanho = txtTamanho.Text;
+                produto.Estampa = txtEstampa.Text;
+                produto.Status = "ativo";
                 produto.Marca = cbMarca.SelectedItem as MarcaModel;
-            }
-
-            produto.Descricao = txtDescricao.Text;
-            produto.Tecido = txtTecido.Text;
-            produto.Tipo = txtTipo.Text;
-            produto.Colecao = txtColecao.Text;
-            produto.Tamanho = txtTamanho.Text;
-            produto.Estampa = txtEstampa.Text;
-            produto.Status = "ativo";
-            produto.Marca = cbMarca.SelectedItem as MarcaModel;
-            produto.Preco = float.Parse(txtPreco.Text);
-            produto.Estoque = 0;
-            try
-            {
-                var dao = new ProdutoDAO();
-
-                if (produto.Id > 0)
+                produto.Preco = float.Parse(txtPreco.Text);
+                produto.Estoque = 0;
+                try
                 {
-                    dao.Update(produto);
-                    MessageBox.Show("Update Realizado!");
-                    _frame.Content = new ProdutoUC(_frame);
+                    var dao = new ProdutoDAO();
 
+                    if (produto.Id > 0)
+                    {
+                        dao.Update(produto);
+                        MessageBox.Show("Update Realizado!");
+                        _frame.Content = new ProdutoUC(_frame);
+
+                    }
+                    else
+                    {
+                        dao.Insert(produto);
+                        MessageBox.Show("Cadastro Realizado!");
+
+                    }
                 }
-                else
+                catch (MySqlException error)
                 {
-                    dao.Insert(produto);
-                    MessageBox.Show("Cadastro Realizado!");
 
+                    MessageBox.Show(error.Message);
                 }
-            }
-            catch (MySqlException error)
-            {
 
-                MessageBox.Show(error.Message);
+                Clear();
             }
-
-            Clear();
         }
 
         private void Clear()
