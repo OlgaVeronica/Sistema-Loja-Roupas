@@ -55,38 +55,57 @@ namespace LojaRoupa.Views.SubViews
         private void btnCadastrar_Click(object sender, RoutedEventArgs e)
         {
             FuncionarioModel funcionario = _funcionario;
-            funcionario.Nome = txtNome.Text;
-            funcionario.Cpf = txtCPF.Text;
-            funcionario.RG = txtRG.Text;
-            funcionario.Telefone = txtTelefone.Text;
-            funcionario.Sexo = txtSexo.Text;
-            funcionario.Email = txtEmail.Text;
-            funcionario.Endereco = txtEndereco.Text;
-            funcionario.Funcao = txtFuncao.Text;
-            funcionario.Salario = txtSalario.Text;
-            funcionario.Status = "ativo";
-            funcionario.Avatar = imgFuncionario.ImageSource.ToString();
 
-            try
+            if (
+                String.IsNullOrWhiteSpace(txtNome.Text) ||
+                String.IsNullOrWhiteSpace(txtCPF.Text) ||
+                String.IsNullOrWhiteSpace(txtRG.Text) ||
+                String.IsNullOrWhiteSpace(txtTelefone.Text) ||
+                String.IsNullOrWhiteSpace(txtSexo.Text) ||
+                String.IsNullOrWhiteSpace(txtEmail.Text) ||
+                String.IsNullOrWhiteSpace(txtEndereco.Text) ||
+                String.IsNullOrWhiteSpace(txtFuncao.Text) ||
+                String.IsNullOrWhiteSpace(txtSalario.Text)
+               )
             {
-                var dao = new FuncionarioDAO();
-
-                if(funcionario.Id > 0)
-                {
-                    dao.Update(funcionario);
-                    MessageBox.Show("Update Realizado!");
-                    _frame.Content = new FuncionarioUC(_frame);
-
-                }
-                else 
-                {
-                    dao.Insert(funcionario);
-                    MessageBox.Show("Cadastro Realizado!");
-                }
-            } catch(MySqlException error)
+                MessageBox.Show("Existem campos em branco que precisam ser preenchidos!");
+            }
+            else
             {
+                funcionario.Nome = txtNome.Text;
+                funcionario.Cpf = txtCPF.Text;
+                funcionario.RG = txtRG.Text;
+                funcionario.Telefone = txtTelefone.Text;
+                funcionario.Sexo = txtSexo.Text;
+                funcionario.Email = txtEmail.Text;
+                funcionario.Endereco = txtEndereco.Text;
+                funcionario.Funcao = txtFuncao.Text;
+                funcionario.Salario = txtSalario.Text;
+                funcionario.Status = "ativo";
+                funcionario.Avatar = imgFuncionario.ImageSource.ToString();
 
-                MessageBox.Show(error.Message);
+                try
+                {
+                    var dao = new FuncionarioDAO();
+
+                    if (funcionario.Id > 0)
+                    {
+                        dao.Update(funcionario);
+                        MessageBox.Show("Update Realizado!");
+                        _frame.Content = new FuncionarioUC(_frame);
+
+                    }
+                    else
+                    {
+                        dao.Insert(funcionario);
+                        MessageBox.Show("Cadastro Realizado!");
+                    }
+                }
+                catch (MySqlException error)
+                {
+
+                    MessageBox.Show(error.Message);
+                }
             }
 
             Clear();

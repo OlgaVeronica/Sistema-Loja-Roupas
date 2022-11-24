@@ -44,8 +44,10 @@ namespace LojaRoupa.Views.SubViews
                String.IsNullOrWhiteSpace(txtValor.Text)
                )
             {
-
-               //_caixa.SaldoInicial = double.Parse(txtValor.Text);
+                MessageBox.Show("Unable to save file, try again.", "Save error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else { 
+                //_caixa.SaldoInicial = double.Parse(txtValor.Text);
                 SaldoInicial = double.Parse(txtValor.Text);
                 caixa.SaldoInicial = SaldoInicial;
 

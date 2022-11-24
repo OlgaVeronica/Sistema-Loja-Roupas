@@ -37,6 +37,38 @@ namespace LojaRoupa.Views.SubViews
         {
             carregarListagem();
         }
+            //VERIFICAÇÃO DE NLO OU VAZIO DE PAGAMENTO
+
+            /*if (
+                String.IsNullOrWhiteSpace(txtNomeLoja.Text) ||
+                String.IsNullOrWhiteSpace(txtCnpjLoja.Text) ||
+                String.IsNullOrWhiteSpace(txtRuaLoja.Text) ||
+                String.IsNullOrWhiteSpace(txtBairroLoja.Text) ||
+                String.IsNullOrWhiteSpace(txtCidadeLoja.Text) ||
+                String.IsNullOrWhiteSpace(txtNumeroLoja.Text) ||
+                String.IsNullOrWhiteSpace(txtEstadoLoja.Text)
+
+               )
+            {
+                MessageBox.Show("Existem campos em branco que precisam ser preenchidos!");
+            }
+            else
+            {
+                //aaaaaaaaaaaaa
+            }*/
+        }
+
+        private void btnVoltar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        
+        private void btnPagar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void btnPesquisar_Click(object sender, RoutedEventArgs e)
+        {
 
         private void btnVoltar_Click(object sender, RoutedEventArgs e)
         {

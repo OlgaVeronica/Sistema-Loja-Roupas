@@ -57,7 +57,7 @@ namespace LojaRoupa.DAOs
                     caixa.TotalEntrada = DAOHelper.GetDouble(reader, "total_entrada_cai");
                     caixa.TotalSaida = DAOHelper.GetDouble(reader, "total_saida_cai");
                     caixa.Status = DAOHelper.GetString(reader, "status_cai");
-
+                    caixa.Numero = reader.GetInt32("numero_cai");
                     lista.Add(caixa);
 
                 }
@@ -71,7 +71,50 @@ namespace LojaRoupa.DAOs
                 throw ex;
             }
         }
-    
+        public  List<CaixaModel> List(string tipo)
+        {
+            try
+            {
+                var lista = new List<CaixaModel>();
+
+                var command = conn.Query();
+
+                command.CommandText = "select * from Caixa;";
+
+                if(tipo == "Abertos")
+                {
+                    command.CommandText = "select * from Caixa where status_cai = 'Aberto';";
+                }
+
+                MySqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    var caixa = new CaixaModel();
+                    caixa.Id = reader.GetInt32("id_cai");
+                    caixa.DataCaixa = DAOHelper.GetDateTime(reader, "data_cai");
+                    caixa.HoraAbertura = DAOHelper.GetString(reader, "hora_abertura_cai");
+                    caixa.HoraFechamento = DAOHelper.GetString(reader, "hora_fechamento_cai");
+                    caixa.SaldoInicial = DAOHelper.GetDouble(reader, "saldo_inicial_cai");
+                    caixa.SaldoFinal = DAOHelper.GetDouble(reader, "saldo_final_cai");
+                    caixa.TotalEntrada = DAOHelper.GetDouble(reader, "total_entrada_cai");
+                    caixa.TotalSaida = DAOHelper.GetDouble(reader, "total_saida_cai");
+                    caixa.Status = DAOHelper.GetString(reader, "status_cai");
+                    caixa.Numero = reader.GetInt32("numero_cai");
+                    lista.Add(caixa);
+
+                }
+                reader.Close();
+
+
+                return lista;
+            }
+            catch (MySqlException ex)
+            {
+                throw ex;
+            }
+        }
+
         public CaixaModel UltimoCaixa()
         {
             try
