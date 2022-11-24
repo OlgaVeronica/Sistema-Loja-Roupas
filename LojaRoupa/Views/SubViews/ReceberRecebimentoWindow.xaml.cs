@@ -37,7 +37,6 @@ namespace LojaRoupa.Views.SubViews
             txtstatus.Text = _recebimento.StatusReceb;
             txtValor.Text = _recebimento.Valor.ToString();
             txtVenda.Text = _recebimento.Venda.Id.ToString();
-
             
             List<CaixaModel> lista = new List<CaixaModel>();
             try
@@ -49,7 +48,8 @@ namespace LojaRoupa.Views.SubViews
             {
                 cbNumCaixa.Text = "Não Há caixas abertos no momento";
             }
-            cbNumCaixa.ItemsSource = lista as List<CaixaModel>;
+            cbNumCaixa.ItemsSource = lista;
+            cbNumCaixa.SelectedIndex = 0;
             EnableOrDisableButton();
         }
 
@@ -63,19 +63,21 @@ namespace LojaRoupa.Views.SubViews
             RecebimentoModel recebimento = new RecebimentoModel
             {
                 Id = _recebimento.Id,
-                StatusReceb = "Recebido"
+                StatusReceb = "Recebido",
+                Hora = DateTime.Now.ToString("HH:mm:ss"),
+                Valor = _recebimento.Valor,
+                Data = DateTime.Now.ToString("yyyy-MM-dd")
             };
-
-            
+            recebimento.Caixa = cbNumCaixa.SelectedItem as CaixaModel;
 
             try
             {
                 var dao = new RecebimentoDAO();
                 dao.Update(recebimento);
             }
-            catch
+            catch (Exception ex)
             {
-                
+                MessageBox.Show(ex.Message);
             }
             finally
             {

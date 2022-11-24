@@ -91,15 +91,23 @@ namespace LojaRoupa.DAOs
             {
                 var command = conn.Query();
 
-                command.CommandText = "update recebimento set status_receb = @status where (@id = id_receb);";
+                command.CommandText = "update recebimento set status_receb = @status, id_cai_fk = @caixa, data_receb = @data, hora_receb = @hora where (@id = id_receb);";
 
                 
                 command.Parameters.AddWithValue("@status", recebimento.StatusReceb);
+                command.Parameters.AddWithValue("@Caixa", recebimento.Caixa.Id);
                 command.Parameters.AddWithValue("@id", recebimento.Id);
+                command.Parameters.AddWithValue("@data", recebimento.Data);
+                command.Parameters.AddWithValue("@hora", recebimento.Hora);
                
 
                 int resultado = command.ExecuteNonQuery();
 
+                if(resultado > 0)
+                {
+                    var dao = new CaixaDAO();
+                    dao.UpdateValorCaixa(recebimento, "Venda");
+                }
             }
             catch (Exception ex)
             {

@@ -159,7 +159,41 @@ namespace LojaRoupa.DAOs
 
         public override void Update(CaixaModel t)
         {
-            throw new NotImplementedException();
+
+
+        }
+
+        public void UpdateValorCaixa(RecebimentoModel recebimento, string operacao)
+        {
+            try
+            {
+                var command = conn.Query();
+
+                if(operacao == "Venda")
+                {
+                    command.CommandText = "update caixa set total_entrada_cai = total_entrada_cai + @Valor, saldo_final_cai = saldo_inicial_cai + @Valor + total_entrada_cai - total_saida_cai, hora_fechamento_cai = @hora where (@id = id_cai);";
+
+                }
+                else
+                {
+                    command.CommandText = "update caixa set total_saida_cai = total_saida_cai + @Valor, saldo_final_cai = saldo_inicial_cai - @Valor + total_entrada_cai - total_saida_cai, hora_fechamento_cai = @hora where (@id = id_cai);";
+
+                }
+
+
+
+                command.Parameters.AddWithValue("@Valor", recebimento.Valor);
+                command.Parameters.AddWithValue("@hora", recebimento.Hora);
+                command.Parameters.AddWithValue("@id", recebimento.Caixa.Id);
+
+
+                int resultado = command.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public void fecharCaixa(int numero)
