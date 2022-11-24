@@ -353,6 +353,10 @@ end
 $$ DELIMITER ;
 
 call InserirFornecedor("Rosângela e Lara Telas Ltda", "52.501.698/0001-22", "RoLa Ltda", "Rua Itapicuru 837", "contabil@rosangelaelaratelasltda.com.br", "(11) 3785-6790", "Ativo");
+call InserirFornecedor("Chinelos Universo Ltda", "52.501.698/0001-22", "CU Ltda", "Rua Itapicuru 837", "chinelos@chinelouniversoltda.com.br", "(11) 3785-6790", "Ativo");
+call InserirFornecedor("Carlos e Heloisa Marketing Ltda", "52.501.698/0001-22", "Flores Lindas Ltda", "Rua Itapicuru 837", "marketin@carlosheloltda.com.br", "(11) 3785-6790", "Ativo");
+call InserirFornecedor("Lucas e Juliana Transportes Ltda", "52.501.698/0001-22", "Lucas Trans Ltda", "Rua Itapicuru 837", "Lucas@TransportadoraLucasltda.com.br", "(11) 3785-6790", "Ativo");
+call InserirFornecedor("Levi e Sara acompanhamento financeiro ME", "52.501.698/0001-22", "ADMLiberado Ltda", "Rua Itapicuru 837", "contabil@contabilidadeltda.com.br", "(11) 3785-6790", "Ativo");
 
 
 DELIMITER $$
@@ -389,8 +393,11 @@ begin
 end
 $$ DELIMITER ;
 
-call AtualizarFornecedor(1,"Rosângela e Lara Telas Ltda", "52.501.698/0001-22",
-"RoLa Telas Ltda", "Rua Itapicuru 837", "contabil@rosangelaelaratelasltda.com.br", "(11) 3785-6790", "Desativado");
+call AtualizarFornecedor("Rosângela e Lara Telas Ltda", "52.501.698/0001-22", "RoLa Ltda", "Rua Itapicuru 837", "contabil@rosangelaelaratelasltda.com.br", "(11) 3785-6790", "desativado");
+call AtualizarFornecedor("Chinelos Universo Ltda", "43.431.736/0001-27", "CU Ltda", "Rua Itapicuru 837", "chinelos@chinelouniversoltda.com.br", "(69) 99269-7201", "Ativo");
+call AtualizarFornecedor("Carlos e Heloisa Marketing Ltda", "44.524.791/0001-24", "Flores Lindas Ltda", "Rua Itapicuru 837", "marketin@carlosheloltda.com.br", "(69) 96825-2416", "Ativo");
+call AtualizarFornecedor("Lucas e Juliana Transportes Ltda", "55.664.846/0001-18", "Lucas Trans Ltda", "Rua Itapicuru 837", "Lucas@TransportadoraLucasltda.com.br", "(69) 99386-1368", "Ativo");
+call AtualizarFornecedor("Levi e Sara acompanhamento financeiro ME", "97.385.425/0001-06", "ADMLiberado Ltda", "Rua Itapicuru 837", "contabil@contabilidadeltda.com.br", "(69) 97631-2255", "Ativo");
 
 
 DELIMITER $$
