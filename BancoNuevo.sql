@@ -272,6 +272,11 @@ call InserirFuncionario("Urias", "(69) 9999-9999", "Rua João de Oliveira", "000
 call InserirFuncionario("Beca", "(69) 9999-9999", "Rua João de Oliveira", "000.000.000-00", "Feminino", "beca@gmail.com", "000.000", "Limpeza", 1400, null,  "ativo", 1);
 call InserirFuncionario("Catia", "(69) 9999-9999", "Rua João de Oliveira", "000.000.000-00", "Feminino", "catiaa@gmail.com", "000.000", "Atendimento", 1800, null,  "ativo", 1);
 call InserirFuncionario("Fernanda", "(69) 9999-9999", "Rua João de Oliveira", "000.000.000-00", "Feminino", "fernandaa@gmail.com", "000.000", "Caixa", 2300, null,  "ativo", 1);
+call InserirFuncionario("Gabriela", "(69) 9999-9999", "Rua João de Oliveira", "000.000.000-00", "Feminino", "maria@gmail.com", "000.000", "Vendas", 1800, null,  "ativo",1);
+call InserirFuncionario("Jania", "(69) 9999-9999", "Rua João de Oliveira", "000.000.000-00", "Feminino", "urias@gmail.com", "000.000", "Caixa", 2300, null,  "ativo", 1);
+call InserirFuncionario("Vitoria", "(69) 9999-9999", "Rua João de Oliveira", "000.000.000-00", "Feminino", "beca@gmail.com", "000.000", "Limpeza", 1400, null,  "ativo", 1);
+call InserirFuncionario("Patricia", "(69) 9999-9999", "Rua João de Oliveira", "000.000.000-00", "Feminino", "catiaa@gmail.com", "000.000", "Atendimento", 1800, null,  "ativo", 1);
+call InserirFuncionario("Samara", "(69) 9999-9999", "Rua João de Oliveira", "000.000.000-00", "Feminino", "fernandaa@gmail.com", "000.000", "Caixa", 2300, null,  "ativo", 1);
 
 
 DELIMITER $$
@@ -303,7 +308,7 @@ begin
 			rg_func = rg, 
 			funcao_func = funcao, 
 			salario_func = salario, 
-			-- avatar_func = avatar, 
+			avatar_func = avatar, 
 			status_func = status,
 			id_loja_fk = lojaFK
 			
@@ -320,12 +325,16 @@ end
 $$ DELIMITER ;
 
 
-call AtualizarFuncionario(1,"Maria Eduarda", "(69) 6969-6969", "Rua João de Oliveira", "000.000.000-00", "Feminino", "maria@gmail.com", "000.111", "Gerente", 5000, "ativo",1);
+call AtualizarFuncionario(1,"Maria Eduarda", "(69) 6969-6969", "Rua João de Oliveira", "000.000.000-00", "Feminino", "maria@gmail.com", "000.111", "Gerente", 5000, "C:\Users\cliente\Downloads\limao.jpeg","ativo",1);
 call AtualizarFuncionario(2, "Urias", "(69) 99426-5056", "Rua Tenente-Coronel Cardoso", "000.000.000-00", "Feminino", "urias@gmail.com", "000.222", "Caixa", 2300, null,  "ativo", 1);
 call AtualizarFuncionario(3, "Beca", "(69) 99366-8565", "Rua Domingos Olímpio", "000.000.000-00", "Feminino", "beca@gmail.com", "000.333", "Limpeza", 1400, null,  "ativo", 1);
 call AtualizarFuncionario(4, "Catia", "(69) 97486-4855", "Avenida Esbertalina Barbosa Damiani", "000.000.000-00", "Feminino", "catiaa@gmail.com", "000.444", "Atendimento", 1800, null,  "ativo", 1);
 call AtualizarFuncionario(5, "Fernanda", "(69) 97428-1441", "Avenida Afonso Pena", "000.000.000-00", "Feminino", "fernandaa@gmail.com", "000.555", "Caixa", 2300, null,  "ativo", 1);
-
+call AtualizarFuncionario(6, "Gabriela", "(69) 99212-8553", "Vila Nova", "000.000.000-00", "Feminino", "@gmail", "00.666", "", 1800, null, "ativo", 1);
+call AtualizarFuncionario(7, "Jania", "(69) 99104-4521", "São Cristóvão", "000.000.000-00", "Feminino", "@gmail", "00.666", "", 1800, null, "ativo", 1);
+call AtualizarFuncionario(8, "Vitoria", "(69) 99356-7607", "Industrial", "000.000.000-00", "Feminino", "@gmail", "00.666", "", 1800, null, "ativo", 1);
+call AtualizarFuncionario(9, "Patricia", "(69) 97386-4482", "São Jorge", "000.000.000-00", "Feminino", "@gmail", "00.666", "", 1800, null, "ativo", 1);
+call AtualizarFuncionario(10, "Samara", "(69) 97494-8778", "Sergipe", "000.000.000-00", "Feminino", "@gmail", "00.666", "", 1800, null, "ativo", 1);
 
 DELIMITER $$
 create procedure InserirFornecedor(
@@ -393,11 +402,11 @@ begin
 end
 $$ DELIMITER ;
 
-call AtualizarFornecedor("Rosângela e Lara Telas Ltda", "52.501.698/0001-22", "RoLa Ltda", "Rua Itapicuru 837", "contabil@rosangelaelaratelasltda.com.br", "(11) 3785-6790", "desativado");
-call AtualizarFornecedor("Chinelos Universo Ltda", "43.431.736/0001-27", "CU Ltda", "Rua Itapicuru 837", "chinelos@chinelouniversoltda.com.br", "(69) 99269-7201", "Ativo");
-call AtualizarFornecedor("Carlos e Heloisa Marketing Ltda", "44.524.791/0001-24", "Flores Lindas Ltda", "Rua Itapicuru 837", "marketin@carlosheloltda.com.br", "(69) 96825-2416", "Ativo");
-call AtualizarFornecedor("Lucas e Juliana Transportes Ltda", "55.664.846/0001-18", "Lucas Trans Ltda", "Rua Itapicuru 837", "Lucas@TransportadoraLucasltda.com.br", "(69) 99386-1368", "Ativo");
-call AtualizarFornecedor("Levi e Sara acompanhamento financeiro ME", "97.385.425/0001-06", "ADMLiberado Ltda", "Rua Itapicuru 837", "contabil@contabilidadeltda.com.br", "(69) 97631-2255", "Ativo");
+call AtualizarFornecedor(1, "Rosângela e Lara Telas Ltda", "52.501.698/0001-22", "RoLa Ltda", "Rua Itapicuru 837", "contabil@rosangelaelaratelasltda.com.br", "(11) 3785-6790", "desativado");
+call AtualizarFornecedor(2, "Chinelos Universo Ltda", "43.431.736/0001-27", "CU Ltda", "Rua Itapicuru 837", "chinelos@chinelouniversoltda.com.br", "(69) 99269-7201", "Ativo");
+call AtualizarFornecedor(3, "Carlos e Heloisa Marketing Ltda", "44.524.791/0001-24", "Flores Lindas Ltda", "Rua Itapicuru 837", "marketin@carlosheloltda.com.br", "(69) 96825-2416", "Ativo");
+call AtualizarFornecedor(4, "Lucas e Juliana Transportes Ltda", "55.664.846/0001-18", "Lucas Trans Ltda", "Rua Itapicuru 837", "Lucas@TransportadoraLucasltda.com.br", "(69) 99386-1368", "Ativo");
+call AtualizarFornecedor(5, "Levi e Sara acompanhamento financeiro ME", "97.385.425/0001-06", "ADMLiberado Ltda", "Rua Itapicuru 837", "contabil@contabilidadeltda.com.br", "(69) 97631-2255", "Ativo");
 
 
 DELIMITER $$
@@ -419,6 +428,16 @@ end
 $$ DELIMITER ;
 
 call InserirMarca ("Hering", null, "Ativo");
+call InserirMarca ("Nike", null, "Ativo");
+call InserirMarca ("H&H", null, "Ativo");
+call InserirMarca ("Zara", null, "Ativo");
+call InserirMarca ("Louis Vuitton", null, "Ativo");
+call InserirMarca ("Adidas", null, "Ativo");
+call InserirMarca ("Gucci", null, "Ativo");
+call InserirMarca ("Hermes", null, "Ativo");
+call InserirMarca ("Lacoste", null, "Ativo");
+call InserirMarca ("Levi's", null, "Ativo");
+call InserirMarca ("Malwee", null, "Ativo");
 
 
 DELIMITER $$
@@ -443,8 +462,17 @@ begin
 end
 $$ DELIMITER ;
 
-
 call AtualizarMarca (1, "Hering", null, "Ativo");
+call AtualizarMarca (2, "Nike", null, "Ativo");
+call AtualizarMarca (3, "H&H", null, "Ativo");
+call AtualizarMarca (4, "Zara", null, "Ativo");
+call AtualizarMarca (5, "Louis Vuitton", null, "Ativo");
+call AtualizarMarca (6, "Adidas", null, "Ativo");
+call AtualizarMarca (7, "Gucci", null, "Ativo");
+call AtualizarMarca (8, "Hermes", null, "Ativo");
+call AtualizarMarca (9,"Lacoste", null, "Ativo");
+call AtualizarMarca (11, "Levi's", null, "Ativo");
+call AtualizarMarca (12, "Malwee", null, "Ativo");
 
 DELIMITER $$
 create procedure InserirCliente(nome varchar(300), cpf varchar(300), telefone varchar(300), status varchar(100))
@@ -463,6 +491,15 @@ end
 $$ DELIMITER ;
 
 call InserirCliente ("Eloizy Campi", "987.654.321-00", "(69) 99292-9292", "Ativo");
+call InserirCliente ("Samuel Felipe", "987.654.321-00", "(69) 99292-9292", "Ativo");
+call InserirCliente ("Patrick Macedo", "987.654.321-00", "(69) 99292-9292", "Ativo");
+call InserirCliente ("Maria Eduarda", "987.654.321-00", "(69) 99292-9292", "Ativo");
+call InserirCliente ("Olga Veronica", "987.654.321-00", "(69) 99292-9292", "Ativo");
+call InserirCliente ("Gabriel Oliveira", "987.654.321-00", "(69) 99292-9292", "Ativo");
+call InserirCliente ("Antônio Palauro", "987.654.321-00", "(69) 99292-9292", "Ativo");
+call InserirCliente ("Wallyson Torres", "987.654.321-00", "(69) 99292-9292", "Ativo");
+call InserirCliente ("Luana Freire", "987.654.321-00", "(69) 99292-9292", "Ativo");
+call InserirCliente ("Urias Lopes", "987.654.321-00", "(69) 99292-9292", "Ativo");
 
 DELIMITER $$
 create procedure AtualizarCliente(codigo int, nome varchar(300), cpf varchar(300), telefone varchar(300), status varchar(100))
@@ -487,7 +524,16 @@ begin
 end
 $$ DELIMITER ;
 
-call AtualizarCliente (1,"Eloizy Campi Reis", "987.654.321-00", "(69) 99292-6969", "Ativo");
+call AtualizarCliente (1, "Eloizy Campi", "987.654.321-00", "(69) 99292-9292", "Ativo");
+call AtualizarCliente (2, "Samuel Felipe", "022.205.183-37", "(69) 96870-7467", "Ativo");
+call AtualizarCliente (3, "Patrick Macedo", "011.425.237-80", "(69) 99458-7515", "Ativo");
+call AtualizarCliente (4, "Maria Eduarda", "111.115.387-60", "(69) 97382-1728", "Ativo");
+call AtualizarCliente (5, "Olga Veronica", "011.304.448-80", "(69) 97434-8631", "Ativo");
+call AtualizarCliente (6, "Gabriel Oliveira", "121.442.233-00", "(69) 97486-3262", "Ativo");
+call AtualizarCliente (7, "Vitor Saiter", "022.114.554-09", "(69) 99165-6265", "Ativo");
+call AtualizarCliente (8, "José Vinicius Passos", "023.123.434-10", "(69) 97654-1859", "Ativo");
+call AtualizarCliente (9, "Luana Freire", "111.112.110-94", "(69) 96807-3150", "Ativo");
+call AtualizarCliente (10, "Urias Lopes", "102.403.475-52", "(69) 97354-1256", "Ativo");
 
 
 DELIMITER $$
@@ -706,6 +752,7 @@ call inserirdespesa("Compra de produtos de limpeza","2022-10-29", 2000, "Aberto"
 
 
 ################ a partir daqui
+
 DELIMITER $$
 create procedure AtualizarDespesa(codigo int, descricao varchar(300), vencimento date, valor float, status varchar(100), compraFK int)
 begin
