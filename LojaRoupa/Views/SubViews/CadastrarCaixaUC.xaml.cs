@@ -90,15 +90,7 @@ namespace LojaRoupa.Views.SubViews
             tela.ShowDialog();
 
             txtSaldoIni.Text = tela.SaldoInicial.ToString();
-            try
-            {
-                var dao = new CaixaDAO();
-                dao.Insert(caixa);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Não foi possível Abrir caixa {ex.Message}", "Erro ao Abrir caixa", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+            
 
         }
 

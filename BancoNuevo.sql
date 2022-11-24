@@ -14,6 +14,16 @@ insert into Loja values(null, 'IFROStore', '111111111111', 'Rua 2 de abril, Nº1
 insert into Loja values(null, 'Lince', '111111111111', 'Rua 2 de abril, Nº157');
 insert into Loja values(null, 'Lince', '111111111111', 'Rua 2 de abril, Nº157');*/
 
+select * from usuario;
+
+create table Usuario(
+id_user int primary key auto_increment,
+nome_user varchar(300),
+cpf_user varchar(300),
+senha_user varchar(300),
+tipo_user varchar(300),
+avatar_user varchar(1000)
+);
 
 create table Funcionario(
 id_func int primary key auto_increment,
@@ -187,8 +197,12 @@ create procedure AbrirCaixa(saldoInicial float)
 begin
 	declare dataHoje date;
 	declare horaAgora time;
+    declare numeroUltimoCaixa int;
     select curdate() into dataHoje;
     select curtime() into horaAgora;
+    set numeroUltimoCaixa = (select numero_cai from Caixa order by id_cai desc limit 1);
+    
+  
     insert into Caixa values(null, dataHoje, 1, horaAgora, null, saldoInicial, null, null, null, 'Aberto');
     select 'Caixa Inserido com sucesso!' as Confirmacao;
 end
@@ -346,7 +360,7 @@ end
 $$ DELIMITER ;
 
 
-call AtualizarFuncionario(1,"Maria Eduarda", "(69) 6969-6969", "Rua João de Oliveira", "000.000.000-00", "Feminino", "maria@gmail.com", "000.111", "Gerente", 5000, "C:\Users\cliente\Downloads\limao.jpeg","ativo",1);
+call AtualizarFuncionario(1,"Maria Eduarda", "(69) 6969-6969", "Rua João de Oliveira", "000.000.000-00", "Feminino", "maria@gmail.com", "000.111", "Gerente", 5000, "C:\Users\2020102011008-1\Downloads\P_20210406_081110.jpg","ativo",1);
 call AtualizarFuncionario(2, "Urias", "(69) 99426-5056", "Rua Tenente-Coronel Cardoso", "000.000.000-00", "Feminino", "urias@gmail.com", "000.222", "Caixa", 2300, null,  "ativo", 1);
 call AtualizarFuncionario(3, "Beca", "(69) 99366-8565", "Rua Domingos Olímpio", "000.000.000-00", "Feminino", "beca@gmail.com", "000.333", "Limpeza", 1400, null,  "ativo", 1);
 call AtualizarFuncionario(4, "Catia", "(69) 97486-4855", "Avenida Esbertalina Barbosa Damiani", "000.000.000-00", "Feminino", "catiaa@gmail.com", "000.444", "Atendimento", 1800, null,  "ativo", 1);

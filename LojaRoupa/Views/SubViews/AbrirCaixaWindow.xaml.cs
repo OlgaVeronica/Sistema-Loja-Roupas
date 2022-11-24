@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using LojaRoupa.ViewsModels;
+using LojaRoupa.DAOs;
 
 namespace LojaRoupa.Views.SubViews
 {
@@ -37,8 +38,20 @@ namespace LojaRoupa.Views.SubViews
 
         private void Cadastrar_Click(object sender, RoutedEventArgs e)
         {
+            CaixaModel caixa = new CaixaModel();
             //_caixa.SaldoInicial = double.Parse(txtValor.Text);
             SaldoInicial = double.Parse(txtValor.Text);
+            caixa.SaldoInicial = SaldoInicial;
+
+            try
+            {
+                var dao = new CaixaDAO();
+                dao.Insert(caixa);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Não foi possível Abrir caixa {ex.Message}", "Erro ao Abrir caixa", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
             this.Close();
         }
     }
