@@ -196,7 +196,7 @@ begin
     select curdate() into dataHoje;
     select curtime() into horaAgora;
     
-    if((select numero_cai from Caixa order by id_cai desc limit 1) = 0) then
+    if((select numero_cai from Caixa order by id_cai desc limit 1) is null) then
 		set numeroUltimoCaixa = 0;
     
     else

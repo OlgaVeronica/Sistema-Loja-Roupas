@@ -99,6 +99,7 @@
     <Compile Include="DAOs\ClienteDAO.cs" />
     <Compile Include="DAOs\CompraDAO.cs" />
     <Compile Include="DAOs\CompraProdutoDAO.cs" />
+    <Compile Include="DAOs\DespesaDAO.cs" />
     <Compile Include="DAOs\FornecedorDAO.cs" />
     <Compile Include="DAOs\FuncionarioDAO.cs" />
     <Compile Include="DAOs\MarcaDAO.cs" />
@@ -110,6 +111,7 @@
     <Compile Include="Database\Conexao.cs" />
     <Compile Include="Helpers\DAOHelper.cs" />
     <Compile Include="ViewsModels\CaixaModel.cs" />
+    <Compile Include="ViewsModels\DespesaModel.cs" />
     <Compile Include="ViewsModels\RecebimentoModel.cs" />
     <Compile Include="ViewsModels\ClienteModel.cs" />
     <Compile Include="ViewsModels\CompraModel.cs" />
