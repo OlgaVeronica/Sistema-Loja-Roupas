@@ -154,7 +154,7 @@ id_pag int primary key auto_increment,
 data_pag date,
 valor_pag float,
 hora_pag time,
-forma_recebimento_pag varchar(300),
+forma_pag varchar(300),
 status_pag varchar(100),
 id_cai_fk int,
 foreign key (id_cai_fk) references Caixa(id_cai),
@@ -185,7 +185,9 @@ foreign key (id_roup_fk) references Roupa(id_roup)
 
 
 
+select * from pagamento;
 
+insert into pagamento values (null, '2022-10-21', 125, '12:00', 'A vista','Aberto', null, null);
 
 DELIMITER $$
 create procedure AbrirCaixa(saldoInicial float)
@@ -216,6 +218,56 @@ select * from caixa;
 
 insert into cliente values (null, "doido", "4575", "8676", "Ativo");
 insert into cliente values (null, "test", "4575", "8676", "Ativo");
+
+
+DELIMITER $$
+create procedure InserirUsuario(nome varchar(300), cpf varchar(300), senha varchar(300),  tipo varchar(300), avatar varchar(1000))
+begin
+	if ((nome is not null) and (nome <> '')) then
+		if((senha is not null) and (senha <> '')) then
+			if((tipo like 'Administrador') or (tipo like 'Comum')) then
+				insert into Usuario values(null, nome, cpf, senha, tipo, avatar);
+                select 'Usuário inserido com sucesso!' as Confirmacao;
+			else
+				select 'O tipo do só pode ser Administrador ou Comum!' as Erro;
+			end if;
+		else
+			select 'A senha não pode ser vazia!' as Erro;
+		end if;
+	else
+		select 'O nome não pode ser vazio!' as Erro;
+	end if;
+end 
+$$ DELIMITER ;
+
+DELIMITER $$
+create procedure AtualizarUsuario(codigo int, nome varchar(300), cpf varchar(300), senha varchar(300),  tipo varchar(300), avatar varchar(1000))
+begin
+	if ((nome is not null) and (nome <> '')) then
+		if((senha is not null) and (senha <> '')) then
+			if((tipo like 'Administrador') or (tipo like 'Comum')) then
+				update Usuario set
+                nome_user = nome,
+                cpf_user = cpf,
+                senha_user = senha,
+                tipo_user = tipo,
+                avatar_user = avatar
+                where 
+                (codigo = id_user);
+                
+                
+                select 'Usuário atualizado com sucesso!' as Confirmacao;
+			else
+				select 'O tipo do só pode ser Administrador ou Comum!' as Erro;
+			end if;
+		else
+			select 'A senha não pode ser vazia!' as Erro;
+		end if;
+	else
+		select 'O nome não pode ser vazio!' as Erro;
+	end if;
+end 
+$$ DELIMITER ;
 
 
 
@@ -252,7 +304,12 @@ begin
     if ((codigo is not null) and (codigo <> '')) then
         if((endereco is not null) and (endereco <> '')) then
             
-            update Loja set nome_loja = nome, cnpj_loja = cnpj, endereco_loja = endereco where id_loja = codigo;
+            update Loja set 
+            nome_loja = nome, 
+            cnpj_loja = cnpj, 
+            endereco_loja = endereco 
+            where 
+            (id_loja = codigo);
             select 'Loja atualizada com sucesso!' as Confirmacao;
 		else
 			select 'Endereço não pode estar vazio!' as Erro;

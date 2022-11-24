@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using LojaRoupa.DAOs;
+using LojaRoupa.ViewsModels;
+using MySql.Data.MySqlClient;
 
 namespace LojaRoupa.Views.SubViews
 {
@@ -20,7 +23,11 @@ namespace LojaRoupa.Views.SubViews
     /// </summary>
     public partial class CadastrarPagamento : UserControl
     {
-        public CadastrarPagamento()
+        public Frame _frame;
+        private List<PagamentoModel> _productsInGrid;
+        PagamentoModel _pagamento;
+
+        public CadastrarPagamento(Frame frame)
         {
             InitializeComponent();
             Loaded += CadastrarPagamento_Loaded;
@@ -28,6 +35,9 @@ namespace LojaRoupa.Views.SubViews
 
         private void CadastrarPagamento_Loaded(object sender, RoutedEventArgs e)
         {
+            carregarListagem();
+        }
+
             //VERIFICAÇÃO DE NLO OU VAZIO DE PAGAMENTO
 
             /*if (
@@ -47,20 +57,44 @@ namespace LojaRoupa.Views.SubViews
             {
                 //aaaaaaaaaaaaa
             }*/
-        }
 
         private void btnVoltar_Click(object sender, RoutedEventArgs e)
         {
-
+            _frame.Content = new FinanceiroUC(_frame); 
         }
-        
+
         private void btnPagar_Click(object sender, RoutedEventArgs e)
         {
+            PagamentoModel pagamento = new PagamentoModel
+            {
+                Id = _pagamento.Id,
+                Status = "Pago"     
+            };
 
+            try
+            {
+                var dao = new PagamentoDAO();
+                dao.Update(pagamento);
+            }
+            catch
+            {
+
+            }
         }
-        private void btnPesquisar_Click(object sender, RoutedEventArgs e)
-        {
 
+        private void carregarListagem()
+        {
+            try
+            {
+                var dao = new PagamentoDAO();
+                _productsInGrid = dao.List();
+                dtgExibirPag.ItemsSource = _productsInGrid;
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
