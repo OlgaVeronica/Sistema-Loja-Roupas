@@ -35,11 +35,11 @@
             </Grid.Background>
         </Grid>
 
-        <Grid Grid.Column="2" Background="#F7E5FF">
+        <Grid Grid.Column="2" Background="#FF707070">
             <Label x:Name="lbTitulo" Content="Login de Usuário" FontSize="48px" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Bahnschrift"/>
         </Grid>
 
-        <Grid Grid.Column="2"  Background="#F7E5FF" VerticalAlignment="Center">
+        <Grid Grid.Column="2"  Background="#FF707070" VerticalAlignment="Center">
             <StackPanel Orientation="Vertical" Margin="20 100 20 0">
                 <Label x:Name="lbUsuario" Content="Usuário" FontSize="30px" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Bahnschrift"/>
                 <TextBox x:Name="txtNomeUsuario" Height="40" Width="400" Margin="0 20" TextAlignment="Center" VerticalContentAlignment="Center" FontSize="20"/>
@@ -47,7 +47,7 @@
                 <Label x:Name="lbSenha" Content="Senha" FontSize="30px" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 20 0 0" FontFamily="Bahnschrift"/>
                 <PasswordBox x:Name="pswSenhaUsuario" Height="40"  Width="400" Margin="0 20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20"/>
                 <Button x:Name="brLogar" 
-                    Background="#6F4D80"
+                    Background="#FF232323"
                     FontSize="30"
                     Height="60"
                     Style="{StaticResource MaterialDesignRaisedButton}"
