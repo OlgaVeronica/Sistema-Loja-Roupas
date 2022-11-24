@@ -88,7 +88,8 @@ namespace LojaRoupa.Views.SubViews
 
         private void btnFecharCaixa_Click(object sender, RoutedEventArgs e)
         {
-
+            CaixaModel caixa = new CaixaModel();
+            
         }
     }
 }

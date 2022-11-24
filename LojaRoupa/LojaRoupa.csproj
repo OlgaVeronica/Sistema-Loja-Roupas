@@ -140,6 +140,9 @@
     <Compile Include="Views\ProdutoUC.xaml.cs">
       <DependentUpon>ProdutoUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SubViews\AbrirCaixaWindow.xaml.cs">
+      <DependentUpon>AbrirCaixaWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SubViews\CadastrarCaixaUC.xaml.cs">
       <DependentUpon>CadastrarCaixaUC.xaml</DependentUpon>
     </Compile>
@@ -237,6 +240,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ProdutoUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SubViews\AbrirCaixaWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
