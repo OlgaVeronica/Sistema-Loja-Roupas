@@ -115,9 +115,7 @@ id_desp int primary key auto_increment,
 descricao_desp varchar(300),
 vencimento_desp date,
 valor_desp float,
-status_desp varchar(100),
-id_com_fk int,
-foreign key (id_com_fk) references Compra(id_com) 
+status_desp varchar(100)
 );
 
 

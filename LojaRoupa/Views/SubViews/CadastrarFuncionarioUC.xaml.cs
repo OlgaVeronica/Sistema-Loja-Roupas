@@ -78,7 +78,7 @@ namespace LojaRoupa.Views.SubViews
                     _frame.Content = new FuncionarioUC(_frame);
 
                 }
-                else
+                else 
                 {
                     dao.Insert(funcionario);
                     MessageBox.Show("Cadastro Realizado!");
