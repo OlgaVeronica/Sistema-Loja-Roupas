@@ -80,13 +80,18 @@ namespace LojaRoupa.DAOs
 
                 var command = conn.Query();
 
-                command.CommandText = "select * from Caixa desc limit 1;";
-                MySqlDataReader reader = command.ExecuteReader();
+                command.CommandText = "select * from Caixa order by id_cai desc limit 1;";
+                int resultado = command.ExecuteNonQuery();
 
-                while (reader.Read())
+                if (resultado > 0)
                 {
-                    //var caixa = new CaixaModel();
+
+                    MySqlDataReader reader = command.ExecuteReader();
+
+                    reader.Read();
+                
                     caixa.Id = reader.GetInt32("id_cai");
+                    caixa.Numero = reader.GetInt32("numero_cai");
                     caixa.DataCaixa = DAOHelper.GetDateTime(reader, "data_cai");
                     caixa.HoraAbertura = DAOHelper.GetString(reader, "hora_abertura_cai");
                     caixa.HoraFechamento = DAOHelper.GetString(reader, "hora_fechamento_cai");
@@ -95,13 +100,10 @@ namespace LojaRoupa.DAOs
                     caixa.TotalEntrada = DAOHelper.GetDouble(reader, "total_entrada_cai");
                     caixa.TotalSaida = DAOHelper.GetDouble(reader, "total_saida_cai");
                     caixa.Status = DAOHelper.GetString(reader, "status_cai");
+                
 
-                    //.Add(caixa);
 
                 }
-                reader.Close();
-
-
                 return caixa;
             }
             catch (MySqlException ex)
@@ -115,6 +117,24 @@ namespace LojaRoupa.DAOs
         public override void Update(CaixaModel t)
         {
             throw new NotImplementedException();
+        }
+
+        public void fecharCaixa(int numero)
+        {
+            try
+            {
+                var command = conn.Query();
+                command.CommandText = "update caixa set status_cai = 'Fechado' where (numero_cai = @numero);";
+
+                command.Parameters.AddWithValue("@numero", numero);
+                int resultado = command.ExecuteNonQuery();
+
+                
+            }
+            catch
+            {
+
+            }
         }
     }
 }

@@ -14,7 +14,6 @@ insert into Loja values(null, 'IFROStore', '111111111111', 'Rua 2 de abril, Nº1
 insert into Loja values(null, 'Lince', '111111111111', 'Rua 2 de abril, Nº157');
 insert into Loja values(null, 'Lince', '111111111111', 'Rua 2 de abril, Nº157');*/
 
-select * from usuario;
 
 create table Usuario(
 id_user int primary key auto_increment,
@@ -187,9 +186,7 @@ foreign key (id_roup_fk) references Roupa(id_roup)
 );
 
 
-select * from caixa;
 
-delete from caixa ;
 
 
 DELIMITER $$
@@ -200,16 +197,24 @@ begin
     declare numeroUltimoCaixa int;
     select curdate() into dataHoje;
     select curtime() into horaAgora;
-    set numeroUltimoCaixa = (select numero_cai from Caixa order by id_cai desc limit 1);
+    
+    if((select numero_cai from Caixa order by id_cai desc limit 1) = 0) then
+		set numeroUltimoCaixa = 0;
+    
+    else
+    
+		set numeroUltimoCaixa = (select numero_cai from Caixa order by id_cai desc limit 1);
+    
+    end if;
     
   
-    insert into Caixa values(null, dataHoje, 1, horaAgora, null, saldoInicial, null, null, null, 'Aberto');
+    insert into Caixa values(null, dataHoje, numeroUltimoCaixa+1, horaAgora, null, saldoInicial, null, null, null, 'Aberto');
     select 'Caixa Inserido com sucesso!' as Confirmacao;
 end
 $$ DELIMITER ;
 
 call AbrirCaixa(100);
-
+select * from caixa;
 
 insert into cliente values (null, "doido", "4575", "8676", "Ativo");
 insert into cliente values (null, "test", "4575", "8676", "Ativo");
