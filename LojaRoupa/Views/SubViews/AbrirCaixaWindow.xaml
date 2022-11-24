@@ -7,6 +7,25 @@
         mc:Ignorable="d"
         Title="AbrirCaixaWindow" Height="450" Width="300">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".2*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height=".3*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock  Grid.Row="0" Text="Abrir Caixa" FontSize="20"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+        <StackPanel Grid.Row="1" Margin="10, 0">
+            <StackPanel>
+                <Label Content="Valor Inical" FontSize="20"/>
+                <TextBox FontSize="20" Background="#f1f1f1" x:Name="txtValor"></TextBox>
+            </StackPanel>
+            <StackPanel>
+                <Label Content="Senha" FontSize="20"/>
+                <TextBox FontSize="20" Background="#f1f1f1" x:Name="txtSenha" IsReadOnly="True"></TextBox>
+            </StackPanel>
+        </StackPanel>
+
+        <Button Grid.Row="2" Content="Abrir"  Width="150" x:Name="Cadastrar" Click="Cadastrar_Click"/>
     </Grid>
 </Window>
