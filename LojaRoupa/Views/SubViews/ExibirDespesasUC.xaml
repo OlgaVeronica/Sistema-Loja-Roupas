@@ -37,7 +37,9 @@
             </StackPanel>
         </StackPanel>
 
-        <DataGrid Grid.Row="3" Margin="10,10,10,10" x:Name="dtgExibirDesp" FontSize="20">
+        <DataGrid Grid.Row="3" Margin="10,10,10,10" x:Name="dtgExibirDesp" FontSize="20" AutoGenerateColumns="False"
+                  CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" AlternatingRowBackground="#f2f2f2"
+                  AlternationCount="2" CanUserReorderColumns="False">
 
             <DataGrid.Columns>
               
@@ -50,6 +52,10 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Descrição" Binding="{Binding Descricao}"/>
+                <DataGridTextColumn Header="Vencimento" Binding="{Binding Vencimento}"/>
+                <DataGridTextColumn Header="Valor" Binding="{Binding Valor}"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}"/>
             </DataGrid.Columns>
         </DataGrid>
 
