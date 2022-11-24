@@ -61,39 +61,51 @@ namespace LojaRoupa.Views.SubViews
         private void btnCadastrar_Click(object sender, RoutedEventArgs e)
         {
             FornecedorModel fornecedor = _fornecedor;
-
-            fornecedor.NomeFantasia = txtNomeFantasia.Text;
-            fornecedor.Cnpj = txtCnpj.Text;
-            fornecedor.Email = txtEmail.Text;
-            fornecedor.Endereco = txtEndereco.Text;
-            fornecedor.RazaoSocial = txtRazaoSocial.Text;
-            fornecedor.Telefone = txtTelefone.Text;
-            fornecedor.Status = "Ativo";
-
-            try
+            if (
+                String.IsNullOrWhiteSpace(txtNomeFantasia.Text) ||
+                String.IsNullOrWhiteSpace(txtRazaoSocial.Text) ||
+                String.IsNullOrWhiteSpace(txtCnpj.Text) ||
+                String.IsNullOrWhiteSpace(txtEmail.Text) ||
+                String.IsNullOrWhiteSpace(txtEndereco.Text) ||
+                String.IsNullOrWhiteSpace(txtTelefone.Text)
+               )
             {
-                var dao = new FornecedorDAO();
-
-                if(fornecedor.Id > 0)
-                {
-                    dao.Update(fornecedor);
-                    MessageBox.Show("Update Realizado!");
-                    _frame.Content = new FornecedorUC(_frame);
-
-                }
-                else
-                {
-                    dao.Insert(fornecedor);
-                    MessageBox.Show("Cadastro Realizado!");
-
-                }
+                MessageBox.Show("Existem campos em branco que precisam ser preenchidos!");
             }
-            catch (MySqlException error)
-            {
+            else{
+                fornecedor.NomeFantasia = txtNomeFantasia.Text;
+                fornecedor.Cnpj = txtCnpj.Text;
+                fornecedor.Email = txtEmail.Text;
+                fornecedor.Endereco = txtEndereco.Text;
+                fornecedor.RazaoSocial = txtRazaoSocial.Text;
+                fornecedor.Telefone = txtTelefone.Text;
+                fornecedor.Status = "Ativo";
 
-                MessageBox.Show(error.Message);
+                try
+                {
+                    var dao = new FornecedorDAO();
+
+                    if(fornecedor.Id > 0)
+                    {
+                        dao.Update(fornecedor);
+                        MessageBox.Show("Update Realizado!");
+                        _frame.Content = new FornecedorUC(_frame);
+
+                    }
+                    else
+                    {
+                        dao.Insert(fornecedor);
+                        MessageBox.Show("Cadastro Realizado!");
+
+                    }
+                }
+                catch (MySqlException error)
+                {
+
+                    MessageBox.Show(error.Message);
+                }
+
             }
-
             Clear();
         }
         private void Clear()
