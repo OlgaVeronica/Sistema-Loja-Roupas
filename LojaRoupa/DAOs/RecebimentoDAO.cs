@@ -25,7 +25,6 @@ namespace LojaRoupa.DAOs
 
                 command.Parameters.AddWithValue("@dataAbertura", recebimento.DataAbertura);
                 command.Parameters.AddWithValue("@dataReceb", recebimento.Data);
-                command.Parameters.AddWithValue("@dataAbertura", recebimento.DataAbertura);
                 command.Parameters.AddWithValue("@valor", recebimento.Valor);
                 command.Parameters.AddWithValue("@hora", recebimento.Hora);
                 command.Parameters.AddWithValue("@formaR", recebimento.FormaReceb);
@@ -86,9 +85,26 @@ namespace LojaRoupa.DAOs
             }
         }
 
-        public override void Update(RecebimentoModel t)
+        public override void Update(RecebimentoModel recebimento)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var command = conn.Query();
+
+                command.CommandText = "update recebimento set status_receb = @status where (@id = id_receb);";
+
+                
+                command.Parameters.AddWithValue("@status", recebimento.StatusReceb);
+                command.Parameters.AddWithValue("@id", recebimento.Id);
+               
+
+                int resultado = command.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

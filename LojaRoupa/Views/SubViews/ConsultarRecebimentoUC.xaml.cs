@@ -85,6 +85,8 @@ namespace LojaRoupa.Views.SubViews
         {
             ReceberRecebimentoWindow tela = new ReceberRecebimentoWindow(dtgExibirReceb.SelectedItem as RecebimentoModel);
             tela.ShowDialog();
+            AtualizarLista();
+
         }
     }
 }
