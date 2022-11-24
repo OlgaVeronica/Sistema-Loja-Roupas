@@ -29,7 +29,7 @@
 
         <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center">
             <Label FontSize="16">Busca: </Label>
-            <TextBox FontSize="16" x:Name="txtFilter" TextChanged="txtFilter_TextChanged"  Width="300" Cursor="Arrow"></TextBox>
+            <TextBox FontSize="16" x:Name="txtFilter" TextChanged="txtFilter_TextChanged" Background="#f1f1f1" Width="300" Cursor="Arrow"></TextBox>
         </StackPanel>
         <DataGrid Grid.Row="2" x:Name="dtgProdutos"  FontSize="20" AutoGenerateColumns="False" 
                   CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"
