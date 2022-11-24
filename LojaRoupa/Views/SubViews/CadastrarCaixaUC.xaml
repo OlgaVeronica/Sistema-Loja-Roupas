@@ -5,8 +5,72 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:LojaRoupa.Views.SubViews"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="720" d:DesignWidth="1000">
     <Grid Background="White">
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height=".3*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height=".3*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="txbRoupa" Foreground="black" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40" Text="Cadastrar Caixa"/>
+
+        <Grid Grid.Row="1" Background="White" HorizontalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" MaxWidth="500"/>
+                <ColumnDefinition Width="*" MaxWidth="500"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Margin="10, 0, 10, 0">
+                <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10">
+                    <Label Content="Saldo Inicial" FontSize="20" HorizontalAlignment="Left"/>
+                    <TextBox MinWidth="200" FontSize="20" x:Name="txtSaldoInicial" Background="#f1f1f1"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10" Cursor="Hand">
+                    <Label Content="Total Entrada" FontSize="20" HorizontalAlignment="Left"/>
+                    <TextBox MinWidth="200" FontSize="20" x:Name="txtTotalEntrada" Background="#f1f1f1"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10" Cursor="Hand">
+                    <Label Content="Total Saída" FontSize="20" HorizontalAlignment="Left"/>
+                    <TextBox MinWidth="200" FontSize="20" x:Name="txtTotalSaida" Background="#f1f1f1"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10" Cursor="Hand">
+                    <Label Content="Saldo Final" FontSize="20" HorizontalAlignment="Left"/>
+                    <TextBox MinWidth="200" FontSize="20" x:Name="txtSaldoFinal" Background="#f1f1f1"></TextBox>
+                </StackPanel>
+         
+
+                
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Margin="10, 0, 10, 0" >
+                <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10">
+                    <Label Content="Nº" FontSize="20" HorizontalAlignment="Left"/>
+                    <TextBox MinWidth="200" FontSize="20" x:Name="txtNumeroCaixa" Background="#f1f1f1"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10">
+                    <Label Content="Data:" FontSize="20" HorizontalAlignment="Left"/>
+                    <DatePicker MinWidth="200" FontSize="20" x:Name="txtData" Cursor="Arrow" Background="#f1f1f1"></DatePicker>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="0, 10, 0, 10">
+                    <Label Content="Status" FontSize="20" HorizontalAlignment="Left"/>
+                    <TextBox MinWidth="200" FontSize="20" x:Name="txtStatus" Background="#f1f1f1"></TextBox>
+                </StackPanel>
+            </StackPanel>
+
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Grid.Row="2" Height="50" Width="150" x:Name="btnAbrirCaixa" Click="btnAbrirCaixa_Click" Content="Abrir Caixa"/>
+            <Button Grid.Column="1" Grid.Row="2" Height="50" Width="150" x:Name="btnFecharCaixa" Click="btnFecharCaixa_Click" Content="Fechar Caixa"/>
+        </Grid>
+        
+
+        <Button Grid.Row="0" HorizontalAlignment="Left" Margin="10,0" Height="50" Width="150" x:Name="btnVoltar" Click="btnVoltar_Click">Voltar</Button>
+
     </Grid>
 </UserControl>

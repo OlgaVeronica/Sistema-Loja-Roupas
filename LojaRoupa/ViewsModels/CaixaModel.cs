@@ -10,10 +10,14 @@ namespace LojaRoupa.ViewsModels
     {
         public int? Id { get; set; }
         public int Numero { get; set; }
-        public string DataCaixa { get; set; }
+        public DateTime? DataCaixa { get; set; }
         public string HoraAbertura { get; set; }
         public string HoraFechamento { get; set; }
-        public string SaldoInicial { get; set; }
-        public string SaldoFinal { get; set; }
+        public double SaldoInicial { get; set; }
+        public double SaldoFinal { get; set; }
+        public double TotalEntrada { get; set; }
+        public double TotalSaida { get; set; }
+        public string Status { get; set; }
+       
     }
 }
