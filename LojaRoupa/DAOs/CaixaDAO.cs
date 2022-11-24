@@ -20,7 +20,7 @@ namespace LojaRoupa.DAOs
 
         public override List<CaixaModel> List()
         {
-            throw new NotImplementedException();
+            
         }
 
         public override void Update(CaixaModel t)

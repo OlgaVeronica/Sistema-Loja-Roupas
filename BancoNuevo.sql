@@ -119,7 +119,10 @@ numero_cai int,
 hora_abertura_cai time,
 hora_fechamento_cai time,
 saldo_inicial_cai float, 
-saldo_final_cai float
+saldo_final_cai float,
+total_entrada float,
+total_saida float,
+status varchar(100)
 );
 
 
