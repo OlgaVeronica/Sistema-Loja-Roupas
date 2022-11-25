@@ -57,7 +57,8 @@
                         SelectedValuePath="Id">
                     </ComboBox>
                 </StackPanel>
-                <Button x:Name="btnNovoCliente" VerticalAlignment="Center" Margin="150, 0, 100, 0" Click="btnNovoCliente_Click">Novo Cliente</Button>
+                <Button x:Name="btnNovoCliente" VerticalAlignment="Center" Margin="150, 0, 100, 0" Click="btnNovoCliente_Click" Background="#FF232323"
+                BorderBrush="#FF232323">Novo Cliente</Button>
                 
             </StackPanel>
             
@@ -84,7 +85,8 @@
                     <ComboBox x:Name="cbQuantidade" VerticalAlignment="Top" FontSize="16" Margin="30 0" MinWidth="60" Background="#f1f1f1" IsSynchronizedWithCurrentItem="False">
 
                     </ComboBox >
-                    <Button x:Name="btAdicionar" Content="Adicionar" VerticalAlignment="Top" Click="btAdicionar_Click"/>
+                    <Button x:Name="btAdicionar" Content="Adicionar" VerticalAlignment="Top" Click="btAdicionar_Click" Cursor="Hand" Background="#FF232323"
+                BorderBrush="#FF232323"/>
                         
                 </StackPanel>
                 
@@ -124,16 +126,18 @@
                     <TextBox MinWidth="150" Background="#f1f1f1" FontSize="16" x:Name="txtValor" Cursor="Arrow" IsReadOnly="True"></TextBox>
                 </StackPanel>
 
-                <Button Height="50" Width="160" x:Name="BtnRelatorio" Click="BtnRelatorio_Click">
+                <Button Height="50" Width="160" x:Name="BtnRelatorio" Click="BtnRelatorio_Click" Background="#FF232323"
+                BorderBrush="#FF232323">
                     Relatório de Vendas
                 </Button>
             </StackPanel>
 
             
         </Grid>
-        
 
-        <Button Grid.Row="3" Height="50" Width="160" x:Name="btnRealizar" Click="btnRealizar_Click" >Realizar venda</Button>
+
+        <Button Grid.Row="3" Height="50" Width="160" x:Name="btnRealizar" Click="btnRealizar_Click" Background="#FF232323"
+                BorderBrush="#FF232323" >Realizar venda</Button>
      
     </Grid>
 </UserControl>
