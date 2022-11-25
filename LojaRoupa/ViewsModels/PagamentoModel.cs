@@ -9,11 +9,13 @@ namespace LojaRoupa.ViewsModels
     public class PagamentoModel
     {
         public int Id { get; set; }
-        public DateTime? Data { get; set; }
+        public string Data { get; set; }
         public double Valor { get; set; }
         public  string Hora { get; set; }
         public string FormaPagamento { get; set; }
         public string Status { get; set; }
+        public CaixaModel Caixa { get; set; } = new CaixaModel();
+        public CompraModel Compra { get; set; } = new CompraModel();
 
     }
 }

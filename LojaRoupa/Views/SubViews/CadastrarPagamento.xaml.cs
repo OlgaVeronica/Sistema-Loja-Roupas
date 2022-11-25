@@ -24,40 +24,20 @@ namespace LojaRoupa.Views.SubViews
     public partial class CadastrarPagamento : UserControl
     {
         public Frame _frame;
-        private List<PagamentoModel> _productsInGrid;
-        //PagamentoModel _pagamento;
+        private List<PagamentoModel> _pagamentosInGrid;
 
         public CadastrarPagamento(Frame frame)
         {
             InitializeComponent();
-            Loaded += CadastrarPagamento_Loaded;
             _frame = frame;
+            Loaded += CadastrarPagamento_Loaded;
         }
 
         private void CadastrarPagamento_Loaded(object sender, RoutedEventArgs e)
         {
-            carregarListagem();
+            AtualizarLista();
+            cbFilters.SelectedIndex = 0;
         }
-
-            //VERIFICAÇÃO DE NLO OU VAZIO DE PAGAMENTO
-
-            /*if (
-                String.IsNullOrWhiteSpace(txtNomeLoja.Text) ||
-                String.IsNullOrWhiteSpace(txtCnpjLoja.Text) ||
-                String.IsNullOrWhiteSpace(txtRuaLoja.Text) ||
-                String.IsNullOrWhiteSpace(txtBairroLoja.Text) ||
-                String.IsNullOrWhiteSpace(txtCidadeLoja.Text) ||
-                String.IsNullOrWhiteSpace(txtNumeroLoja.Text) ||
-                String.IsNullOrWhiteSpace(txtEstadoLoja.Text)
-
-               )
-            {
-                MessageBox.Show("Existem campos em branco que precisam ser preenchidos!");
-            }
-            else
-            {
-                //aaaaaaaaaaaaa
-            }*/
 
         private void btnVoltar_Click(object sender, RoutedEventArgs e)
         {
@@ -66,36 +46,23 @@ namespace LojaRoupa.Views.SubViews
 
         private void btnPagar_Click(object sender, RoutedEventArgs e)
         {
-            PagamentoModel pagamento = new PagamentoModel
-            {
-                Status = "Pago"
-            };
-
-            try
-            {
-                var dao = new PagamentoDAO();
-                dao.Update(pagamento);
-            }
-            catch
-            {
-
-            }
-
-            carregarListagem();
+            PagarPagamento tela = new PagarPagamento(dtgExibirPag.SelectedItem as PagamentoModel);
+            tela.ShowDialog();
+            AtualizarLista();
         }
 
-        private void carregarListagem()
+        private void AtualizarLista()
         {
             try
             {
                 var dao = new PagamentoDAO();
-                _productsInGrid = dao.List();
-                dtgExibirPag.ItemsSource = _productsInGrid;
+                _pagamentosInGrid = dao.List();
+                dtgExibirPag.ItemsSource = _pagamentosInGrid;
 
             }
-            catch (MySqlException ex)
+            catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show($"Erro ao recuperar Listagem {ex.Message}");
             }
         }
     }
