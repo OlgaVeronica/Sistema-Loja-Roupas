@@ -84,7 +84,6 @@
                     Width="240"
                     ToolTip="Resource name: MaterialDesignRaisedButton"
                     Content="LOGIN"
-                    BorderBrush="Black"
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Cursor="Hand" Click="brLogar_Click"/>
             </StackPanel>
         </Grid>

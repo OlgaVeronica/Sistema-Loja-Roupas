@@ -70,7 +70,7 @@
         </Grid>
 
 
-        <Button Grid.Row="0" Background="#FF232323" HorizontalAlignment="Left" Margin="10,0" Height="50" Width="150" x:Name="btnVoltar" Click="btnVoltar_Click" Cursor="Hand">Voltar</Button>
+        <Button Grid.Row="0" Background="#FF232323" BorderBrush="#FF232323" HorizontalAlignment="Left" Margin="10,0" Height="50" Width="150" x:Name="btnVoltar" Click="btnVoltar_Click" Cursor="Hand">Voltar</Button>
 
     </Grid>
 </UserControl>
