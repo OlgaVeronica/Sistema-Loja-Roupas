@@ -23,7 +23,7 @@ namespace LojaRoupa
         private void brLogar_Click(object sender, RoutedEventArgs e)
         {
             string login = txtNomeUsuario.Text;
-            string senha = pswSenhaUsuario.Password.ToString();
+            //string senha = pswSenhaUsuario.Password.ToString();
             TelaPrincipal tela = new TelaPrincipal();
             this.Close();
             tela.ShowDialog();
@@ -42,5 +42,9 @@ namespace LojaRoupa
 
         }
 
+        private void lbSenha_FocusableChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+
+        }
     }
 }

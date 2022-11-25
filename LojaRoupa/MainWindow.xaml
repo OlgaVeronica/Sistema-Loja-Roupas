@@ -16,6 +16,35 @@
         TextOptions.TextRenderingMode="Auto"        
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="MinHeight" Value="20"/>
+            <Setter Property="MinWidth" Value="250"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Border x:Name="border" CornerRadius="2" BorderBrush="#000" BorderThickness="0, 0,0,1" 
+>
+                            <ScrollViewer x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="White"/>
+                                <Setter Property="Foreground" Value="White" />
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="true">
+                                <Setter Property="Foreground" Value="White" />
+                                <Setter Property="BorderBrush" TargetName="border" Value="White"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid Visibility="Visible">
 
         
@@ -44,11 +73,11 @@
                 <Label x:Name="lbUsuario" Content="Usuário" FontSize="30px" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Bahnschrift"/>
                 <TextBox x:Name="txtNomeUsuario" Height="40" Width="400" Margin="0 20" TextAlignment="Center" VerticalContentAlignment="Center" FontSize="20"/>
 
-                <Label x:Name="lbSenha" Content="Senha" FontSize="30px" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 20 0 0" FontFamily="Bahnschrift"/>
-                <PasswordBox x:Name="pswSenhaUsuario" Height="40"  Width="400" Margin="0 20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20"/>
+                <Label x:Name="lbSenha" Content="Senha" FocusableChanged="lbSenha_FocusableChanged"  FontSize="30px" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0 20 0 0" FontFamily="Bahnschrift"/>
+                <TextBox x:Name="pswSenhaUsuario" CaretBrush="White" BorderBrush="White"   Height="40"  Width="400" Margin="0 20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Cursor="Arrow"/>
                 <Button x:Name="brLogar" 
                     Background="#FF232323"
-                    BorderBrush="#FF232323"
+                    
                     FontSize="30"
                     Height="60"
                     Style="{StaticResource MaterialDesignRaisedButton}"
