@@ -107,8 +107,8 @@ namespace LojaRoupa.Views.SubViews
             float valorPecas = produto.Preco * float.Parse(cbQuantidade.Text);
             _valorCompra += valorPecas;
    
-
             dtgProdutos.Items.Add(produto);
+            EnableAndDisableButtom();
         }
 
         private void btnRealizar_Click(object sender, RoutedEventArgs e)
@@ -141,7 +141,14 @@ namespace LojaRoupa.Views.SubViews
             finally
             {
                 ClearFields();
+                txtValor.Clear();
+                EnableAndDisableButtom();
             }
+        }
+
+        private void EnableAndDisableButtom()
+        {
+            btnRealizar.IsEnabled = dtgProdutos.Items.Count > 0;
         }
         private void btnExcluir_Click(object sender, RoutedEventArgs e)
         {
@@ -150,6 +157,7 @@ namespace LojaRoupa.Views.SubViews
             _valorCompra -= produto.Preco * produto.Quantidade;
             txtValor.Text = _valorCompra.ToString();
             dtgProdutos.Items.RemoveAt(dtgProdutos.SelectedIndex);
+            EnableAndDisableButtom();
 
         }
         private void ClearFields()

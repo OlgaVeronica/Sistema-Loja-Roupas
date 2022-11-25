@@ -25,7 +25,7 @@
             <Label Content="Pagamentos"  HorizontalAlignment="Center" FontSize="30" FontWeight="Normal" Foreground="#DD1F1D1D"/>
 
             <StackPanel Orientation="Horizontal" Margin="1, 10,1,1"  HorizontalAlignment="Center">
-                <TextBox x:Name="txtPesquisarPag" Width="500" Background="#f1f1f1" FontSize="20" VerticalContentAlignment="Bottom" Cursor="Arrow"/>
+                <TextBox x:Name="txtPesquisarPag" Width="500" Background="#f1f1f1" FontSize="20" TextChanged="txtPesquisarReceb_TextChanged" VerticalContentAlignment="Bottom" Cursor="Arrow"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">

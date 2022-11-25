@@ -127,6 +127,7 @@ namespace LojaRoupa.Views
             {
                 ClearFields();
                 txtValor.Clear();
+                EnableAndDisableButtom();
             }
         }
 
