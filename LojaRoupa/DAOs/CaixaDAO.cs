@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using LojaRoupa.ViewsModels;
 using MySql.Data.MySqlClient;
 using LojaRoupa.Helpers;
+using System.Windows;
+
 namespace LojaRoupa.DAOs
 {
     public class CaixaDAO : AbstractDAO<CaixaModel>
@@ -125,29 +127,28 @@ namespace LojaRoupa.DAOs
 
                 command.CommandText = "select * from Caixa order by id_cai desc limit 1;";
                 int resultado = command.ExecuteNonQuery();
+               
 
-                if (resultado > 0)
-                {
+                MySqlDataReader reader = command.ExecuteReader();
 
-                    MySqlDataReader reader = command.ExecuteReader();
-
-                    reader.Read();
+                reader.Read();
                 
-                    caixa.Id = reader.GetInt32("id_cai");
-                    caixa.Numero = reader.GetInt32("numero_cai");
-                    caixa.DataCaixa = DAOHelper.GetDateTime(reader, "data_cai");
-                    caixa.HoraAbertura = DAOHelper.GetString(reader, "hora_abertura_cai");
-                    caixa.HoraFechamento = DAOHelper.GetString(reader, "hora_fechamento_cai");
-                    caixa.SaldoInicial = DAOHelper.GetDouble(reader, "saldo_inicial_cai");
-                    caixa.SaldoFinal = DAOHelper.GetDouble(reader, "saldo_final_cai");
-                    caixa.TotalEntrada = DAOHelper.GetDouble(reader, "total_entrada_cai");
-                    caixa.TotalSaida = DAOHelper.GetDouble(reader, "total_saida_cai");
-                    caixa.Status = DAOHelper.GetString(reader, "status_cai");
+                caixa.Id = reader.GetInt32("id_cai");
+                caixa.Numero = reader.GetInt32("numero_cai");
+                caixa.DataCaixa = DAOHelper.GetDateTime(reader, "data_cai");
+                caixa.HoraAbertura = DAOHelper.GetString(reader, "hora_abertura_cai");
+                caixa.HoraFechamento = DAOHelper.GetString(reader, "hora_fechamento_cai");
+                caixa.SaldoInicial = DAOHelper.GetDouble(reader, "saldo_inicial_cai");
+                caixa.SaldoFinal = DAOHelper.GetDouble(reader, "saldo_final_cai");
+                caixa.TotalEntrada = DAOHelper.GetDouble(reader, "total_entrada_cai");
+                caixa.TotalSaida = DAOHelper.GetDouble(reader, "total_saida_cai");
+                caixa.Status = DAOHelper.GetString(reader, "status_cai");
                 
 
 
-                }
+                
                 return caixa;
+                
             }
             catch (MySqlException ex)
             {
@@ -208,9 +209,9 @@ namespace LojaRoupa.DAOs
 
                 
             }
-            catch
+            catch (MySqlException ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
         }
     }

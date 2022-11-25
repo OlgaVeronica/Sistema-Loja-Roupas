@@ -109,16 +109,15 @@ namespace LojaRoupa.Views.SubViews
         }
         private void AtualizarCaixa()
         {
-            CaixaModel caixa = new CaixaModel();
 
             try
             {
                 var dao = new CaixaDAO();
-                caixa = dao.UltimoCaixa();
+                CaixaModel caixa = dao.UltimoCaixa();
 
                 if (caixa == null) return;
 
-
+                MessageBox.Show(caixa.Id.ToString());
                 txtNumeroCaixa.Text = caixa.Numero.ToString();
                 txtSaldoFinal.Text = caixa.SaldoFinal.ToString("0.00");
                 txtSaldoIni.Text = caixa.SaldoInicial.ToString("0.00");
