@@ -88,12 +88,22 @@ namespace LojaRoupa.DAOs
             {
 
                 var command = conn.Query();
-                command.CommandText = "update pagamento set status_pag = @status where(id_pag = @id)";
+                command.CommandText = "update pagamento set data_pag = @data, valor_pag = @valor, hora_pag = @hora,forma_pag = @formaPag, status_pag = @status where(id_pag = @id)";
 
                 command.Parameters.AddWithValue("@id", pagamento.Id);
+                command.Parameters.AddWithValue("@data", pagamento.Data);
+                command.Parameters.AddWithValue("@valor", pagamento.Valor);
+                command.Parameters.AddWithValue("@hora", pagamento.Hora);
+                command.Parameters.AddWithValue("@formaPag", pagamento.FormaPagamento);
                 command.Parameters.AddWithValue("@status", pagamento.Status);
 
                 var resultado = command.ExecuteNonQuery();
+
+                if (resultado > 0)
+                {
+                    var dao = new CaixaDAO();
+                    dao.UpdateValorCaixa(pagamento, "Compra");
+                }
 
             }
             catch (MySqlException error)
