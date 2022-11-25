@@ -46,7 +46,7 @@
                         <TextBox IsReadOnly="True" x:Name="txtStatus" Padding="5" Width="300" FontSize="16" Background="#f1f1f1"/>
                     </StackPanel>
 
-                    <Button Margin="0,30,0,0" Background="#FF232323" FontSize="20" Height="40" x:Name="BtnPagar" Click="BtnPagar_Click">Pagar</Button>
+                    <Button Margin="0,30,0,0" Background="#FF232323" FontSize="20" Height="40" x:Name="BtnPagar" Click="BtnPagar_Click" Cursor="Hand">Pagar</Button>
                 </StackPanel>
             </StackPanel>
         </Grid>

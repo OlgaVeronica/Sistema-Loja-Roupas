@@ -44,7 +44,7 @@
 
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0, 0, 0, 10">
-                    <Button x:Name="btnEscolherImg" Background="#FF232323" Content="Escolher Imagem" Click="btnEscolherImg_Click"/>
+                    <Button x:Name="btnEscolherImg" Background="#FF232323" Content="Escolher Imagem" Click="btnEscolherImg_Click"  Background="#FF232323" BorderBrush="#FF232323"/>
                 </StackPanel>
 
                 <StackPanel HorizontalAlignment="Left" Margin="0, 0, 0, 0">
@@ -109,8 +109,8 @@
 
 
 
-        <Button Grid.Row="2" Background="#FF232323" Height="50" Width="150" x:Name="btnCadastrar" Click="btnCadastrar_Click">Cadastrar</Button>
-        <Button Grid.Row="0" Background="#FF232323" HorizontalAlignment="Left" Margin="10,0" Height="50" Width="150" x:Name="btnVoltar" Click="btnVoltar_Click">Voltar</Button>
+        <Button Grid.Row="2" Background="#FF232323" BorderBrush="#FF232323" Height="50" Width="150" x:Name="btnCadastrar" Click="btnCadastrar_Click">Cadastrar</Button>
+        <Button Grid.Row="0" Background="#FF232323" HorizontalAlignment="Left" Margin="10,0" Height="50" Width="150" x:Name="btnVoltar" Click="btnVoltar_Click" Cursor="Hand">Voltar</Button>
 
 
 

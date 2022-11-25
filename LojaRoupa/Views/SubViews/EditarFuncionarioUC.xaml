@@ -15,7 +15,7 @@
         </Grid.RowDefinitions>
 
         <TextBlock Foreground="Black" Grid.Row="0" FontSize="40" HorizontalAlignment="Center" Text="Editar Funcionário" Margin="240,0" Width="320"/>
-        <Button x:Name="btnVoltar" Grid.Row="0" Margin="10" HorizontalAlignment="Left" Height="50" Width="150" Content="Voltar" Click="btnVoltar_Click"/>
+        <Button x:Name="btnVoltar" Grid.Row="0" Margin="10" HorizontalAlignment="Left" Height="50" Width="150" Content="Voltar" Click="btnVoltar_Click" Background="#FF232323" BorderBrush="#FF232323" Cursor="Hand"/>
 
         <Grid Grid.Row="1" Background="White" HorizontalAlignment="Center">
             <Grid.ColumnDefinitions>
@@ -71,7 +71,7 @@
             </StackPanel>
         </Grid>
 
-        <Button Grid.Row="2" x:Name="btnSalvar" Content="Salvar" FontSize="20" Height="50" Width="150" Click="btnSalvar_Click"/>
+        <Button Grid.Row="2" x:Name="btnSalvar" Content="Salvar" FontSize="20" Height="50" Width="150" Click="btnSalvar_Click" Background="#FF232323" BorderBrush="#FF232323"/>
 
     </Grid>
 </UserControl>

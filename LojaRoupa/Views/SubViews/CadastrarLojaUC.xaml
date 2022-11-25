@@ -15,7 +15,7 @@
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0" Foreground="Black" HorizontalAlignment="Center" FontSize="40" Text="Cadastrar Loja"/>
-        <Button x:Name="btnVoltar" Grid.Row="0" Content="Voltar" HorizontalAlignment="Left" Margin="10, 0" Height="50" Width="150" Click="btnVoltar_Click"/>
+        <Button x:Name="btnVoltar" Grid.Row="0" Content="Voltar" HorizontalAlignment="Left" Margin="10, 0" Height="50" Width="150" Click="btnVoltar_Click" Cursor="Hand" Background="#FF232323" BorderBrush="#FF232323"/>
 
         <Grid Grid.Row="1" Background="White">
 
@@ -68,7 +68,7 @@
 
         </Grid>
 
-        <Button Grid.Row="2" x:Name="btnCadastrarLoja" Height="50" Width="150" Click="btnCadastrarLoja_Click">Cadastrar</Button>
+        <Button Grid.Row="2" x:Name="btnCadastrarLoja" Height="50" Width="150" Click="btnCadastrarLoja_Click" Background="#FF232323" BorderBrush="#FF232323" Cursor="Hand">Cadastrar</Button>
 
     </Grid>
 </UserControl>

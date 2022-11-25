@@ -75,6 +75,6 @@
             </StackPanel>
         </StackPanel>
 
-        <Button Grid.Row="2" Height="50" Width="150" x:Name="btnRealizarVenda" Click="btnRealizarVenda_Click">Cadastrar</Button>
+        <Button Grid.Row="2" Height="50" Width="150" x:Name="btnRealizarVenda" Click="btnRealizarVenda_Click" Cursor="Hand" Background="#FF232323" BorderBrush="#FF232323">Cadastrar</Button>
     </Grid>
 </UserControl>

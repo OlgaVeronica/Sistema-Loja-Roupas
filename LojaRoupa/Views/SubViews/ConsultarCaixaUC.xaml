@@ -56,8 +56,8 @@
 
         </Grid>
 
-        <Button Grid.Row="3" x:Name="GerarRelatorio" HorizontalAlignment="Center" Margin="0,0,0,0" Height="50" Width="180" Click="GerarRelatorio_Click">Gerar Relatorio</Button>
-        <Button Grid.Row="0" HorizontalAlignment="Left" Margin="40 ,0" x:Name="btnVoltar" Height="50" Width="140" Click="btnVoltar_Click" Cursor="Hand">Voltar</Button>
-        <Button Grid.Row="1" HorizontalAlignment="Right" Margin="50 ,0" Height="50" Width="140" x:Name="btnBuscar" Cursor="Hand" Click="btnBuscar_Click">Consultar</Button>
+        <Button Grid.Row="3" x:Name="GerarRelatorio" HorizontalAlignment="Center" Margin="0,0,0,0" Height="50" Width="180" Click="GerarRelatorio_Click" Cursor="Hand" Background="#FF232323" BorderBrush="#FF232323">Gerar Relatorio</Button>
+        <Button Grid.Row="0" HorizontalAlignment="Left" Margin="40 ,0" x:Name="btnVoltar" Height="50" Width="140" Click="btnVoltar_Click" Cursor="Hand" Background="#FF232323" BorderBrush="#FF232323">Voltar</Button>
+        <Button Grid.Row="1" HorizontalAlignment="Right" Margin="50 ,0" Height="50" Width="140" x:Name="btnBuscar" Cursor="Hand" Click="btnBuscar_Click" Background="#FF232323" BorderBrush="#FF232323">Consultar</Button>
     </Grid>
 </UserControl>
