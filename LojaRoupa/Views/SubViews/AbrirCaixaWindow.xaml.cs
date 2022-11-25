@@ -40,7 +40,7 @@ namespace LojaRoupa.Views.SubViews
         {
             CaixaModel caixa = new CaixaModel();
             if (
-               String.IsNullOrWhiteSpace(txtSenha.Text) ||
+               
                String.IsNullOrWhiteSpace(txtValor.Text)
                )
             {

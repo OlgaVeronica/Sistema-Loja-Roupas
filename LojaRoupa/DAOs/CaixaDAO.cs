@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using LojaRoupa.ViewsModels;
 using MySql.Data.MySqlClient;
 using LojaRoupa.Helpers;
+using System.Windows;
+
 namespace LojaRoupa.DAOs
 {
     public class CaixaDAO : AbstractDAO<CaixaModel>
@@ -123,17 +125,26 @@ namespace LojaRoupa.DAOs
 
                 var command = conn.Query();
 
-                command.CommandText = "select * from Caixa order by id_cai desc limit 1;";
-                int resultado = command.ExecuteNonQuery();
+                command.CommandText = "select count(id_cai) as qtd_cai from caixa;";
+                MySqlDataReader reader = command.ExecuteReader();
+                reader.Read();
 
+                int resultado = reader.GetInt32("qtd_cai");
+
+                reader.Close();
                 if (resultado > 0)
                 {
 
-                    MySqlDataReader reader = command.ExecuteReader();
+                    command.CommandText = "select * from Caixa order by id_cai desc limit 1;";
+               
+
+                    reader = command.ExecuteReader();
 
                     reader.Read();
                 
-                    caixa.Id = reader.GetInt32("id_cai");
+                    
+
+
                     caixa.Numero = reader.GetInt32("numero_cai");
                     caixa.DataCaixa = DAOHelper.GetDateTime(reader, "data_cai");
                     caixa.HoraAbertura = DAOHelper.GetString(reader, "hora_abertura_cai");
@@ -143,11 +154,16 @@ namespace LojaRoupa.DAOs
                     caixa.TotalEntrada = DAOHelper.GetDouble(reader, "total_entrada_cai");
                     caixa.TotalSaida = DAOHelper.GetDouble(reader, "total_saida_cai");
                     caixa.Status = DAOHelper.GetString(reader, "status_cai");
+                    
+
+                }
+
                 
 
 
-                }
+                
                 return caixa;
+                
             }
             catch (MySqlException ex)
             {
@@ -171,12 +187,12 @@ namespace LojaRoupa.DAOs
 
                 if(operacao == "Venda")
                 {
-                    command.CommandText = "update caixa set total_entrada_cai = total_entrada_cai + @Valor, saldo_final_cai = saldo_inicial_cai + @Valor + total_entrada_cai - total_saida_cai, hora_fechamento_cai = @hora where (@id = id_cai);";
+                    command.CommandText = "update caixa set total_entrada_cai = (total_entrada_cai + @Valor), saldo_final_cai = (saldo_inicial_cai + @Valor + total_entrada_cai - total_saida_cai) where (@id = id_cai);";
 
                 }
                 else
                 {
-                    command.CommandText = "update caixa set total_saida_cai = total_saida_cai + @Valor, saldo_final_cai = saldo_inicial_cai - @Valor + total_entrada_cai - total_saida_cai, hora_fechamento_cai = @hora where (@id = id_cai);";
+                    command.CommandText = "update caixa set total_saida_cai = total_saida_cai + @Valor, saldo_final_cai = (saldo_inicial_cai - @Valor + total_entrada_cai - total_saida_cai) where (@id = id_cai);";
 
                 }
 
@@ -208,9 +224,9 @@ namespace LojaRoupa.DAOs
 
                 
             }
-            catch
+            catch (MySqlException ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
         }
     }
