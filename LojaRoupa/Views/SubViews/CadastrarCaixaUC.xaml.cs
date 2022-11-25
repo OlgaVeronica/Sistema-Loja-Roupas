@@ -45,10 +45,10 @@ namespace LojaRoupa.Views.SubViews
             //txtStatus.Text = _caixaModel.Status; 
             EnableAndDisableButtons();
 
-            if (TodayHasCaixa())
-            {
-                AtualizarCaixa();
-            }
+            
+            
+            AtualizarCaixa();
+            
 
         }
 
@@ -115,9 +115,7 @@ namespace LojaRoupa.Views.SubViews
                 var dao = new CaixaDAO();
                 CaixaModel caixa = dao.UltimoCaixa();
 
-                if (caixa == null) return;
-
-                MessageBox.Show(caixa.Id.ToString());
+                
                 txtNumeroCaixa.Text = caixa.Numero.ToString();
                 txtSaldoFinal.Text = caixa.SaldoFinal.ToString("0.00");
                 txtSaldoIni.Text = caixa.SaldoInicial.ToString("0.00");
@@ -127,10 +125,11 @@ namespace LojaRoupa.Views.SubViews
                 dtpData.SelectedDate = caixa.DataCaixa;
 
                 EnableAndDisableButtons();
+                
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Erro ao consultar Caixas", "Erro na listagem");
+                MessageBox.Show("Erro ao consultar Caixas " +ex, "Erro na listagem");
             }
         }
 
@@ -145,9 +144,9 @@ namespace LojaRoupa.Views.SubViews
                 var dao = new CaixaDAO();
                 dao.fecharCaixa(numero);
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("Não foi possível fechar o caixa");
+                MessageBox.Show("Não foi possível fechar o caixa " + ex.Message);
             }
             finally
             {

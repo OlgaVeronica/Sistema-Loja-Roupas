@@ -208,13 +208,15 @@ begin
     end if;
     
   
-    insert into Caixa values(null, dataHoje, numeroUltimoCaixa+1, horaAgora, null, saldoInicial, null, null, null, 'Aberto');
+    insert into Caixa values(null, dataHoje, numeroUltimoCaixa+1, horaAgora, 0, saldoInicial, saldoInicial, 0, 0, 'Aberto');
     select 'Caixa Inserido com sucesso!' as Confirmacao;
 end
 $$ DELIMITER ;
 
-call AbrirCaixa(100);
-select * from caixa;
+-- call AbrirCaixa(100);
+
+delete from caixa;
+select * from Caixa;
 
 insert into cliente values (null, "doido", "4575", "8676", "Ativo");
 insert into cliente values (null, "test", "4575", "8676", "Ativo");
