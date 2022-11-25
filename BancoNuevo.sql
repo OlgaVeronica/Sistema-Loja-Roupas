@@ -217,7 +217,6 @@ $$ DELIMITER ;
 
 -- call AbrirCaixa(100);
 
-delete from caixa;
 select * from Caixa;
 
 insert into cliente values (null, "doido", "4575", "8676", "Ativo");
@@ -635,7 +634,7 @@ call AtualizarCliente (8, "José Vinicius Passos", "023.123.434-10", "(69) 97654
 call AtualizarCliente (9, "Luana Freire", "111.112.110-94", "(69) 96807-3150", "Ativo");
 call AtualizarCliente (10, "Urias Lopes", "102.403.475-52", "(69) 97354-1256", "Ativo");
 
-
+/*
 DELIMITER $$
 create procedure InserirVenda(data date, hora time, valor float, status varchar(100), funcionarioFK int, clienteFK int)
 begin
@@ -688,7 +687,8 @@ end
 $$ DELIMITER ;
 
 call AtualizarVenda (1,"2022-11-21", "13:27:00", 1015, "Não pago", 1, 1);
-
+*/
+/*
 DELIMITER $$
 create procedure InserirRoupa(
 	descricao varchar(300),
@@ -721,6 +721,7 @@ end
 $$ DELIMITER ;
 
 call InserirRoupa("Casaco para frio","Moletom","Casaco", "Inverno", "Único", "Cinza","Disponível", 180.99, 10, 1);
+
 
 
 DELIMITER $$
@@ -768,6 +769,7 @@ end
 $$ DELIMITER ;
 
 call AtualizarRoupa(1,"Casaco para frio","Moletom","Casaco", "Outono/Inverno", "P, M, G, EG", "Cinza","Disponível", 180.99, 3, 1);
+
 
 
 DELIMITER $$
@@ -1182,3 +1184,4 @@ begin
     end if;
 end
 $$ DELIMITER ;
+*/

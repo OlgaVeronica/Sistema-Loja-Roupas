@@ -120,7 +120,7 @@ namespace LojaRoupa.Views.SubViews
                 Funcionario = cbFuncionario.SelectedItem as FuncionarioModel,
                 Fornecedor = cbFornecedor.SelectedItem as FornecedorModel,
                 Produtos = cbProdutos.ItemsSource as List<ProdutoModel>,
-                Data = dtpData.SelectedDate.ToString(),
+                Data = dtpData.SelectedDate?.ToString("yyyy-MM-dd"),
                 Valor = float.Parse(txtValor.Text),
                 Hora = data?.ToString("HH:mm:ss")
             };

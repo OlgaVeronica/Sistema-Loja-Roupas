@@ -77,7 +77,7 @@
                 <TextBox x:Name="pswSenhaUsuario" CaretBrush="White" BorderBrush="White"   Height="40"  Width="400" Margin="0 20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Cursor="Arrow"/>
                 <Button x:Name="brLogar" 
                     Background="#FF232323"
-                    
+                    BorderBrush="#FF232323"
                     FontSize="30"
                     Height="60"
                     Style="{StaticResource MaterialDesignRaisedButton}"
