@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LojaRoupa.Views.SubViews"
         mc:Ignorable="d"
-        Title="RelatorioCompra" Height="450" Width="800">
+        Title="RelatorioCompra" Height="720" Width="1080">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height=".3*" />
@@ -14,16 +14,17 @@
         </Grid.RowDefinitions>
 
 
-        <Button x:Name="Fechar" Grid.Row="0" Height="50" Width="150" HorizontalAlignment="Left" Margin="10,0,0,0" Click="Fechar_Click">
+        <!--<Button Background="#FF232323" x:Name="Fechar" Grid.Row="0" Height="50" Width="150" HorizontalAlignment="Left" Margin="10,0,0,0" Click="Fechar_Click">
             Voltar
-        </Button>
+        </Button>-->
 
 
         <DataGrid Grid.Row="1" x:Name="dtgCompras"  FontSize="20" AutoGenerateColumns="False" 
                   CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"
                   AlternatingRowBackground="#f2f2f2" AlternationCount="2" CanUserReorderColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Funcionário" Binding="{Binding Id}" />
+                <DataGridTextColumn Header="Funcionário" Binding="{Binding Funcionario.Nome}" />
+                <DataGridTextColumn Header="Fornecedor" Binding="{Binding Fornecedor.RazaoSocial}" />
                 <DataGridTextColumn Header="Data" Binding="{Binding Data}" />
                 <DataGridTextColumn Header="Hora" Binding="{Binding Hora}" />
                 <DataGridTextColumn Header="Valor" Binding="{Binding Valor}" />
@@ -36,8 +37,8 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <Button Content="Editar" x:Name="btnEditar" Click="btnEditar_Click"  Margin="10, 0, 0, 10"/>
-                                <Button Content="Deletar" x:Name="btnDeletar" Click="btnDeletar_Click" Margin="10, 0, 0, 10"/>
+                                <Button Background="#FF232323" Content="Editar" x:Name="btnEditar" Click="btnEditar_Click"  Margin="10, 0, 0, 10"/>
+                                <Button Background="#FF232323" Content="Deletar" x:Name="btnDeletar" Click="btnDeletar_Click" Margin="10, 0, 0, 10"/>
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
@@ -47,7 +48,7 @@
 
 
 
-        <Button x:Name="Imprimir" Grid.Row="2" Height="50" Width="150" HorizontalAlignment="Right" Margin="0,0,10,0" Click="Imprimir_Click" Cursor="Hand">
+        <Button Background="#FF232323" x:Name="Imprimir" Grid.Row="2" Height="50" Width="150" HorizontalAlignment="Right" Margin="0,0,10,0" Click="Imprimir_Click" Cursor="Hand">
             Imprimir
         </Button>
     </Grid>

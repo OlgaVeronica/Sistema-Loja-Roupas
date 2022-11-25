@@ -65,7 +65,7 @@ namespace LojaRoupa.Views
                 {
                     var dao = new FornecedorDAO();
                     dao.Delete(fornecedor);
-                    MessageBox.Show("Fornecedor deletado com sucesso");
+                    MessageBox.Show("Fornecedor Deletado Com Sucesso!", "Confirmação", MessageBoxButton.OK, MessageBoxImage.Information);
                     carregarListagem();
                 }
             }

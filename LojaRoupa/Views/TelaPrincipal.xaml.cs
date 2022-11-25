@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using LojaRoupa.ViewsModels;
+using LojaRoupa.Views.SubViews;
 
 namespace LojaRoupa.Views
 {
@@ -63,7 +64,7 @@ namespace LojaRoupa.Views
 
         private void btnCaixa_Click(object sender, RoutedEventArgs e)
         {
-            _frame.Content = new CaixaUC(_frame);
+            _frame.Content = new CadastrarCaixaUC(_frame);
         }
 
         private void BtnDrag(object sender, MouseButtonEventArgs e)

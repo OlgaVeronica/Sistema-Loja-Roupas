@@ -147,11 +147,10 @@ namespace LojaRoupa.DAOs
                 var lista = new List<CompraModel>();
 
                 var command = conn.Query();
-                command.CommandText = "select * from compra ";
 
 
 
-                command.CommandText = "select * from compra where(status_comp like 'ativo');";
+                command.CommandText = "select compra.*, (select nome_func from Funcionario where compra.id_func_fk = funcionario.id_func) as funcionario,  (select fornecedor.razao_social_forn from Fornecedor where (fornecedor.id_forn = compra.id_forn_fk)) as fornecedor from Compra, Funcionario, Fornecedor  where (fornecedor.id_forn = compra.id_forn_fk) and (funcionario.id_func = compra.id_func_fk) and (status_comp like 'ativo');";
 
 
                 MySqlDataReader reader = command.ExecuteReader();
@@ -159,19 +158,16 @@ namespace LojaRoupa.DAOs
                 while (reader.Read())
                 {
                     var compra = new CompraModel();
-                    /*funcionario.Id = reader.GetInt32("id_func");
-                    funcionario.Nome = DAOHelper.GetString(reader, "nome_func");
-                    funcionario.Telefone = DAOHelper.GetString(reader, "telefone_func");
-                    funcionario.Endereco = DAOHelper.GetString(reader, "endereco_func");
-                    funcionario.Cpf = DAOHelper.GetString(reader, "cpf_func");
-                    funcionario.Sexo = DAOHelper.GetString(reader, "sexo_func");
-                    funcionario.Email = DAOHelper.GetString(reader, "email_func");
-                    funcionario.RG = DAOHelper.GetString(reader, "rg_func");
-                    funcionario.Funcao = DAOHelper.GetString(reader, "funcao_func");
-                    funcionario.Salario = DAOHelper.GetString(reader, "salario_func");
-                    funcionario.Status = DAOHelper.GetString(reader, "status_func");
+                    compra.Id = reader.GetInt32("id_com");
+                    compra.Data = DAOHelper.GetString(reader, "data_com");
+                    compra.Hora = DAOHelper.GetString(reader, "hora_com");
+                    compra.Valor = DAOHelper.GetDouble(reader, "valor_com");
+                    compra.Status = DAOHelper.GetString(reader, "status_comp");
+                    compra.Fornecedor.RazaoSocial = DAOHelper.GetString(reader, "fornecedor");
+                    compra.Funcionario.Nome = DAOHelper.GetString(reader, "funcionario");
+                    
 
-                    lista.Add(funcionario);*/
+                    lista.Add(compra);
 
                 }
                 reader.Close();

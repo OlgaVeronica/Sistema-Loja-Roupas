@@ -69,13 +69,13 @@ namespace LojaRoupa.Views.SubViews
                 if(marca.Id > 0)
                 {
                     dao.Update(marca);
-                    MessageBox.Show("Update Realizado!");
+                    MessageBox.Show("Marca Atualizada Com Sucesso!", "Confirmação", MessageBoxButton.OK, MessageBoxImage.Information);
                     _frame.Content = new MarcaUC(_frame);
                 }
                 else
                 {
                     dao.Insert(marca);
-                    MessageBox.Show("Cadastro Realizado!");
+                    MessageBox.Show("Marca Cadastrada Com Sucesso!", "Confirmação", MessageBoxButton.OK, MessageBoxImage.Information);
 
                 }
             }

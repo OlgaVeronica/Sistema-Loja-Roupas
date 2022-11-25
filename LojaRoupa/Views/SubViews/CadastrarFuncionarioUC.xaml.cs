@@ -68,7 +68,7 @@ namespace LojaRoupa.Views.SubViews
                 String.IsNullOrWhiteSpace(txtSalario.Text)
                )
             {
-                MessageBox.Show("Existem campos em branco que precisam ser preenchidos!");
+                MessageBox.Show("Preencha todos os campos!", "Alerta", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             else
             {
@@ -91,14 +91,14 @@ namespace LojaRoupa.Views.SubViews
                     if (funcionario.Id > 0)
                     {
                         dao.Update(funcionario);
-                        MessageBox.Show("Update Realizado!");
+                        MessageBox.Show("Funcionario Atualizado Com Sucesso!", "Confirmação", MessageBoxButton.OK, MessageBoxImage.Information);
                         _frame.Content = new FuncionarioUC(_frame);
 
                     }
                     else
                     {
                         dao.Insert(funcionario);
-                        MessageBox.Show("Cadastro Realizado!");
+                        MessageBox.Show("Funcionario Cadastrado Com Sucesso!", "Confirmação", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                 }
                 catch (MySqlException error)

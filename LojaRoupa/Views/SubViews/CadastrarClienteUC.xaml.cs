@@ -59,7 +59,7 @@ namespace LojaRoupa.Views.SubViews
                String.IsNullOrWhiteSpace(txtCpf.Text)
                )
             {
-                MessageBox.Show("Unable to save file, try again.", "Save error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Preencha todos os campos!", "Alerta", MessageBoxButton.OK, MessageBoxImage.Warning);
 
             }
             else
@@ -79,14 +79,15 @@ namespace LojaRoupa.Views.SubViews
                     if (cliente.Id > 0)
                     {
                         dao.Update(cliente);
-                        MessageBox.Show("Update Realizado!");
+                        MessageBox.Show("Cliente Atualizado Com Sucesso!", "Confirmação", MessageBoxButton.OK, MessageBoxImage.Information);
                         _frame.Content = new CadastrarClienteUC(_frame);
 
                     }
                     else 
                     {
                         dao.Insert(cliente);
-                        MessageBox.Show("Cadastro Realizado!");
+                        MessageBox.Show("Cliente Cadastrado Com Sucesso!", "Confirmação", MessageBoxButton.OK, MessageBoxImage.Information);
+
 
                     }
                 }
@@ -147,6 +148,7 @@ namespace LojaRoupa.Views.SubViews
                     var dao = new ClienteDAO();
                     dao.Delete(cliente);
                     MessageBox.Show("Cliente deletado com sucesso");
+                    MessageBox.Show("Cliente Deletado Com Sucesso!", "Confirmação", MessageBoxButton.OK, MessageBoxImage.Information);
                     carregarListagem();
                 }
             }

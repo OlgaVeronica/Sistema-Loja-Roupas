@@ -65,12 +65,12 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" Grid.Row="2" Height="50" Width="150" x:Name="btnAbrirCaixa" Click="btnAbrirCaixa_Click" Content="Abrir Caixa"/>
-            <Button Grid.Column="1" Grid.Row="2" Height="50" Width="150" x:Name="btnFecharCaixa" Click="btnFecharCaixa_Click" Content="Fechar Caixa"/>
+            <Button Grid.Column="0" Background="#FF232323" Grid.Row="2" Height="50" Width="150" x:Name="btnAbrirCaixa" Click="btnAbrirCaixa_Click" Content="Abrir Caixa"/>
+            <Button Grid.Column="1" Background="#FF232323" Grid.Row="2" Height="50" Width="150" x:Name="btnFecharCaixa" Click="btnFecharCaixa_Click" Content="Fechar Caixa"/>
         </Grid>
-        
 
-        <Button Grid.Row="0" HorizontalAlignment="Left" Margin="10,0" Height="50" Width="150" x:Name="btnVoltar" Click="btnVoltar_Click">Voltar</Button>
+
+        <Button Grid.Row="0" Background="#FF232323" HorizontalAlignment="Left" Margin="10,0" Height="50" Width="150" x:Name="btnVoltar" Click="btnVoltar_Click" Cursor="Hand">Voltar</Button>
 
     </Grid>
 </UserControl>

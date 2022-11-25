@@ -70,9 +70,10 @@ namespace LojaRoupa.Views.SubViews
                 String.IsNullOrWhiteSpace(txtTelefone.Text)
                )
             {
-                MessageBox.Show("Existem campos em branco que precisam ser preenchidos!");
+                MessageBox.Show("Preencha todos os campos!", "Alerta", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-            else{
+            else
+            {
                 fornecedor.NomeFantasia = txtNomeFantasia.Text;
                 fornecedor.Cnpj = txtCnpj.Text;
                 fornecedor.Email = txtEmail.Text;
@@ -88,14 +89,14 @@ namespace LojaRoupa.Views.SubViews
                     if(fornecedor.Id > 0)
                     {
                         dao.Update(fornecedor);
-                        MessageBox.Show("Update Realizado!");
+                        MessageBox.Show("Fornecedor Atualizado Com Sucesso!", "Confirmação", MessageBoxButton.OK, MessageBoxImage.Information);
                         _frame.Content = new FornecedorUC(_frame);
 
                     }
                     else
                     {
                         dao.Insert(fornecedor);
-                        MessageBox.Show("Cadastro Realizado!");
+                        MessageBox.Show("Fornecedor Cadastrado Com Sucesso!", "Confirmação", MessageBoxButton.OK, MessageBoxImage.Information);
 
                     }
                 }

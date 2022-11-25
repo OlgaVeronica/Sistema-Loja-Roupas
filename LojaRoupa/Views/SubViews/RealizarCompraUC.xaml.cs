@@ -120,7 +120,7 @@ namespace LojaRoupa.Views.SubViews
                 Funcionario = cbFuncionario.SelectedItem as FuncionarioModel,
                 Fornecedor = cbFornecedor.SelectedItem as FornecedorModel,
                 Produtos = cbProdutos.ItemsSource as List<ProdutoModel>,
-                Data = dtpData.SelectedDate,
+                Data = dtpData.SelectedDate.ToString(),
                 Valor = float.Parse(txtValor.Text),
                 Hora = data?.ToString("HH:mm:ss")
             };
@@ -130,7 +130,7 @@ namespace LojaRoupa.Views.SubViews
 
                 var dao = new CompraDAO();
                 dao.Insert(compra);
-                MessageBox.Show("Venda realizada com sucesso", "Sucesso!!", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show("Compra realizada com sucesso", "Sucesso!!", MessageBoxButton.OK, MessageBoxImage.Information);
 
             }
             catch (Exception ex)

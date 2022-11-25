@@ -62,8 +62,8 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <Button Content="Editar" x:Name="btnEditar" Click="btnEditar_Click" Margin="10, 0, 0, 10"/>
-                                    <Button Content="Excluir" x:Name="btnExcluir" Click="btnExcluir_Click" Margin="10, 0, 0, 10"/>
+                                    <Button Content="Editar" Background="#FF232323" x:Name="btnEditar" Click="btnEditar_Click" Margin="10, 0, 0, 10"/>
+                                    <Button Content="Excluir"  Background="#FF232323" x:Name="btnExcluir" Click="btnExcluir_Click" Margin="10, 0, 0, 10"/>
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
@@ -74,9 +74,9 @@
 
         </Grid>
         <Grid Grid.Row="3" Grid.ColumnSpan="2">
-            <Button  Height="50" Width="150" x:Name="btnCadastrar" Click="btnCadastrar_Click" Content="Cadastrar"/>
+            <Button Background="#FF232323" Height="50" Width="150" x:Name="btnCadastrar" Click="btnCadastrar_Click" Content="Cadastrar" Cursor="Hand"/>
         </Grid>
 
-        <Button Grid.Row="0" HorizontalAlignment="Left" Margin="10,0" Height="50" Width="150" x:Name="btnVoltar" Click="btnVoltar_Click">Voltar</Button>
+        <Button Grid.Row="0" Background="#FF232323" HorizontalAlignment="Left" Margin="10,0" Height="50" Width="150" x:Name="btnVoltar" Click="btnVoltar_Click">Voltar</Button>
     </Grid>
 </UserControl>

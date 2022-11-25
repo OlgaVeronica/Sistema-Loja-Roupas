@@ -55,7 +55,7 @@ namespace LojaRoupa.Views.SubViews
 
                )
             {
-                MessageBox.Show("Existem campos em branco que precisam ser preenchidos!");
+                MessageBox.Show("Preencha todos os campos!", "Alerta", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
             else
             {

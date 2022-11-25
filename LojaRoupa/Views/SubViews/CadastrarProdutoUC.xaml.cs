@@ -76,23 +76,6 @@ namespace LojaRoupa.Views.SubViews
         {
             ProdutoModel produto = _produto;
 
-            /*if (
-                String.IsNullOrWhiteSpace(txtNomeLoja.Text) ||
-                String.IsNullOrWhiteSpace(txtCnpjLoja.Text) ||
-                String.IsNullOrWhiteSpace(txtRuaLoja.Text) ||
-                String.IsNullOrWhiteSpace(txtBairroLoja.Text) ||
-                String.IsNullOrWhiteSpace(txtCidadeLoja.Text) ||
-                String.IsNullOrWhiteSpace(txtNumeroLoja.Text) ||
-                String.IsNullOrWhiteSpace(txtEstadoLoja.Text)
-
-               )
-            {
-                MessageBox.Show("Existem campos em branco que precisam ser preenchidos!");
-            }
-            else
-            {
-                //aaaaaaaaaaaaa
-            }*/
             if (
                 String.IsNullOrWhiteSpace(txtDescricao.Text) ||
                 String.IsNullOrWhiteSpace(txtTecido.Text) ||
@@ -129,14 +112,14 @@ namespace LojaRoupa.Views.SubViews
                     if (produto.Id > 0)
                     {
                         dao.Update(produto);
-                        MessageBox.Show("Update Realizado!");
+                        MessageBox.Show("Produto Atualizado Com Sucesso!", "Confirmação", MessageBoxButton.OK, MessageBoxImage.Information);
                         _frame.Content = new ProdutoUC(_frame);
 
                     }
                     else
                     {
                         dao.Insert(produto);
-                        MessageBox.Show("Cadastro Realizado!");
+                        MessageBox.Show("Produto Cadastrado Com Sucesso!", "Confirmação", MessageBoxButton.OK, MessageBoxImage.Information);
 
                     }
                 }

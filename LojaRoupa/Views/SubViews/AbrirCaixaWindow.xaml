@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LojaRoupa.Views.SubViews"
         mc:Ignorable="d"
+        
         Title="AbrirCaixaWindow" Height="450" Width="300">
     <Grid>
         <Grid.RowDefinitions>
@@ -26,6 +27,6 @@
             </StackPanel>
         </StackPanel>
 
-        <Button Grid.Row="2" Content="Abrir"  Width="150" x:Name="Cadastrar" Click="Cadastrar_Click"/>
+        <Button Grid.Row="2" Background="#FF232323" Content="Abrir"  Width="150" x:Name="Cadastrar" Click="Cadastrar_Click" Cursor="Hand"/>
     </Grid>
 </Window>

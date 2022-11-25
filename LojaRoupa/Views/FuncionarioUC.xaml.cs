@@ -74,7 +74,7 @@ namespace LojaRoupa.Views
                 {
                     var dao = new FuncionarioDAO();
                     dao.Delete(funcionario);
-                    MessageBox.Show("Funcionário deletado com sucesso");
+                    MessageBox.Show("Funcionario Deletado Com Sucesso!", "Confirmação", MessageBoxButton.OK, MessageBoxImage.Information);
                     carregarListagem();
                 }
             } catch (MySqlException ex)

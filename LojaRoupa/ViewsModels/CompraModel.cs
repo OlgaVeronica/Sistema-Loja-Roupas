@@ -9,13 +9,13 @@ namespace LojaRoupa.ViewsModels
     public class CompraModel
     {
         public int Id { get; set; }
-        public DateTime?  Data { get; set; }
+        public string  Data { get; set; }
         public string Hora { get; set; }
-        public float Valor { get; set; }
+        public double Valor { get; set; }
         public string Status { get; set; }
         
-        public FornecedorModel Fornecedor { get; set; }
-        public FuncionarioModel Funcionario { get; set; }
+        public FornecedorModel Fornecedor { get; set; } = new FornecedorModel();
+        public FuncionarioModel Funcionario { get; set; } = new FuncionarioModel();
 
         public List<ProdutoModel> Produtos { get; set; }
     }

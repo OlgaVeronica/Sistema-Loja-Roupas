@@ -46,13 +46,13 @@
 
 
 
-            <Button x:Name="Imprimir" Grid.Column="1"  Height="50" Width="150" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,10,0" Click="Imprimir_Click" Cursor="Hand" >
-                <StackPanel HorizontalAlignment="Stretch">
+            <Button Background="#FF232323" x:Name="Imprimir" Grid.Column="1"  Height="50" Width="150" Content="Imprimir" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,10,0" Click="Imprimir_Click" Cursor="Hand" >
+                <!--<StackPanel HorizontalAlignment="Stretch">
                     <Label Foreground="White" FontSize="20" Margin="0, -8, 0, 0" HorizontalAlignment="Center">
                         🖶
                     </Label>
                     <Label FontSize="20" Foreground="White" Margin="0, -16, 0, 0" HorizontalAlignment="Center" Height="24">Imprimir</Label>
-                </StackPanel>
+                </StackPanel>-->
             </Button>
         </Grid>
 

@@ -157,8 +157,9 @@ namespace LojaRoupa.Views
         {
             if(cbQuantidade.Text == String.Empty)
             {
-                MessageBox.Show("Erro ao inserir produtos");
-            }else
+                MessageBox.Show("Erro ao inserir produtos!", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
             {
                 var produto = cbProdutos.SelectedItem as ProdutoModel;
                 produto.Quantidade = int.Parse(cbQuantidade.Text);

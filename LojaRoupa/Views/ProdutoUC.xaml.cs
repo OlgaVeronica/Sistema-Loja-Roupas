@@ -69,7 +69,7 @@ namespace LojaRoupa.Views
                 {
                     var dao = new ProdutoDAO();
                     dao.Delete(produto);
-                    MessageBox.Show("Produto deletado com sucesso");
+                    MessageBox.Show("Produto Deletado Com Sucesso!", "Confirmação", MessageBoxButton.OK, MessageBoxImage.Information);
                     carregarListagem();
                 }
             }
