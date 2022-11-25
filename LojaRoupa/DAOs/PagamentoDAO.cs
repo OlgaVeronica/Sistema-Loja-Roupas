@@ -49,7 +49,8 @@ namespace LojaRoupa.DAOs
                 var lista = new List<PagamentoModel>();
 
                 var command = conn.Query();
-                command.CommandText = "select * from pagamento";
+                command.CommandText = "select pagamento.*, (select numero_cai from caixa where Caixa.id_cai = Pagamento.id_cai_fk) as caixa, compra.id_com from compra, pagamento where(Compra.id_com = Pagamento.id_com_fk)";
+
 
                 MySqlDataReader reader = command.ExecuteReader();
 
@@ -57,15 +58,18 @@ namespace LojaRoupa.DAOs
                 {
                     var pagamento = new PagamentoModel();
 
-                    DateTime? data = DAOHelper.GetDateTime(reader, "data_pag"); 
+                    DateTime? data = DAOHelper.GetDateTime(reader, "data_pag");
+                    string hora = DAOHelper.GetString(reader, "hora_pag") ?? " ";
 
                     pagamento.Id = reader.GetInt32("id_pag");
                     pagamento.Data = data?.ToString("dd/MM/yyyy");
                     pagamento.Valor = DAOHelper.GetDouble(reader, "valor_pag");
-                    pagamento.Hora = data?.ToString("HH:mm");
+                    pagamento.Hora = hora;
                     pagamento.FormaPagamento = DAOHelper.GetString(reader, "forma_pag");
                     pagamento.Status = DAOHelper.GetString(reader, "status_pag");
 
+                    pagamento.Caixa.Numero = DAOHelper.GetInt(reader, "caixa");
+                    pagamento.Compra.Id = reader.GetInt32("id_com_fk");
 
                     lista.Add(pagamento);
 
@@ -88,12 +92,13 @@ namespace LojaRoupa.DAOs
             {
 
                 var command = conn.Query();
-                command.CommandText = "update pagamento set data_pag = @data, valor_pag = @valor, hora_pag = @hora,forma_pag = @formaPag, status_pag = @status where(id_pag = @id)";
+                command.CommandText = "update pagamento set data_pag = @data, id_cai_fk = @caixa,valor_pag = @valor, hora_pag = @hora,forma_pag = @formaPag, status_pag = @status where(id_pag = @id)";
 
                 command.Parameters.AddWithValue("@id", pagamento.Id);
                 command.Parameters.AddWithValue("@data", pagamento.Data);
                 command.Parameters.AddWithValue("@valor", pagamento.Valor);
                 command.Parameters.AddWithValue("@hora", pagamento.Hora);
+                command.Parameters.AddWithValue("@Caixa", pagamento.Caixa.Id);
                 command.Parameters.AddWithValue("@formaPag", pagamento.FormaPagamento);
                 command.Parameters.AddWithValue("@status", pagamento.Status);
 

@@ -69,7 +69,8 @@ namespace LojaRoupa.Views.SubViews
                 Status = "Pago",
                 Hora = DateTime.Now.ToString("HH:mm:ss"),
                 Valor = _pagamento.Valor,
-                Data = DateTime.Now.ToString("yyyy-MM-dd")
+                Data = DateTime.Now.ToString("yyyy-MM-dd"),
+                FormaPagamento = _pagamento.FormaPagamento
             };
             pagamento.Caixa = cbNumCaixa.SelectedItem as CaixaModel;
 
