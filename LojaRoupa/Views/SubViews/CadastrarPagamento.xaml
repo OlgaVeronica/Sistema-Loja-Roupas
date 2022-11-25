@@ -24,25 +24,24 @@
         <StackPanel Grid.Row="1" Margin="10,10,10,10" Grid.RowSpan="2">
             <Label Content="Pagamentos"  HorizontalAlignment="Center" FontSize="30" FontWeight="Normal" Foreground="#DD1F1D1D"/>
 
-            <StackPanel Orientation="Horizontal" MaxWidth="700" Margin="1,-10,1,1">
-                <!--<TextBox x:Name="txtPesquisarPag" Padding="5" Height="35" HorizontalAlignment="Left" Width="500" Background="#f1f1f1" FontSize="20" VerticalContentAlignment="Bottom" Cursor="Arrow" TextChanged="txtPesquisarPag_TextChanged"/>-->
-                <!--<Button x:Name="btnPesquisar" Content="Pesquisar" Margin="10" Width="150" Height="35" Cursor="Hand" FontSize="20" HorizontalAlignment="Right" Click="btnPesquisar_Click"/>-->
+            <StackPanel Orientation="Horizontal" Margin="1, 10,1,1"  HorizontalAlignment="Center">
+                <TextBox x:Name="txtPesquisarPag" Width="500" Background="#f1f1f1" FontSize="20" VerticalContentAlignment="Bottom" Cursor="Arrow"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
 
-                <ComboBox Width="300" FontSize="20" Background="#f1f1f1" x:Name="cbFilters" HorizontalAlignment="Left" Margin="30, 10, 0,0">
+                <ComboBox Width="300" FontSize="20" Background="#f1f1f1" x:Name="cbFilters" SelectionChanged="cbFilters_SelectionChanged" HorizontalAlignment="Left" Margin="30, 10, 0,0">
                     <ComboBoxItem>Data</ComboBoxItem>
                     <ComboBoxItem>Id</ComboBoxItem>
                     <ComboBoxItem>Caixa</ComboBoxItem>
                     <ComboBoxItem>Compra</ComboBoxItem>
                 </ComboBox>
 
-                <!--<StackPanel Orientation="Horizontal" Margin="30,0,0,0" VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal" Margin="30,0,0,0" VerticalAlignment="Center">
                     <RadioButton Checked="rdTodos_Checked" x:Name="rdTodos" VerticalAlignment="Center" Margin="10,0,0,0" VerticalContentAlignment="Center" IsChecked="True" GroupName="FilterStatus">Todos</RadioButton>
                     <RadioButton Checked="rdAbertos_Checked" x:Name="rdAbertos" VerticalAlignment="Center" Margin="10,0,0,0" VerticalContentAlignment="Center" GroupName="FilterStatus" >Abertos</RadioButton>
                     <RadioButton Checked="rdPagos_Checked" x:Name="rdPagos" VerticalAlignment="Center" Margin="10,0,0,0" VerticalContentAlignment="Center" GroupName="FilterStatus" >Pagos</RadioButton>
-                </StackPanel>-->
+                </StackPanel>
             </StackPanel>
 
         </StackPanel>

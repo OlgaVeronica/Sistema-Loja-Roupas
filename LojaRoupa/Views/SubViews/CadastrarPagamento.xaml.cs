@@ -44,6 +44,16 @@ namespace LojaRoupa.Views.SubViews
             _frame.Content = new FinanceiroUC(_frame); 
         }
 
+        private void Button_Alter_Click(object sender, RoutedEventArgs e)
+        {
+            var thing = dtgExibirPag.SelectedItem;
+        }
+
+        private void Button_Recipt_Click(object sender, RoutedEventArgs e)
+        {
+            var thing = dtgExibirPag.SelectedItem;
+        }
+
         private void btnPagar_Click(object sender, RoutedEventArgs e)
         {
             PagarPagamento tela = new PagarPagamento(dtgExibirPag.SelectedItem as PagamentoModel);
@@ -64,6 +74,72 @@ namespace LojaRoupa.Views.SubViews
             {
                 MessageBox.Show($"Erro ao recuperar Listagem {ex.Message}");
             }
+        }
+
+        private void txtPesquisarReceb_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            AtualizarFiltro();
+        }
+
+        private void AtualizarFiltro()
+        {
+            var txt = txtPesquisarPag;
+            string filter = cbFilters.Text;
+            string rdChecked = rdAbertos.IsChecked == true ? "Aberto" : "";
+            rdChecked = rdPagos.IsChecked != true ? rdChecked : "Pago";
+
+
+            List<PagamentoModel> list = _pagamentosInGrid;
+
+            if (!String.IsNullOrWhiteSpace(txt.Text))
+            {
+
+                List<PagamentoModel> listaFiltrada = list.FindAll(item =>
+                {
+                    if (filter == "Data")
+                    {
+                        return item.Data.ToLower().Contains(txt.Text.ToLower()) && item.Status.ToLower().Contains(rdChecked.ToLower());
+
+                    }
+                    else if (filter == "Id")
+                    {
+                        return item.Id.ToString().Contains(txt.Text.ToLower()) && item.Status.ToLower().Contains(rdChecked.ToLower());
+
+                    }
+                    else if (filter == "Caixa")
+                    {
+                        return item.Caixa.Numero.ToString().Contains(txt.Text.ToLower()) && item.Status.ToLower().Contains(rdChecked.ToLower());
+                    }
+                    else
+                    {
+                        return item.Compra.Id.ToString().Contains(txt.Text.ToLower()) && item.Status.ToLower().Contains(rdChecked.ToLower());
+
+                    }
+                });
+
+                dtgExibirPag.ItemsSource = listaFiltrada;
+            }
+            else
+            {
+                dtgExibirPag.ItemsSource = _pagamentosInGrid;
+            }
+        }
+
+        private void cbFilters_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            AtualizarFiltro();
+        }
+
+        private void rdAbertos_Checked(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void rdPagos_Checked(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void rdTodos_Checked(object sender, RoutedEventArgs e)
+        {
         }
     }
 }

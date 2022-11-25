@@ -21,12 +21,14 @@ namespace LojaRoupa.DAOs
             try
             {
                 var command = conn.Query();
-                command.CommandText = "insert into Pagamento values(null, @data, @valor, @hora, @formaPag, 'ativo');";
+                command.CommandText = "insert into Pagamento values(null, @data, @valor, @hora, @formaPag, 'ativo', @fkCaixa, @fkCompra);";
 
                 command.Parameters.AddWithValue("@data", pagamento.Data);
                 command.Parameters.AddWithValue("@valor", pagamento.Valor);
                 command.Parameters.AddWithValue("@hora", pagamento.Hora);
                 command.Parameters.AddWithValue("@formaPag", pagamento.FormaPagamento);
+                command.Parameters.AddWithValue("@fkCaixa", null);
+                command.Parameters.AddWithValue("@fkCompra", pagamento.Compra.Id);
 
                 var resultado = command.ExecuteNonQuery();
             }
@@ -55,11 +57,12 @@ namespace LojaRoupa.DAOs
                 {
                     var pagamento = new PagamentoModel();
 
+                    DateTime? data = DAOHelper.GetDateTime(reader, "data_pag"); 
 
                     pagamento.Id = reader.GetInt32("id_pag");
-                    pagamento.Data = DAOHelper.GetString(reader, "data_pag");
+                    pagamento.Data = data?.ToString("dd/MM/yyyy");
                     pagamento.Valor = DAOHelper.GetDouble(reader, "valor_pag");
-                    pagamento.Hora = DAOHelper.GetString(reader, "hora_pag");
+                    pagamento.Hora = data?.ToString("HH:mm");
                     pagamento.FormaPagamento = DAOHelper.GetString(reader, "forma_pag");
                     pagamento.Status = DAOHelper.GetString(reader, "status_pag");
 

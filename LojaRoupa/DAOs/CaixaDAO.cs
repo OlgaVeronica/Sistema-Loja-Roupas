@@ -212,6 +212,37 @@ namespace LojaRoupa.DAOs
             }
         }
 
+        public void UpdateValorCaixa(PagamentoModel pagamento, string operacao)
+        {
+            try
+            {
+                var command = conn.Query();
+
+                if (operacao == "Compra")
+                {
+                    command.CommandText = "update caixa set total_entrada_cai = (total_entrada_cai + @Valor), saldo_final_cai = (saldo_inicial_cai + @Valor + total_entrada_cai - total_saida_cai) where (@id = id_cai);";
+
+                }
+                else
+                {
+                    command.CommandText = "update caixa set total_saida_cai = total_saida_cai + @Valor, saldo_final_cai = (saldo_inicial_cai - @Valor + total_entrada_cai - total_saida_cai) where (@id = id_cai);";
+
+                }
+
+                command.Parameters.AddWithValue("@Valor", pagamento.Valor);
+                command.Parameters.AddWithValue("@hora", pagamento.Hora);
+                command.Parameters.AddWithValue("@id", pagamento.Caixa.Id);
+
+
+                int resultado = command.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public void fecharCaixa(int numero)
         {
             try

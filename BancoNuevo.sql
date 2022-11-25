@@ -115,7 +115,9 @@ id_desp int primary key auto_increment,
 descricao_desp varchar(300),
 vencimento_desp date,
 valor_desp float,
-status_desp varchar(100)
+status_desp varchar(100),
+id_com_fk int,
+foreign key (id_com_fk) references Compra(id_com)
 );
 
 
@@ -158,8 +160,8 @@ forma_pag varchar(300),
 status_pag varchar(100),
 id_cai_fk int,
 foreign key (id_cai_fk) references Caixa(id_cai),
-id_desp_fk int,
-foreign key (id_desp_fk) references Despesa(id_desp)
+id_com_fk int,
+foreign key (id_com_fk) references Compra(id_com)
 );
 
 

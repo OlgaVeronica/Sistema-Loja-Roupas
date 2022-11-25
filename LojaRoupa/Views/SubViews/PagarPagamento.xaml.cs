@@ -34,7 +34,7 @@ namespace LojaRoupa.Views.SubViews
 
         private void PagarPagamento_Loaded(object sender, RoutedEventArgs e)
         {
-            txtData.Text = _pagamento.Data.ToString();
+            txtData.Text = _pagamento.Data;
             txtStatus.Text = _pagamento.Status;
             txtValor.Text = _pagamento.Valor.ToString();
             txtFormaPag.Text = _pagamento.FormaPagamento;

@@ -31,7 +31,7 @@ namespace LojaRoupa.DAOs
 
                 if (resultado == 0)
                 {
-                    throw new Exception("Erro ao deletar funcionário");
+                    throw new Exception("Erro ao deletar compra");
                 }
 
             }
@@ -58,15 +58,31 @@ namespace LojaRoupa.DAOs
 
                 int resultado = command.ExecuteNonQuery();
 
-                //TENTAR ARRUMAR ESSA MERDA ASS: PATRICK   
-
                 if(resultado != 0)
                 {
                     command.CommandText = "select id_com from compra order by id_com desc limit 1;";
 
                     int idCompra = Convert.ToInt32((command.ExecuteScalar()));
 
-                    foreach(var produto in compra.Produtos)
+                    try
+                    {
+                        var pag = new PagamentoModel();
+                        pag.Data = DateTime.Now.ToString("yyyy-MM-dd");
+                        pag.Valor = compra.Valor;
+                        pag.Hora = null;
+                        pag.FormaPagamento = "À vista";
+                        pag.Status = "Aberto";
+                        pag.Compra.Id = idCompra;
+                        pag.Caixa.Id = null;
+                        var dao = new PagamentoDAO();
+                        dao.Insert(pag);
+                    }
+                    catch (Exception ex)
+                    {
+                        throw ex;
+                    }
+
+                    foreach (var produto in compra.Produtos)
                     {
                         try
                         {
@@ -79,7 +95,8 @@ namespace LojaRoupa.DAOs
                             var dao = new CompraProdutoDAO();
 
                             dao.Insert(compProd);
-                        } catch
+                        }
+                        catch
                         {
 
                         }
