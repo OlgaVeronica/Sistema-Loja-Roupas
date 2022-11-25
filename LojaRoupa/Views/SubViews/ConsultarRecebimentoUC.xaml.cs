@@ -125,10 +125,13 @@ namespace LojaRoupa.Views.SubViews
                     {
                         return item.Caixa.Numero.ToString().Contains(txt.Text.ToLower()) && item.StatusReceb.ToLower().Contains(rdChecked.ToLower());
                     }
-                    else
+                    else if(filter == "Id")
                     {
                         return item.Venda.Id.ToString().Contains(txt.Text.ToLower()) && item.StatusReceb.ToLower().Contains(rdChecked.ToLower());
 
+                    } else
+                    {
+                        return item.Cliente.Nome.ToLower().Contains(txt.Text.ToLower()) && item.StatusReceb.ToLower().Contains(rdChecked.ToLower());
                     }
                 });
 

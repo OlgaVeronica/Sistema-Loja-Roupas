@@ -17,6 +17,8 @@ namespace LojaRoupa.ViewsModels
         public string StatusReceb { get; set;}
         public CaixaModel Caixa { get; set;} = new CaixaModel();
         public VendaModel Venda { get; set;} = new VendaModel();
+
+        public ClienteModel Cliente { get; set; } = new ClienteModel();
         
     }
 }
