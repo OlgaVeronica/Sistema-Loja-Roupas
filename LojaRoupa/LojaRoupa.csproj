@@ -190,6 +190,9 @@
     <Compile Include="Views\SubViews\MarcaUC.xaml.cs">
       <DependentUpon>MarcaUC.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SubViews\PagarPagamento.xaml.cs">
+      <DependentUpon>PagarPagamento.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SubViews\RealizarCompraUC.xaml.cs">
       <DependentUpon>RealizarCompraUC.xaml</DependentUpon>
     </Compile>
@@ -307,6 +310,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SubViews\MarcaUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SubViews\PagarPagamento.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
