@@ -58,7 +58,8 @@
 
         <!---botão sair-->
         <Grid Grid.Row="2">
-            <Button Height="50" Width="150" x:Name="btnSairPerfil" Click="btnSairPerfil_Click" Cursor="Hand">Sair</Button>
+            <Button Height="50" Width="150" x:Name="btnSairPerfil" Click="btnSairPerfil_Click" Cursor="Hand" Background="#FF232323"
+                BorderBrush="#FF232323">Sair</Button>
         </Grid>
     </Grid>
 </UserControl>

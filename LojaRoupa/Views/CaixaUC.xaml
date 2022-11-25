@@ -37,6 +37,8 @@
                 Height="50" Width="200"
                 Margin="10,0,10,0"
                 Content="Consultar por Dia" Click="btnConsultarCaixa_Click" Cursor="Hand"
+                 Background="#FF232323"
+                BorderBrush="#FF232323"
                 />
             <Button
                 Grid.Column="1"
@@ -46,6 +48,8 @@
                 Height="50" Width="200"
                 Margin="10,0,10,0"
                 Content="Recebimentos" Click="btnConsultarRecebimentos_Click"
+                 Background="#FF232323"
+                BorderBrush="#FF232323"
                 />
 
             <Button
@@ -55,6 +59,8 @@
                 Height="50" Width="200"
                 Margin="10,0,10,0"
                 Content="Cadastrar Caixa" Click="btnCadastrarCaixa_Click" Cursor="Hand"
+                Background="#FF232323"
+                BorderBrush="#FF232323"
                 />
         </Grid>
     </Grid>

@@ -56,10 +56,11 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        
-        
 
-        <Button Grid.Row="3" Height="50" Width="150" x:Name="btnCadastrar" Click="btnCadastrar_Click" Cursor="Hand">Cadastrar</Button>
+
+
+        <Button Grid.Row="3" Height="50" Width="150" x:Name="btnCadastrar" Click="btnCadastrar_Click" Cursor="Hand" Background="#FF232323"
+                BorderBrush="#FF232323">Cadastrar</Button>
 
         
        </Grid>
